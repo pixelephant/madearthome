@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%= @product.short_description %>
+</p>
+
+<p>
+  <b>Long description:</b>
+  <%= @product.long_description %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @product.category.name %>
+</p>
+
+<% @product.properties.group(:property_category_id).each do |property_category_id| %> 
+	<h3>Property group: <%= PropertyCategory.find(property_category_id).category_name %></h3>
+
+	<% @product.properties.where({:property_category_id => property_category_id}).each do |property| %>
+		<ul>
+			<li><%= property.property_name %></li>
+		</ul>
+	<% end %>
+
+<% end %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

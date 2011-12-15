@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Shipping address:</b>
+  <%= @order.shipping_address_id %>
+</p>
+
+<p>
+  <b>Invoice address:</b>
+  <%= @order.invoice_address_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <b>Basket serialization:</b>
+  <%= @order.basket_serialization %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

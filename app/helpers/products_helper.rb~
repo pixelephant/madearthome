@@ -1,0 +1,7 @@
+module ProductsHelper
+
+	def bottomCategories
+			
+	end
+
+end
