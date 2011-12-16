@@ -15,7 +15,7 @@ development:
   database: madearthome_development
   pool: 5
   username: root
-  password: tyeF2q
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: madearthome_test
   pool: 5
   username: root
-  password: tyeF2q
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: madearthome_production
   pool: 5
   username: root
-  password: tyeF2q
+  password: 
   socket: /var/run/mysqld/mysqld.sock
