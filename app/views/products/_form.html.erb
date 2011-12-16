@@ -30,15 +30,13 @@
 
 	<% @product.properties.group(:property_category_id).each do |property_category_id| %> 
 	<h3>Property group: <%= PropertyCategory.find(property_category_id).category_name %></h3>
-
-		<% @product.properties.where({:property_category_id => property_category_id}).each do |property| %>
 			<ul>
+		<% Property.where({:property_category_id => property_category_id}).each do |property| %>
 				<li><%= property.property_name %>
-				<%= check_box() %>
+				<%= check_box(:property, property.id, :checked => product_has_property(property.id, @product.id)) %>
 				</li>
-			</ul>
 		<% end %>
-
+			</ul>
 	<% end %>
 
   <div class="actions">
