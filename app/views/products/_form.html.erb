@@ -28,6 +28,17 @@
     <%= collection_select(:product, :category_id, bottomCategories, :id, :name, :prompt => 'Pick a category') %>
   </div>
 
+	<% @product.properties.group(:property_category_id).each do |property_category_id| %> 
+	<h3>Property group: <%= PropertyCategory.find(property_category_id).category_name %></h3>
+			<ul>
+		<% Property.where({:property_category_id => property_category_id}).each do |property| %>
+				<li><%= property.property_name %>
+				<%= check_box(:property, property.id, :checked => product_has_property(property.id, @product.id)) %>
+				</li>
+		<% end %>
+			</ul>
+	<% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
