@@ -11,11 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219204212) do
+ActiveRecord::Schema.define(:version => 20120102125442) do
+
+  create_table "advantages", :force => true do |t|
+    t.string   "advantage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "advantages_to_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "advantage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.integer  "category_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "designers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manufacturers", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +81,10 @@ ActiveRecord::Schema.define(:version => 20111219204212) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sku"
+    t.integer  "price"
+    t.integer  "designer_id"
+    t.integer  "manufacturer_id"
   end
 
   create_table "properties", :force => true do |t|
@@ -74,6 +107,13 @@ ActiveRecord::Schema.define(:version => 20111219204212) do
     t.datetime "updated_at"
   end
 
+  create_table "property_categories_to_categories", :force => true do |t|
+    t.integer  "property_category_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -86,6 +126,13 @@ ActiveRecord::Schema.define(:version => 20111219204212) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "related_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "related_product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_addresses", :force => true do |t|
     t.integer  "user_id"

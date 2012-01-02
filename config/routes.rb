@@ -1,5 +1,17 @@
 Madearthome::Application.routes.draw do
 
+  resources :related_products
+
+  resources :designers
+
+  resources :manufacturers
+
+  get "home/index"
+
+  resources :advantages_to_products
+
+  resources :advantages
+
   resources :property_categories_to_categories
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -83,7 +95,7 @@ Madearthome::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'admin#index', :as => 'admin'
+  root :to => 'home#index', :as => 'index'
 
   # See how all your routes lay out with "rake routes"
 

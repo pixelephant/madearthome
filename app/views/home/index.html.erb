@@ -1,0 +1,9 @@
+<h1>Home#index</h1>
+
+<% @products.each do |product| %>
+    <%= product.name %>
+    <%= product.short_description %>
+    <%= product.long_description %>
+    <%= product.category.name %>
+		<%= link_to 'Product details', product %>
+<% end %>
