@@ -1,5 +1,7 @@
 Madearthome::Application.routes.draw do
 
+  resources :property_categories_to_categories
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users

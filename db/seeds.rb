@@ -18,9 +18,9 @@ Category.delete_all
 
 categories = Category.create([{parent_id: nil, name: "Parent category"},{parent_id: 1, name: "Child category"}])
 
-User.delete_all
+#User.delete_all
 
-users = User.create([{email: 'test@email.ad', password: 'password', name: 'Test User'}])
+#users = User.create([{email: 'test@email.ad', password: 'password', name: 'Test User'}])
 
 UserAddress.delete_all
 
@@ -53,3 +53,7 @@ wishlists = Wishlist.create([{custom_url: nil, user_id: 1, public: false}])
 WishlistItem.delete_all
 
 wishlist_items = WishlistItem.create([{wishlist_id: 1, product_id: 1, sold: false}, {wishlist_id: 1, product_id: 2, sold: true}])
+
+PropertyCategoriesToCategory.delete_all
+
+property_cat_to_cat = PropertyCategoriesToCategory.create([{property_category_id: 1, category_id: 2}])
