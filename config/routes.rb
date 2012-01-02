@@ -1,5 +1,9 @@
 Madearthome::Application.routes.draw do
 
+  resources :discounts_to_products
+
+  resources :discounts
+
   resources :related_products
 
   resources :designers

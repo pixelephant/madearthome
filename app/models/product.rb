@@ -9,4 +9,6 @@ class Product < ActiveRecord::Base
 	belongs_to :designer
 	belongs_to :manufacturer
 	has_many :related_products, :class_name => "RelatedProduct", :foreign_key => "product_id"
+	has_many :discounts_to_products
+	has_many :discounts, :through => :discounts_to_products
 end
