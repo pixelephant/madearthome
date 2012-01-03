@@ -1,5 +1,5 @@
-# Use this hook to configure devise mailer, warden hooks and so forth. The first
-# four configuration values can also be set straight in your models.
+# Use this hook to configure devise mailer, warden hooks and so forth.
+# Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -69,7 +69,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = "54271ddf4773f6967595c60477bb97cd3556abfd9012ab856bf62022588b2a0189c9fa13712b62658c46ed6110cf4e13132cd2ae18ff657d526b603f87542fe4"
+  # config.pepper = "7c51c3c428082dd4e9e40d47759d2926371bfb29ca7f306192194b809b5d7bc6382f2b4b54736405c5c66676c88ecb13258753b9996caf7848223c1bf41f60a9"
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -203,7 +203,6 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   # config.warden do |manager|
-  #   manager.failure_app   = AnotherApp
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end

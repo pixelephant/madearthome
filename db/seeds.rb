@@ -8,19 +8,19 @@
 
 Product.delete_all
 
-products = Product.create([{ name: "Test product", short_description: "Short test description", long_description: "Long long long description", category_id: 1}])
+products = Product.create([{ name: "Test product", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa111sku", price: "2500", designer_id: 1, manufacturer_id: 1}])
 
 Photo.delete_all
 
-photos = Photo.create([{ product_id: 1, image_url: "test.url", alt: "Alt text", default: nil}])
+photos = Photo.create([{ product_id: 1, image: "test.url", alt: "Alt text", default: nil}])
 
 Category.delete_all
 
-categories = Category.create([{parent_id: nil, name: "Parent category"},{parent_id: 1, name: "Child category"}])
+categories = Category.create([{category_id: nil, name: "Parent category"},{category_id: 1, name: "Child category"}])
 
-User.delete_all
+#User.delete_all
 
-users = User.create([{email: 'test@email.ad', password: 'password', name: 'Test User'}])
+#users = User.create([{email: 'test@email.ad', password: 'password', name: 'Test User'}])
 
 UserAddress.delete_all
 
@@ -53,3 +53,23 @@ wishlists = Wishlist.create([{custom_url: nil, user_id: 1, public: false}])
 WishlistItem.delete_all
 
 wishlist_items = WishlistItem.create([{wishlist_id: 1, product_id: 1, sold: false}, {wishlist_id: 1, product_id: 2, sold: true}])
+
+PropertyCategoriesToCategory.delete_all
+
+property_cat_to_cat = PropertyCategoriesToCategory.create([{property_category_id: 1, category_id: 2}])
+
+Advantage.delete_all
+
+advantages = Advantage.create([{advantage: 'Nagy, ezert nagy helyen jol elfer.'}, {advantage: 'Kicsi, ezert kis helyen fer el.'}])
+
+AdvantagesToProduct.delete_all
+
+advantages_to_products = AdvantagesToProduct.create([{product_id: 1, advantage_id: 1}])
+
+Manufacturer.delete_all
+
+manufacturers = Manufacturer.create({[name: "Test manufacturer", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras hendrerit, est vel dignissim scelerisque, quam tortor elementum dui, sed fermentum massa magna eu quam. Aliquam elementum tellus eu sem consequat a consequat justo condimentum. Maecenas dictum interdum diam nec tempus. Aenean feugiat laoreet ipsum sit amet luctus. Maecenas et mi sed diam lacinia lobortis sit amet id est. Pellentesque bibendum lacus in tortor tempor ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla pellentesque vestibulum urna id sollicitudin. Morbi nec massa sed nisi sollicitudin venenatis. Nulla quis justo non magna sollicitudin pellentesque. "]})
+
+Designer.delete_all
+
+designers = Designer.create({[name: "Test designer", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras hendrerit, est vel dignissim scelerisque, quam tortor elementum dui, sed fermentum massa magna eu quam. Aliquam elementum tellus eu sem consequat a consequat justo condimentum. Maecenas dictum interdum diam nec tempus. Aenean feugiat laoreet ipsum sit amet luctus. Maecenas et mi sed diam lacinia lobortis sit amet id est. Pellentesque bibendum lacus in tortor tempor ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla pellentesque vestibulum urna id sollicitudin. Morbi nec massa sed nisi sollicitudin venenatis. Nulla quis justo non magna sollicitudin pellentesque. "]})

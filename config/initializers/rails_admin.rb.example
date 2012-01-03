@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on December 19, 2011 16:19
+# RailsAdmin config file. Generated on December 19, 2011 21:14
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -271,7 +271,6 @@ RailsAdmin.config do |config|
   #     configure :orders, :has_many_association 
   #     configure :wishlist, :has_one_association   #   # Found columns:
   #     configure :id, :integer 
-  #     configure :email, :string 
   #     configure :password, :password 
   #     configure :name, :string 
   #     configure :created_at, :datetime 
