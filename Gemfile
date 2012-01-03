@@ -21,6 +21,8 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 gem 'rmagick'
 gem 'carrierwave'
@@ -43,3 +45,5 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+
+gem "devise"

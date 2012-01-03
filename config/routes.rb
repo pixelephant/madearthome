@@ -1,5 +1,9 @@
 Madearthome::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  devise_for :users
+
   get "admin/index"
 
 	match "admin" => 'admin#index'
