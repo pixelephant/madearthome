@@ -31,8 +31,10 @@
 </p>
 
 <h3>Photos:</h3>
-<% @product.photos.each do |photo| %>
-	<%= image_tag(photo.image) %>
+<% if @product.photos.exists? %>
+	<% @product.photos.each do |photo| %>
+		<%= image_tag(photo.image) %>
+	<% end %>
 <% end %>
 
 <p>
