@@ -63,16 +63,30 @@
 <% end %>
 
 <h3>Manufacturer</h3>
+
+<% if @product.manufacturer.present? %>
 <p>
   <b><%= @product.manufacturer.name %></b><br />
   <%= @product.manufacturer.description %>
 </p>
+<% else %>
+<p>
+  <b>No manufacturer</b><br />
+</p>
+<% end %>
 
 <h3>Designer</h3>
+
+<% if @product.designer.present? %>
 <p>
   <b><%= @product.designer.name %></b><br />
   <%= @product.designer.description %>
 </p>
+<% else %>
+<p>
+  <b>No designer</b><br />
+</p>
+<% end %>
 
 <h3>Related Products</h3>
 <% @product.related_products.each do |related_product| %>
