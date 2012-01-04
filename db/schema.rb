@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104084754) do
+ActiveRecord::Schema.define(:version => 20120104122128) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -104,6 +104,13 @@ ActiveRecord::Schema.define(:version => 20120104084754) do
   create_table "properties", :force => true do |t|
     t.string   "property_name"
     t.integer  "property_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties_to_categories", :force => true do |t|
+    t.integer  "property_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
