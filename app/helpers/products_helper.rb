@@ -2,6 +2,10 @@ module ProductsHelper
 
 	def productPrice(product_id)
 		p = Product.find(product_id)
+
+		if p.price.blank?
+			return ''
+		end
 		price = p.price
 		
 		p.discounts.each do |d|
