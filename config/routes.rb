@@ -1,5 +1,7 @@
 Madearthome::Application.routes.draw do
 
+  resources :properties_to_categories
+
   resources :discounts_to_products
 
   resources :discounts

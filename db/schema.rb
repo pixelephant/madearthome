@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102150349) do
+ActiveRecord::Schema.define(:version => 20120104084754) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20120102150349) do
 
   create_table "photos", :force => true do |t|
     t.integer  "product_id"
-    t.string   "image"
+    t.string   "image_file"
     t.string   "alt"
     t.boolean  "default"
     t.datetime "created_at"
