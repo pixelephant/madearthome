@@ -9,23 +9,19 @@ RailsAdmin.config do |config|
 		object_label_method do
 			:property_label_method
 		end
+		edit do
+			exclude_fields :categories
+		end
 	end
 
 	config.model Product do
 		#Product edit form
 		edit do
-			group :properties_to_products do
-				hide
-			end
-			group :advantages_to_products do
-				hide
-			end
-			group :discounts_to_products do
-				hide
-			end
 			field :category do
 				partial "category_select"
 			end
+			include_all_fields
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products
 		end		
 	end
 
