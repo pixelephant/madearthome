@@ -1,2 +1,0 @@
-class PropertiesToProduct < ActiveRecord::Base
-end

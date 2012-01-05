@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 *~
+
+/app/uploaders/image_uploader.rb

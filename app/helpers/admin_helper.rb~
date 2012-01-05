@@ -1,6 +1,0 @@
-module AdminHelper
-	def user_full_address(user_id)
-		address = User.find(user_id).address.first
-		return address.zip + " " + address.city + ", " + address.street + " " + address.additional
-	end
-end
