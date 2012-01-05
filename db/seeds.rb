@@ -12,7 +12,7 @@ products = Product.create([{ name: "Test product", short_description: "Short tes
 
 Photo.delete_all
 
-photos = Photo.create([{ product_id: 1, image_file: "01017-B.jpg", alt: "Mirror", default: nil},{ product_id: 1, image_file: "01053-B.jpg", alt: "Mirror2", default: nil}])
+photos = Photo.create([{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01017-B.jpg')), alt: "Mirror", default: nil},{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01053-B.jpg')), alt: "Mirror2", default: nil}])
 
 Category.delete_all
 

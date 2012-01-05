@@ -33,7 +33,7 @@
 <h3>Photos:</h3>
 <% if @product.photos.exists? %>
 	<% @product.photos.each do |photo| %>
-		<%= image_tag("/assets/" + photo.image_file) %>
+		<%= image_tag(photo.image_file.to_s) %>
 	<% end %>
 <% end %>
 
