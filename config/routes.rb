@@ -20,9 +20,13 @@ Madearthome::Application.routes.draw do
 
   resources :property_categories_to_categories
 
+	devise_for :users, :path => '', :path_names => { :sign_in => "admin/login", :sign_out => "admin/logout", :sign_up => "admin/register" }
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
+  #devise_for :users do
+		#get "/admin/login" => "devise/sessions#new"
+#	end
 
   get "admin/index"
 
@@ -99,9 +103,14 @@ Madearthome::Application.routes.draw do
   #     resources :products
   #   end
 
+	# DEVISE
+
+	# DEVISE END
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index', :as => 'index'
+  # root :to => 'home#index', :as => 'index'
+	root :to => 'home#index', :as => 'index'
 
   # See how all your routes lay out with "rake routes"
 
