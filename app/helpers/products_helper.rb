@@ -21,8 +21,4 @@ module ProductsHelper
 		return price.round
 	end
 
-	def default_photo
-    return self.photos.where("photos.default = 1").first
-  end
-
 end
