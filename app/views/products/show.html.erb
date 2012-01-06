@@ -54,7 +54,7 @@
 
 <p>
   <b>Category:</b>
-  <%= @product.category.name %>
+  <%= @product.category ? @product.category.name : "" %>
 </p>
 
 <h3>Advantages:</h3>
