@@ -106,6 +106,7 @@
 <h3>Related Products</h3>
 <% @product.related_products.each do |related_product| %>
 	<% p = Product.find(related_product.related_product_id) %>
+	<%= image_tag(p.image_file.thumb.to_s) %>
 	<p><%= p.name %></p>
 	<p><%= p.sku %></p>
 <% end %>

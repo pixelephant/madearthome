@@ -84,9 +84,7 @@ RailsAdmin.config do |config|
 	end
 
 	def related_product_label_method
-		if self.related_product.exists?
 			self.related_product.name
-		end
 	end
 
 	def advantage_label_method

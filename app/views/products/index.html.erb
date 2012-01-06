@@ -16,7 +16,7 @@
     <td><%= product.name %></td>
     <td><%= product.short_description %></td>
     <td><%= product.long_description %></td>
-    <td><%= product.category.name %></td>
+    <td><%= product.category ? product.category.name : "nincs" %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
     <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
