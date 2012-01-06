@@ -11,4 +11,9 @@ class Product < ActiveRecord::Base
 	has_many :related_products, :class_name => "RelatedProduct", :foreign_key => "product_id"
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
+	
+	def default_photo
+    return self.photos.where("photos.default = 1").find(1)
+  end
+	
 end
