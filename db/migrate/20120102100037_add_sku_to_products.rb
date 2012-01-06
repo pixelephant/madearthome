@@ -1,7 +1,7 @@
 class AddSkuToProducts < ActiveRecord::Migration
   def up
 		change_table :products do |t|
-      t.string :sku
+      t.string :sku, :null => false, :unique => true
 		end
   end
 

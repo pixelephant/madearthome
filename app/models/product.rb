@@ -12,6 +12,8 @@ class Product < ActiveRecord::Base
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
 	
+	validates :name, :sku, :price, :category, :presence => true
+
 	def default_photo
     return self.photos.where("photos.default = 1").first
   end

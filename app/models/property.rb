@@ -4,4 +4,6 @@ class Property < ActiveRecord::Base
 	belongs_to :property_category
 	has_many :properties_to_category
 	has_many :categories, :through => :properties_to_category
+
+	validates :property_name, :presence => true
 end

@@ -23,7 +23,7 @@ categories = Category.create([{category_id: nil, name: "Parent category"},{categ
 
 User.delete_all
 
-users = User.create([{email: 's0d401@gmail.com', password: '$2a$10$6n9COFMmZlc0Nph48wDzueIylyHsuYFwk4f6BFrvLxIRhWdpYFthW', name: 'Pap Norbert'}, {email: '0antalbalazs0@gmail.com', password: '$2a$10$XlEaVhkDEo6ORBezlMPiq.R/5wrFeH7PybeqkMf7ksjvzZSRw4i9u', name: 'Antal Balázs'}])
+#users = User.create([{email: 's0d401@gmail.com', password: '$2a$10$6n9COFMmZlc0Nph48wDzueIylyHsuYFwk4f6BFrvLxIRhWdpYFthW', name: 'Pap Norbert'}, {email: '0antalbalazs0@gmail.com', password: '$2a$10$XlEaVhkDEo6ORBezlMPiq.R/5wrFeH7PybeqkMf7ksjvzZSRw4i9u', name: 'Antal Balázs'}])
 
 UserAddress.delete_all
 
