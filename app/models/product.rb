@@ -15,6 +15,7 @@ class Product < ActiveRecord::Base
 	validates :name, :sku, :price, :category, :presence => true
 
 	def default_photo
-    return self.photos.where("photos.default = 1").first
+		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
+    return default
   end
 end
