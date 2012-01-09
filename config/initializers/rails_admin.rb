@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
 
 	#Add all excluded models here:
-	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory]
+	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct]
 
 	#Property 
 	config.model Property do
@@ -28,6 +28,12 @@ RailsAdmin.config do |config|
 		edit do
 			field :category do
 				partial "category_select"
+			end
+			field :related_products do
+				product = bindings[:object]
+				Proc.new {
+					scope = Product.all
+				}
 			end
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products

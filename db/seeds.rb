@@ -11,11 +11,11 @@
 
 Product.delete_all
 
-products = Product.create([{ name: "Test product", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa111sku", price: "2500", designer_id: 1, manufacturer_id: 1}])
+products = Product.create([{ name: "Test product", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa111sku", price: "2500", designer_id: 1, manufacturer_id: 1},{ name: "Test product2", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa222sku", price: "25000", designer_id: 1, manufacturer_id: 1},{ name: "Test product3", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa333sku", price: "25500", designer_id: 1, manufacturer_id: 1},{ name: "Test product4", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa444sku", price: "20500", designer_id: 1, manufacturer_id: 1},{ name: "Test product5", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa555sku", price: "25100", designer_id: 1, manufacturer_id: 1},{ name: "Test product6", short_description: "Short test description", long_description: "Long long long description", category_id: 1, sku: "aaa6sku", price: "12500", designer_id: 1, manufacturer_id: 1}])
 
 Photo.delete_all
 
-photos = Photo.create([{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01017-B.jpg')), alt: "Mirror", default: nil},{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01053-B.jpg')), alt: "Mirror2", default: nil}])
+photos = Photo.create([{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01017-B.jpg')), alt: "Mirror", default: 1},{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01053-B.jpg')), alt: "Mirror2", default: nil},{ product_id: 2, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/06064.jpg')), alt: "Mirror2", default: 1},{ product_id: 3, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/awd.jpg')), alt: "Mirror2", default: 1},{ product_id: 4, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01909.jpg')), alt: "Mirror2", default: 1},{ product_id: 5, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/04011.jpg')), alt: "Mirror2", default: 1},{ product_id: 6, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/26760-1.jpg')), alt: "Mirror2", default: 1}])
 
 Category.delete_all
 
@@ -76,3 +76,7 @@ manufacturers = Manufacturer.create([{name: "Test manufacturer", description: "L
 Designer.delete_all
 
 designers = Designer.create([{name: "Test designer", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras hendrerit, est vel dignissim scelerisque, quam tortor elementum dui, sed fermentum massa magna eu quam. Aliquam elementum tellus eu sem consequat a consequat justo condimentum. Maecenas dictum interdum diam nec tempus. Aenean feugiat laoreet ipsum sit amet luctus. Maecenas et mi sed diam lacinia lobortis sit amet id est. Pellentesque bibendum lacus in tortor tempor ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla pellentesque vestibulum urna id sollicitudin. Morbi nec massa sed nisi sollicitudin venenatis. Nulla quis justo non magna sollicitudin pellentesque. "}])
+
+RelatedProduct.delete_all
+
+rel = RelatedProduct.create([{product_id: 2, related_product_id: 3}, {product_id: 2, related_product_id: 4}, {product_id: 2, related_product_id: 5}, {product_id: 2, related_product_id: 6}])

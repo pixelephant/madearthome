@@ -8,7 +8,10 @@ class Product < ActiveRecord::Base
 	has_many :advantages_to_products
 	belongs_to :designer
 	belongs_to :manufacturer
-	has_many :related_products, :class_name => "RelatedProduct", :foreign_key => "product_id"
+	
+	has_many :related_products_of, :class_name => "RelatedProduct", :foreign_key => :related_products
+	#belongs_to :product, :class_name => "RelatedProduct", :foreign_key => "related_product_id"
+
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
 	
