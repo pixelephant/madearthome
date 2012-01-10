@@ -106,8 +106,8 @@
 <h3>Related Products</h3>
 <div id="ca-container" class="ca-container">
 	<div class="ca-wrapper">
-<% @product.related_products_of.each_with_index do |related_product,i| %>
-	<% p = Product.find(related_product.related_product_id) %>
+<% @product.products_related_to.each_with_index do |related_product,i| %>
+	<% p = Product.find(related_product.id) %>
 		<div class="ca-item ca-item-<%=i%>">
 			<div class="ca-item-main">
 				<%= p.photos.any? ? image_tag(p.default_photo.image_file.thumb.to_s) : '' %>
