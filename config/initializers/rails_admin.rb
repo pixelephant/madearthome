@@ -29,11 +29,11 @@ RailsAdmin.config do |config|
 			field :category do
 				partial "category_select"
 			end
-			field :related_products do
+			field :products_related_to do
 				product = bindings[:object]
-				Proc.new {
-					scope = Product.all
-				}
+				#Proc.new {
+					#scope = Product.where("product.id != ?", product.id)
+				#}
 			end
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products
