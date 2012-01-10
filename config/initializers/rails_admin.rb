@@ -57,6 +57,27 @@ RailsAdmin.config do |config|
 		end		
 	end
 
+	#Discount
+	config.model Discount do
+		list do
+			field :discount_type do
+				pretty_value do
+					value == 1 ? 'Percent' : 'Value'
+				end
+			end
+			include_all_fields
+			exclude_fields :products
+		end
+		#Discount edit form
+		edit do
+			field :discount_type do
+				partial "discount_dropdown"
+			end
+			include_all_fields
+			exclude_fields :products
+		end		
+	end
+
 	#Photos name
 	config.model Photo do
 		object_label_method do
