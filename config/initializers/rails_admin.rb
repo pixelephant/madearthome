@@ -27,14 +27,14 @@ RailsAdmin.config do |config|
 		#Product edit form
 		edit do
 			field :category do
-				partial "category_select"
+				associated_collection_scope do
+					Proc.new { |scope|
+						scope = scope.where("category_id IS NULL")
+						scope
+					}
+				end
 			end
-			field :products_related_to do
-				product = bindings[:object]
-				#Proc.new {
-					#scope = Product.where("product.id != ?", product.id)
-				#}
-			end
+			field :products_related_to
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products
 		end		
@@ -45,10 +45,12 @@ RailsAdmin.config do |config|
 		#Category edit form
 		edit do
 			field :parent do
-#				render do
-#					bindings[:view].render :partial => "category_select", :locals => { :field => self, :form => bindings[:form]}
-#				end
-				partial "category_select"
+				associated_collection_scope do
+					Proc.new { |scope|
+						scope = scope.where("category_id IS NULL")
+						scope
+					}
+				end
 			end
 			include_all_fields
 			exclude_fields :children
