@@ -21,6 +21,9 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+
+gem 'modernizr-rails'
+
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
