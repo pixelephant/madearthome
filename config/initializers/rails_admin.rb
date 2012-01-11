@@ -59,7 +59,20 @@ RailsAdmin.config do |config|
 
 	#Discount
 	config.model Discount do
+		#Discount list view
 		list do
+			field :id
+			field :discount_type do
+				pretty_value do
+					value == 1 ? 'Percent' : 'Value'
+				end
+			end
+			include_all_fields
+			exclude_fields :products
+		end
+		#Discount list view
+		show do
+			field :id
 			field :discount_type do
 				pretty_value do
 					value == 1 ? 'Percent' : 'Value'
@@ -75,6 +88,9 @@ RailsAdmin.config do |config|
 			end
 			include_all_fields
 			exclude_fields :products
+		end
+		object_label_method do
+			:discount_label_method
 		end		
 	end
 
@@ -118,6 +134,11 @@ RailsAdmin.config do |config|
 
 	def advantage_label_method
 		self.advantage
+	end
+
+	def discount_label_method
+		type = self.discount_type == 1 ? ' %' : ''
+		self.value.to_s << type
 	end
 
 end
