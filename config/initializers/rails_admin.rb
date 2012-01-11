@@ -34,9 +34,17 @@ RailsAdmin.config do |config|
 					}
 				end
 			end
-			field :products_related_to
+			field :products_related_to do
+				associated_collection_scope do
+					product = bindings[:object]
+					Proc.new { |scope|
+						scope = scope.where("products.id != ?", product.id) if product.id.present?
+						scope
+					}
+				end
+			end
 			include_all_fields
-			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :products_related_of
 		end		
 	end
 
@@ -59,7 +67,20 @@ RailsAdmin.config do |config|
 
 	#Discount
 	config.model Discount do
+		#Discount list view
 		list do
+			field :id
+			field :discount_type do
+				pretty_value do
+					value == 1 ? 'Percent' : 'Value'
+				end
+			end
+			include_all_fields
+			exclude_fields :products
+		end
+		#Discount list view
+		show do
+			field :id
 			field :discount_type do
 				pretty_value do
 					value == 1 ? 'Percent' : 'Value'
@@ -75,6 +96,9 @@ RailsAdmin.config do |config|
 			end
 			include_all_fields
 			exclude_fields :products
+		end
+		object_label_method do
+			:discount_label_method
 		end		
 	end
 
@@ -113,11 +137,16 @@ RailsAdmin.config do |config|
 	end
 
 	def related_product_label_method
-		self.related_product.name
+		self.products_related_to.name
 	end
 
 	def advantage_label_method
 		self.advantage
+	end
+
+	def discount_label_method
+		type = self.discount_type == 2 ? ' %' : ''
+		self.value.to_s << type
 	end
 
 end

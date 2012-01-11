@@ -13,8 +13,8 @@ class Product < ActiveRecord::Base
 	#has_many :related_to, :class_name => "RelatedProduct", :foreign_key => "related_product_id"
 
 	has_many :related_products
-	has_many :products_related_to, :through => :related_products, :foreign_key => "related_product_id"
-	has_many :products_related_of, :through => :related_products, :foreign_key => "product_id"
+	has_many :products_related_to, :through => :related_products, :foreign_key => "related_product_id", :dependent => :destroy
+	has_many :products_related_of, :through => :related_products, :foreign_key => "product_id", :dependent => :destroy
 
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
