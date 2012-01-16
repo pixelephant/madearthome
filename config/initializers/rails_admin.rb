@@ -27,14 +27,7 @@ PropertiesToCustomCategory]
 	config.model Product do
 		#Product edit form
 		edit do
-			field :category do
-				associated_collection_scope do
-					Proc.new { |scope|
-						scope = scope.where("category_id IS NULL")
-						scope
-					}
-				end
-			end
+			
 			field :products_related_to do
 				associated_collection_scope do
 					product = bindings[:object]
@@ -46,23 +39,6 @@ PropertiesToCustomCategory]
 			end
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :products_related_of
-		end		
-	end
-
-	#Category
-	config.model Category do
-		#Category edit form
-		edit do
-			field :parent do
-				associated_collection_scope do
-					Proc.new { |scope|
-						scope = scope.where("category_id IS NULL")
-						scope
-					}
-				end
-			end
-			include_all_fields
-			exclude_fields :children
 		end		
 	end
 
