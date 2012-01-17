@@ -1,0 +1,25 @@
+<%= form_for(@custom_categories_to_category) do |f| %>
+  <% if @custom_categories_to_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@custom_categories_to_category.errors.count, "error") %> prohibited this custom_categories_to_category from being saved:</h2>
+
+      <ul>
+      <% @custom_categories_to_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :custom_category_id %><br />
+    <%= f.number_field :custom_category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,7 +2,14 @@ RailsAdmin.config do |config|
 
 	#Add all excluded models here:
 	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct,
-PropertiesToCustomCategory]
+PropertiesToCustomCategory,CustomCategoriesToCategory]
+
+	#Category
+	config.model Category do
+		edit do
+			exclude_fields :custom_categories
+		end
+	end
 
 	#Property 
 	config.model Property do
@@ -11,7 +18,7 @@ PropertiesToCustomCategory]
 			:property_label_method
 		end
 		edit do
-			exclude_fields :categories
+			exclude_fields :categories, :custom_categories
 		end
 	end
 

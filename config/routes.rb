@@ -1,5 +1,7 @@
 Madearthome::Application.routes.draw do
 
+  resources :custom_categories_to_categories
+
   resources :properties_to_custom_categories
 
   resources :custom_categories
