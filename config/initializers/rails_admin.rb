@@ -102,7 +102,11 @@ PropertiesToCustomCategory]
 
 	#Custom label methods
 	def property_label_method
-		self.property_name
+		if self.property_category.nil?
+			self.property_name
+		else
+			self.property_category.category_name + ": " + self.property_name
+		end
 	end
 
 	def property_category_label_method
