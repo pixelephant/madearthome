@@ -10,13 +10,14 @@ class AdminAjaxController < ApplicationController
 				Category.find(cat).property_categories.each do |category|
 					category.properties.each do |property|
 						property_ids << property.id
-						property_names << property.property_name
+						property_names << property.property_category.category_name + ": " + property.property_name
 					end
 				end
 			end
 
 			Property.where("property_category_id IS NULL").each do |property|
 				property_ids << property.id
+
 				property_names << property.property_name
 			end
 
