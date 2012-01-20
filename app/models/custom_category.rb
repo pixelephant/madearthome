@@ -4,6 +4,8 @@ class CustomCategory < ActiveRecord::Base
 
 	belongs_to :category
 
+	belongs_to :discount
+
 	validates :name,:category_id , :presence => true
 	
 end

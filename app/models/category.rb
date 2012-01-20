@@ -7,5 +7,7 @@ class Category < ActiveRecord::Base
 
 	has_many :custom_categories
 
+	belongs_to :discount
+
 	validates :name, :presence => true
 end
