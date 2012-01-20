@@ -1,6 +1,8 @@
 Madearthome::Application.routes.draw do
 
-  resources :custom_categories_to_categories
+  resources :manufacturer_photos
+
+  resources :designer_photos
 
   resources :properties_to_custom_categories
 

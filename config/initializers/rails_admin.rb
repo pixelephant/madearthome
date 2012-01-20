@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
 
 	#Add all excluded models here:
 	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct,
-PropertiesToCustomCategory,CustomCategoriesToCategory]
+PropertiesToCustomCategory]
 
 	#Category
 	config.model Category do
@@ -35,7 +35,7 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 		#Product edit form
 		edit do
 			
-			field :products_related_to do
+			field :product_relates do
 				associated_collection_scope do
 					product = bindings[:object]
 					Proc.new { |scope|
@@ -45,7 +45,7 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 				end
 			end
 			include_all_fields
-			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :products_related_of
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
 		end		
 	end
 
@@ -93,6 +93,20 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 		end
 	end
 
+	#Designer Photos
+	config.model DesignerPhoto do
+		object_label_method do
+			:photo_label_method
+		end
+	end
+
+	#Manufacturer Photos
+	config.model ManufacturerPhoto do
+		object_label_method do
+			:photo_label_method
+		end
+	end
+
 	#RelatedProducts name
 	config.model RelatedProduct do
 		object_label_method do
@@ -104,6 +118,13 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 	config.model Advantage do
 		object_label_method do
 			:advantage_label_method
+		end
+	end
+
+	#OrderItem
+	config.model OrderItem do
+		object_label_method do
+			:order_item_label_method
 		end
 	end
 
@@ -125,7 +146,7 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 	end
 
 	def related_product_label_method
-		self.products_related_to.name
+		self.product_relates.name
 	end
 
 	def advantage_label_method
@@ -135,6 +156,10 @@ PropertiesToCustomCategory,CustomCategoriesToCategory]
 	def discount_label_method
 		type = self.discount_type == 2 ? ' %' : ''
 		self.value.to_s << type
+	end
+
+	def order_item_label_method
+		self.product.name
 	end
 
 end

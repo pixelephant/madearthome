@@ -9,12 +9,10 @@ class Product < ActiveRecord::Base
 	belongs_to :designer
 	belongs_to :manufacturer
 	
-	#has_many :related_products_of, :class_name => "RelatedProduct", :foreign_key => "product_id"
-	#has_many :related_to, :class_name => "RelatedProduct", :foreign_key => "related_product_id"
-
 	has_many :related_products
-	has_many :products_related_to, :through => :related_products, :foreign_key => "related_product_id", :dependent => :destroy
-	has_many :products_related_of, :through => :related_products, :foreign_key => "product_id", :dependent => :destroy
+	has_many :product_relates, :through => :related_products, :foreign_key => "product_id"
+	has_many :inverse_related_products, :class_name => "RelatedProduct", :foreign_key => "related_product_id"
+	has_many :inverse_product_relates, :through => :inverse_related_products, :source => :product
 
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
@@ -22,6 +20,8 @@ class Product < ActiveRecord::Base
 	validates :name, :sku, :price, :category, :presence => true
 
 	validates :sku, :name, :uniqueness => true
+
+	has_many :order_items
 
 	def default_photo
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first

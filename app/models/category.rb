@@ -5,8 +5,7 @@ class Category < ActiveRecord::Base
 	has_many :properties_to_category
 	has_many :property, :through => :properties_to_category
 
-	has_many :custom_categories_to_categories
-	has_many :custom_categories, :through => :custom_categories_to_categories
+	has_many :custom_categories
 
 	validates :name, :presence => true
 end

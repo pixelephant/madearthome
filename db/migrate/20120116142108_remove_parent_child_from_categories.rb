@@ -4,6 +4,8 @@ class RemoveParentChildFromCategories < ActiveRecord::Migration
   end
 
   def down
-		add_column :categories, :category_id
+		change_table :categories do |t|
+      t.integer :category_id, :null => false
+		end
   end
 end
