@@ -1,5 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<section class="box full" id="product-box">
+	<div id="product-inner">
+		<div id="left-side">
+			<% if @product.photos.any? %>
+			<div id="picture-wrap">
+				<div id="current-picture">
+					<a href=<%= @product.default_photo.image_file.to_s %> class='zoomable' rel="gal1">
+						<%= image_tag(@product.default_photo.image_file.medium.to_s) %>
+					</a>
+				</div>
+			</div>
+			<div id="picture-list">
+				<% @product.photos.each do |photo| %>
+						<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">  
+				  			<%= image_tag(photo.image_file.thumb.to_s) %>
+						</a>
+
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</section>
+
 <p>
   <b>Name:</b>
   <%= @product.name %>
@@ -29,28 +53,6 @@
   <b>Long description:</b>
   <%= @product.long_description %>
 </p>
-
-<h3>Photos:</h3>
-
-<% if @product.photos.any? %>
-<div id="picture-wrap">
-	<div id="current-picture">
-		<a href=<%= @product.default_photo.image_file.to_s %> class='zoomable' rel="gal1">
-			<%= image_tag(@product.default_photo.image_file.medium.to_s) %>
-		</a>
-	</div>
-	
-	<div id="picture-list">
-		<% @product.photos.each do |photo| %>
-				<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">  
-		  			<%= image_tag(photo.image_file.thumb.to_s) %>
-				</a>
-
-		<% end %>
-	</div>
-</div>
-<% end %>
-
 
 <p>
   <b>Category:</b>

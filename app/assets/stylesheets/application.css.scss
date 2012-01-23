@@ -122,6 +122,13 @@ input::-moz-focus-inner,button::-moz-focus-inner /*Remove button padding in FF*/
 	          transition: all 0.3s ease;
 }
 
+@mixin box-shadow{
+  		
+  -webkit-box-shadow: 4px 3px 5px rgba(0,0,0,0.4); 
+     -moz-box-shadow: 4px 3px 5px rgba(0,0,0,0.4); 
+          box-shadow: 4px 3px 5px rgba(0,0,0,0.4); 
+}
+
 p a{
 	color:#3F5EA9;
 }
@@ -181,7 +188,7 @@ html{
 }
 
 #header-wrapper{
-	width:980px;
+	width:960px;
 	margin:0 auto;
 }
 
@@ -278,4 +285,64 @@ html{
 	font-size:18px;
 }
 
+#main-nav{
+	clear:both;
+	width:100%;
+	height:55px;
+	ul{
+		@include box-shadow;
+		overflow:hidden;
+		@include background-gradient(#6879C1, #425DB0);
+		li{
+			height:50px;
+			line-height:50px;
+			padding:0 10px;
+			float:left;
+			border-left:1px solid #42579E;
+			border-right:1px solid #6F80C0;
+			&.first{
+				border-left:none;
+			}
+			&.last{
+				border-right:none;
+			}
+			&.active{
+				@include background-gradient(#94BADC, #68A4D1);
+			}
+			&:hover a{
+					@include text-shadow(0,0,#333,3px);
+			}
+			a{
+				display:block;
+				color:white;
+				@include font-gill;
+				font-size:14px;
+				text-decoration:none;
+				@include transition-03s;
+				text-transform:uppercase;
+			}
+		}
+	}
+}
 
+#breadcrumb{
+	padding:10px 0;
+	font-size:15px;
+	a{
+		font-size:15px;
+		color:black;
+	}
+}
+
+#main-wrap{
+	width:960px;
+	margin:0 auto;
+}
+
+.box{
+	@include box-shadow;
+	background:white;
+	padding:0;
+	margin:20px 0;
+	min-height:400px;
+}
