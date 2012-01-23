@@ -39,7 +39,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :product_page_default do
-    process :resize_to_limit => [300, 440]
+    process :resize_to_limit => [440, 300]
   end
 
   version :medium do
