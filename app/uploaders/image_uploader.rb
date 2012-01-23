@@ -38,8 +38,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [100, 100]
   end
 
-  version :small do
-    process :resize_to_limit => [200, 200]
+  version :product_page_default do
+    process :resize_to_limit => [300, 440]
   end
 
   version :medium do
