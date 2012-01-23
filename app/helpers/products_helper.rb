@@ -23,30 +23,32 @@ module ProductsHelper
 
 		#Custom category discount factor
 		
-		p.custom_category.discount.each do |d|
-			if d.discount_type == 1
-				price = price - d.value
-			end
-
-			if d.discount_type == 2
-				price = price - (price * (d.value.to_f / 100))
-			end
-		end
+		#if p.custom_category.any?
+			#p.custom_category.discount.each do |d|
+				#if d.discount_type == 1
+					#price = price - d.value
+#				end
+#
+#				if d.discount_type == 2
+#					price = price - (price * (d.value.to_f / 100))
+#				end
+#			end
+#		end
 		
-		return price.round if price < p.price
+		#return price.round if price < p.price
 
 		#Category discount factor
-		p.category.discount.each do |d|
-			if d.discount_type == 1
-				price = price - d.value
-			end
+#		p.category.discount.each do |d|
+		#	if d.discount_type == 1
+			#	price = price - d.value
+			#end
 
-			if d.discount_type == 2
-				price = price - (price * (d.value.to_f / 100))
-			end
-		end
+			#if d.discount_type == 2
+				#price = price - (price * (d.value.to_f / 100))
+			#end
+		#end
 		
-		return price.round if price < p.price
+		#return price.round if price < p.price
 
 	end
 
