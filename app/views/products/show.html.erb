@@ -106,7 +106,7 @@
 <h3>Related Products</h3>
 <div id="ca-container" class="ca-container">
 	<div class="ca-wrapper">
-<% @product.products_related_to.each_with_index do |related_product,i| %>
+<% @product.products_related.each_with_index do |related_product,i| %>
 	<% p = Product.find(related_product.id) %>
 		<div class="ca-item ca-item-<%=i%>">
 			<div class="ca-item-main">
