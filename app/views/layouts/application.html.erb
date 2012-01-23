@@ -8,26 +8,30 @@
 </head>
 <body>
 
-<header id="main-head">
+<header id="main-header">
 	<nav id="misc-menu">
 		<ul>
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-			<li>5</li>
+			<li class="first">Need help? Call: 123-4567</li>
+			<li><%= link_to "Register", "/register" %></li>
+			<li><%= link_to "Login", "/login" %></li>
+			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
 		</ul>
 	</nav>
 	<div id="header-wrapper">
-		<h1 id="logo">
-			Flairspring
-			<span>Comfort on your side</span>
-		</h1>
+		<a href="/">
+			<h1 id="logo">
+				Flairspring<span>Comfort on your side</span>
+			</h1>
+		</a>
+		<div id="minicart-wrapper">
+			<%= link_to "KOSÁR", "/cart" %>
+		</div>
 		<div id="search-wrapper">
 			<form action="#" id="search-form">
-				<input type="search" name="search" id="search" placeholder="Keresés..." />
-				<input type="submit" value="" />
+				<input type="search" results="5" name="search" id="search" placeholder="Keresés..." />
+				<input type="submit" value="Search" />
 			</form>
+			<p id="search-examples"><strong>Pl.:</strong> <a href="#">accent table</a>, <a href="#">working chair</a></p>
 		</div>
 	</div>
 </header>
@@ -35,5 +39,9 @@
 
 <%= yield %>
 
+
+<footer id="main-footer">
+	itt a footer
+</footer>
 </body>
 </html>
