@@ -8,4 +8,8 @@ class CustomCategory < ActiveRecord::Base
 
 	validates :name,:category_id , :presence => true
 	
+	def get_products
+		return Product.all
+	end
+
 end

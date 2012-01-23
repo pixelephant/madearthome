@@ -1,5 +1,7 @@
 Madearthome::Application.routes.draw do
 
+  resources :mass_uploads
+
   resources :manufacturer_photos
 
   resources :designer_photos
