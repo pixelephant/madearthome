@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120104122128) do
+ActiveRecord::Schema.define(:version => 20120120132018) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -27,8 +27,24 @@ ActiveRecord::Schema.define(:version => 20120104122128) do
   end
 
   create_table "categories", :force => true do |t|
-    t.integer  "category_id"
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "discount_id"
+  end
+
+  create_table "custom_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id", :null => false
+    t.integer  "discount_id"
+  end
+
+  create_table "designer_photos", :force => true do |t|
+    t.integer  "designer_id"
+    t.string   "image_file"
+    t.string   "alt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,7 +52,6 @@ ActiveRecord::Schema.define(:version => 20120104122128) do
   create_table "designers", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,10 +70,17 @@ ActiveRecord::Schema.define(:version => 20120104122128) do
     t.datetime "updated_at"
   end
 
+  create_table "manufacturer_photos", :force => true do |t|
+    t.integer  "manufacturer_id"
+    t.string   "image_file"
+    t.string   "alt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "manufacturers", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,6 +133,13 @@ ActiveRecord::Schema.define(:version => 20120104122128) do
   create_table "properties_to_categories", :force => true do |t|
     t.integer  "property_id"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "properties_to_custom_categories", :force => true do |t|
+    t.integer  "custom_category_id"
+    t.integer  "property_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

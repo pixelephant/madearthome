@@ -1,5 +1,13 @@
 Madearthome::Application.routes.draw do
 
+  resources :manufacturer_photos
+
+  resources :designer_photos
+
+  resources :properties_to_custom_categories
+
+  resources :custom_categories
+
   resources :properties_to_categories
 
   resources :discounts_to_products
@@ -31,6 +39,12 @@ Madearthome::Application.routes.draw do
   get "admin/index"
 
 	match "admin" => 'admin#index'
+
+	#Admin ajax routes START
+
+	post 'admin_ajax/getcategoryproperties' => "admin_ajax#getCategoryProperties"
+
+	#Admin ajax routes END
 
   resources :wishlist_items
 

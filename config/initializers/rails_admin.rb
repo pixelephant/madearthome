@@ -1,7 +1,15 @@
 RailsAdmin.config do |config|
 
 	#Add all excluded models here:
-	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct]
+	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct,
+PropertiesToCustomCategory]
+
+	#Category
+	config.model Category do
+		edit do
+			exclude_fields :custom_categories
+		end
+	end
 
 	#Property 
 	config.model Property do
@@ -10,7 +18,7 @@ RailsAdmin.config do |config|
 			:property_label_method
 		end
 		edit do
-			exclude_fields :categories
+			exclude_fields :categories, :custom_categories
 		end
 	end
 
@@ -26,15 +34,8 @@ RailsAdmin.config do |config|
 	config.model Product do
 		#Product edit form
 		edit do
-			field :category do
-				associated_collection_scope do
-					Proc.new { |scope|
-						scope = scope.where("category_id IS NULL")
-						scope
-					}
-				end
-			end
-			field :products_related_to do
+			
+			field :product_relates do
 				associated_collection_scope do
 					product = bindings[:object]
 					Proc.new { |scope|
@@ -44,24 +45,7 @@ RailsAdmin.config do |config|
 				end
 			end
 			include_all_fields
-			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :products_related_of
-		end		
-	end
-
-	#Category
-	config.model Category do
-		#Category edit form
-		edit do
-			field :parent do
-				associated_collection_scope do
-					Proc.new { |scope|
-						scope = scope.where("category_id IS NULL")
-						scope
-					}
-				end
-			end
-			include_all_fields
-			exclude_fields :children
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
 		end		
 	end
 
@@ -109,6 +93,20 @@ RailsAdmin.config do |config|
 		end
 	end
 
+	#Designer Photos
+	config.model DesignerPhoto do
+		object_label_method do
+			:photo_label_method
+		end
+	end
+
+	#Manufacturer Photos
+	config.model ManufacturerPhoto do
+		object_label_method do
+			:photo_label_method
+		end
+	end
+
 	#RelatedProducts name
 	config.model RelatedProduct do
 		object_label_method do
@@ -123,9 +121,20 @@ RailsAdmin.config do |config|
 		end
 	end
 
+	#OrderItem
+	config.model OrderItem do
+		object_label_method do
+			:order_item_label_method
+		end
+	end
+
 	#Custom label methods
 	def property_label_method
-		self.property_name
+		if self.property_category.nil?
+			self.property_name
+		else
+			self.property_category.category_name + ": " + self.property_name
+		end
 	end
 
 	def property_category_label_method
@@ -137,7 +146,7 @@ RailsAdmin.config do |config|
 	end
 
 	def related_product_label_method
-		self.products_related_to.name
+		self.product_relates.name
 	end
 
 	def advantage_label_method
@@ -147,6 +156,10 @@ RailsAdmin.config do |config|
 	def discount_label_method
 		type = self.discount_type == 2 ? ' %' : ''
 		self.value.to_s << type
+	end
+
+	def order_item_label_method
+		self.product.name
 	end
 
 end
