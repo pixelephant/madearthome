@@ -7,7 +7,7 @@
 			<div id="picture-wrap">
 				<div id="current-picture">
 					<a href=<%= @product.default_photo.image_file.to_s %> class='zoomable' rel="gal1">
-						<%= image_tag(@product.default_photo.image_file.medium.to_s) %>
+						<%= image_tag(@product.default_photo.image_file.product_page_default.to_s) %>
 					</a>
 				</div>
 			</div>
