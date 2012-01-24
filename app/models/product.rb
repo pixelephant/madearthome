@@ -28,4 +28,9 @@ class Product < ActiveRecord::Base
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
     return default
   end
+
+	def self.products_on_sale
+		self.find(:all, :joins => :discounts, :select => "products.*", :conditions => ["discounts.id IS NOT NULL"], :group => "products.id")
+	end
+
 end

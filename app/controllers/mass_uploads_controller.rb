@@ -1,4 +1,8 @@
 class MassUploadsController < ApplicationController
+
+	require 'rubygems'
+	require 'roo'
+
   # GET /mass_uploads
   # GET /mass_uploads.json
   def index
@@ -58,9 +62,21 @@ class MassUploadsController < ApplicationController
   def update
     @mass_upload = MassUpload.find(params[:id])
 
+		e = Excel.new("asdasd.xlsx")
+		e.default_sheet = e.sheets.first
+		
+		msg = ""
+		
+		puts "aasdasdasd"
+
+		4.upto(12) do |line|
+			msg << e.cell(line,"A")
+		end
+
+
     respond_to do |format|
       if @mass_upload.update_attributes(params[:mass_upload])
-        format.html { redirect_to @mass_upload, notice: 'Mass upload was successfully updated.' }
+        format.html { redirect_to @mass_upload, notice: m + 'Mass upload was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
