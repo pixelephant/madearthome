@@ -71,6 +71,8 @@ Madearthome::Application.routes.draw do
   resources :photos
 
   resources :products
+  
+  resources :cart
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

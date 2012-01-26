@@ -47,6 +47,7 @@
 				<li class="last"><a href="#">Párnák</a></li>
 			</ul>
 		</nav>
+		<% if params[:controller] != 'home'%>
 		<nav id="breadcrumb">
 			<p>
 				<a href=""/"">Main</a> {
@@ -54,16 +55,68 @@
 				<a href=""/"">Example product</a> {		
 			</p>
 		</nav>
+		<% end %>
 	</div>
 </header>
 
+
+<% if params[:controller] == 'home'%>
+<%= render 'slider' %>
+<% end %>
 <div id="main-wrap">
 	<%= yield %>
 </div>
 
+<section id="social-promo">
+	<div id="newsletter-promo" class="half">
+		<h3>Newsletter</h3>
+		<em>Sign up for our <span>newsletter</span></em>
+		<p>And get <strong>10%</strong> off your first purchase</p>
+		<form action="" id="newsletter-form">
+			<input type="email" name="newsletter-email" id="newsletter-email" placeholder="Email address" />
+			<input type="submit" value="Sign up" />
+		</form>
+	</div>
+	<div id="contact-promo" class="half">
+		<h3>Contact us for advice</h3>
+		<p><em>Email:</em> info@flairspring.com</p>
+		<p><em>Support:</em> +36-30-123-1231</p>
+	</div>
+</section>
 
 <footer id="main-footer">
-	itt a footer
+	<div id="main-footer-inner">
+		<div>
+			<h3>Shop</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
+		<div>
+			<h3>About</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
+		<div class="last">
+			<h3>Connect</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
+	</div>
 </footer>
 </body>
 </html>

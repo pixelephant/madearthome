@@ -1,9 +1,43 @@
-<h1>Home#index</h1>
+<div id="ribbon">
+	<p><span>Ingyenes kiszállítás</span> &amp; <span>Alacsony árak</span> &amp; <span>Ingyenes visszaszállítás</span> &amp; <span>24/7 segélyvonal</span> &amp; <span>Vidámság és szeretet</span></p>
+</div>
 
-<% @products.each do |product| %>
-    <%= product.name %>
-    <%= product.short_description %>
-    <%= product.long_description %>
-    <%= product.category.name %>
-		<%= link_to 'Product details', product %>
-<% end %>
+<section class="box full" id="about-us">
+	<h3>A Flairspringről</h3>
+	<h4>A cég története</h4>
+	<p> <span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
+	<p> <span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
+	<div class="hr"></div>
+	<h3>Frissen a blogból</h3>
+	<div class="blog-entry">
+		<p>Mauris eu erat et <%= image_tag "matthew.png", :title => "title", :class => "class" %> sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin.</p>
+	</div>
+	<div class="blog-entry">
+		<p>Mauris eu erat et <%= image_tag "matthew.png", :title => "title", :class => "class" %> sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin.</p>
+	</div>
+</section>
+
+<section id="promo-boxes">
+	<div class="box promo">
+		<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+	</div>
+	<div class="box promo">
+		<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+	</div>
+	<div class="box promo">
+		<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
+	</div>
+	<div class="box promo">
+		<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+	</div>
+	<div class="box promo">
+		<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+	</div>
+	<div class="box promo">
+		<%= image_tag "logo.png", :title => "title", :class => "class" %>
+	</div>
+</section>
+
+<section class="box full" id="brands">
+	<h3>Our brands</h3>
+</section>
