@@ -1,5 +1,29 @@
 RailsAdmin.config do |config|
 
+	#Custom actions
+	config.actions do
+		member :import do
+			i18n_key :import
+		end
+		config.actions do
+		  # root actions
+		  dashboard                     # mandatory
+		  # collection actions 
+		  index                         # mandatory
+		  new
+		  export
+		  history_index
+		  bulk_delete
+		  # member actions
+		  show
+		  edit
+		  delete
+		  history_show
+		  show_in_app
+		end
+	end
+
+
 	#Add all excluded models here:
 	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct,
 PropertiesToCustomCategory]
