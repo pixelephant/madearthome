@@ -32,6 +32,8 @@ Madearthome::Application.routes.draw do
 
 	devise_for :users, :path => '', :path_names => { :sign_in => "admin/login", :sign_out => "admin/logout", :sign_up => "admin/register" }
 
+	post 'admin/parse_save_from_excel' => "admin_custom#parse_save_from_excel"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   #devise_for :users do

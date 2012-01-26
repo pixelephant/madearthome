@@ -31,7 +31,11 @@ gem 'rmagick'
 gem 'carrierwave'
 
 #Excel
-gem 'roo'
+#gem 'roo'
+gem 'spreadsheet'
+
+#HAML
+#gem 'haml'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
