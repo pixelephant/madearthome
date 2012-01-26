@@ -9,7 +9,11 @@ class CustomCategory < ActiveRecord::Base
 	validates :name,:category_id , :presence => true
 	
 	def get_products
-		return Product.all
+		properties_of_custom_category = self.properties
+
+		p = Product.find(:all, :joins => :properties, :select => "products.*, count(properties.id)", :conditions => ["properties.id IN (?) AND products.category_id = ?", properties_of_custom_category, self.category_id], :group => "products.id having count(properties.id) = #{properties_of_custom_category.count}")
+
+		return p
 	end
 
 end

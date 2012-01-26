@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120132018) do
+ActiveRecord::Schema.define(:version => 20120123125432) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -85,6 +85,12 @@ ActiveRecord::Schema.define(:version => 20120120132018) do
     t.datetime "updated_at"
   end
 
+  create_table "mass_uploads", :force => true do |t|
+    t.string   "filename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "order_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "product_id"
@@ -123,6 +129,13 @@ ActiveRecord::Schema.define(:version => 20120120132018) do
     t.integer  "manufacturer_id"
   end
 
+  create_table "products_properties", :force => true do |t|
+    t.integer  "property_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", :force => true do |t|
     t.string   "property_name"
     t.integer  "property_category_id"
@@ -140,13 +153,6 @@ ActiveRecord::Schema.define(:version => 20120120132018) do
   create_table "properties_to_custom_categories", :force => true do |t|
     t.integer  "custom_category_id"
     t.integer  "property_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "properties_to_products", :force => true do |t|
-    t.integer  "property_id"
-    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

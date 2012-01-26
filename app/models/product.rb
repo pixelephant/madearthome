@@ -1,8 +1,9 @@
 class Product < ActiveRecord::Base
 	has_many :photos
 	belongs_to :category
-	has_many :properties_to_products
-	has_many :properties, :through => :properties_to_products
+#	has_many :properties_to_products
+#	has_many :properties, :through => :properties_to_products
+	has_and_belongs_to_many :properties
 	has_many :wishlist_items
 	has_many :advantages, :through => :advantages_to_products
 	has_many :advantages_to_products
@@ -27,4 +28,9 @@ class Product < ActiveRecord::Base
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
     return default
   end
+
+	def self.products_on_sale
+		self.find(:all, :joins => :discounts, :select => "products.*", :conditions => ["discounts.id IS NOT NULL"], :group => "products.id")
+	end
+
 end
