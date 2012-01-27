@@ -23,13 +23,17 @@ class AdminCustomController < ApplicationController
 
 			for i in 12..19 do
 				property_category = PropertyCategory.find_or_create_by_category_name(:category_name => columns[i])
-				property_category.categories << category
+				if !property_category.categories.exists?(category.id)
+					property_category.categories << category
+				end
 				product.properties << Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
 			end
 
 			for i in 24..37 do
 				property_category = PropertyCategory.find_or_create_by_category_name(:category_name => columns[i])
-				property_category.categories << category
+				if !property_category.categories.exists?(category.id)
+					property_category.categories << category
+				end
 				product.properties << Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
 			end
 
