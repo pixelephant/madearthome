@@ -1,0 +1,70 @@
+@import '_mixins.css.scss';
+
+#cart-table{
+	.update{
+		display:block;
+	}
+	input[type="number"]{
+		width:55px;
+	}
+	width:100%;
+	thead{
+		border-bottom:1px solid $border-gray;
+		th{
+			height:40px;
+			line-height:40px;
+		}
+		h3{
+			float:left;
+			margin-bottom:0;
+		}
+		p{
+			float:right;
+			a{
+				font-variant:small-caps;
+			}
+		}
+	}
+	tbody{
+		tr{
+			border-bottom:1px solid $border-gray;
+		}
+		td{
+			width:220px;
+			padding:20px 10px;
+			vertical-align:middle;
+		}
+		.product-cell{
+			img{
+				width:50px;
+				height:50px;
+				border:3px solid $border-gray;
+				float:left;
+				margin-right:10px;
+			}
+			h6{
+				@include font-gill;
+				color:$orange;
+				margin-bottom:5px;
+			}
+			.property{
+				font-variant:small-caps;
+				margin-bottom:10px;
+			}
+		}
+		.price-cell{
+			@include font-gill;
+			color:#565654;
+			font-size:20px;
+		}
+		.actions-cell{
+			text-align:right;
+			width:100px;
+			.update{
+				font-variant:small-caps;
+				margin-right:25px;
+			}
+		}
+	}
+}
+
