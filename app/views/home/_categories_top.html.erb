@@ -1,0 +1,5 @@
+<% Category.all.each_with_index do |category, index| %>
+	<li<%= is_active_category_with_index?(category.slug, index) %>>
+		<%= link_to category.name, category %>
+	</li>
+<% end %>

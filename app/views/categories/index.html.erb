@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Parent</th>
     <th>Name</th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.parent_id %></td>
     <td><%= category.name %></td>
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>

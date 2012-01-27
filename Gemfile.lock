@@ -68,6 +68,7 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.0)
     haml (3.1.4)
     hike (1.2.1)
     hpricot (0.8.6)
@@ -161,6 +162,7 @@ DEPENDENCIES
   coffee-rails (~> 3.1.1)
   devise
   execjs
+  friendly_id
   jquery-rails
   modernizr-rails
   mysql2
