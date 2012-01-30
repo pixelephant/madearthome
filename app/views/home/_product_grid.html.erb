@@ -1,0 +1,11 @@
+<% @category.products.each do |product| %>
+<div class="product">
+	<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
+	<p class="name">
+		<%= product.name %>
+	</p>
+	<p class="price">
+		<%= product.price %>
+	</p>
+</div>
+<% end %>

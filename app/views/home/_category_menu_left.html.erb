@@ -1,0 +1,8 @@
+<li class="level-1">
+	<%= link_to @category.name, @category %>
+	<% @category.custom_categories.each do |custom_category| %>
+		<li class="level-2">
+			<%= link_to custom_category.name, custom_category %>
+		</li>
+	<% end %>
+</li>
