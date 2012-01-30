@@ -44,6 +44,8 @@ input::-moz-focus-inner,button::-moz-focus-inner /*Remove button padding in FF*/
 
 @import '_mixins.css.scss';
 
+
+
 p a{
 	color:#3F5EA9;
 }
@@ -57,6 +59,7 @@ html{
 	height:100%;
 	@include font-garamond;
 	background: url(bg.png) repeat;
+	color:#3c3c3c;
 }
 
 
@@ -263,11 +266,6 @@ html{
 	margin:0 auto;
 }
 
-.box-wrap{
-	overflow:hidden;
-	padding-bottom:6px;
-}
-
 #product-box{
 	padding:0;
 }
@@ -276,12 +274,15 @@ html{
 	@include box-shadow;
 	background:white;
 	padding:0;
-	margin:20px 0;
+	margin-top:20px;
 	&.third{
-		width:260px;
+		width:270px;
 		float:left;
 		margin:20px 20px 0px 0px;
 		padding:20px;
+		&.mid{
+			width:260px;
+		}
 		&.last{
 			margin-right:0px;
 		}
@@ -362,8 +363,9 @@ html{
 
 .hr{
 	width:100%;
-	height:10px;
-	background: url(hr.png) no-repeat red;
+	height:16px;
+	background: url(separator.png) no-repeat center;
+	margin:25px 0;
 }
 
 #main-footer{
@@ -415,4 +417,48 @@ html{
 			}
 		}
 	}
+}
+
+.slider.full{
+	overflow:hidden;
+	img{
+		border:5px solid $border-gray;
+		width:110px;
+		height:110px;
+	}
+	.arrow{
+		margin-top:45px;
+	}
+	.arrow.left{
+		margin-right:20px;
+	}
+	.carousel{
+		float:left;
+		width:820px !important;
+	}
+	li{
+		width:120px;
+		height:120px;
+		margin-right: 20px;
+		float:left;
+	}
+}
+
+#simplemodal-overlay {background-color:#000;}
+
+#simplemodal-container a.modalCloseImg {
+	background:url(x.png) no-repeat; /* adjust url as required */
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:-15px;
+	right:-18px;
+	cursor:pointer;
+}
+
+#simplemodal-container{
+	background:white;
+	padding:20px;
 }

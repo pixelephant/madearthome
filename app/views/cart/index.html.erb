@@ -8,8 +8,20 @@
 		</thead>
 		<tfoot>
 			<tr>
-				<td>
-					
+				<td class="coupon-cell">
+					<label for="">Kupon-kód</label><input type="text" name="" id="" />
+				</td>
+				<td class="total-cell">
+					Total:
+				</td>
+				<td class="sum-cell">
+					234 000 Ft + áfa
+				</td>
+				<td class="checkout-cell">
+					<form action="#">
+						<input type="submit" value="Fizetés" />
+						<a href="">Vásárlás folytatása</a>
+					</form>
 				</td>
 			</tr>
 		</tfoot>
@@ -58,4 +70,41 @@
 			</tr>
 		</tbody>
 	</table>
+</section>
+
+<div class="box-wrap clearfix">
+	<section class="box third" id="payment-options">
+		<h3>Fizetési lehetőségek</h3>
+		<p><span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.</p>
+	</section>
+
+	<section class="box third mid" id="delivery-options">
+		<h3>Szállítási információk</h3>
+		<p><span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.</p>
+	</section>
+
+	<section class="box third last" id="faq-links">
+		<h3>Linkek</h3>
+		<a href="#">asd</a>
+		<a href="#">asd</a>
+		<a href="#">asd</a>
+		<a href="#">asd</a>
+	</section>
+</div>
+
+<section class="box full slider" id="cart-slider">
+	<h3>Check these out before you check out!</h3>
+	  <a href="#" class="arrow left"></a>
+	  <div class="carousel">
+		<ul>
+			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
+			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
+		</ul>
+	</div><!-- carousel -->
+	<a href="#" class="arrow right"></a>
 </section>

@@ -54,18 +54,42 @@
 				</div>
 			</div>
 			<div id="properties-box">
-				
+				<form id="product-form">
+					<div class="left">
+						<p><label for="">Anyag</label><select name="" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+							<option value="">4</option>
+						</select></p>
+						<p><label for="">Szín</label><select name="" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+							<option value="">4</option>
+						</select></p>
+						<p><label for="">Mennyiség</label><input type="number" name="" min="0" max="5" id="" /></p>
+						<div class="links">
+							<a href="#">szállítás</a>
+							<a href="#">fizetés</a>
+							<a href="#">garancia</a>
+						</div>
+					</div>
+					<div class="right">
+						<div>
+							<input type="submit" value="Kosárba" />						
+						</div>
+					</div>
+				</form>
 			</div>
 			<div id="short-description-box">
-				  <p>
-				  	<%= @product.short_description %>
-				  </p>
+				<p><span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla.</p>
 			</div>
 		</div>
 	</div>
 </section>
 
-<div class="box-wrap">
+<div class="box-wrap clearfix">
 	<section class="box third" id="specifications">
 		<h3>Specifications</h3>
 		<p><span>designer: </span>Matthew Williams</p>
@@ -73,12 +97,12 @@
 		<p><span>weight (kg): </span>11.2</p>
 	</section>
 
-	<section class="box third" id="expert-advice">
+	<section class="box third mid" id="expert-advice">
 		<h3>Expert advice</h3>
 		<p><span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.</p>
 	</section>
 
-	<section class="box third" id="try-it">
+	<section class="box third last" id="try-it">
 		<h3>Try it out!</h3>
 		<strong>A termék kipróbálható a Budai üzletünkben.</strong>
 		<div class="address">

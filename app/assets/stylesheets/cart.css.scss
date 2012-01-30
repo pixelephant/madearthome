@@ -25,6 +25,35 @@
 			}
 		}
 	}
+	tfoot{
+		td{
+			width:220px;
+			padding:20px 10px;
+			vertical-align:middle;
+		}
+		.total-cell{
+			text-align:right;
+		}
+		.sum-cell,.total-cell{
+			font-size:25px;
+			@include font-gill;
+			color:$orange;
+		}
+		.checkout-cell{
+			text-align:right;
+			input[type="submit"]{
+					@include cta-submit;
+					font-size:15px;
+					font-weight:bold;
+					text-transform:uppercase;
+					padding:12px 28px;
+			}
+			a{
+				display:block;
+				margin-top:3px;
+			}
+		}
+	}
 	tbody{
 		tr{
 			border-bottom:1px solid $border-gray;
