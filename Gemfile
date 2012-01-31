@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
+#gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 
@@ -39,6 +39,9 @@ gem 'spreadsheet'
 
 #URL
 gem 'friendly_id'
+
+gem 'seed_dumper'
+#, :git => 'git://github.com/kevTheDev/seed_dumper.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
