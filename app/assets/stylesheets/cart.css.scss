@@ -34,9 +34,14 @@
 		.total-cell{
 			text-align:right;
 		}
-		.sum-cell,.total-cell{
-			font-size:25px;
+		span{
+			margin:3px 0;
+			display:block;
 			@include font-gill;
+			font-size:18px;
+		}
+		.total{
+			font-size:25px;
 			color:$orange;
 		}
 		.checkout-cell{
@@ -51,6 +56,7 @@
 			a{
 				display:block;
 				margin-top:3px;
+				color:$link-color;
 			}
 		}
 	}
@@ -84,7 +90,7 @@
 		.price-cell{
 			@include font-gill;
 			color:#565654;
-			font-size:20px;
+			font-size:18px;
 		}
 		.actions-cell{
 			text-align:right;
@@ -92,8 +98,16 @@
 			.update{
 				font-variant:small-caps;
 				margin-right:25px;
+				color:$link-color;
 			}
 		}
 	}
 }
 
+#faq-links{
+	a{
+		display:block;
+		color:$link-color;
+		line-height:1.5;
+	}
+}
