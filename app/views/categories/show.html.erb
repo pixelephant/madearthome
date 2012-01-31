@@ -1,33 +1,35 @@
-<section id="sidebar">
-		<nav id="category-nav" class="box">
-			<h3>Kategóriák</h3>
-			<ul>
-				<%= render 'home/category_menu_left' %>
-			</ul>
-		</nav>
-		<form action="#" id="filter-form" class="box">
-			<h3>Szűrés</h3>
-			<fieldset>
-				<legend>Kedvezmények</legend>
-				<div class="field"><label for="">Ingyenes szállítás</label><input type="checkbox" name="kedv" id="" /></div>
-				<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
-			</fieldset>
+<div class="clearfix">
+	<section id="sidebar">
+			<nav id="category-nav" class="box">
+				<h3>Kategóriák</h3>
+				<ul>
+					<%= render 'home/category_menu_left' %>
+				</ul>
+			</nav>
+			<form action="#" id="filter-form" class="box">
+				<h3>Szűrés</h3>
+				<fieldset>
+					<legend>Kedvezmények</legend>
+					<div class="field"><label for="">Ingyenes szállítás</label><input type="checkbox" name="kedv" id="" /></div>
+					<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
+				</fieldset>
+			</form>
+	</section>
+
+	<section id="product-list" class="box">
+		<form action="#" id="action-form-top">
+			asd
 		</form>
-</section>
+		<div id="product-grid">
+			<%= render 'home/product_grid' %>
+		</div>
+		<form action="#" id="action-form-bottom">
+			asd
+		</form>
+	</section>
+</div>
 
-<section id="product-list" class="box">
-	<form action="#" id="action-form-top">
-		asd
-	</form>
-	<div id="product-grid">
-		<%= render 'home/product_grid' %>
-	</div>
-	<form action="#" id="action-form-bottom">
-		asd
-	</form>
-</section>
-
-<section class="box full slider" id="last-viewed">
+<section class="box full slider clearfix" id="last-viewed">
 	<h3>Utoljára megtekintett termékek</h3>
 	  <a href="#" class="arrow left"></a>
 	  <div class="carousel">

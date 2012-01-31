@@ -1,4 +1,3 @@
-//= require zoom
 //= require jquery.easing
 //= require carousel
 //= require mousewheel
@@ -17,12 +16,6 @@
 
 $("document").ready(function(){
 	
-	$('.zoomable').jqzoom({
-		zoomType: 'innerzoom',
-		title: false,
-		preloadText: 'Képek betöltése...',
-	});
-	
 	$(".carousel").jCarouselLite({
 	        btnPrev: ".left",
 	        btnNext: ".right",
@@ -39,4 +32,26 @@ $("document").ready(function(){
 	     preventDefaultEvents: true
 	});
 	
+	$(".product").click(function(){
+	
+		$(this).modal({
+			onClose: function (dialog) {
+				dialog.data.fadeOut('slow', function () {
+					dialog.container.slideUp('slow', function () {
+						dialog.overlay.fadeOut('slow', function () {
+							$.modal.close(); // must call this!
+						});
+					});
+				});
+			},
+			onOpen: function (dialog) {
+				dialog.overlay.fadeIn('slow', function () {
+					dialog.container.slideDown('slow', function () {
+						dialog.data.fadeIn('slow');
+					});
+				});
+			}
+		});
+	
+	});
 });
