@@ -109,6 +109,9 @@
 	cursor:pointer;
 	@include transition-03s;
 	@include border-radius(3px,3px,3px,3px);
+	text-decoration:none;
+	text-transform:uppercase;
+	font-weight:bold;
 	&:hover{
 		@include text-shadow(0,0,#333,3px);
 	}
@@ -124,6 +127,7 @@
 $orange: #e95321;
 $border-gray: #E1E1E1;
 $heading-gray: #3C3C3B;
+$link-color: #3F5EA9;
 
 /* new clearfix */
 .clearfix:after {

@@ -286,12 +286,13 @@ border-bottom: 5px solid black;
 	.links{
 		position:absolute;
 		bottom:20px;
+		a{
+			color:$link-color;
+		}
 	}
 	input[type="submit"]{
 		@include cta-submit;
 		font-size:18px;
-		text-decoration:none;
-		text-transform:uppercase;
 		padding:9px;
 	}
 }

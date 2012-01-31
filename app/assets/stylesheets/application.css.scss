@@ -47,7 +47,7 @@ input::-moz-focus-inner,button::-moz-focus-inner /*Remove button padding in FF*/
 
 
 p a{
-	color:#3F5EA9;
+	color:$link-color;
 }
 
 p .lead{
@@ -91,7 +91,6 @@ html{
 
 #main-header{
 	width:100%;
-	overflow:hidden;
 }
 
 #header-wrapper{
@@ -150,9 +149,11 @@ html{
 	z-index:3;
 	top:-20px;
 	text-indent:-99999px;
+	@include box-shadow;
 }
 
 #minicart-wrapper{
+	position:relative;
 	float:right;
 	margin-top:20px;
 	margin-left:10px;
@@ -160,7 +161,15 @@ html{
 	@include border-radius(3px,3px,3px,3px);
 	border:1px solid #c2c2c2;
 	padding:5px 5px 5px 5px;
-	a{
+	&:hover{
+		background:white;
+		@include border-radius(3px,3px,0px,0px);
+		border-bottom:none;
+		#minicart{
+			display:block;
+		}
+	}
+	a.minicart{
 		padding-top:27px;
 		background: url(cart-icon.png) center -5px no-repeat;
 		display:block;
@@ -171,6 +180,89 @@ html{
 		text-decoration:none;
 		display:block;
 		text-align:center;
+	}
+	.counter{
+		display:block;
+		width:16px;
+		height:16px;
+		@include border-radius(8px,8px,8px,8px);
+		border: 1px solid black;
+		font-size:12px;
+		@include font-gill;
+		font-weight:bold;
+		text-align:center;
+		line-height:16px;
+		background:white;
+		color:$orange;
+		position:absolute;
+		right:5px;
+	}
+}
+
+#minicart{
+	display:none;
+	padding:25px;
+	width:400px;
+	position:absolute;
+	right:-8px;
+	margin-top:0px;
+	z-index:4;
+	background:white;
+	border:1px solid $border-gray;
+	@include border-radius(3px, 3px, 3px, 3px);
+	@include transition-03s;
+	@include box-shadow;
+	.row{
+		overflow:hidden;
+		border-bottom:1px solid $border-gray;
+		padding:10px;
+		&.total{
+			border-bottom:none;
+			padding-left:70px;
+			font-size:16px;
+			@include font-gill;
+			text-transform:uppercase;
+			.total-price{
+				text-transform:none;				
+				float:right;
+				color:$orange;
+			}
+		}
+		img{
+			float:left;
+			width:50px;
+			height:50px;
+			border:1px solid $border-gray;
+		}
+		span{
+			display:block;
+		}
+		.data{
+			margin-left:10px;
+			float:left;
+			.title{
+				text-transform:uppercase;
+				@include font-gill;
+				font-size:14px;
+				font-weight:bold;
+				display:block;
+			}
+		}
+		.price{
+			float:right;
+		}
+	}
+	a{
+		float:right;
+		margin-top:10px;
+		color:$link-color;
+		&.button{
+			@include cta-submit;
+			margin-left:10px;
+			float:right;
+			padding:9px;
+			font-size:16px;
+		}
 	}
 }
 
@@ -197,8 +289,6 @@ html{
 	input[type="submit"]{
 		@include cta-submit;
 		font-size:12px;
-		font-weight:bold;
-		text-transform:uppercase;
 		height:29px;
 		padding:0 9px;
 		float:right;
@@ -322,8 +412,6 @@ html{
 	input[type="submit"]{
 		@include cta-submit;
 		font-size:12px;
-		text-transform:uppercase;
-		font-weight:bold;
 		padding:5px 9px;
 		vertical-align:top;
 	}

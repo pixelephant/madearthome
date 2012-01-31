@@ -14,6 +14,7 @@
 			<li class="first">Need help? Call: 123-4567</li>
 			<li><%= link_to "Register", "/register" %></li>
 			<li><%= link_to "Login", "/login" %></li>
+			<li><%= link_to "Whislist","/whishlistr" %></li>
 			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
 		</ul>
 	</nav>
@@ -24,7 +25,51 @@
 			</h1>
 		</a>
 		<div id="minicart-wrapper">
-			<%= link_to "KOSÁR", "/cart" %>
+			<span class="counter">10</span>
+			<%= link_to "KOSÁR", "/cart", :class => "minicart" %>
+			<div id="minicart">
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row total">
+					Total: <span class="total-price">36.000 Ft</span>
+				</div>
+				<%= link_to "Kosárhoz", "/cart", :class => "button" %>
+				<a class="close-minicart" href="#">vásárlás folytatása</a>
+			</div>
 		</div>
 		<div id="search-wrapper">
 			<form action="#" id="search-form">
