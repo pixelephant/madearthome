@@ -1,18 +1,18 @@
 Madearthome::Application.routes.draw do
 
+  resources :cart
+
   resources :mass_uploads
 
   resources :manufacturer_photos
 
   resources :designer_photos
 
-  resources :properties_to_custom_categories
+  #resources :properties_to_custom_categories
 
-  resources :custom_categories
+  #resources :properties_to_categories
 
-  resources :properties_to_categories
-
-  resources :discounts_to_products
+  #resources :discounts_to_products
 
   resources :discounts
 
@@ -24,11 +24,11 @@ Madearthome::Application.routes.draw do
 
   get "home/index"
 
-  resources :advantages_to_products
+  #resources :advantages_to_products
 
-  resources :advantages
+  #resources :advantages
 
-  resources :property_categories_to_categories
+  #resources :property_categories_to_categories
 
 	devise_for :users, :path => '', :path_names => { :sign_in => "admin/login", :sign_out => "admin/logout", :sign_up => "admin/register" }
 
@@ -54,6 +54,10 @@ Madearthome::Application.routes.draw do
 	match "/:id" => "categories#show"
 	#Categories END
 
+	#Categories START
+	match "/:id" => "categories#show"
+	#Categories END
+
   resources :wishlist_items
 
   resources :wishlists
@@ -72,13 +76,13 @@ Madearthome::Application.routes.draw do
 
   resources :users
 
-  resources :categories
+  resources :categories do
+	  resources :custom_categories
+	end
 
   resources :photos
 
   resources :products
-  
-  resources :cart
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
