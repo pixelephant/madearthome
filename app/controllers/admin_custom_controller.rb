@@ -26,7 +26,11 @@ class AdminCustomController < ApplicationController
 				if !property_category.categories.exists?(category.id)
 					property_category.categories << category
 				end
-				product.properties << Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
+				if !row[i].blank?
+					p = Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
+					product.properties << p
+					category.properties << p if !category.properties.exists?(p.id)
+				end
 			end
 
 			for i in 24..37 do
@@ -34,7 +38,11 @@ class AdminCustomController < ApplicationController
 				if !property_category.categories.exists?(category.id)
 					property_category.categories << category
 				end
-				product.properties << Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
+				if !row[i].blank?
+					p = Property.find_or_create_by_property_name(:property_name => row[i], :property_category_id => property_category.id)
+					product.properties << p
+					category.properties << p if !category.properties.exists?(p.id)
+				end
 			end
 
     end
