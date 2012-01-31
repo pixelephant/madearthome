@@ -50,6 +50,10 @@ Madearthome::Application.routes.draw do
 
 	#Admin ajax routes END
 
+	#Categories START
+	match "/:id" => "categories#show"
+	#Categories END
+
   resources :wishlist_items
 
   resources :wishlists

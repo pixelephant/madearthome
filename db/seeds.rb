@@ -15,11 +15,11 @@ products = Product.create([{ name: "Test product", short_description: "Short tes
 
 Photo.delete_all
 
-photos = Photo.create([{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01017-B.jpg')), alt: "Mirror", default: 1},{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01053-B.jpg')), alt: "Mirror2", default: nil},{ product_id: 2, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/06064.jpg')), alt: "Mirror2", default: 1},{ product_id: 3, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/awd.jpg')), alt: "Mirror2", default: 1},{ product_id: 4, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/01909.jpg')), alt: "Mirror2", default: 1},{ product_id: 5, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/04011.jpg')), alt: "Mirror2", default: 1},{ product_id: 6, image_file: File.open(File.join(Rails.root, '/public/uploads/image_file/26760-1.jpg')), alt: "Mirror2", default: 1}])
+photos = Photo.create([{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/01017-B.jpg')), alt: "Mirror", default: 1},{ product_id: 1, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/01053-B.jpg')), alt: "Mirror2", default: nil},{ product_id: 2, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/december-11-pixel__60-calendar-1920x1080.jpg')), alt: "Mirror2", default: 1},{ product_id: 3, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/january-12-resolution_libs__75-calendar-1920x1080.png')), alt: "Mirror2", default: 1},{ product_id: 4, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/september-11-love_friends__7-calendar-1680x1050.jpg')), alt: "Mirror2", default: 1},{ product_id: 5, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/november-11-november_nostalgia__75-calendar-1680x1050.jpg')), alt: "Mirror2", default: 1},{ product_id: 6, image_file: File.open(File.join(Rails.root, '/public/uploads/photo/image_file/medium_october-11-creepy_october__3-calendar-1920x1080.jpg')), alt: "Mirror2", default: 1}])
 
 Category.delete_all
 
-categories = Category.create([{category_id: nil, name: "Parent category"},{category_id: 1, name: "Child category"}])
+categories = Category.create([{name: "Parent category"},{name: "Child category"}])
 
 User.delete_all
 
@@ -45,9 +45,9 @@ PropertyCategory.delete_all
 
 property_categories = PropertyCategory.create([{category_name: 'Test property category'}])
 
-PropertiesToProduct.delete_all
+#ProductsProperties.delete_all
 
-properties_to_categories = PropertiesToProduct.create([{property_id: 1, product_id: 1}])
+#properties_to_categories = ProductsProperties.create([{property_id: 1, product_id: 1}])
 
 Wishlist.delete_all
 

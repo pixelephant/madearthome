@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: :slugged
+
 	has_many :photos
 	belongs_to :category
 #	has_many :properties_to_products
