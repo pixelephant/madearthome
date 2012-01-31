@@ -145,10 +145,18 @@
 	height:300px;
 }
 
+.arrow-up {
+width: 0;
+height: 0;
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-bottom: 5px solid black;
+}
+
 #picture-list{
 	overflow:hidden;
 	width:460px;
-	height:150px;
+	height:100px;
 	border-right:1px solid $border-gray;
 	a{
 		margin:20px 10px;
@@ -165,15 +173,22 @@
 }
 
 #social-buttons{
+	border-top:1px solid $border-gray;
 	border-right:1px solid $border-gray;
-	width:460px;
-	height:25px;
+	width:450px;
+	height:75px;
+	line-height:75px;
+	padding-left:10px;
 	div{
 		float:left;
 		margin:0 5px;
 	}
 	.fb-like iframe{
 		width:133px !important;
+	}
+	.tw-like{
+		top: 4px;
+		position: relative;
 	}
 }
 
@@ -204,6 +219,11 @@
 			@include font-garamond;
 			text-transform:lowercase;
 		}
+	}
+	img{
+		float:right;
+		height:42px;
+		margin:4px 4px 0px 4px;
 	}
 }
 
@@ -256,8 +276,7 @@
 		margin-bottom:12px;
 		label{
 			float:left;
-			width:50px;
-			font-variant:small-caps;
+			width:90px;
 			margin-right:60px;
 		}
 		input[type="number"]{
@@ -291,6 +310,9 @@
 }
 
 #specifications{
+	.ribbon{
+		background:url(ribbon-spec.png) no-repeat;
+	}
 	p{
 		display:block;
 		span{
@@ -300,7 +322,16 @@
 	}
 }
 
+#expert-advice{
+	.ribbon{
+		background:url(ribbon-advice.png) no-repeat;
+	}
+}
+
 #try-it{
+	.ribbon{
+		background:url(ribbon-loc.png) no-repeat;
+	}
 	.address{
 		margin-top:10px;
 	}

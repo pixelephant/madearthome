@@ -286,6 +286,16 @@ html{
 		&.last{
 			margin-right:0px;
 		}
+		&.has-ribbon{
+			position:relative;
+			.ribbon{
+				width:50px;
+				height:75px;
+				position:absolute;
+				right:0;
+				top:-10px;
+			}
+		}
 	}
 	&.full{
 		margin-top:20px;
@@ -298,7 +308,7 @@ html{
 		text-transform:uppercase;
 	}
 	h3{
-		margin-bottom:20px;
+		margin-bottom:25px;
 		font-size:18px;
 	}
 	h4{

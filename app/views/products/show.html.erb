@@ -40,10 +40,12 @@
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
+				<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+				<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
-					<p class="list-price">Lista ár: <span> Ft</span></p>
+					<p class="list-price">Lista ár: <span> 1900 Ft</span></p>
 					<p class="discount-price">Akciós ár: <span> 1800 Ft</span></p>
 				</div>
 				<div class="third">
@@ -68,7 +70,8 @@
 							<option value="">3</option>
 							<option value="">4</option>
 						</select></p>
-						<p><label for="">Mennyiség</label><input type="number" name="" min="0" max="5" id="" /></p>
+						<p><label for="">Mennyiség</label><input type="number" name="" min="1" max="5" id="" /></p>
+						<p><label for="">Szállítási idő</label> 12 nap</p>
 						<div class="links">
 							<a href="#">szállítás</a>
 							<a href="#">fizetés</a>
@@ -90,19 +93,22 @@
 </section>
 
 <div class="box-wrap clearfix">
-	<section class="box third" id="specifications">
+	<section class="box third has-ribbon" id="specifications">
+		<div class="ribbon"></div>
 		<h3>Specifications</h3>
 		<p><span>designer: </span>Matthew Williams</p>
 		<p><span>dimensions: </span>30 x 30 x 120</p>
 		<p><span>weight (kg): </span>11.2</p>
 	</section>
 
-	<section class="box third mid" id="expert-advice">
+	<section class="box third mid has-ribbon" id="expert-advice">
+		<div class="ribbon"></div>
 		<h3>Expert advice</h3>
 		<p><span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.</p>
 	</section>
 
-	<section class="box third last" id="try-it">
+	<section class="box third last has-ribbon" id="try-it">
+		<div class="ribbon"></div>
 		<h3>Try it out!</h3>
 		<strong>A termék kipróbálható a Budai üzletünkben.</strong>
 		<div class="address">
