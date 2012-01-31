@@ -86,9 +86,7 @@
 		<% if params[:controller] != 'home'%>
 		<nav id="breadcrumb">
 			<p>
-				<a href=""/"">Main</a> {
-				<a href=""/"">Products</a> {
-				<a href=""/"">Example product</a> {		
+				<%= render 'home/breadcrumb' %>
 			</p>
 		</nav>
 		<% end %>

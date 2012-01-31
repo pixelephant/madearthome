@@ -1,0 +1,12 @@
+<!--%= link_to "HOME", root_path %-->
+<% links = [] %>
+<% links << link_to(@category.name, @category).to_s if !@category.nil? %>
+<% links << link_to(@custom_category.name, category_custom_category_path(@custom_category)).to_s if !@custom_category.nil? %>
+<% links << link_to(@product.name, @product).to_s if !@product.nil? %>
+
+<% links.each do |link| %>
+<%= link %>
+<%= " > " if link != links.last %>
+<% end %>
+
+
