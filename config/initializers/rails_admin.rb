@@ -73,6 +73,18 @@ PropertiesToCustomCategory]
 		end		
 	end
 
+	#CustomCategory
+
+
+	config.model CustomCategory do
+		#Product edit form
+		edit do	
+
+			include_all_fields
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
+		end		
+	end
+
 	#Discount
 	config.model Discount do
 		#Discount list view

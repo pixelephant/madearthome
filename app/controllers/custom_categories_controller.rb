@@ -14,6 +14,7 @@ class CustomCategoriesController < ApplicationController
   # GET /custom_categories/1.json
   def show
     @custom_category = CustomCategory.find(params[:id])
+		@category = @custom_category.category
 
     respond_to do |format|
       format.html # show.html.erb
