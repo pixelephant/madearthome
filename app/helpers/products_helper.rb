@@ -54,6 +54,4 @@ module ProductsHelper
 
 	end
 
-	
-
 end
