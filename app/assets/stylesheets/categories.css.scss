@@ -38,6 +38,7 @@
 	legend{
 		font-variant:small-caps;
 		display:block;
+		font-size:18px;
 		padding-bottom:10px;
 	}
 	.field{
@@ -82,6 +83,10 @@
 		.price{
 			font-weight:bold;
 		}
+		a{
+			text-decoration:none;
+			display:block;
+		}
 		.image{
 			overflow:hidden;
 			position:relative;
@@ -95,11 +100,30 @@
 					-ms-transform: scale(1.2);
 					transform: scale(1.2);
 			}
+			div{
+				position:absolute;
+				z-index:2;
+				top:-155px;
+				@include box-rgba(0,0,0,0.6);
+				color:white;
+				@include font-gill;
+				width:155px;
+				height:155px;
+				text-align:center;
+				line-height:155px;
+				font-size:18px;
+				text-transform:uppercase;
+				@include transition-03s
+			}
+			&:hover div{
+				top:0;
+			}
 		}
 		img{
 			width:155px;
 			height:155px;
 			@include transition-03s;
+			z-index:1;
 		}
 		p{
 			@include font-gill;

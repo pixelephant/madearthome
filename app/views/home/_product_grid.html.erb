@@ -5,6 +5,7 @@
 		<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 		<div class="image">
 			<%= link_to product_path(product) do%>
+				<div>Megtekintem</div>
 				<img src="http://placekitten.com/155/155" alt="" />
 			<% end %>
 		</div>

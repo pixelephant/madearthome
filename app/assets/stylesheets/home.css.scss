@@ -32,6 +32,7 @@
 		color:white;
 		font-size:50px;
 		@include font-gill;
+		position:relative;
 	}
 }
 
@@ -149,6 +150,39 @@
 
 #slide-6-thumb .mask{
 	background:rgba(240,108,152,0.6);
+}
+
+.plus{
+	display:block;
+	@include font-gill;
+	color:white;
+	opacity:0.8;
+	font-size:45px;
+	position:absolute;
+	text-decoration:none;
+	@include transition-03s;
+	width:30px;
+	height:30px;
+	text-align:center;
+	line-height:30px;
+	&:hover{
+		opacity:1;
+	}
+}
+
+#slide-1-plus-1{
+	top:15px;
+	left:300px;
+}
+
+#slide-1-plus-2{
+	top:150px;
+	left:30px;
+}
+
+#slide-1-plus-3{
+	bottom:60px;
+	right:300px;
 }
 
 #search-examples{
