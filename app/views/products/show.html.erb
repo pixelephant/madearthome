@@ -101,8 +101,10 @@
 		<% if !@designer.nil? %>
 			<p><span>designer: </span><%= @designer.name %></p>
 		<% end %>
-
-		<p><span>dimensions: </span>30 x 30 x 120</p>
+		
+		<% if !@product.dimensions.nil? %>
+			<p><span>dimensions: </span><%= @product.dimensions %></p>
+		<% end %>
 
 		<% if !@product.weight.nil? %>
 			<p><span>weight (kg): </span><%= @product.weight %></p>
