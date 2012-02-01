@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
 		@category = @product.category
-
+		(session[:last_viewed_products] ||= []) << params[:id]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
