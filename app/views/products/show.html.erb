@@ -45,7 +45,7 @@
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
-					<p class="list-price">Lista ár: <span> 1900 Ft</span></p>
+					<p class="list-price">Lista ár: <span> <%= @product.price %> Ft</span></p>
 					<p class="discount-price">Akciós ár: <span> 1800 Ft</span></p>
 				</div>
 				<div class="third">
@@ -86,7 +86,9 @@
 				</form>
 			</div>
 			<div id="short-description-box">
-				<p><span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla.</p>
+				<p><!--span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. -->
+				<%= @product.short_description %>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -96,42 +98,59 @@
 	<section class="box third has-ribbon" id="specifications">
 		<div class="ribbon"></div>
 		<h3>Specifications</h3>
-		<p><span>designer: </span>Matthew Williams</p>
+		<% if !@designer.nil? %>
+			<p><span>designer: </span><%= @designer.name %></p>
+		<% end %>
+
 		<p><span>dimensions: </span>30 x 30 x 120</p>
-		<p><span>weight (kg): </span>11.2</p>
+
+		<% if !@product.weight.nil? %>
+			<p><span>weight (kg): </span><%= @product.weight %></p>
+		<% end %>
 	</section>
 
+	<% if !@product.advice.nil? %>
 	<section class="box third mid has-ribbon" id="expert-advice">
 		<div class="ribbon"></div>
 		<h3>Expert advice</h3>
-		<p><span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.</p>
+		<p><!--span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.-->
+		<%= @product.advice %>
+		</p>
 	</section>
+	<% end %>
 
+	<% if @product.stores.any? %>
+	<% store = @product.stores.first %>
 	<section class="box third last has-ribbon" id="try-it">
 		<div class="ribbon"></div>
 		<h3>Try it out!</h3>
-		<strong>A termék kipróbálható a Budai üzletünkben.</strong>
+		<strong>A termék kipróbálható a <%= store.name %> üzletünkben.</strong>
 		<div class="address">
-			<p>1101 <a href="http://www.googlemaps.com"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
-			<p>Budapest, Buda utca 12/b </p>
+			<p>1101 <a href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
+			<p><%= store.address %></p>
 			<p>H-SZ: 10-18</p>
 		</div>
 	</section>
+	<% end %>
 </div>
 
-<section class="box full" id="about-designer">
-	<h3>About the desginer</h3>
-	<h4>Matthew Williams</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <%= image_tag "matthew.png", :title => "title", :class => "class" %> Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla.  Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
-</section>
+<% if !@designer.nil? %>
+	<section class="box full" id="about-designer">
+		<h3>About the desginer</h3>
+		<h4><%= @designer.name %></h4>
+		<%= image_tag @designer.designer_photos.first.image_file, :title => @designer.designer_photos.first.alt, :class => "class", :alt => @designer.designer_photos.first.alt if @designer.designer_photos.any? %>
+		<%= @designer.description %>
+	</section>
+<% end %>
 
-<section class="box full" id="about-manufacturer">
-	<h3>About the brand</h3>
-	<h4>Uttermost</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <%= image_tag "uttermost.png", :title => "title", :class => "class" %> Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla.  Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac libero eu massa sollicitudin mattis porta sollicitudin turpis. Vivamus elementum nisl non neque gravida ultricies. Cras dapibus tempor neque a scelerisque. Sed vulputate, risus eget.</p>
-</section>
+<% if !@manufacturer.nil? %>
+	<section class="box full" id="about-manufacturer">
+		<h3>About the brand</h3>
+		<h4><%= @manufacturer.name %></h4>
+		<%= image_tag @manufacturer.manufacturer_photos.first.image_file, :title => @manufacturer.manufacturer_photos.first.alt, :class => "class", :alt => @manufacturer.manufacturer_photos.first.alt if @manufacturer.manufacturer_photos.any? %>
+		<%= @manufacturer.description %>
+	</section>
+<% end %>
 
 <section class="box full slider clearfix" id="related-products">
 	<h3>Suggested products</h3>

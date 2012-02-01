@@ -41,4 +41,9 @@ class Product < ActiveRecord::Base
 		self.find(:all, :joins => :discounts, :select => "products.*", :conditions => ["discounts.id IS NOT NULL"], :group => "products.id")
 	end
 
+	def weight
+		a = PropertyCategory.where(:category_name => 'Weight').first.properties
+		self.properties.where(:id => a).first.property_name
+	end
+
 end
