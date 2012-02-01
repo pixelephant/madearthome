@@ -48,13 +48,13 @@ class Product < ActiveRecord::Base
 
 	def dimensions
 		a = PropertyCategory.where(:category_name => 'Overall Width').first.properties
-		w = self.properties.where(:id => a).first.property_name
+		w = self.properties.where(:id => a).first.property_name if self.properties.where(:id => a).any?
 
 		a = PropertyCategory.where(:category_name => 'Overall Height').first.properties
-		h = self.properties.where(:id => a).first.property_name
+		h = self.properties.where(:id => a).first.property_name if self.properties.where(:id => a).any?
 
 		a = PropertyCategory.where(:category_name => 'Overall Depth').first.properties
-		d = self.properties.where(:id => a).first.property_name
+		d = self.properties.where(:id => a).first.property_name if self.properties.where(:id => a).any?
 		
 		if w.nil? || h.nil? || d.nil?
 			return nil
