@@ -166,13 +166,6 @@ ActiveRecord::Schema.define(:version => 20120201133543) do
 
   add_index "products", ["slug"], :name => "index_products_on_slug"
 
-  create_table "products_links", :force => true do |t|
-    t.integer  "link_id"
-    t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products_properties", :force => true do |t|
     t.integer  "property_id"
     t.integer  "product_id"
