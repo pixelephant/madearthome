@@ -126,7 +126,7 @@
 		<h3>Try it out!</h3>
 		<strong>A termék kipróbálható a <%= store.name %> üzletünkben.</strong>
 		<div class="address">
-			<p>1101 <a href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
+			<p>1101 <a target="_blank" href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
 			<p><%= store.address %></p>
 			<p>H-SZ: 10-18</p>
 		</div>
