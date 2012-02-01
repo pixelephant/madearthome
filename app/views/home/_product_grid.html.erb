@@ -1,6 +1,7 @@
 <% cat = @custom_category.nil? ? @category : @custom_category %>
-<% cat.products.each do |product| %>
-<div class="product">
+<% cat.products.each_with_index do |product,i| %>
+<% cl = i % 3 == 2 ? 'product last' : 'product'%>
+<div class="<%= cl %>">
 	<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 	<p class="name">
 		<%= product.name %>
