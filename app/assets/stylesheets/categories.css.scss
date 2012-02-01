@@ -50,8 +50,8 @@
 }
 
 #product-list{
-	padding:20px;
-	width:670px;
+	padding:25px;
+	width:660px;
 	float:left;
 }
 
@@ -65,22 +65,113 @@
 
 #product-grid{
 	overflow:hidden;
-	padding:10px 20px;
+	padding:10px 15px 10px 20px;
 	.product{
-		margin:10px 50px 10px 0px;
+		float:left;
+		width:175px;
+		height:230px;
+		margin:10px 50px 25px 0px;
 		&.last{
-			margin-right:0;
+			margin:10px 0px 25px 0px;
+		}
+		.left{
+			float:left;
+			padding-right:5px;
+			width:150px;
+		}
+		.price{
+			font-weight:bold;
+		}
+		.image{
+			overflow:hidden;
+			position:relative;
+			border:10px solid $border-gray;
+			height:155px;
+			margin-bottom:10px;
+			&:hover img{
+					-webkit-transform: scale(1.2);
+					-moz-transform: scale(1.2);
+					-o-transform: scale(1.2);
+					-ms-transform: scale(1.2);
+					transform: scale(1.2);
+			}
 		}
 		img{
 			width:155px;
 			height:155px;
-			border:10px solid $border-gray;
+			@include transition-03s;
 		}
 		p{
 			@include font-gill;
 		}
+		.quicklook{
+			display:block;
+			background:url(quicklook.png) no-repeat center;
+			width:20px;
+			height:10px;
+			float:right;
+			padding-top:8px;
+		}
+	}
+}
+
+#product-modal-wrap{
+	display:none;
+}
+
+#product-modal{
+	width:800px;
+	margin:0 auto;
+	.top{
+		padding-bottom:10px;
+		margin-bottom:10px;
+		border-bottom:1px solid $border-gray;
+		h3,h4{
+			@include font-gill;
+			color:$heading-gray;
+			font-weight:bold;
+			text-transform:uppercase;
+			font-size:20px;
+		}
+		h4{
+			font-size:16px;
+			color:$orange;
+			font-weight:normal;
+		}
+	}
+	.images{
 		float:left;
-		width:175px;
-		height:210px;
+		img{
+			width:50px;
+			height:50px;
+			border:5px solid $border-gray;
+			margin:0 10px;
+		}
+	}
+	.discounts{
+		float:right;
+		padding-right:50px;
+		color:$orange;
+		li{
+			line-height:1.5;
+		}
+	}
+	.short-description{
+		margin:10px 0;
+	}
+	.properties{
+		float:left;
+		margin:10px 0;
+		span{
+			font-variant:small-caps;
+		}
+	}
+	.button{
+		@include cta-submit;
+		float:right;
+		padding:9px;
+		position:absolute;
+		bottom:20px;
+		right:20px;
 	}
 }

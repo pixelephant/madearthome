@@ -32,9 +32,9 @@ $("document").ready(function(){
 	     preventDefaultEvents: true
 	});
 	
-	$(".product").click(function(){
+	$(".quicklook").click(function(){
 	
-		$(this).modal({
+		$("#product-modal").modal({
 			onClose: function (dialog) {
 				dialog.data.fadeOut('slow', function () {
 					dialog.container.slideUp('slow', function () {
@@ -52,6 +52,6 @@ $("document").ready(function(){
 				});
 			}
 		});
-	
+		return false;
 	});
 });

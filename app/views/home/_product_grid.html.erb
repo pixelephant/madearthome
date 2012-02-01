@@ -2,13 +2,53 @@
 <% cat.products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div class="<%= cl %>">
-	<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
-	<p class="name">
-		<%= product.name %>
-	</p>
-	<p class="price">
-		<%= product.price %>
-	</p>
-	<%= link_to product.name, product %>
+		<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
+		<div class="image">
+			<%= link_to product_path(product) do%>
+				<img src="http://placekitten.com/155/155" alt="" />
+			<% end %>
+		</div>
+		<div class="clearfix">
+			<div class="left">
+				<p class="name">
+					<%= product.name %>
+				</p>
+				<p class="price">
+					<%= product.price %>
+				</p>
+			</div>
+			<a href="#" class="quicklook"></a>
+		</div>
 </div>
 <% end %>
+
+<section id="product-modal-wrap">
+	<div id="product-modal">
+		<div class="top">
+			<h3>Okalami writing desk</h3>
+			<h4>Price: 12.000 Ft</h4>
+		</div>
+		<div class="clearfix">
+			<div class="images">
+				<a href="#"><img src="http://placekitten.com/50/50" alt="" /></a>
+				<a href="#"><img src="http://placekitten.com/50/50" alt="" /></a>
+			</div>
+			<ul class="discounts">
+				<li>Free shipping</li>
+				<li>Ajándék párna</li>
+			</ul>
+		</div>
+		<p class="short-description">
+			<span class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span> Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor.
+		</p>
+		<div class="clearfix">
+			<div class="properties">
+				<p><span>Designer</span> Kovács Kálmán</p>
+				<p><span>Designer</span> Kovács Kálmán</p>
+				<p><span>Designer</span> Kovács Kálmán</p>
+				<p><span>Designer</span> Kovács Kálmán</p>
+			</div>
+			<a class="button" href="#">Részletek</a>
+		</div>	
+	</div>
+</section>
