@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130125617) do
+ActiveRecord::Schema.define(:version => 20120201133543) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20120130125617) do
   create_table "advantages_to_products", :force => true do |t|
     t.integer  "product_id"
     t.integer  "advantage_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,6 +77,27 @@ ActiveRecord::Schema.define(:version => 20120130125617) do
   create_table "discounts_to_products", :force => true do |t|
     t.integer  "product_id"
     t.integer  "discount_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", :force => true do |t|
+    t.string   "link_text"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links_products", :force => true do |t|
+    t.integer  "link_id"
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -134,12 +160,28 @@ ActiveRecord::Schema.define(:version => 20120130125617) do
     t.integer  "designer_id"
     t.integer  "manufacturer_id"
     t.string   "slug"
+    t.text     "advice"
+    t.string   "video"
   end
 
   add_index "products", ["slug"], :name => "index_products_on_slug"
 
+  create_table "products_links", :force => true do |t|
+    t.integer  "link_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products_properties", :force => true do |t|
     t.integer  "property_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products_stores", :force => true do |t|
+    t.integer  "store_id"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -195,6 +237,15 @@ ActiveRecord::Schema.define(:version => 20120130125617) do
   create_table "related_products", :force => true do |t|
     t.integer  "product_id"
     t.integer  "related_product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stores", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "lat"
+    t.string   "long"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

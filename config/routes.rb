@@ -1,5 +1,17 @@
 Madearthome::Application.routes.draw do
 
+  resources :links_products
+
+  resources :products_stores
+
+  resources :stores
+
+  resources :links
+
+  resources :line_items
+
+  resources :carts
+
   resources :cart
 
   resources :mass_uploads

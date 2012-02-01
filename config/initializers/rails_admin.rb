@@ -164,6 +164,20 @@ PropertiesToCustomCategory]
 		end
 	end
 
+	#Links
+	config.model Link do
+		object_label_method do
+			:link_label_method
+		end
+	end
+
+	#Stores
+	config.model Store do
+		object_label_method do
+			:store_label_method
+		end
+	end
+
 	#Custom label methods
 	def property_label_method
 		if self.property_category.nil?
@@ -196,6 +210,14 @@ PropertiesToCustomCategory]
 
 	def order_item_label_method
 		self.product.name
+	end
+
+	def link_label_method
+		self.link_text
+	end
+
+	def store_label_method
+		self.name
 	end
 
 end

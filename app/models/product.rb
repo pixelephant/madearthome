@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 #	has_many :properties_to_products
 #	has_many :properties, :through => :properties_to_products
 	has_and_belongs_to_many :properties
+	has_and_belongs_to_many :links
+	has_and_belongs_to_many :stores
 
 	has_many :wishlist_items
 	has_many :advantages, :through => :advantages_to_products
@@ -27,6 +29,8 @@ class Product < ActiveRecord::Base
 	validates :sku, :name, :uniqueness => true
 
 	has_many :order_items
+
+	has_many :line_items
 
 	def default_photo
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
