@@ -184,7 +184,7 @@ html{
 		display:block;
 		width:16px;
 		height:16px;
-		@include border-radius(8px,8px,8px,8px);
+		@include border-radius(16px,16px,16px,16px);
 		border: 1px solid black;
 		font-size:12px;
 		@include font-gill;
