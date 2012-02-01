@@ -1,0 +1,15 @@
+<section class="box full slider clearfix" id="last-viewed">
+	<h3>Last viewed</h3>
+	  <a href="#" class="arrow left"></a>
+	  <div class="carousel">
+		<ul>
+			<% session[:last_viewed_products].each do |product| %>
+				<% img = Product.find_by_slug(product).nil? ? nil : Product.find_by_slug(product).default_photo %>
+				<% if !img.nil? %>
+					<li><%= image_tag img.image_file.medium, :title => img.alt, :class => "class", :alt => img.alt %></li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div><!-- carousel -->
+	<a href="#" class="arrow right"></a>
+</section>
