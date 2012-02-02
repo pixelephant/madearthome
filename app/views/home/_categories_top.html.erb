@@ -1,16 +1,20 @@
 <% Category.all.each_with_index do |category, index| %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_path(category) %>
-		<ul class="sub right column-2">
-			<div class="col-1">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-			</div>
-			<div class="col-1">
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</div>
-		</ul>
+		<% if category.custom_categories.any? %>
+			<ul class="sub right column-3">
+				<div class="col1">
+					<% sub_categories = category.custom_categories  %>
+					<% product_per_column = sub_categories.count / 3 if !sub_categories.blank? %>
+					<% sub_categories.each_with_index do |sub_cat,i| %>
+						<% if i == product_per_column || i == product_per_column * 2 %>
+							</div>
+							<div class="col1">
+						<% end %>
+						<li><%= link_to sub_cat.name, category_custom_category_path(@category, sub_cat) %></li>
+					<% end %>
+				</div>
+			</ul>
+		<% end %>
 	</li>
 <% end %>
