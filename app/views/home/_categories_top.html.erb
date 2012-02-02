@@ -1,5 +1,16 @@
 <% Category.all.each_with_index do |category, index| %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_path(category) %>
+		<ul class="sub right column-2">
+			<div class="col-1">
+				<li><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+			</div>
+			<div class="col-1">
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+			</div>
+		</ul>
 	</li>
 <% end %>
