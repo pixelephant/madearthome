@@ -28,19 +28,4 @@
 		</form>
 	</section>
 </div>
-<section class="box full slider" id="last-viewed">
-	<h3>Utoljára megtekintett termékek</h3>
-	  <a href="#" class="arrow left"></a>
-	  <div class="carousel">
-		<ul>
-			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "uttermost.png", :title => "title", :class => "class" %></li>
-			<li><%= image_tag "matthew.png", :title => "title", :class => "class" %></li>
-		</ul>
-	</div><!-- carousel -->
-	<a href="#" class="arrow right"></a>
-</section>
+<%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>

@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
 		@category = @product.category
-		(session[:last_viewed_products] ||= []) << params[:id] if session[:last_viewed_products].index(params[:id]).nil?
+		(session[:last_viewed_products] ||= []) << params[:id] #if session[:last_viewed_products].index(params[:id]).nil?
 		@designer = @product.designer
 		@manufacturer = @product.manufacturer
     respond_to do |format|
