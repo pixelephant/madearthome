@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201133543) do
+ActiveRecord::Schema.define(:version => 20120202090909) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20120201133543) do
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "quantity",   :default => 1
   end
 
   create_table "links", :force => true do |t|
