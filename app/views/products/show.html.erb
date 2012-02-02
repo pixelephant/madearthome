@@ -80,10 +80,11 @@
 					</div>
 					<div class="right">
 						<div>
-							<input type="submit" value="Kosárba" />						
+							<%= button_to 'Add to Cart' %>
 						</div>
 					</div>
 				</form>
+<%= button_to 'Add to Cart', line_items_path(:product_id => @product.id) %>
 			</div>
 			<div id="short-description-box">
 				<p><!--span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. -->
