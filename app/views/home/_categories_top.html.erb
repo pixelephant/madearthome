@@ -2,7 +2,7 @@
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_path(category) %>
 		<% if category.custom_categories.any? %>
-			<ul class="sub right column-3">
+			<ul class="sub <%= 'right ' if index > (Category.count - 4) %>column-3">
 				<div class="col1">
 					<% sub_categories = category.custom_categories  %>
 					<% product_per_column = sub_categories.count / 3 if !sub_categories.blank? %>

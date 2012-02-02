@@ -335,6 +335,9 @@ html{
 				right:0;
 				left:auto;
 			}
+			&:hover .sub a{
+				text-shadow:none;
+			}
 			a{
 				display:block;
 				color:white;
@@ -358,27 +361,37 @@ html{
 		li{
 			display:block;
 			float:none;
-			@include font-garamond;
 			border:none;
+			margin:0;
+			padding:0;
+			height:25px;
+			margin:25px 0;
+			line-height:1;
+			a{
+				@include font-garamond;
+				font-size:18px;
+				text-transform:none;
+				font-variant:normal;
+			}
 		}
 		&.column-1{
 			width:140px;
 			padding:10px 5px 10px 5px;  
 		}
 		&.column-2{
-			width:280px;
+			width:324px;
 			padding:10px 5px 10px 5px;  
 		}
 		&.column-3{
 			width:420px;
 			padding:10px 5px 10px 5px;  
 		}
-		.col-1,.col2,.col3{
+		.col1,.col2,.col3{
 			display:inline;
 			float:left;
 			position:relative;
 			margin-left:5px;
-			margin-right:5px;
+			margin-right:10px;
 		}
 		.col1{
 			width:130px;
