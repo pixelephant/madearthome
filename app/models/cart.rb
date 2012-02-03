@@ -10,4 +10,12 @@ class Cart < ActiveRecord::Base
 		end
 		current_item
 	end
+
+	def total
+		total = 0
+		self.line_items.each do |item|
+			total += item.product.price.to_f * item.quantity.to_f
+		end
+		total.round
+	end
 end
