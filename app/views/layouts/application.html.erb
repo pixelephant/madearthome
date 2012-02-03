@@ -25,7 +25,50 @@
 			</h1>
 		</a>
 		<div id="minicart-wrapper">
-			<%= render 'home/minicart' %>
+			<span class="counter">10</span>
+			<%= link_to "KOSÁR", "/cart", :class => "minicart" %>
+			<div id="minicart">
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row">
+					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+					<div class="data">
+						<span class="title">
+							Okalami writing desk
+						</span>
+						<span class="property">Quantity: 2</span>
+						<span class="property">Color: Red</span>
+						<span class="porperty">Anyag: Bőr</span>
+					</div>
+					<span class="price">12.000 Ft</span>
+				</div>
+				<div class="row total">
+					Total: <span class="total-price">36.000 Ft</span>
+				</div>
+				<%= link_to "Kosárhoz", "/cart", :class => "button" %>
+			</div>
 		</div>
 		<div id="search-wrapper">
 			<form action="#" id="search-form">
