@@ -1,23 +1,28 @@
-<span class="counter">10</span>
-	<%= link_to "KOSÁR", "/cart", :class => "minicart" %>
+<%= link_to "KOSÁR", "/cart", :class => "minicart" %>
+<% c = 0 %>
+<% if Cart.exists?(session[:cart_id]) %>
+<% cart = Cart.find(session[:cart_id]) %>
 	<div id="minicart">
-		<% cart = Cart.find(session[:cart_id]) %>
-		<% cart.line_items.each do |item| %>
-			<div class="row">
-				<%= (image_tag item.product.default_photo, :title => item.product.default_photo.alt, :class => "class") if !item.product.default_photo.nil? %>
-				<div class="data">
-					<span class="title">
-						<%= item.product.name %>
-					</span>
-					<span class="property">Quantity: <%= item.quantity %></span>
-					<span class="property">Color: Red</span>
-					<span class="property">Anyag: Bőr</span>
+			<% cart.line_items.each do |item| %>
+				<div class="row">
+					<%= (image_tag item.product.default_photo, :title => item.product.default_photo.alt, :class => "class") if !item.product.default_photo.nil? %>
+					<div class="data">
+						<span class="title">
+							<%= item.product.name %>
+						</span>
+						<span class="property">Quantity: <%= c += item.quantity %></span>
+						<span class="property">Color: Red</span>
+						<span class="property">Anyag: Bőr</span>
+					</div>
+					<span class="price"><%= item.product.price %></span>
 				</div>
-				<span class="price"><%= item.product.price %></span>
+			<% end %>
+			<div class="row total">
+				Total: <span class="total-price"><%= cart.total %></span>
 			</div>
-		<% end %>
-		<div class="row total">
-			Total: <span class="total-price"><%= cart.total %></span>
-		</div>
-		<%= link_to "Kosárhoz", "/cart", :class => "button" %>
+			<%= link_to "Kosárhoz", "/cart", :class => "button" %>
 	</div>
+<% end %>
+<% if c > 0 %>
+	<span class="counter"><%= c %></span>
+<% end %>
