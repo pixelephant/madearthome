@@ -1,13 +1,13 @@
 <div class="clearfix">
 	<section id="sidebar">
 			<nav id="category-nav" class="box">
-				<h3>Kategóriák</h3>
+				<h3><%= t('.categories') %></h3>
 				<ul>
 					<%= render 'home/category_menu_left' %>
 				</ul>
 			</nav>
 			<form action="#" id="filter-form" class="box">
-				<h3>Szűrés</h3>
+				<h3><%= t('.filter') %></h3>
 				<fieldset>
 					<legend>Kedvezmények</legend>
 					<div class="field"><label for="">Ingyenes szállítás</label><input type="checkbox" name="kedv" id="" /></div>

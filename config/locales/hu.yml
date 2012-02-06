@@ -1,0 +1,39 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+hu:
+  layouts:
+    application:
+      title: "Oldal címe"
+      search: "Keresés"
+      newsletter: "Hírlevél"
+      newsletter_sign_up: "Feliratkozom"
+      newsletter_email_placeholder: "Email cím"
+      top_menu_need_help: "Segítséget szeretne? Hívjon minket:"
+      register: "Regisztráció"
+      login: "Bejelentkezés"
+      wishlist: "Kívánságlista"
+
+  home:
+    breadcrumb:
+      home: "Főoldal"
+    last_viewed_carousel:
+      last_viewed_products: "Utoljára megtekintve"
+    minicart:
+      cart_link: "Kosár"
+    product_grid:
+      view_product: "Megtekintem"
+
+  categories:
+    show:
+      categories: "Kategóriák"
+      filter: "Szűrés"
+
+  number:
+    currency:
+      format:
+        unit: "Ft"
+        precision: "0"
+        separator: ","
+        delimiter: "."
+        format: "%n&nbsp;%u"

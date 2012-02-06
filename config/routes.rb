@@ -1,46 +1,6 @@
 Madearthome::Application.routes.draw do
 
-  resources :links_products
-
-  resources :products_stores
-
-  resources :stores
-
-  resources :links
-
-  resources :line_items
-
-  resources :carts
-
-  resources :cart
-
-  resources :mass_uploads
-
-  resources :manufacturer_photos
-
-  resources :designer_photos
-
-  #resources :properties_to_custom_categories
-
-  #resources :properties_to_categories
-
-  #resources :discounts_to_products
-
-  resources :discounts
-
-  resources :related_products
-
-  resources :designers
-
-  resources :manufacturers
-
-  get "home/index"
-
-  #resources :advantages_to_products
-
-  #resources :advantages
-
-  #resources :property_categories_to_categories
+	#Admin
 
 	devise_for :users, :path => '', :path_names => { :sign_in => "admin/login", :sign_out => "admin/logout", :sign_up => "admin/register" }
 
@@ -62,39 +22,89 @@ Madearthome::Application.routes.draw do
 
 	#Admin ajax routes END
 
-	#Categories START
-	match "/:id" => "categories#show"
-	#Categories END
+	#Admin end
 
 	#Categories START
 	match "/:id" => "categories#show"
 	#Categories END
 
-  resources :wishlist_items
+	#Categories START
+	match "/:id" => "categories#show"
+	#Categories END
 
-  resources :wishlists
+	scope '(:locale)' do
 
-  resources :properties_to_products
+		resources :links_products
 
-  resources :properties
+		resources :products_stores
 
-  resources :property_categories
+		resources :stores
 
-  resources :order_items
+		resources :links
 
-  resources :orders
+		resources :line_items
 
-  resources :user_addresses
+		resources :carts
 
-  resources :users
+		resources :cart
 
-  resources :categories do
-	  resources :custom_categories
+		resources :mass_uploads
+
+		resources :manufacturer_photos
+
+		resources :designer_photos
+
+		#resources :properties_to_custom_categories
+
+		#resources :properties_to_categories
+
+		#resources :discounts_to_products
+
+		resources :discounts
+
+		resources :related_products
+
+		resources :designers
+
+		resources :manufacturers
+
+		#resources :advantages_to_products
+
+		#resources :advantages
+
+		#resources :property_categories_to_categories
+
+		resources :wishlist_items
+
+		resources :wishlists
+
+		resources :properties_to_products
+
+		resources :properties
+
+		resources :property_categories
+
+		resources :order_items
+
+		resources :orders
+
+		resources :user_addresses
+
+		resources :users
+
+		resources :categories do
+			resources :custom_categories
+		end
+
+		resources :photos
+
+		resources :products
+
+		#get "home/index"
+
+		root :to => 'home#index', :as => 'index'
+
 	end
-
-  resources :photos
-
-  resources :products
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -150,7 +160,6 @@ Madearthome::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'home#index', :as => 'index'
-	root :to => 'home#index', :as => 'index'
 
   # See how all your routes lay out with "rake routes"
 
