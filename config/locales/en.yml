@@ -2,4 +2,38 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      title: "Site title"
+      search: "Search"
+      newsletter: "Newsletter"
+      newsletter_sign_up: "Sign up"
+      newsletter_email_placeholder: "Email address"
+      top_menu_need_help: "Need help? Call:"
+      register: "Register"
+      login: "Login"
+      wishlist: "Wishlist"
+
+  home:
+    breadcrumb:
+      home: "Home"
+    last_viewed_carousel:
+      last_viewed_products: "Last viewed"
+    minicart:
+      cart_link: "Cart"
+    product_grid:
+      view_product: "View"
+
+  categories:
+    show:
+      categories: "Categories"
+      filter: "Filter"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: "2"
+        separator: "."
+        delimiter: ","
+        format: "%u%n"

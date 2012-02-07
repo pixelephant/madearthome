@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Madearthome</title>
+  <title>Madearthome - <%= t('.title') %></title>
   <%= stylesheet_link_tag    "application", controller_name %>
   <%= javascript_include_tag "application", controller_name %> 
   <%= csrf_meta_tags %>
@@ -11,10 +11,10 @@
 <header id="main-header">
 	<nav id="misc-menu">
 		<ul>
-			<li class="first">Need help? Call: 123-4567</li>
-			<li><%= link_to "Register", "/register" %></li>
-			<li><%= link_to "Login", "/login" %></li>
-			<li><%= link_to "Whislist","/whishlistr" %></li>
+			<li class="first"><%= t('.top_menu_need_help') %> 123-4567</li>
+			<li><%= link_to t('.register'), "/register" %></li>
+			<li><%= link_to t('.login'), "/login" %></li>
+			<li><%= link_to t('.wishlist'),"/wishlist" %></li>
 			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
 		</ul>
 	</nav>
@@ -72,8 +72,8 @@
 		</div>
 		<div id="search-wrapper">
 			<form action="#" id="search-form">
-				<input type="search" results="5" name="search" id="search" placeholder="Keresés..." />
-				<input type="submit" value="Search" />
+				<input type="search" results="5" name="search" id="search" placeholder="<%= t('.search') %>..." />
+				<input type="submit" value="<%= t('.search') %>" />
 			</form>
 			<p id="search-examples"><strong>Pl.:</strong> <a href="#">accent table</a>, <a href="#">working chair</a></p>
 		</div>
@@ -102,12 +102,12 @@
 
 <section id="social-promo">
 	<div id="newsletter-promo" class="half">
-		<h3>Newsletter</h3>
+		<h3><%= t('.newsletter') %></h3>
 		<em>sign up for our <span>newsletter</span></em>
 		<p>And get <strong>10%</strong> off your first purchase</p>
 		<form action="" id="newsletter-form">
-			<input type="email" name="newsletter-email" id="newsletter-email" placeholder="Email address" />
-			<input type="submit" value="Sign up" />
+			<input type="email" name="newsletter-email" id="newsletter-email" placeholder="<%= t('.newsletter_email_placeholder') %>" />
+			<input type="submit" value="<%= t('.newsletter_sign_up') %>" />
 		</form>
 	</div>
 	<div id="contact-promo" class="half">

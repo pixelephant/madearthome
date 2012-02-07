@@ -1,4 +1,4 @@
-<a href="/">Home</a>
+<a href="/"><%= t('.home') %></a>
 <% links = [] %>
 <% links << link_to(@category.name, @category).to_s if !@category.nil? %>
 <% links << link_to(@custom_category.name, category_custom_category_path(@custom_category)).to_s if !@custom_category.nil? %>

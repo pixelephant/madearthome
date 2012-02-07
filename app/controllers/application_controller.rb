@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+	before_filter :set_i18n_locale_from_params
 
 	private
 
@@ -14,6 +15,21 @@ class ApplicationController < ActionController::Base
 		cart = Cart.create
 		session[:cart_id] = cart.id
 		cart
+	end
+	
+	#I18n
+	def set_i18n_locale_from_params
+		if params[:locale]
+			if I18n.available_locales.include?(params[:locale].to_sym)
+				I18n.locale = params[:locale]
+			else
+				logger.error "No available_locales"
+			end
+		end
+	end
+
+	def default_url_options
+		{ :locale => I18n.locale }
 	end
 
 
