@@ -2,12 +2,10 @@
 <% cat.products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div class="<%= cl %>">
-		<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
+		<a href="#" class="quicklook">quicklook</a>
+		<%= link_to product_path(product) do %>
 		<div class="image">
-			<%= link_to product_path(product) do %>
-				<div><%= t('.view_product') %></div>
-				<img src="http://placekitten.com/155/155" alt="" />
-			<% end %>
+				<%= image_tag product.default_photo.image_file, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 		</div>
 		<div class="clearfix">
 			<div class="left">
@@ -18,8 +16,8 @@
 					<%= product.price %>
 				</p>
 			</div>
-			<a href="#" class="quicklook"></a>
 		</div>
+	<% end %>
 </div>
 <% end %>
 

@@ -64,16 +64,53 @@
 	border-top:1px solid $border-gray;
 }
 
+.no-touch #product-grid a.quicklook{
+	top:-25px;
+}
+
+.touch #product-grid a.quicklook{
+	top:10px;
+}
+
 #product-grid{
 	overflow:hidden;
 	padding:10px 15px 10px 20px;
+	a{
+		text-decoration:none;
+		color:$heading-gray;
+	}
 	.product{
 		float:left;
 		width:175px;
-		height:230px;
+		height:240px;
 		margin:10px 50px 25px 0px;
+		position:relative;
+		overflow:hidden;
 		&.last{
 			margin:10px 0px 25px 0px;
+		}
+		a.quicklook{
+			position:absolute;
+			z-index:1;
+			left:10px;
+			color:white;
+			@include font-gill;
+			width:155px;
+			height:25px;
+			text-align:center;
+			line-height:25px;
+			font-size:15px;
+			text-transform:uppercase;
+			display:block;
+			background-image:url(quicklook.png);
+			background-repeat:no-repeat;
+			background-position:130px center;
+			@include box-rgba(0,0,0,0.6);
+			text-decoration:none;
+			@include transition-03s;
+		}
+		&:hover .quicklook{
+			top:10px;
 		}
 		.left{
 			float:left;
@@ -82,10 +119,8 @@
 		}
 		.price{
 			font-weight:bold;
-		}
-		a{
 			text-decoration:none;
-			display:block;
+			color:$heading-gray;
 		}
 		.image{
 			overflow:hidden;
@@ -93,31 +128,6 @@
 			border:10px solid $border-gray;
 			height:155px;
 			margin-bottom:10px;
-			&:hover img{
-					-webkit-transform: scale(1.2);
-					-moz-transform: scale(1.2);
-					-o-transform: scale(1.2);
-					-ms-transform: scale(1.2);
-					transform: scale(1.2);
-			}
-			div{
-				position:absolute;
-				z-index:2;
-				top:-155px;
-				@include box-rgba(0,0,0,0.6);
-				color:white;
-				@include font-gill;
-				width:155px;
-				height:155px;
-				text-align:center;
-				line-height:155px;
-				font-size:18px;
-				text-transform:uppercase;
-				@include transition-03s
-			}
-			&:hover div{
-				top:0;
-			}
 		}
 		img{
 			width:155px;
@@ -127,14 +137,6 @@
 		}
 		p{
 			@include font-gill;
-		}
-		.quicklook{
-			display:block;
-			background:url(quicklook.png) no-repeat center;
-			width:20px;
-			height:10px;
-			float:right;
-			padding-top:8px;
 		}
 	}
 }
