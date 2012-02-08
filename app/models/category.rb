@@ -11,6 +11,19 @@ class Category < ActiveRecord::Base
 	has_many :custom_categories
 
 	belongs_to :discount
+	
+	has_many :category_translations
 
 	validates :name, :presence => true
+
+	def translate
+		if I18n.locale.to_s != I18n.default_locale.to_s
+			translation = CategoryTranslation.where(:category_id => self, :locale => I18n.locale.to_s)
+			if !translation.empty?
+				self.name = translation.first.value if !translation.first.value.blank?
+			end
+		end
+		self
+	end
+
 end

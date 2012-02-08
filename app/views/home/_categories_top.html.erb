@@ -1,4 +1,5 @@
 <% Category.all.each_with_index do |category, index| %>
+	<% category = category.translate %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_path(category) %>
 		<% if category.custom_categories.any? %>
