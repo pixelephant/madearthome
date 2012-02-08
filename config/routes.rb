@@ -24,6 +24,10 @@ Madearthome::Application.routes.draw do
 
 	#Admin end
 
+	#Ajax routes START
+	post 'home/language' => "home#language"
+	#Ajax routes END
+
 	#Categories START
 	#match "/:id" => "categories#show"
 	#Categories END

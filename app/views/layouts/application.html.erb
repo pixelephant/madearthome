@@ -16,6 +16,11 @@
 			<li><%= link_to t('.login'), "/login" %></li>
 			<li><%= link_to t('.wishlist'),"/wishlist" %></li>
 			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
+			<%= LANGUAGES.each do |lang| %>
+				<% if lang[1] != I18n.locale.to_s %>
+					<li><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
+				<% end %>
+			<% end %>
 		</ul>
 	</nav>
 	<div id="header-wrapper">
