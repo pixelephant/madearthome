@@ -25,11 +25,7 @@ Madearthome::Application.routes.draw do
 	#Admin end
 
 	#Categories START
-	match "/:id" => "categories#show"
-	#Categories END
-
-	#Categories START
-	match "/:id" => "categories#show"
+	#match "/:id" => "categories#show"
 	#Categories END
 
 	scope '(:locale)' do
