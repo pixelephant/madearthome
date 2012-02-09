@@ -15,6 +15,7 @@ class CustomCategoriesController < ApplicationController
   def show
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
+		@products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -6,9 +6,6 @@ en:
     application:
       title: "Site title"
       search: "Search"
-      newsletter: "Newsletter"
-      newsletter_sign_up: "Sign up"
-      newsletter_email_placeholder: "Email address"
       top_menu_need_help: "Need help? Call:"
       register: "Register"
       login: "Login"
@@ -23,11 +20,40 @@ en:
       cart_link: "Cart"
     product_grid:
       view_product: "View"
+    newsletter:
+      newsletter: "Newsletter"
+      newsletter_sign_up: "Sign up"
+      newsletter_email_placeholder: "Email address"
 
   categories:
     show:
       categories: "Categories"
       filter: "Filter"
+ 
+  products:
+    show:
+      list_price: "List price"
+      sale_price: "Sale price"
+      add_to_cart: "Add to cart"
+      specifications: "Specifications"
+      designer: "Designer"
+      dimensions: "Dimensions"
+      weight: "Weight (kg)"
+      expert_advice: "Expert advice"
+      try_it_out: "Try it out!"
+      about_the_designer: "About the designer"
+      about_the_brand: "About the brand"
+      suggested_products: "Suggested products"
+      try_it_out_store_start: "Try it out in "
+      try_it_out_store_end: ""
+
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "..."
 
   number:
     currency:

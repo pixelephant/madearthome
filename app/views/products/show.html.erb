@@ -45,8 +45,8 @@
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
-					<p class="list-price">Lista ár: <span> <%= @product.price %> Ft</span></p>
-					<p class="discount-price">Akciós ár: <span> 1800 Ft</span></p>
+					<p class="list-price"><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
+					<p class="discount-price"><%= t('.sale_price') %>: <span> 1800 Ft</span></p>
 				</div>
 				<div class="third">
 					
@@ -84,7 +84,7 @@
 						</div>
 					</div>
 				</form>
-<%= button_to 'Add to Cart', line_items_path(:product_id => @product.id) %>
+<%= button_to t('.add_to_cart'), line_items_path(:product_id => @product.id) %>
 			</div>
 			<div id="short-description-box">
 				<p><!--span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. -->
@@ -98,24 +98,24 @@
 <div class="box-wrap clearfix">
 	<section class="box third has-ribbon" id="specifications">
 		<div class="ribbon"></div>
-		<h3>Specifications</h3>
+		<h3><%= t('.specifications') %></h3>
 		<% if !@designer.nil? %>
-			<p><span>designer: </span><%= @designer.name %></p>
+			<p><span><%= t('.designer') %>: </span><%= @designer.name %></p>
 		<% end %>
 		
 		<% if !@product.dimensions.nil? %>
-			<p><span>dimensions: </span><%= @product.dimensions %></p>
+			<p><span><%= t('.dimensions') %>: </span><%= @product.dimensions %></p>
 		<% end %>
 
 		<% if !@product.weight.nil? %>
-			<p><span>weight (kg): </span><%= @product.weight %></p>
+			<p><span><%= t('.weight') %>: </span><%= @product.weight %></p>
 		<% end %>
 	</section>
 
 	<% if !@product.advice.nil? %>
 	<section class="box third mid has-ribbon" id="expert-advice">
 		<div class="ribbon"></div>
-		<h3>Expert advice</h3>
+		<h3><%= t('.expert_advice') %></h3>
 		<p><!--span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.-->
 		<%= @product.advice %>
 		</p>
@@ -126,8 +126,8 @@
 	<% store = @product.stores.first %>
 	<section class="box third last has-ribbon" id="try-it">
 		<div class="ribbon"></div>
-		<h3>Try it out!</h3>
-		<strong>A termék kipróbálható a <%= store.name %> üzletünkben.</strong>
+		<h3><%= t('.try_it_out') %></h3>
+		<strong><%= t('.try_it_out_store_start') %><%= store.name %><%= t('.try_it_out_store_end') %></strong>
 		<div class="address">
 			<p>1101 <a target="_blank" href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
 			<p><%= store.address %></p>
@@ -139,7 +139,7 @@
 
 <% if !@designer.nil? %>
 	<section class="box full" id="about-designer">
-		<h3>About the desginer</h3>
+		<h3><%= t('.about_the_designer') %></h3>
 		<h4><%= @designer.name %></h4>
 		<%= image_tag @designer.designer_photos.first.image_file, :title => @designer.designer_photos.first.alt, :class => "class", :alt => @designer.designer_photos.first.alt if @designer.designer_photos.any? %>
 		<%= @designer.description %>
@@ -148,7 +148,7 @@
 
 <% if !@manufacturer.nil? %>
 	<section class="box full" id="about-manufacturer">
-		<h3>About the brand</h3>
+		<h3><%= t('.about_the_brand') %></h3>
 		<h4><%= @manufacturer.name %></h4>
 		<%= image_tag @manufacturer.manufacturer_photos.first.image_file, :title => @manufacturer.manufacturer_photos.first.alt, :class => "class", :alt => @manufacturer.manufacturer_photos.first.alt if @manufacturer.manufacturer_photos.any? %>
 		<%= @manufacturer.description %>
@@ -156,7 +156,7 @@
 <% end %>
 
 <section class="box full slider clearfix" id="related-products">
-	<h3>Suggested products</h3>
+	<h3><%= t('.suggested_products') %></h3>
 	  <a href="#" class="arrow left"></a>
 	  <div class="carousel">
 		<ul>

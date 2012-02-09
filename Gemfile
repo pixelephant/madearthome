@@ -40,7 +40,10 @@ gem 'spreadsheet'
 #URL
 gem 'friendly_id'
 
-gem 'seed_dumper'
+#Pagination
+gem 'kaminari'
+
+#gem 'seed_dumper'
 #, :git => 'git://github.com/kevTheDev/seed_dumper.git'
 
 # To use ActiveModel has_secure_password

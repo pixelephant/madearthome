@@ -131,8 +131,6 @@ GEM
       railties (~> 3.1.0)
       sass (~> 3.1.10)
       tilt (~> 1.3.2)
-    seed_dumper (0.1.2)
-      rails
     spreadsheet (0.6.8)
       ruby-ole (>= 1.0)
     sprockets (2.0.3)
@@ -166,13 +164,13 @@ DEPENDENCIES
   execjs
   friendly_id
   jquery-rails
+  kaminari
   modernizr-rails
   mysql2
   rails (= 3.1.3)
   rails_admin!
   rmagick
   sass-rails (~> 3.1.5)
-  seed_dumper
   spreadsheet
   therubyracer
   turn (= 0.8.2)

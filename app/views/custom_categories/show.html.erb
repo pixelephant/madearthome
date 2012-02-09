@@ -18,13 +18,13 @@
 
 	<section id="product-list" class="box">
 		<form action="#" id="action-form-top">
-			asd
+			<%= paginate @products %>
 		</form>
 		<div id="product-grid">
 			<%= render 'home/product_grid' %>
 		</div>
 		<form action="#" id="action-form-bottom">
-			asd
+			<%= paginate @products %>
 		</form>
 	</section>
 </div>

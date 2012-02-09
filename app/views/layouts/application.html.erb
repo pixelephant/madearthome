@@ -63,20 +63,8 @@
 </div>
 
 <section id="social-promo">
-	<div id="newsletter-promo" class="half">
-		<h3><%= t('.newsletter') %></h3>
-		<em>sign up for our <span>newsletter</span></em>
-		<p>And get <strong>10%</strong> off your first purchase</p>
-		<form action="" id="newsletter-form">
-			<input type="email" name="newsletter-email" id="newsletter-email" placeholder="<%= t('.newsletter_email_placeholder') %>" />
-			<input type="submit" value="<%= t('.newsletter_sign_up') %>" />
-		</form>
-	</div>
-	<div id="contact-promo" class="half">
-		<h3>Contact us for advice</h3>
-		<p><em>email:</em> info@flairspring.com</p>
-		<p><em>support:</em> +36-30-123-1231</p>
-	</div>
+	<%= render 'home/newsletter' %>
+	<%= render 'home/contact_promo' %>
 </section>
 
 <footer id="main-footer">

@@ -6,9 +6,6 @@ hu:
     application:
       title: "Oldal címe"
       search: "Keresés"
-      newsletter: "Hírlevél"
-      newsletter_sign_up: "Feliratkozom"
-      newsletter_email_placeholder: "Email cím"
       top_menu_need_help: "Segítséget szeretne? Hívjon minket:"
       register: "Regisztráció"
       login: "Bejelentkezés"
@@ -23,11 +20,40 @@ hu:
       cart_link: "Kosár"
     product_grid:
       view_product: "Megtekintem"
+    newsletter:
+      newsletter: "Hírlevél"
+      newsletter_sign_up: "Feliratkozom"
+      newsletter_email_placeholder: "Email cím"
 
   categories:
     show:
       categories: "Kategóriák"
       filter: "Szűrés"
+
+  products:
+    show:
+      list_price: "Lista ár"
+      sale_price: "Akciós ár"
+      add_to_cart: "Kosárba rakom"
+      specifications: "Tulajdonságok"
+      designer: "Tervező"
+      dimensions: "Méretek"
+      weight: "Súly (kg)"
+      expert_advice: "Szakértői tanácsok"
+      try_it_out: "Próbálja ki!"
+      about_the_designer: "A tervezőről"
+      about_the_brand: "A márkáról"
+      suggested_products: "Ajánlott termékeink"
+      try_it_out_store_start: "A termék kipróbálható "
+      try_it_out_store_end: " üzletünkben"
+
+  views:
+    pagination:
+      first: "&laquo; Első"
+      last: "Utolsó &raquo;"
+      previous: "&lsaquo; Előző"
+      next: "Következő &rsaquo;"
+      truncate: "..."
 
   number:
     currency:

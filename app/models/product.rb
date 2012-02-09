@@ -32,6 +32,8 @@ class Product < ActiveRecord::Base
 
 	has_many :line_items
 
+	has_many :product_translations
+
 	def default_photo
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
     return default
@@ -61,6 +63,19 @@ class Product < ActiveRecord::Base
 		end
 
 		return w.to_s + " x " + h.to_s + " x " + d.to_s
+	end
+
+	def translate
+		if I18n.locale.to_s != I18n.default_locale.to_s
+			translation = ProductTranslation.where(:product_id => self, :locale => I18n.locale.to_s)
+			if !translation.empty?
+				self.name = translation.first.name if !translation.first.name.blank?
+				self.short_description = translation.first.short_description if !translation.first.short_description.blank?
+				self.long_description = translation.first.long_description if !translation.first.long_description.blank?
+				self.advice = translation.first.advice if !translation.first.advice.blank?
+			end
+		end
+		self
 	end
 
 end

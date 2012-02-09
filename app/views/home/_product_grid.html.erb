@@ -1,5 +1,4 @@
-<% cat = @custom_category.nil? ? @category : @custom_category %>
-<% cat.products.each_with_index do |product,i| %>
+<%= @products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div class="<%= cl %>">
 		<a href="#" class="quicklook">quicklook</a>

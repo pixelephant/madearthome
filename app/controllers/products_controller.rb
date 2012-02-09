@@ -13,9 +13,11 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]).translate
 		@category = @product.category
-		(session[:last_viewed_products] ||= []) << params[:id] #if session[:last_viewed_products].index(params[:id]).nil?
+		#session[:last_viewed_products] = []
+		(session[:last_viewed_products] ||= []).delete(params[:id]) if !session[:last_viewed_products].index(params[:id])
+		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
 		@designer = @product.designer
 		@manufacturer = @product.manufacturer
     respond_to do |format|
