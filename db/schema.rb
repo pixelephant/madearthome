@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208144129) do
+ActiveRecord::Schema.define(:version => 20120209095916) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20120208144129) do
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
     t.string   "locale"
-    t.string   "value"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -153,6 +153,17 @@ ActiveRecord::Schema.define(:version => 20120208144129) do
     t.string   "image_file"
     t.string   "alt"
     t.boolean  "default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_translations", :force => true do |t|
+    t.integer  "product_id"
+    t.string   "locale"
+    t.string   "name"
+    t.string   "short_description"
+    t.text     "long_description"
+    t.text     "advice"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

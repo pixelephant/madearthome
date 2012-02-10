@@ -66,13 +66,17 @@ class Product < ActiveRecord::Base
 	end
 
 	def translate
+
+		ignore = ["id","created_at","updated_at","locale","product_id"]		
+
 		if I18n.locale.to_s != I18n.default_locale.to_s
 			translation = ProductTranslation.where(:product_id => self, :locale => I18n.locale.to_s)
 			if !translation.empty?
-				self.name = translation.first.name if !translation.first.name.blank?
-				self.short_description = translation.first.short_description if !translation.first.short_description.blank?
-				self.long_description = translation.first.long_description if !translation.first.long_description.blank?
-				self.advice = translation.first.advice if !translation.first.advice.blank?
+				attributes = translation.first.attributes.keys
+				attributes.delete_if {|x| ignore.include?(x)}
+				attributes.each do |a|
+					self.send("#{a}=", translation.first.send(a.to_sym)) if !translation.first.send(a.to_sym).blank?
+				end
 			end
 		end
 		self

@@ -17,10 +17,17 @@ class Category < ActiveRecord::Base
 	validates :name, :presence => true
 
 	def translate
+
+		ignore = ["id","created_at","updated_at","locale","category_id"]		
+
 		if I18n.locale.to_s != I18n.default_locale.to_s
 			translation = CategoryTranslation.where(:category_id => self, :locale => I18n.locale.to_s)
 			if !translation.empty?
-				self.name = translation.first.value if !translation.first.value.blank?
+				attributes = translation.first.attributes.keys
+				attributes.delete_if {|x| ignore.include?(x)}
+				attributes.each do |a|
+					self.send("#{a}=", translation.first.send(a.to_sym)) if !translation.first.send(a.to_sym).blank?
+				end
 			end
 		end
 		self
