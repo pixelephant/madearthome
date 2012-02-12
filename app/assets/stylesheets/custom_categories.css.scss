@@ -56,6 +56,12 @@
 	float:left;
 }
 
+#product-grid{
+	overflow:hidden;
+	padding:10px 15px 10px 20px;
+}
+
+
 #action-form-top{
 	border-bottom:1px solid $border-gray;
 }
@@ -64,140 +70,4 @@
 	border-top:1px solid $border-gray;
 }
 
-.no-touch #product-grid a.quicklook{
-	top:-25px;
-}
-
-.touch #product-grid a.quicklook{
-	top:10px;
-}
-
-#product-grid{
-	overflow:hidden;
-	padding:10px 15px 10px 20px;
-	a{
-		text-decoration:none;
-		color:$heading-gray;
-	}
-	.product{
-		float:left;
-		width:175px;
-		height:240px;
-		margin:10px 50px 25px 0px;
-		position:relative;
-		overflow:hidden;
-		&.last{
-			margin:10px 0px 25px 0px;
-		}
-		a.quicklook{
-			position:absolute;
-			z-index:1;
-			left:10px;
-			color:white;
-			@include font-gill;
-			width:155px;
-			height:25px;
-			text-align:center;
-			line-height:25px;
-			font-size:15px;
-			text-transform:uppercase;
-			display:block;
-			background-image:url(quicklook.png);
-			background-repeat:no-repeat;
-			background-position:130px center;
-			@include box-rgba(0,0,0,0.6);
-			text-decoration:none;
-			@include transition-03s;
-		}
-		&:hover .quicklook{
-			top:10px;
-		}
-		.left{
-			float:left;
-			padding-right:5px;
-			width:150px;
-		}
-		.price{
-			font-weight:bold;
-			text-decoration:none;
-			color:$heading-gray;
-		}
-		.image{
-			overflow:hidden;
-			position:relative;
-			border:10px solid $border-gray;
-			height:155px;
-			margin-bottom:10px;
-		}
-		img{
-			width:155px;
-			height:155px;
-			@include transition-03s;
-			z-index:1;
-		}
-		p{
-			@include font-gill;
-		}
-	}
-}
-
-#product-modal-wrap{
-	display:none;
-}
-
-#product-modal{
-	width:800px;
-	margin:0 auto;
-	.top{
-		padding-bottom:10px;
-		margin-bottom:10px;
-		border-bottom:1px solid $border-gray;
-		h3,h4{
-			@include font-gill;
-			color:$heading-gray;
-			font-weight:bold;
-			text-transform:uppercase;
-			font-size:20px;
-		}
-		h4{
-			font-size:16px;
-			color:$orange;
-			font-weight:normal;
-		}
-	}
-	.images{
-		float:left;
-		img{
-			width:50px;
-			height:50px;
-			border:5px solid $border-gray;
-			margin:0 10px;
-		}
-	}
-	.discounts{
-		float:right;
-		padding-right:50px;
-		color:$orange;
-		li{
-			line-height:1.5;
-		}
-	}
-	.short-description{
-		margin:10px 0;
-	}
-	.properties{
-		float:left;
-		margin:10px 0;
-		span{
-			font-variant:small-caps;
-		}
-	}
-	.button{
-		@include cta-submit;
-		float:right;
-		padding:9px;
-		position:absolute;
-		bottom:20px;
-		right:20px;
-	}
-}
+@import 'quicklook_product.css.scss';

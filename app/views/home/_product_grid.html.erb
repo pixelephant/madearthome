@@ -1,9 +1,9 @@
 <%= @products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div class="<%= cl %>">
-		<a href="#" class="quicklook">quicklook</a>
 		<%= link_to product_path(product) do %>
 		<div class="image">
+			<span class="quicklook">quicklook</span>
 				<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 		</div>
 		<div class="clearfix">
