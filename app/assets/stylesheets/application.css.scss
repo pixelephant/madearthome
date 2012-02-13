@@ -237,6 +237,28 @@ html{
 #language-selector{
 	li{
 		float:left;
+		text-indent:-9999em;
+		padding:0 5px !important;
+	}
+	li a{
+		display:block;
+		width:16px;
+		height:11px;
+		margin-top:4px;
+		opacity:0.7;
+		@include transition-03s;
+	}
+	li.active a{
+		opacity:1;
+	}
+	li.hu a{
+		background:url(flags/hu.png) no-repeat;
+	}
+	li.en a{
+		background:url(flags/gb.png) no-repeat;
+	}
+	li a:hover{
+		opacity:1;
 	}
 }
 
