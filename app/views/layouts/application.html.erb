@@ -18,17 +18,23 @@
 
 <header id="main-header">
 	<nav id="misc-menu">
-		<ul>
+		<ul class="main-ul">
 			<li class="first"><%= t('.top_menu_need_help') %> 123-4567</li>
+			<li>
+				<ul id="language-selector">
+					<% LANGUAGES.each do |lang| %>
+						<% if lang[1] == I18n.locale.to_s %>
+							<li class="active <%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
+						<% else %>
+							<li class="<%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
+						 <% end %>
+					<% end %>
+				</ul>
+			</li>
 			<li><%= link_to t('.register'), "/register" %></li>
 			<li><%= link_to t('.login'), "/login" %></li>
 			<li><%= link_to t('.wishlist'),"/wishlist" %></li>
 			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
-			<%= LANGUAGES.each do |lang| %>
-				<% if lang[1] != I18n.locale.to_s %>
-					<li><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
-				<% end %>
-			<% end %>
 		</ul>
 	</nav>
 	<div id="header-wrapper">
