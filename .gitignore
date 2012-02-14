@@ -16,4 +16,5 @@
 /tmp
 *~
 
-/app/uploaders/image_uploader.rb
+/public
+/config
