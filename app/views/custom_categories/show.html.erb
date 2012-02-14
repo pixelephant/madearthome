@@ -17,15 +17,15 @@
 	</section>
 
 	<section id="product-list" class="box">
-		<form action="#" id="action-form-top">
-			<%= paginate @products %>
-		</form>
+		<div id="action-top">
+			<a class="view-all" href="#">view all</a> <%= paginate @products %>
+		</div>
 		<div id="product-grid">
 			<%= render 'home/product_grid' %>
 		</div>
-		<form action="#" id="action-form-bottom">
-			<%= paginate @products %>
-		</form>
+		<div id="action-bottom">
+			<a class="view-all" href="#">view all</a> <%= paginate @products %>
+		</div>
 	</section>
 </div>
 <%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>

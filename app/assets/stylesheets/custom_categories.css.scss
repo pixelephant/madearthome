@@ -51,7 +51,7 @@
 }
 
 #product-list{
-	padding:25px;
+	padding:0 25px;
 	width:660px;
 	float:left;
 }
@@ -62,12 +62,38 @@
 }
 
 
-#action-form-top{
+#action-top{
+	height:50px;
+	line-height:50px;
 	border-bottom:1px solid $border-gray;
 }
 
-#action-form-bottom{
+#action-bottom{
+	height:50px;
+	line-height:50px;
 	border-top:1px solid $border-gray;
+}
+
+.view-all{
+	@include button;
+	height:15px;
+	text-transform:none;
+	float: right;
+	line-height: 1.2;
+	margin: 15px 10px;
+}
+
+nav.pagination{
+	float:right;
+	span{
+		padding:0 1px;
+	}
+	span,a{
+		color:$link-color;
+	}
+	.current{
+		color:$heading-gray;
+	}
 }
 
 @import 'quicklook_product.css.scss';
