@@ -24,12 +24,14 @@ en:
       newsletter: "Newsletter"
       newsletter_sign_up: "Sign up"
       newsletter_email_placeholder: "Email address"
+    filters:
+      designers: "Designers"
 
   categories:
     show:
       categories: "Categories"
       filter: "Filter"
- 
+
   products:
     show:
       list_price: "List price"

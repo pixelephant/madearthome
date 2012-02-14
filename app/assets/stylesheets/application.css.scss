@@ -416,7 +416,7 @@ html{
 	input[type="search"]{
 		@include text-input;
 		height:28px;
-		width:190px;
+		width:205px;
 		float:left;
 		font-size:16px;
 	}
@@ -434,6 +434,12 @@ html{
 	margin-top:5px;
 	font-style:italic;
 	font-size:18px;
+	a{
+		@include transition-03s;
+		&:hover{
+			color: $link-color-hover;
+		}
+	}
 }
 
 #main-nav{
