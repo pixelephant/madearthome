@@ -13,7 +13,7 @@
 			</div>
 			<div id="picture-list">
 				<% @product.photos.each do |photo| %>
-						<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">  
+						<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">
 				  			<%= image_tag(photo.image_file.thumb.to_s) %>
 						</a>
 
@@ -28,7 +28,7 @@
 				  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=136997593064327";
 				  fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));</script>
-				
+
 				<div class="fb-like" data-href="http://www.madeart.hu" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false"></div>
 				<div class="tw-like">
 					<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
@@ -46,31 +46,28 @@
 			<div id="info-box">
 				<div class="third" id="price">
 					<p class="list-price"><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
-					<p class="discount-price"><%= t('.sale_price') %>: <span> 1800 Ft</span></p>
+					<% if @product.price != productPrice(@product) %>
+						<p class="discount-price"><%= t('.sale_price') %>: <span> <%= productPrice(@product) %> Ft</span></p>
+					<% end %>
 				</div>
 				<div class="third">
-					
+
 				</div>
 				<div class="third last">
-					
+
 				</div>
 			</div>
 			<div id="properties-box">
-				<form id="product-form">
+				<form id="product-form" name="product-form" action="<%= line_items_path(:product_id => @product.id) %>" method="POST">
 					<div class="left">
-						<p><label for="">Anyag</label><select name="" id="">
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-							<option value="">4</option>
-						</select></p>
-						<p><label for="">Szín</label><select name="" id="">
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-							<option value="">4</option>
-						</select></p>
-						<p><label for="">Mennyiség</label><input type="number" name="" min="1" max="5" id="" /></p>
+						<% @product.properties.group('property_category_id').each do |property| %>
+
+						<p>
+							<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
+<%= select("property_category", "id", @product.properties.where(:property_category_id => property.property_category_id).collect {|p| [ p.property_name, p.id]}) %>
+						</p>
+						<% end %>
+						<p><label for="">Mennyiség</label><input type="number" name="number" min="1" max="5" id="number" /></p>
 						<p><label for="">Szállítási idő</label> 12 nap</p>
 						<div class="links">
 							<a href="#">szállítás</a>
@@ -79,12 +76,9 @@
 						</div>
 					</div>
 					<div class="right">
-						<div>
-							<%= button_to 'Add to Cart' %>
-						</div>
+							<input type="submit" value="<%= t('.add_to_cart') %>">
 					</div>
 				</form>
-<%= button_to t('.add_to_cart'), line_items_path(:product_id => @product.id) %>
 			</div>
 			<div id="short-description-box">
 				<p><!--span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. -->
@@ -102,7 +96,7 @@
 		<% if !@designer.nil? %>
 			<p><span><%= t('.designer') %>: </span><%= @designer.name %></p>
 		<% end %>
-		
+
 		<% if !@product.dimensions.nil? %>
 			<p><span><%= t('.dimensions') %>: </span><%= @product.dimensions %></p>
 		<% end %>
@@ -178,5 +172,3 @@
 	</div><!-- carousel -->
 	<a href="#" class="arrow right"></a>
 </section>
-	
-
