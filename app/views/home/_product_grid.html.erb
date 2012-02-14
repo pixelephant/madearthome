@@ -11,9 +11,7 @@
 				<p class="name">
 					<%= product.name %>
 				</p>
-				<p class="price">
-					<span class="current-price"><%= product.price %> Ft</span> <span class="old-price">123 000 Ft</span>
-				</p>
+				<%= render 'products/price', :product => product %>
 			</div>
 			<div class="right">
 				<%= image_tag "lz.png", :title => "lazyboy", :class => "class" %>
