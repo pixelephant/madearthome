@@ -8,23 +8,19 @@
 			</nav>
 			<form action="#" id="filter-form" class="box">
 				<h3>Szűrés</h3>
-				<fieldset>
-					<legend>Kedvezmények</legend>
-					<div class="field"><label for="">Ingyenes szállítás</label><input type="checkbox" name="kedv" id="" /></div>
-					<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
-				</fieldset>
+					<%= render 'home/filters' %>
 			</form>
 	</section>
 
 	<section id="product-list" class="box">
 		<form action="#" id="action-form-top">
-			<%= paginate @products %>
+			<%= paginate @products, :window => 2, :outer_window => 1 %>
 		</form>
 		<div id="product-grid">
 			<%= render 'home/product_grid' %>
 		</div>
 		<form action="#" id="action-form-bottom">
-			<%= paginate @products %>
+			<%= paginate @products, :window => 2, :outer_window => 1 %>
 		</form>
 	</section>
 </div>
