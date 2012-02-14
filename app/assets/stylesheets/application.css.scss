@@ -36,8 +36,8 @@ body { margin: 0; font-size: 1em; line-height: 1.4; }
  * Also: hot pink! (or customize the background color to match your design)
  */
 
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::-moz-selection { background: #C2E3FC; color: #fff; text-shadow: none; }
+::selection { background: #C2E3FC; color: #fff; text-shadow: none; }
 
 /* Improve readability when focused and hovered in all browsers: h5bp.com/h */
 a:hover, a:active { outline: 0; }
@@ -271,6 +271,18 @@ html{
 	z-index:3;
 	text-indent:-99999px;
 	margin-bottom:20px;
+}
+
+.helptext{
+	float:left;
+	padding:5px;
+	font-size:16px;
+	em{
+		color:$orange;
+		font-size:18px;
+		font-weight:bold;
+		display:block;
+	}
 }
 
 #minicart-wrapper{
@@ -644,6 +656,11 @@ html{
 	}
 }
 
+label.error{
+	color:red;
+	display:block;
+	padding:5px 0;
+}
 
 .hr{
 	width:100%;
