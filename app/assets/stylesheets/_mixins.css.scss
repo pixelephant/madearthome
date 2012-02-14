@@ -177,12 +177,11 @@
 }
 
 
-
-
 $orange: #e95321;
 $border-gray: #E1E1E1;
 $heading-gray: #3C3C3B;
 $link-color: #3F5EA9;
+$link-color-hover: saturate($link-color,70%);
 
 /* new clearfix */
 .clearfix:after {
