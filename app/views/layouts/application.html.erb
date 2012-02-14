@@ -19,7 +19,7 @@
 <header id="main-header">
 	<nav id="misc-menu">
 		<ul class="main-ul">
-			<li class="first"><%= t('.top_menu_need_help') %> 123-4567</li>
+			<li class="first"><%= t('.top_menu_need_help') %></li>
 			<li>
 				<ul id="language-selector">
 					<% LANGUAGES.each do |lang| %>
@@ -43,6 +43,10 @@
 				Flairspring<span>Comfort on your side</span>
 			</h1>
 		</a>
+		<span class="helptext">
+			Need help?
+			<em>Call us on: 123-54321</em>
+		</span>
 		<div id="minicart-wrapper">
 			<%= render 'home/minicart' %>
 		</div>

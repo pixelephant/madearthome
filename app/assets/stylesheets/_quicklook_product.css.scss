@@ -16,7 +16,7 @@
 	overflow:hidden;
 	a{
 		text-decoration:none;
-		color:$heading-gray;
+		color:$link-color;
 		display:block;
 	}
 	&.last{
@@ -53,6 +53,13 @@
 		font-weight:bold;
 		text-decoration:none;
 		color:$heading-gray;
+		.current-price{
+			color:orange;
+		}
+		.old-price{
+			font-weight:normal;
+			text-decoration:line-through;
+		}
 	}
 	.image{
 		overflow:hidden;
@@ -69,6 +76,10 @@
 	}
 	p{
 		@include font-gill;
+		padding:2px;
+	}
+	.name{
+		text-decoration:underline;
 	}
 }
 

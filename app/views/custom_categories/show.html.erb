@@ -14,12 +14,14 @@
 
 	<section id="product-list" class="box">
 		<form action="#" id="action-form-top">
+			<a class="view-all" href="#">view all</a>
 			<%= paginate @products, :window => 2, :outer_window => 1 %>
 		</form>
 		<div id="product-grid">
 			<%= render 'home/product_grid' %>
 		</div>
 		<form action="#" id="action-form-bottom">
+			<a class="view-all" href="#">view all</a>
 			<%= paginate @products, :window => 2, :outer_window => 1 %>
 		</form>
 	</section>
