@@ -15,10 +15,10 @@
 	<section id="product-list" class="box">
 		<div id="action-top">
 			<div class="order-buttons">
-				<a href="#">Newest</a>
-				<a href="#">Name</a>
-				<a href="#">Lowest price</a>
-				<a href="#">Highest price</a>
+				<a href="#"><%= t('.newest') %></a>
+				<a href="#"><%= t('.name') %></a>
+				<a href="#"><%= t('.lowest_price') %></a>
+				<a href="#"><%= t('.highest_price') %></a>
 			</div>
 			<a class="view-all" href="#">view all</a>
 			<%= paginate @products, :window => 2, :outer_window => 1 %>
@@ -28,10 +28,10 @@
 		</div>
 		<div id="action-bottom">
 			<div class="order-buttons">
-				<a href="#">Newest</a>
-				<a href="#">Name</a>
-				<a href="#">Lowest price</a>
-				<a href="#">Highest price</a>
+				<a href="#"><%= t('.newest') %></a>
+				<a href="#"><%= t('.name') %></a>
+				<a href="#"><%= t('.lowest_price') %></a>
+				<a href="#"><%= t('.highest_price') %></a>
 			</div>
 			<a class="view-all" href="#">view all</a>
 			<%= paginate @products, :window => 2, :outer_window => 1 %>

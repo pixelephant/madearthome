@@ -11,3 +11,23 @@
 		<br/>
 	<% end %>
 <% end %>
+
+<% PropertyCategory.order("category_name").each do |property_category| %>
+	<% if property_category.properties.any? %>
+		<%= field_set_tag property_category.category_name.to_s do %>
+			<% if is_a_number?(l = property_category.properties.first.property_name) && is_a_number?(h = property_category.properties.last.property_name) %>
+<!-- Csúszka helye -->
+			Legkisebb: <%= l %>
+			<br/>
+			Legnagyobb: <%= h %>
+<!-- Csúszka helye -->
+			<% elsif property_category.properties.count < 15 %>
+				<% property_category.properties.all.each do |property| %>
+					<%= property.translate.property_name + ":" %>
+					<%= check_box_tag property_category.id, property.id, true %>
+					<br/>
+				<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>
