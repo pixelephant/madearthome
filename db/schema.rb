@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209095916) do
+ActiveRecord::Schema.define(:version => 20120215142538) do
 
   create_table "advantages", :force => true do |t|
-    t.string   "advantage"
+    t.string   "advantage",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "advantages_to_products", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "advantage_id"
+    t.integer  "product_id",   :null => false
+    t.integer  "advantage_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
+    t.string   "name",        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "discount_id"
@@ -69,22 +69,22 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "designers", :force => true do |t|
-    t.string   "name"
+    t.string   "name",        :null => false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "discounts", :force => true do |t|
-    t.integer  "discount_type"
-    t.integer  "value"
+    t.integer  "discount_type", :null => false
+    t.integer  "value",         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "discounts_to_products", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "discount_id"
+    t.integer  "product_id",  :null => false
+    t.integer  "discount_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "manufacturers", :force => true do |t|
-    t.string   "name"
+    t.string   "name",        :null => false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -150,8 +150,8 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
 
   create_table "photos", :force => true do |t|
     t.integer  "product_id"
-    t.string   "image_file"
-    t.string   "alt"
+    t.string   "image_file", :null => false
+    t.string   "alt",        :null => false
     t.boolean  "default"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -169,14 +169,14 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "name"
+    t.string   "name",              :null => false
     t.string   "short_description"
     t.text     "long_description"
-    t.integer  "category_id"
+    t.integer  "category_id",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sku"
-    t.integer  "price"
+    t.string   "sku",               :null => false
+    t.integer  "price",             :null => false
     t.integer  "designer_id"
     t.integer  "manufacturer_id"
     t.string   "slug"
@@ -186,16 +186,9 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
 
   add_index "products", ["slug"], :name => "index_products_on_slug"
 
-  create_table "products_links", :force => true do |t|
-    t.integer  "link_id"
-    t.integer  "product_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products_properties", :force => true do |t|
-    t.integer  "property_id"
-    t.integer  "product_id"
+    t.integer  "property_id", :null => false
+    t.integer  "product_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -208,15 +201,15 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "properties", :force => true do |t|
-    t.string   "property_name"
+    t.string   "property_name",        :null => false
     t.integer  "property_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "properties_to_categories", :force => true do |t|
-    t.integer  "property_id"
-    t.integer  "category_id"
+    t.integer  "property_id", :null => false
+    t.integer  "category_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -229,14 +222,30 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   end
 
   create_table "property_categories", :force => true do |t|
-    t.string   "category_name"
+    t.string   "category_name", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "property_categories_to_categories", :force => true do |t|
+    t.integer  "property_category_id", :null => false
+    t.integer  "category_id",          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "property_category_translations", :force => true do |t|
     t.integer  "property_category_id"
-    t.integer  "category_id"
+    t.string   "locale"
+    t.string   "category_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "property_translations", :force => true do |t|
+    t.integer  "property_id"
+    t.string   "locale"
+    t.string   "property_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -255,8 +264,8 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "related_products", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "related_product_id"
+    t.integer  "product_id",         :null => false
+    t.integer  "related_product_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -272,10 +281,10 @@ ActiveRecord::Schema.define(:version => 20120209095916) do
 
   create_table "user_addresses", :force => true do |t|
     t.integer  "user_id"
-    t.string   "zip"
-    t.string   "city"
-    t.string   "street"
-    t.string   "additional"
+    t.string   "zip",        :null => false
+    t.string   "city",       :null => false
+    t.string   "street",     :null => false
+    t.string   "additional", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

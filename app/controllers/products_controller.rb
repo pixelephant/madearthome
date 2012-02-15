@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id]).translate
 		@category = @product.category
 		#session[:last_viewed_products] = []
-		(session[:last_viewed_products] ||= []).delete(params[:id]) if !session[:last_viewed_products].index(params[:id])
+		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
 		@designer = @product.designer
 		@manufacturer = @product.manufacturer

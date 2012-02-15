@@ -7,7 +7,7 @@ module ProductsHelper
 			return ''
 		end
 		price = p.price
-		
+
 		#Product discount factor
 		p.discounts.each do |d|
 			if d.discount_type == 1
@@ -22,7 +22,7 @@ module ProductsHelper
 		return price.round if price < p.price
 
 		#Custom category discount factor
-		
+
 #		if p.custom_category.any?
 #			p.custom_category.discount.each do |d|
 #				if d.discount_type == 1
@@ -34,7 +34,7 @@ module ProductsHelper
 #				end
 #			end
 #		end
-		
+
 #		return price.round if price < p.price
 
 		#Category discount factor
@@ -48,10 +48,10 @@ module ProductsHelper
 					price = price - (price * (d.value.to_f / 100))
 				end
 			end
-		
+
 			return price.round if price < p.price
 		end
-
+		return price
 	end
 
 end

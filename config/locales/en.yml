@@ -24,12 +24,23 @@ en:
       newsletter: "Newsletter"
       newsletter_sign_up: "Sign up"
       newsletter_email_placeholder: "Email address"
+    filters:
+      designers: "Designers"
+      depth: "Depth"
 
   categories:
     show:
       categories: "Categories"
       filter: "Filter"
- 
+
+  custom_categories:
+    show:
+      newest: "Newest"
+      name: "Name"
+      lowest_price: "Lowest price"
+      highest_price: "Highest price"
+      view_all: "View all"
+
   products:
     show:
       list_price: "List price"

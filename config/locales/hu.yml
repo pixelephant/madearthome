@@ -24,11 +24,22 @@ hu:
       newsletter: "Hírlevél"
       newsletter_sign_up: "Feliratkozom"
       newsletter_email_placeholder: "Email cím"
+    filters:
+      designers: "Tervezők"
+      depth: "Mélység"
 
   categories:
     show:
       categories: "Kategóriák"
       filter: "Szűrés"
+
+  custom_categories:
+    show:
+      newest: "Legújabb"
+      name: "Név"
+      lowest_price: "Legolcsóbb"
+      highest_price: "Legdrágább"
+      view_all: "Összes"
 
   products:
     show:
