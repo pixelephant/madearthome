@@ -20,8 +20,8 @@
 				<a href="#"><%= t('.lowest_price') %></a>
 				<a href="#"><%= t('.highest_price') %></a>
 			</div>
-			<a class="view-all" href="#">view all</a>
-			<%= paginate @products, :window => 2, :outer_window => 1 %>
+			<a class="view-all" href="?page=all"><%= t('.view_all') %></a>
+			<%= paginate @products, :window => 2, :outer_window => 1 if params[:page] != 'all' %>
 		</div>
 		<div id="product-grid">
 			<%= render 'home/product_grid' %>
@@ -33,8 +33,8 @@
 				<a href="#"><%= t('.lowest_price') %></a>
 				<a href="#"><%= t('.highest_price') %></a>
 			</div>
-			<a class="view-all" href="#">view all</a>
-			<%= paginate @products, :window => 2, :outer_window => 1 %>
+			<a class="view-all" href="?page=all"><%= t('.view_all') %></a>
+			<%= paginate @products, :window => 2, :outer_window => 1 if params[:page] != 'all' %>
 		</div>
 	</section>
 </div>

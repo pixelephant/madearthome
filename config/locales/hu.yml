@@ -39,6 +39,7 @@ hu:
       name: "Név"
       lowest_price: "Legolcsóbb"
       highest_price: "Legdrágább"
+      view_all: "Összes"
 
   products:
     show:

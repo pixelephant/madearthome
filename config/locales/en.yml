@@ -39,6 +39,7 @@ en:
       name: "Name"
       lowest_price: "Lowest price"
       highest_price: "Highest price"
+      view_all: "View all"
 
   products:
     show:
