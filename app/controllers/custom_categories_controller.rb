@@ -15,7 +15,14 @@ class CustomCategoriesController < ApplicationController
   def show
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
-		@products = params[:page] == 'all' ? @custom_category.products : Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
+
+		if params[:page] == 'all'
+			@products = @custom_category.products
+			@kaminari_products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
+		else
+			@products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
+			@kaminari_products = @products
+		end
 
     respond_to do |format|
       format.html # show.html.erb
