@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product }
+      format.json { render json: @product } #termék nem default első képe vagy ha nincs akkor default, akciók, nem változtatható propertyk, brand, designer
     end
   end
 

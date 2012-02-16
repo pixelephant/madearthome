@@ -1,6 +1,6 @@
 <% @products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
-<div class="<%= cl %>">
+<div data-id="<%= product.id %>" class="<%= cl %>">
 		<%= link_to product_path(product) do %>
 		<div class="image">
 			<span class="quicklook">quicklook</span>

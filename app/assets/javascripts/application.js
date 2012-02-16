@@ -8,8 +8,15 @@
 //= require jquery
 //= require jquery.validate
 
+$(document).ajaxSend(function(event, request, settings) {
+    if ( settings.type == 'post' ) {
+        settings.data = (settings.data ? settings.data + "&" : "")
+            + "authenticity_token=" + encodeURIComponent( AUTH_TOKEN );
+    }
+});
 
 $("document").ready(function(){
+	
 	$("#newsletter-form").validate({
 		debug: true,
 		rules: {

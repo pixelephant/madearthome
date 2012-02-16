@@ -1,0 +1,58 @@
+.product{
+	float:left;
+	width:175px;
+	height:225px;
+	a{
+		text-decoration:none;
+		color:$link-color;
+		display:block;
+		@include transition-03s;
+		&:hover .name{
+			color: $link-color-hover;
+		}
+	}
+	.left{
+		float:left;
+		padding-right:5px;
+		width:150px;
+	}
+	.right{
+		float:right;
+		img{
+			width:20px;
+			height:20px;
+		}
+	}
+	.price{
+		font-weight:bold;
+		text-decoration:none;
+		color:$heading-gray;
+		.current-price{
+			color:orange;
+		}
+		.old-price{
+			font-weight:normal;
+			text-decoration:line-through;
+		}
+	}
+	.image{
+		overflow:hidden;
+		position:relative;
+		border:10px solid $border-gray;
+		height:155px;
+		margin-bottom:10px;
+	}
+	img{
+		width:155px;
+		height:155px;
+		@include transition-03s;
+		z-index:1;
+	}
+	p{
+		@include font-gill;
+		padding:2px;
+	}
+	.name{
+		text-decoration:underline;
+	}
+}
