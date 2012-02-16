@@ -142,6 +142,10 @@ td { vertical-align: top; }
 
 p a{
 	color:$link-color;
+	@include transition-03s;
+	&:hover{
+		color: $link-color-hover;
+	}
 }
 
 p .lead{
@@ -632,6 +636,7 @@ html{
 	overflow:hidden;
 	p{
 		line-height:1.2;
+		font-size:15px;
 		margin:10px 0;
 		strong{
 			color:$orange;
@@ -659,6 +664,23 @@ html{
 		@include font-gill;
 		font-weight:bold;
 		margin-bottom:25px;
+	}
+}
+
+#contact-promo{
+	.half{
+		width:160px;
+		padding-right:80px;
+		&.left{
+			padding-right:0;
+			padding-left:80px;
+		}
+	}
+	em{
+		margin-bottom:5px;
+	}
+	p a{
+		display:block;
 	}
 }
 
