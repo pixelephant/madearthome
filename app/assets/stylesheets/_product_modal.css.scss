@@ -1,0 +1,99 @@
+#product-modal{
+	width:760px;
+	min-height:300px;
+	margin:0 auto;
+	position:relative;
+	.img{
+		width:250px;
+		height:250px;
+		border:5px solid $border-gray;
+		}
+	div.left,div.right{
+		float:left;
+	}
+	div.left{
+		width:260px;
+		padding:10px;
+	}
+	div.right{
+		width:460px;
+		padding:10px;
+	}
+	.discounts{
+		float:right;
+		padding-right:50px;
+		color:$orange;
+		li{
+			line-height:1.5;
+		}
+	}
+	.short-description{
+		margin:10px 0;
+	}
+	.properties{
+		margin:10px 0;
+		span{
+			font-variant:small-caps;
+		}
+	}
+	.button{
+		@include cta-submit;
+		float:right;
+		padding:9px;
+		margin:10px;
+	}
+	.price{
+		margin:10px 0;
+		@include font-gill;
+		font-weight:bold;
+		text-decoration:none;
+		color:$heading-gray;
+		.current-price{
+			color:orange;
+		}
+		.old-price{
+			font-weight:normal;
+			text-decoration:line-through;
+		}
+	}
+}
+
+#product-title{
+	overflow:hidden;
+	line-height:1;
+	@include font-gill;
+	img{
+		width:25px;
+		height:25px;
+		float:right;
+	}
+	h2{
+		float:left;
+		font-size:18px;
+		font-weight:bold;
+	}
+	.sku{
+		font-size:14px;
+		display:block;
+		@include font-garamond;
+		text-transform:lowercase;
+	}
+	border-bottom:1px solid $border-gray;
+}
+
+#modal-next,#modal-prev{
+	text-indent:-9999em;
+	position:absolute;
+	right:-35px;
+	top:50%;
+	background-color:white;
+	@include border-radius(100px,100px,100px,100px);
+}
+
+#modal-prev{
+	left:-35px;
+}
+
+#product-modal-wrap{
+	display:none;
+}

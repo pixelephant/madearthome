@@ -6,24 +6,10 @@
 	top:0px;
 }
 
-// height:240px;
-
 .product{
-	float:left;
-	width:175px;
-	height:250px;
 	margin:10px 50px 25px 0px;
 	position:relative;
 	overflow:hidden;
-	a{
-		text-decoration:none;
-		color:$link-color;
-		display:block;
-		@include transition-03s;
-		&:hover .name{
-			color: $link-color-hover;
-		}
-	}
 	&.last{
 		margin:10px 0px 25px 0px;
 	}
@@ -49,109 +35,8 @@
 	&:hover .quicklook{
 		top:0px;
 	}
-	.left{
-		float:left;
-		padding-right:5px;
-		width:150px;
-	}
-	.right{
-		float:right;
-		img{
-			width:20px;
-			height:20px;
-		}
-	}
-	.price{
-		font-weight:bold;
-		text-decoration:none;
-		color:$heading-gray;
-		.current-price{
-			color:orange;
-		}
-		.old-price{
-			font-weight:normal;
-			text-decoration:line-through;
-		}
-	}
-	.image{
-		overflow:hidden;
-		position:relative;
-		border:10px solid $border-gray;
-		height:155px;
-		margin-bottom:10px;
-	}
-	img{
-		width:155px;
-		height:155px;
-		@include transition-03s;
-		z-index:1;
-	}
-	p{
-		@include font-gill;
-		padding:2px;
-	}
-	.name{
-		text-decoration:underline;
-	}
 }
 
-#product-modal-wrap{
-	display:none;
-}
 
-#product-modal{
-	width:800px;
-	margin:0 auto;
-	.top{
-		padding-bottom:10px;
-		margin-bottom:10px;
-		border-bottom:1px solid $border-gray;
-		h3,h4{
-			@include font-gill;
-			color:$heading-gray;
-			font-weight:bold;
-			text-transform:uppercase;
-			font-size:20px;
-		}
-		h4{
-			font-size:16px;
-			color:$orange;
-			font-weight:normal;
-		}
-	}
-	.images{
-		float:left;
-		img{
-			width:50px;
-			height:50px;
-			border:5px solid $border-gray;
-			margin:0 10px;
-		}
-	}
-	.discounts{
-		float:right;
-		padding-right:50px;
-		color:$orange;
-		li{
-			line-height:1.5;
-		}
-	}
-	.short-description{
-		margin:10px 0;
-	}
-	.properties{
-		float:left;
-		margin:10px 0;
-		span{
-			font-variant:small-caps;
-		}
-	}
-	.button{
-		@include cta-submit;
-		float:right;
-		padding:9px;
-		position:absolute;
-		bottom:20px;
-		right:20px;
-	}
-}
+@import '_product_list_common';
+@import '_product_modal';
