@@ -43,6 +43,10 @@ gem 'friendly_id'
 #Pagination
 gem 'kaminari'
 
+#Search
+gem 'sunspot_solr'
+gem 'sunspot_rails'
+
 #gem 'seed_dumper'
 #, :git => 'git://github.com/kevTheDev/seed_dumper.git'
 

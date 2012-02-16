@@ -27,6 +27,12 @@ en:
     filters:
       designers: "Designers"
       depth: "Depth"
+    product_grid_action_buttons:
+      newest: "Newest"
+      name: "Name"
+      lowest_price: "Lowest price"
+      highest_price: "Highest price"
+      view_all: "View all"
 
   categories:
     show:
@@ -35,11 +41,8 @@ en:
 
   custom_categories:
     show:
-      newest: "Newest"
-      name: "Name"
-      lowest_price: "Lowest price"
-      highest_price: "Highest price"
-      view_all: "View all"
+      categories: "Categories"
+      filter: "Filter"
 
   products:
     show:

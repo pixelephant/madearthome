@@ -27,19 +27,21 @@ hu:
     filters:
       designers: "Tervezők"
       depth: "Mélység"
-
-  categories:
-    show:
-      categories: "Kategóriák"
-      filter: "Szűrés"
-
-  custom_categories:
-    show:
+    product_grid_action_buttons:
       newest: "Legújabb"
       name: "Név"
       lowest_price: "Legolcsóbb"
       highest_price: "Legdrágább"
       view_all: "Összes"
+
+  categories:
+    show:
+      categories: "Kategóriák"
+      filter: "Szűrés"
+  custom_categories:
+    show:
+      categories: "Kategóriák"
+      filter: "Szűrés"
 
   products:
     show:

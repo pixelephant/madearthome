@@ -4,12 +4,12 @@
 <!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">	
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  
+
   <title>Madearthome - <%= t('.title') %></title>
   <%= stylesheet_link_tag    "application", controller_name %>
-  <%= javascript_include_tag "application", controller_name %> 
+  <%= javascript_include_tag "application", controller_name %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -51,10 +51,10 @@
 			<%= render 'home/minicart' %>
 		</div>
 		<div id="search-wrapper">
-			<form action="#" id="search-form">
-				<input type="search" results="5" name="search" id="search" placeholder="<%= t('.search') %>..." />
-				<input type="submit" value="<%= t('.search') %>" />
-			</form>
+			<%= form_tag 'search', :id => 'search-form', :method => :get do %>
+		    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('.search') + '...' %>
+    		<%= submit_tag t('.search'), :name => nil %>
+			<% end %>
 			<p id="search-examples"><strong>Pl.:</strong> <a href="#">accent table</a>, <a href="#">working chair</a></p>
 		</div>
 		<nav id="main-nav">

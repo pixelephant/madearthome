@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 	has_many :advantages_to_products
 	belongs_to :designer
 	belongs_to :manufacturer
-	
+
 	has_many :related_products
 	has_many :product_relates, :through => :related_products, :foreign_key => "product_id"
 	has_many :inverse_related_products, :class_name => "RelatedProduct", :foreign_key => "related_product_id"
@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
 
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
-	
+
 	validates :name, :sku, :price, :category, :presence => true
 
 	validates :sku, :name, :uniqueness => true
@@ -33,6 +33,11 @@ class Product < ActiveRecord::Base
 	has_many :line_items
 
 	has_many :product_translations
+
+	searchable do
+    text :name, :short_description, :long_description
+  end
+
 
 	def default_photo
 		default = self.photos.where("photos.default = 1").exists? ? self.photos.where("photos.default = 1").first : self.photos.first
@@ -57,7 +62,7 @@ class Product < ActiveRecord::Base
 
 		a = PropertyCategory.where(:category_name => 'Overall Depth').first.properties
 		d = self.properties.where(:id => a).first.property_name if self.properties.where(:id => a).any?
-		
+
 		if w.nil? || h.nil? || d.nil?
 			return nil
 		end
@@ -67,7 +72,7 @@ class Product < ActiveRecord::Base
 
 	def translate
 
-		ignore = ["id","created_at","updated_at","locale","product_id"]		
+		ignore = ["id","created_at","updated_at","locale","product_id"]
 
 		if I18n.locale.to_s != I18n.default_locale.to_s
 			translation = ProductTranslation.where(:product_id => self, :locale => I18n.locale.to_s)
