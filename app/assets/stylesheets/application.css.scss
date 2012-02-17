@@ -279,13 +279,21 @@ html{
 
 .helptext{
 	float:left;
-	padding:5px;
+	padding:20px;
 	font-size:16px;
 	em{
-		color:$orange;
-		font-size:18px;
-		font-weight:bold;
+		font-style:italic;
+	}
+	.lead{
+		font-variant:small-caps;
+		font-size:17px;
+	}
+	.telephone{
+		margin:10px 0;
 		display:block;
+		font-size:20px;
+		@include font-gill;
+		font-weight:bold;
 	}
 }
 
@@ -795,4 +803,17 @@ label.error{
 	padding:10px;
 	float:left;
 	margin:10px;
+	position:relative;
+	.ribbon{
+		background:orange;
+		height:15px;
+		@include font-gill;
+		color:white;
+		text-transform:uppercase;
+		position:absolute;
+		padding:5px;
+		left:-10px;
+		top:20px;
+	}
 }
+

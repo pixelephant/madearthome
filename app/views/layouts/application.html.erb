@@ -20,7 +20,6 @@
 <header id="main-header">
 	<nav id="misc-menu">
 		<ul class="main-ul">
-			<li class="first"><%= t('.top_menu_need_help') %></li>
 			<li>
 				<ul id="language-selector">
 					<% LANGUAGES.each do |lang| %>
@@ -45,8 +44,8 @@
 			</h1>
 		</a>
 		<span class="helptext">
-			Need help?
-			<em>Call us on: 123-54321</em>
+			<em>Need help?</em> <span class="lead">call our support line</span>
+			<span class="telephone">06-1-123-5432</span>
 		</span>
 		<div id="minicart-wrapper">
 			<%= render 'home/minicart' %>
