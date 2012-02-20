@@ -15,4 +15,18 @@ module ApplicationHelper
 	def is_a_number?(s)
 		s.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
 	end
+
+	def cart_count
+		if Cart.exists?(session[:cart_id])
+			cart = Cart.find(session[:cart_id])
+			count = 0
+			cart.line_items.each do |item|
+				count += item.quantity
+			end
+		count
+		else
+			""
+		end
+	end
+
 end
