@@ -1,5 +1,4 @@
-<%= link_to t('.cart_link'), "/cart", :class => "minicart" %>
-<% c = 0 %>
+<%= link_to t('.cart_link') + cart_count.to_s , "/cart", :class => "minicart" + (" empty" if cart_count.to_s.empty? ) %>
 <% if Cart.exists?(session[:cart_id]) %>
 <% cart = Cart.find(session[:cart_id]) %>
 	<div id="minicart">
@@ -10,7 +9,7 @@
 						<span class="title">
 							<%= item.product.name %>
 						</span>
-						<span class="property">Quantity: <%= c += item.quantity %></span>
+						<span class="property">Quantity: <%= item.quantity %></span>
 						<span class="property">Color: Red</span>
 						<span class="property">Anyag: Bőr</span>
 					</div>
@@ -22,7 +21,4 @@
 			</div>
 			<%= link_to t('.cart_link'), "/cart", :class => "button" %>
 	</div>
-<% end %>
-<% if c > 0 %>
-	<span class="counter"><%= c %></span>
 <% end %>
