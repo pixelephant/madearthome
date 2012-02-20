@@ -611,6 +611,12 @@ html{
 		margin-top:20px;
 		padding:20px;
 	}
+	
+	&.half{
+		width:470px;
+		float:left;
+		margin-right:10px;
+	}
 }
 
 #social-promo{
@@ -746,40 +752,6 @@ label.error{
 
 @import "_product_list_common.css.scss";
 
-.slider.full{
-	overflow:hidden;
-	img{
-		border:5px solid $border-blue;
-		width:110px;
-		height:110px;
-	}
-	&.big{
-		img{
-			width:155px;
-			height:155px;
-		}
-	}
-	.arrow{
-		margin-top:45px;
-	}
-	.arrow.left{
-		margin-right:20px;
-	}
-	.carousel{
-		float:left;
-		width:820px !important;
-	}
-	li{
-		width:120px;
-		height:190px;
-		margin-right: 20px;
-		float:left;
-	}
-	.price{
-		font-size:11px;
-	}
-}
-
 #simplemodal-overlay {background-color:#000;}
 
 #simplemodal-container a.modalCloseImg {
@@ -802,18 +774,38 @@ label.error{
 .box.promo{
 	padding:10px;
 	float:left;
-	margin:10px;
+	margin:20px 10px;
 	position:relative;
+	.ribbon-start{
+		float:left;
+		height:35px;
+		width:11px;
+		background:url(ribbon-start.png) no-repeat;
+	}
+	.ribbon-end{
+		float:left;
+		height:30px;
+		width:11px;
+		background:url(ribbon-end.png) no-repeat;
+	}
 	.ribbon{
-		background:orange;
-		height:15px;
-		@include font-gill;
-		color:white;
-		text-transform:uppercase;
+		
+		height:35px;
 		position:absolute;
-		padding:5px;
-		left:-10px;
+		left:-11px;
 		top:20px;
+		p{
+			float:left;
+			background:$brand-orange;
+			@include font-gill;
+			color:white;
+			text-transform:uppercase;
+			height:30px;
+			line-height:30px;
+			padding:0 5px;
+			
+		}
 	}
 }
 
+@import "_sliders.css.scss";

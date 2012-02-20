@@ -34,13 +34,13 @@ function get_random_color() {
 }
 
 $(document).ready(function(){
-	
-	$(".carousel").jCarouselLite({
+
+	$("#newest-products").jCarouselLite({
 	        btnPrev: ".left",
 	        btnNext: ".right",
 		    mouseWheel: true,
-		    visible: 6,
-		    scroll: 2
+		    visible: 4,
+		    scroll: 1
 	});
 	
 	$(".carousel").touchwipe({

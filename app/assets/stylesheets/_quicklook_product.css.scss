@@ -37,6 +37,64 @@
 	}
 }
 
+.product{
+	float:left;
+	width:175px;
+	height:255px;
+	a{
+		text-decoration:none;
+		color:$brand-lightblue;
+		display:block;
+		@include transition-03s;
+		&:hover .name{
+			color: $brand-darkblue;
+		}
+	}
+	.left{
+		float:left;
+		padding-right:5px;
+		width:150px;
+	}
+	.right{
+		float:right;
+		img{
+			width:20px;
+			height:20px;
+		}
+	}
+	.price{
+		font-weight:bold;
+		text-decoration:none;
+		font-size:13px;
+		color:#3c3c3c;
+		.current-price{
+			color:$brand-orange;
+		}
+		.old-price{
+			font-weight:normal;
+			text-decoration:line-through;
+		}
+	}
+	.image{
+		overflow:hidden;
+		position:relative;
+		border:10px solid $border-blue;
+		height:155px;
+		margin-bottom:5px;
+	}
+	img{
+		width:155px;
+		height:155px;
+		@include transition-03s;
+		z-index:1;
+	}
+	p{
+		@include font-gill;
+		padding:2px;
+	}
+	.name{
+		text-decoration:underline;
+	}
+}
 
-@import '_product_list_common';
 @import '_product_modal';

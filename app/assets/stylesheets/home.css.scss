@@ -230,13 +230,14 @@
 
 .blog-entry{
 	float:left;
-	width:460px;
+	width:440px;
+	padding-right:20px;
 	overflow:hidden;
 	img{
-		margin:0px 10px 0px 10px;
-		border:5px solid $border-gray;
-		width:130px;
-		height:100px;
+		margin:10px 15px 0px 10px;
+		border:5px solid $border-blue;
+		width:120px;
+		height:90px;
 		float:left;
 	}
 	a{

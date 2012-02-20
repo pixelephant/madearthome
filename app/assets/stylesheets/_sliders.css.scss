@@ -1,0 +1,112 @@
+.slider{
+	position:relative;
+	padding:20px;
+	@include box-shadow;
+	background:white;
+	margin-top:20px;
+	.carousel{
+		float:left;
+		overflow:hidden;
+		li{
+			float:left;
+			a{
+				text-align:center;
+				@include font-gill;
+				text-decoration:none;
+				.name{
+					text-decoration:underline;
+					color:$brand-lightblue;
+					@include transition-03s;
+					margin-bottom:5px;
+				}
+				&:hover .name{
+					color:$brand-darkblue;
+				}
+				.price{
+					font-size:13px;
+					font-weight:bold;
+				}
+				.current-price{
+					color:$brand-orange;
+				}
+				.old-price{
+					color:#3c3c3c;
+					text-decoration:line-through;
+					font-weight:normal;
+					font-size:11px;
+				}
+			}
+		}
+	}
+	.arrow{
+		margin-top:45px;
+	}
+	.arrow.left{
+		margin-right:20px;
+	}
+	h3{
+		color:$heading-blue;
+		margin-bottom:25px;
+		font-size:18px;
+		font-weight:bold;
+		text-transform:uppercase;
+		@include font-gill;
+	}
+	img{
+		border:5px solid $border-blue;
+	}
+	&.full{
+		.carousel{
+			width:840px !important;
+			img{
+				width:110px;
+				height:110px;
+			}
+			li{
+				width:120px;
+				margin-right:20px;
+				overflow:hidden;
+			}
+			&.big{
+				img{
+					border:10px solid $border-blue;
+					width:155px;
+					height:155px;
+				}
+				li{
+					width:175px;
+					margin-right:40px;
+					overflow:hidden;
+				}
+			}
+		}
+	}
+	&.half{
+		.arrow{
+			margin-top:15px;
+		}
+		float:left;
+		width:430px; /*470 - 40px padding*/
+		&.first{
+			margin-right:20px;
+		}
+		float:left;
+		.carousel{
+			width:350px !important;
+		}
+		img{
+			margin:0 5px;
+			width:50px;
+			height:50px;
+		}
+		li{
+			width:70px;
+			overflow:hidden;
+			margin-right:20px;
+		}
+	}
+}
+
+.big .arrow{
+	margin-top:75px;
+}
