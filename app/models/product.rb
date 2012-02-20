@@ -70,6 +70,14 @@ class Product < ActiveRecord::Base
 		return w.to_s + " x " + h.to_s + " x " + d.to_s
 	end
 
+	def optional_properties
+		self.properties.find(:all, :group => "property_category_id", :having => "SUM(properties.property_category_id) > properties.property_category_id")
+	end
+
+	def given_properties
+		self.properties.find(:all, :group => "property_category_id", :having => "SUM(properties.property_category_id) = properties.property_category_id")
+	end
+
 	def translate
 
 		ignore = ["id","created_at","updated_at","locale","product_id"]

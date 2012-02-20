@@ -4,7 +4,7 @@
 	<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
 </fieldset>
 
-<%= field_set_tag t('.designers') do %>
+<%= field_set_tag t('designer') do %>
 	<% Designer.all.each do |designer| %>
 		<%= designer.name << ":" %>
 		<%= check_box_tag designer.name, designer.id, true %>

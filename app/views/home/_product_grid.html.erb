@@ -21,4 +21,13 @@
 </div>
 <% end %>
 
-<%= render 'home/product_modal' %>
+<section id="product-modal-wrap">
+	<!-- keyboard léptetés -->
+		<div id="product-modal">
+			<a id="modal-prev" class="arrow left" href="#"><%= t('previous') %></a>
+			<div class="clearfix">
+				<%= render 'products/modal_product' %>
+			</div>
+			<a id="modal-next" class="arrow right" href="#"><%= t('next') %></a>
+		</div>
+</section>

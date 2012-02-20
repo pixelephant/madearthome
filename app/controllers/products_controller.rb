@@ -26,6 +26,22 @@ class ProductsController < ApplicationController
     end
   end
 
+	# POST /product/quicklook/1
+	# POST /product/quicklook/1.json
+	def quicklook
+    @product = Product.find(params[:id]).translate
+		@category = @product.category
+		#session[:last_viewed_products] = []
+		(session[:last_viewed_products] ||= []).delete(params[:id])
+		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
+		@designer = @product.designer
+		@manufacturer = @product.manufacturer
+    respond_to do |format|
+      format.html { render :partial => 'modal_product' }
+      format.json { render json: @product }
+    end
+	end
+
   # GET /products/new
   # GET /products/new.json
   def new
@@ -33,7 +49,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product } #termék nem default első képe vagy ha nincs akkor default, akciók, nem változtatható propertyk, brand, designer
+      format.json { render json: @product }
     end
   end
 
