@@ -501,11 +501,11 @@ html{
 			margin:0;
 			padding:0;
 			height:25px;
-			margin:25px 0;
+			margin:5px 0;
 			line-height:1;
 			a{
 				@include font-garamond;
-				font-size:18px;
+				font-size:16px;
 				text-transform:none;
 				font-variant:normal;
 			}
@@ -537,6 +537,13 @@ html{
 		}
 		.col3{
 			width:410px;
+		}
+		h5{
+			color:white;
+			font-size:16px;
+			font-variant:small-caps;
+			padding:0;
+			margin:0;
 		}
 	}
 }
@@ -806,6 +813,20 @@ label.error{
 			
 		}
 	}
+}
+
+#twitter{
+	background:url(bg-tw.png) no-repeat;
+	padding:0;
+	width:310px;
+	height:175px;
+}
+
+#facebook{
+	padding:0;
+	background:url(bg-f.png) no-repeat;
+	width:310px;
+	height:175px;
 }
 
 @import "_sliders.css.scss";

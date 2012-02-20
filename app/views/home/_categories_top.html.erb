@@ -5,6 +5,7 @@
 		<% if category.custom_categories.any? %>
 			<ul class="sub <%= 'right ' if index > (Category.count - 4) %>column-3">
 				<div class="col1">
+					<h5>jeje huja</h5>
 					<% sub_categories = category.custom_categories  %>
 					<% product_per_column = sub_categories.count / 3 if !sub_categories.blank? %>
 					<% sub_categories.each_with_index do |sub_cat,i| %>

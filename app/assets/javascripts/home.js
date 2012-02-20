@@ -36,8 +36,8 @@ function get_random_color() {
 $(document).ready(function(){
 
 	$("#newest-products").jCarouselLite({
-	        btnPrev: ".left",
-	        btnNext: ".right",
+	        btnPrev: $(".slider .left"),
+	        btnNext: $(".slider .right"),
 		    mouseWheel: true,
 		    visible: 4,
 		    scroll: 1
