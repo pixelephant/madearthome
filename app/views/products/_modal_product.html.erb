@@ -1,31 +1,44 @@
-<div class="left">\
-		<%= image_tag "matthew.png", :title => "title", :class => "img" %>\
-	</div>\
-	<div class="right">\
-		<div id="product-title">\
-			<h2>${name} <span class="sku">  ${sku}</span> </h2>\
-			<%= image_tag "lz.png", :title => "title", :class => "class" %>\
-		</div>\
-		<div id="info-box">\
-			<div class="third" id="price">\
-				<p class="price">\
-					<span class="current-price">${current_price} Ft</span> <span class="old-price">${old_price} Ft</span>\
-				</p>\
-			</div>\
-			<div class="third">\
-					<a href="#">Kapható szettben!</a>\
-			</div>\
-			<div class="third last">\
-					<a href="#">Ajándék lámpával!</a>\
-			</div>\
-		</div>\
-		<div class="properties">\
-			<p><span>Designer</span> Kovács Kálmán</p>\
-			<p><span>Designer</span> Kovács Kálmán</p>\
-		</div>\
-		<div id="short-description-box">\
-			<p><span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla.\
-			</p>\
-		</div>\
-		<a class="button" href="#">Megtekintés</a>\
+<% if !@product.blank? %>
+	<div class="left">
+		<% photo = @product.photos.second || @product.default_photo %>
+		<%= image_tag photo.image_file.medium, :title => photo.alt, :class => "img" %>
 	</div>
+	<div class="right">
+		<div id="product-title">
+			<h2><%= @product.name %>
+				<span class="sku"><%= @product.sku %></span>
+			</h2>
+			<%= image_tag "lz.png", :title => "title", :class => "class" %>
+		</div>
+		<div id="info-box">
+			<div class="third" id="price">
+				<%= render :partial => "price", :locals => { :product => @product } %>
+			</div>
+			<div class="third">
+				<a href="#">Kapható szettben!</a>
+			</div>
+			<div class="third last">
+				<a href="#">Ajándék lámpával!</a>
+			</div>
+		</div>
+		<div class="properties">
+			<% if !@product.designer.blank? %>
+				<p><span><%= t('designer') %>: </span><%= @product.designer.name %></p>
+			<% end %>
+			<% if !@product.manufacturer.blank? %>
+				<p><span><%= t('manufacturer') %>: </span><%= @product.manufacturer.name %></p>
+			<% end %>
+
+			<% @product.given_properties.each do |property| %>
+				<p><span><%= property.property_category.translate.category_name %>: </span><%= property.translate.property_name %></p>
+			<% end %>
+
+		</div>
+		<div id="short-description-box">
+			<p>
+				<%= lead(@product.short_description) %>
+			</p>
+		</div>
+		<a class="button" href="#"><%= t('show') %></a>
+	</div>
+<% end %>

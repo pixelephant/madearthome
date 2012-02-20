@@ -81,8 +81,8 @@
 				</form>
 			</div>
 			<div id="short-description-box">
-				<p><!--span class="lead">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. -->
-				<%= @product.short_description %>
+				<p>
+					<%= lead(@product.short_description) %>
 				</p>
 			</div>
 		</div>
@@ -94,7 +94,7 @@
 		<div class="ribbon"></div>
 		<h3><%= t('.specifications') %></h3>
 		<% if !@designer.nil? %>
-			<p><span><%= t('.designer') %>: </span><%= @designer.name %></p>
+			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
 		<% end %>
 
 		<% if !@product.dimensions.nil? %>
@@ -110,8 +110,8 @@
 	<section class="box third mid has-ribbon" id="expert-advice">
 		<div class="ribbon"></div>
 		<h3><%= t('.expert_advice') %></h3>
-		<p><!--span class="lead">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. Integer imperdiet mauris eu turpis euismod rutrum dapibus vitae neque. Suspendisse potenti. Mauris eu erat et sapien posuere bibendum at fermentum purus.-->
-		<%= @product.advice %>
+		<p>
+			<%= lead(@product.advice) %>
 		</p>
 	</section>
 	<% end %>

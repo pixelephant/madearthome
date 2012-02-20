@@ -2,6 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  depth: "Depth"
+  designer: "Designer"
+  next: "Next"
+  previous: "Previous"
+  show: "Show"
+
   layouts:
     application:
       title: "Site title"
@@ -24,9 +30,6 @@ en:
       newsletter: "Newsletter"
       newsletter_sign_up: "Sign up"
       newsletter_email_placeholder: "Email address"
-    filters:
-      designers: "Designers"
-      depth: "Depth"
     product_grid_action_buttons:
       newest: "Newest"
       name: "Name"
@@ -50,7 +53,6 @@ en:
       sale_price: "Sale price"
       add_to_cart: "Add to cart"
       specifications: "Specifications"
-      designer: "Designer"
       dimensions: "Dimensions"
       weight: "Weight (kg)"
       expert_advice: "Expert advice"

@@ -2,6 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 hu:
+  depth: "Mélység"
+  designer: "Tervező"
+  next: "Következő"
+  previous: "Előző"
+  show: "Megtekintés"
+
   layouts:
     application:
       title: "Oldal címe"
@@ -24,9 +30,6 @@ hu:
       newsletter: "Hírlevél"
       newsletter_sign_up: "Feliratkozom"
       newsletter_email_placeholder: "Email cím"
-    filters:
-      designers: "Tervezők"
-      depth: "Mélység"
     product_grid_action_buttons:
       newest: "Legújabb"
       name: "Név"
