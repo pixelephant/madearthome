@@ -281,6 +281,7 @@ html{
 	float:left;
 	padding:20px;
 	font-size:16px;
+	color:white;
 	em{
 		font-style:italic;
 	}
@@ -291,9 +292,9 @@ html{
 	.telephone{
 		margin:10px 0;
 		display:block;
-		font-size:20px;
-		@include font-gill;
+		font-size:30px;
 		font-weight:bold;
+		font-style:italic;
 	}
 }
 
@@ -319,29 +320,12 @@ html{
 		background: url(cart-icon.png) center -5px no-repeat;
 		display:block;
 		@include font-gill;
-		color:#3C3C3C;
+		color:$brand-darkblue;
 		font-size:12px;
 		font-weight:bold;
 		text-decoration:none;
 		display:block;
 		text-align:center;
-	}
-	.counter{
-		display:block;
-		width:16px;
-		height:16px;
-		@include border-radius(16px,16px,16px,16px);
-		border: 1px solid black;
-		font-size:12px;
-		@include font-gill;
-		font-weight:bold;
-		text-align:center;
-		line-height:16px;
-		background:white;
-		color:$orange;
-		position:absolute;
-		right:5px;
-		top:5px;
 	}
 }
 
@@ -755,6 +739,8 @@ label.error{
 	}
 }
 
+@import "_product_list_common.css.scss";
+
 .slider.full{
 	overflow:hidden;
 	img{
@@ -774,9 +760,12 @@ label.error{
 	}
 	li{
 		width:120px;
-		height:120px;
+		height:190px;
 		margin-right: 20px;
 		float:left;
+	}
+	.price{
+		font-size:11px;
 	}
 }
 

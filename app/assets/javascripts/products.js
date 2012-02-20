@@ -40,4 +40,8 @@ $("document").ready(function(){
 	     preventDefaultEvents: true
 	});
 	
+	$("#product-form").bind("submit",function(){
+		alert("asd");
+	});
+	
 });

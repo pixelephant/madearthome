@@ -1,4 +1,4 @@
-<%= link_to t('.cart_link'), "/cart", :class => "minicart" %>
+<%= link_to t('.cart_link') + " (10)", "/cart", :class => "minicart" %>
 <% c = 0 %>
 <% if Cart.exists?(session[:cart_id]) %>
 <% cart = Cart.find(session[:cart_id]) %>
@@ -25,4 +25,4 @@
 <% end %>
 <% if c > 0 %>
 	<span class="counter"><%= c %></span>
-<% end %>
+<% end %> <!-- át kell rakni az első sorban a link szövege után + " (c)" -->

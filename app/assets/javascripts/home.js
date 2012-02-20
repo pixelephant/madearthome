@@ -1,3 +1,7 @@
+//= require jquery.easing
+//= require carousel
+//= require mousewheel
+
 /*
  Color animation jQuery-plugin
  http://www.bitstorm.org/jquery/color-animation/
@@ -30,6 +34,22 @@ function get_random_color() {
 }
 
 $(document).ready(function(){
+	
+	$(".carousel").jCarouselLite({
+	        btnPrev: ".left",
+	        btnNext: ".right",
+		    mouseWheel: true,
+		    visible: 6,
+		    scroll: 2
+	});
+	
+	$(".carousel").touchwipe({
+	     wipeLeft: function() { $(".right").trigger("click"); },
+	     wipeRight: function() { $(".left").trigger("click"); },
+	     min_move_x: 20,
+	     min_move_y: 20,
+	     preventDefaultEvents: true
+	});
 	
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);
