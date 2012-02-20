@@ -4,11 +4,11 @@
 	height:225px;
 	a{
 		text-decoration:none;
-		color:$link-color;
+		color:$brand-lightblue;
 		display:block;
 		@include transition-03s;
 		&:hover .name{
-			color: $link-color-hover;
+			color: $brand-darkblue;
 		}
 	}
 	.left{
