@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
+			format.js { render :partial => 'home/product_modal'} #termék nem default első képe vagy ha nincs akkor default, akciók, nem változtatható propertyk, brand, designer
     end
   end
 
@@ -33,7 +34,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product } #termék nem default első képe vagy ha nincs akkor default, akciók, nem változtatható propertyk, brand, designer
+      format.json { render json: @product }
     end
   end
 
