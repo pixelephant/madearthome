@@ -25,7 +25,7 @@ module ApplicationHelper
 			end
 		count
 		else
-			""
+			nil
 		end
 	end
 

@@ -1,4 +1,4 @@
-<%= link_to t('.cart_link') + cart_count.to_s , "/cart", :class => "minicart" + (" empty" if cart_count.to_s.empty? ) %>
+<%= link_to t('.cart_link') + (cart_count if !cart_count.nil?).to_s , "/cart", :class => "minicart" + (" empty" if cart_count.nil? ).to_s %>
 <% if Cart.exists?(session[:cart_id]) %>
 <% cart = Cart.find(session[:cart_id]) %>
 	<div id="minicart">
