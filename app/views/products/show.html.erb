@@ -155,7 +155,9 @@
 	</section>
 <% end %>
 
-<section class="box full slider clearfix" id="related-products">
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A termékhez ajánljuk", :id => "related-products"} %>
+
+<!--<section class="box full slider clearfix" id="related-products">
 	<h3><%= t('.suggested_products') %></h3>
 	  <a href="#" class="arrow left"></a>
 	  <div class="carousel">
@@ -175,6 +177,6 @@
 		    </li>
 		<% end %>
 		</ul>
-	</div><!-- carousel -->
+	</div><!-- carousel 
 	<a href="#" class="arrow right"></a>
-</section>
+</section>-->

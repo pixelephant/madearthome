@@ -24,9 +24,9 @@ $("document").ready(function(){
 		preloadText: 'Képek betöltése...',
 	});
 	
-	$(".carousel").jCarouselLite({
-	        btnPrev: ".left",
-	        btnNext: ".right",
+	$("#related-products .carousel").jCarouselLite({
+	        btnPrev: $(".slider .left"),
+	        btnNext: $(".slider .right"),
 		    mouseWheel: true,
 		    visible: 6,
 		    scroll: 2
@@ -38,10 +38,6 @@ $("document").ready(function(){
 	     min_move_x: 20,
 	     min_move_y: 20,
 	     preventDefaultEvents: true
-	});
-	
-	$("#product-form").bind("submit",function(){
-		alert("asd");
 	});
 	
 });
