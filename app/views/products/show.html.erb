@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <section class="box full" id="product-box">
 	<div id="product-inner">
 		<div id="left-side">
@@ -60,13 +59,20 @@
 			<div id="properties-box">
 				<form id="product-form" name="product-form" action="<%= line_items_path(:product_id => @product.id) %>" method="POST">
 					<div class="left">
-						<% @product.properties.group('property_category_id').each do |property| %>
-
-						<p>
-							<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
-<%= select("property_category", "id", @product.properties.where(:property_category_id => property.property_category_id).collect {|p| [ p.property_name, p.id]}) %>
-						</p>
+						<% @product.optional_properties.each do |property| %>
+							<p>
+								<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
+	<%= select("property_category", "id", @product.properties.where(:property_category_id => property.property_category_id).collect {|p| [ p.property_name, p.id]}) %>
+							</p>
 						<% end %>
+
+						<% @product.given_properties.each do |property| %>
+							<p>
+								<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
+								<%= property.translate.property_name %>
+							</p>
+						<% end %>
+
 						<p><label for="">Mennyiség</label><input type="number" name="number" min="1" max="5" id="number" /></p>
 						<p><label for="">Szállítási idő</label> 12 nap</p>
 						<div class="links">
@@ -82,7 +88,7 @@
 			</div>
 			<div id="short-description-box">
 				<p>
-					<%= lead(@product.short_description) %>
+					<%= lead(@product.long_description).html_safe %>
 				</p>
 			</div>
 		</div>

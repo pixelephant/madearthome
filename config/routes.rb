@@ -34,9 +34,9 @@ Madearthome::Application.routes.draw do
 
 	scope '(:locale)' do
 
-		post 'products/quicklook' => "products#quicklook"
-
 		match 'search' => 'search#index'
+
+		post 'products/quicklook' => "products#quicklook"
 
 		resources :links_products
 

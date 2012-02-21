@@ -32,7 +32,14 @@ module ApplicationHelper
 	def lead(string)
 		return '' if string.blank?
 		s = string.split(' ', 5)
-		'<span class="lead">' + s[0..3].join(" ").to_s + '</span>' + s[4]
+		if s.length > 4
+			i = s[0..3].join(" ")
+			e = s[4]
+		else
+			i = s.join(" ")
+			e = ''
+		end
+		'<span class="lead">' + i.to_s + '</span> ' + e.to_s
 	end
 
 end

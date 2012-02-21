@@ -51,7 +51,7 @@
 			<%= render 'home/minicart' %>
 		</div>
 		<div id="search-wrapper">
-			<%= form_tag 'search', :id => 'search-form', :method => :get do %>
+			<%= form_tag "/" + I18n.locale.to_s + "/search", :id => 'search-form', :method => :get do %>
 		    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('.search') + '...' %>
     		<%= submit_tag t('.search'), :name => nil %>
 			<% end %>

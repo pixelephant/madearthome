@@ -36,6 +36,9 @@ class Product < ActiveRecord::Base
 
 	searchable do
     text :name, :short_description, :long_description
+ 		text :product_translations do
+		    product_translations.map {|product_translation|  product_translation.long_description}
+	  end
   end
 
 
@@ -50,6 +53,7 @@ class Product < ActiveRecord::Base
 
 	def weight
 		a = PropertyCategory.where(:category_name => 'Weight').first.properties
+		return nil if a.blank?
 		self.properties.where(:id => a).first.property_name
 	end
 

@@ -14,7 +14,7 @@ class SearchController < ApplicationController
 			@kaminari_products = @products
 		end
 
-  	@products = @search.results
+  	#@products = @search.results
 
     respond_to do |format|
       format.html # index.html.erb
