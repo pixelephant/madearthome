@@ -1,4 +1,12 @@
 module ApplicationHelper
+
+	def box_class(number)
+		cl = ""
+		cl = " mid" if number == 1
+		cl = " last" if number == 2
+		cl
+	end
+
 	def product_has_property(property_id, product_id)
 		Product.find(product_id).properties.where(:id => property_id).exists?
 	end
