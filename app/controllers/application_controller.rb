@@ -1,6 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 	before_filter :set_i18n_locale_from_params
+  
+  layout :choose_layout
+  
+  def choose_layout
+    if ['comingsoon'].include? action_name
+      'comingsoon'
+    else
+      'application'
+    end
+  end
+  
+  def comingsoon
+    render "comingsoon/index"
+  end
 
 	private
 
@@ -31,6 +45,5 @@ class ApplicationController < ActionController::Base
 	def default_url_options
 		{ :locale => I18n.locale }
 	end
-
 
 end

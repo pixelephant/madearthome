@@ -154,6 +154,10 @@ p .lead{
 	font-size:17px;
 }
 
+em{
+	font-style:normal;
+}
+
 html{
 	width:100%;
 	height:100%;
@@ -830,3 +834,45 @@ label.error{
 }
 
 @import "_sliders.css.scss";
+
+
+
+
+
+
+/* ----- Comingsoon ------ */
+
+#comingsoon{
+	#header-wrapper{
+		overflow:hidden;
+	}
+	#logo{
+		margin-top:0;
+	}
+	.box{
+		text-align:center;
+		h2{
+			color:$brand-darkblue;
+			margin-bottom:10px;
+			font-size:50px;
+		}
+		img{
+			width:100px;
+			margin:10px;
+		}
+	}
+	h1{
+		height:80px;
+		line-height:80px;
+		font-size:24px;
+		padding:20px;
+		color:#333;
+		float:left;
+	}
+	#social-promo{
+		height:400px;
+		p,em{
+			font-size:19px;
+		}
+	}
+}
