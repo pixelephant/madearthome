@@ -39,10 +39,16 @@
 		</ul>
 	</nav>
 	<div id="header-wrapper">
-		<a href="/">
+		<a href="/home">
+			<% if params[:controller] == 'home'%>
 			<h1 id="logo">
 				Flairspring<span>Comfort on your side</span>
 			</h1>
+			<% else %>
+			  <h2 id="logo">
+				Flairspring<span>Comfort on your side</span>
+			</h2>
+			<% end %>
 		</a>
 		<span class="helptext">
 			<em>Need help?</em> <span class="lead">call our support line</span>
@@ -64,7 +70,7 @@
 			</ul>
 		</nav>
 		<% if params[:controller] != 'home'%>
-		<nav id="breadcrumb">
+		<nav id="breadcrumb" class="clearfix">
 			<p>
 				<%= render 'home/breadcrumb' %>
 			</p>

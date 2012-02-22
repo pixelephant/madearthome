@@ -15,36 +15,30 @@
 				</fieldset>
 			</form>
 	</section>
-
-	<section id="promo-list">
-		<div class="box promo">
-			<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-		</div>
-		<div class="box promo">
-			<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-		</div>
-		<div class="box promo">
-			<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
-		</div>
-		<div class="box promo">
-			<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
-		</div>
-		<div class="box promo">
-			<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
-		</div>
-		<div class="box promo">
-			<%= image_tag "logo.png", :title => "title", :class => "class" %>
-		</div>
-	</section>
-
-	<section id="product-lists">
-		<section class="box full slider clearfix">
-			<h3>Valami slider</h3>
+	
+		<section id="promo-list">
+			<div class="box promo">
+				<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+			</div>
+			<div class="box promo">
+				<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+			</div>
+			<div class="box promo">
+				<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
+			</div>
+			<div class="box promo">
+				<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+			</div>
+			<div class="box promo">
+				<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+			</div>
+			<div class="box promo">
+				<%= image_tag "logo.png", :title => "title", :class => "class" %>
+			</div>
 		</section>
-		<section class="box full clearfix">
-			<h3>Valami nem slider</h3>
-		</section>
-	</section>
 </div>
+
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-products"} %>
+<%= render :partial => "home/product_slider_halves", :locals => {:title => "Legújabb ágyaink", :id => "newest-products"} %>
 
 <%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>

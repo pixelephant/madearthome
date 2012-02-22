@@ -318,7 +318,7 @@ border-bottom: 5px solid black;
 	p{
 		display:block;
 		span{
-			font-variant:small-caps;
+			@include small-caps;
 			font-size:17px;
 		}
 	}

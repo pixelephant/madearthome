@@ -4,12 +4,16 @@
 	<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
 </fieldset>
 
+<input type="slider" name="sslider" value="1;1000" id="slider">
+
 <%= field_set_tag t('designer') do %>
 	<% Designer.all.each do |designer| %>
-		<%= designer.name << ":" %>
-		<%= check_box_tag designer.name, designer.id, true %>
-		<br/>
+		<div class="field">
+			<label for="<%= designer.name.parameterize %>"> <%= designer.name %> </label>
+			<%= check_box_tag designer.name.parameterize, designer.id, true %>
+		</div>
 	<% end %>
+	<%= link_to "update", "/", :class => "update" %>
 <% end %>
 
 <% PropertyCategory.order("category_name").each do |property_category| %>
@@ -17,17 +21,17 @@
 		<%= field_set_tag property_category.category_name.to_s do %>
 			<% if is_a_number?(l = property_category.properties.first.property_name) && is_a_number?(h = property_category.properties.last.property_name) %>
 <!-- Csúszka helye -->
-			Legkisebb: <%= l %>
-			<br/>
-			Legnagyobb: <%= h %>
+			<input id="<%= property_category.category_name.to_s.parameterize %>" type="slider" name="<%= property_category.category_name.to_s.parameterize %>" value="<%= l %>;<%= h %>" />
 <!-- Csúszka helye -->
 			<% elsif property_category.properties.count < 15 %>
 				<% property_category.properties.all.each do |property| %>
-					<%= property.translate.property_name + ":" %>
-					<%= check_box_tag property_category.id, property.id, true %>
-					<br/>
+					<div class="field">
+						<label for="<%= property.translate.property_name.parameterize %>"> <%= property.translate.property_name %> </label>
+						<%= check_box_tag property.translate.property_name.parameterize, property.id, true %>
+					</div>
 				<% end %>
 			<% end %>
+			<%= link_to "update", "/", :class => "update" %>
 		<% end %>
 	<% end %>
 <% end %>

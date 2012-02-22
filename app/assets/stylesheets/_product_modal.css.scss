@@ -33,7 +33,7 @@
 	.properties{
 		margin:10px 0;
 		span{
-			font-variant:small-caps;
+			@include small-caps;
 		}
 	}
 	.button{

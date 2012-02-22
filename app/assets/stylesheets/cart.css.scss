@@ -21,7 +21,7 @@
 		p{
 			float:right;
 			a{
-				font-variant:small-caps;
+				@include small-caps;
 			}
 		}
 	}
@@ -81,7 +81,7 @@
 				margin-bottom:5px;
 			}
 			.property{
-				font-variant:small-caps;
+				@include small-caps;
 				margin-bottom:10px;
 			}
 		}
@@ -94,7 +94,7 @@
 			text-align:right;
 			width:100px;
 			.update{
-				font-variant:small-caps;
+            	@include small-caps;
 				margin-right:25px;
 				color:$link-color;
 			}

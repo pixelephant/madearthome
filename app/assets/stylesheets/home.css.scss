@@ -206,7 +206,7 @@
 	text-align:center;
 	color:white;
 	font-size:19px;
-	font-variant:small-caps;
+	@include small-caps;
 	position:relative;
 	top:-25px;
 	p{
@@ -221,7 +221,7 @@
 #about-us{
 	p{
 		.lead{
-			font-variant:small-caps;
+			@include small-caps;
 		}
 		margin-top:20px;
 	}

@@ -26,7 +26,7 @@ input::-moz-focus-inner,button::-moz-focus-inner{
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html, button, input, select, textarea { color: #222; }
 
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
@@ -149,8 +149,7 @@ p a{
 }
 
 p .lead{
-	font-variant:small-caps;
-	text-transform:lowercase;
+	@include small-caps;
 	font-size:17px;
 }
 
@@ -292,7 +291,7 @@ html{
 		font-style:italic;
 	}
 	.lead{
-		font-variant:small-caps;
+		@include small-caps;
 		font-size:17px;
 	}
 	.telephone{
@@ -545,7 +544,7 @@ html{
 		h5{
 			color:white;
 			font-size:16px;
-			font-variant:small-caps;
+			@include small-caps;
 			padding:0;
 			margin:0;
 		}
@@ -553,12 +552,25 @@ html{
 }
 
 #breadcrumb{
+	height:45px;
+	line-height:45px;
+	p{
+		float:left;
+	}
 	padding:10px 0;
 	font-size:15px;
 	a{
 		font-size:15px;
 		color:black;
 	}
+}
+
+#site-title{
+	float:right;
+	color:#333;
+	margin:0;
+	height:45px;
+	line-height:45px;
 }
 
 #main-wrap{
@@ -659,7 +671,7 @@ html{
 	}
 	em{
 		font-size:18px;
-		font-variant:small-caps;
+		@include small-caps;
 		display:block;
 		span{
 			font-variant:normal;
@@ -749,7 +761,7 @@ label.error{
 					text-decoration:none;
 					color:white;
 					&.level-1{
-						font-variant:small-caps;
+						@include small-caps;
 					}
 					@include transition-03s;
 					&:hover{
