@@ -1,81 +1,68 @@
+<p id="notice"><%= notice %></p>
+
 <section id="cart" class="box full">
-	<table id="cart-table">
-		<thead>
-			<tr>
-				<th colspan="2"><h3>Kosarad tartalma</h3></th>
-				<th colspan="2"><p><a href="#">Login</a> or <a href="#">Register</a> for faster checkout!</p></th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<td class="coupon-cell">
-					<label for="">Kupon-kód</label><input type="text" name="" id="" />
-				</td>
-				<td class="total-cell">
-					<span class="sub">Cart subtotal</span>
-					<span class="sub">Shipping</span>
-					<span class="sub">VAT</span>
-					<span class="total">Total</span>
-				</td>
-				<td class="sum-cell">
-					<span class="sub">234 000 Ft</span>
-					<span class="sub">0 Ft</span>
-					<span class="sub">12 000 Ft</span>
-					<span class="total">256 000 Ft</span>
-				</td>
-				<td class="checkout-cell">
-					<form action="#">
-						<input type="submit" value="Fizetés" />
-						<a href="">Vásárlás folytatása</a>
-					</form>
-				</td>
-			</tr>
-		</tfoot>
-		<tbody>
-			<tr>
-				<td class="product-cell">
-					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-					<div>
-						<h6>Ottoman asztal</h6>
-						<p><span class="property">anyag: </span>Bőr</p>	
-						<p><span class="property">borítás: </span>Ón</p>
-					</div>
-				</td>
-				<td class="discount-cell">
-					Eligible for free shipping
-				</td>
-				<td class="price-cell">
-					117 000 Ft
-				</td>
-				<td class="actions-cell">
-					<input type="number" min='1' name="" id="" />
-					<a class="delete" href="">x</a>
-					<a href="#" class="update">update</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="product-cell">
-					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-					<div>
-						<h6>Ottoman asztal</h6>
-						<p><span class="property">anyag: </span>Bőr</p>	
-						<p><span class="property">borítás: </span>Ón</p>
-					</div>
-				</td>
-				<td class="discount-cell">
-					Eligible for free shipping
-				</td>
-				<td class="price-cell">
-					117 000 Ft
-				</td>
-				<td class="actions-cell">
-					<input type="number" min='1' name="" id="" />
-					<a class="delete" href="">x</a>
-					<a href="#" class="update">update</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+
+	<% if @cart %>
+		<table id="cart-table">
+			<thead>
+				<tr>
+					<th colspan="2"><h3>Kosarad tartalma</h3></th>
+					<th colspan="2"><p><a href="#">Login</a> or <a href="#">Register</a> for faster checkout!</p></th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td class="coupon-cell">
+						<label for="">Kupon-kód</label><input type="text" name="" id="" />
+					</td>
+					<td class="total-cell">
+						<span class="sub">Cart subtotal</span>
+						<span class="sub">Shipping</span>
+						<span class="total">Total</span>
+					</td>
+					<td class="sum-cell">
+						<span class="sub"><%= cart_subtotal %></span>
+						<span class="sub">Van-e személyes átvétel? Ft</span>
+						<span class="total">256 000 Ft</span>
+					</td>
+					<td class="checkout-cell">
+						<form action="#">
+							<input type="submit" value="Fizetés" />
+							<a href="">Vásárlás folytatása</a>
+						</form>
+					</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<% @cart.line_items.each do |li| %>
+						<td class="product-cell">
+							<%= image_tag li.product.default_photo.image_file.medium, :title => li.product.default_photo.alt, :class => "class" %>
+							<div>
+								<h6><%= li.product.name %></h6>
+								<% li.product.optional_properties.each do |property| %>
+									<p><span class="property"><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
+								<% end %>
+							</div>
+						</td>
+						<td class="discount-cell">
+							Eligible for free shipping
+						</td>
+						<td class="price-cell">
+							<%= productPrice(li.product.id) %>
+						</td>
+						<td class="actions-cell">
+							<input type="number" min='1' name="" id="" value="<%= li.quantity %>"/> db
+							<a class="delete" href="">x</a>
+							<a href="#" class="update">update</a>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% else %>
+		Kosarad üres
+	<% end %>
 </section>
 
 <div class="box-wrap clearfix">

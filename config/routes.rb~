@@ -34,7 +34,7 @@ Madearthome::Application.routes.draw do
 
 	scope '(:locale)' do
 
-		post 'products/quicklook' => "admin_ajax#getCategoryProperties"
+		post 'products/quicklook' => "products#quicklook"
 
 		match 'search' => 'search#index'
 

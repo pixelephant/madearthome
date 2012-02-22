@@ -1,4 +1,12 @@
 module ApplicationHelper
+
+	def box_class(number)
+		cl = ""
+		cl = " mid" if number == 1
+		cl = " last" if number == 2
+		cl
+	end
+
 	def product_has_property(property_id, product_id)
 		Product.find(product_id).properties.where(:id => property_id).exists?
 	end
@@ -24,6 +32,19 @@ module ApplicationHelper
 				count += item.quantity
 			end
 		count
+		else
+			nil
+		end
+	end
+
+	def cart_subtotal
+		if Cart.exists?(session[:cart_id])
+			cart = Cart.find(session[:cart_id])
+			subtotal = 0
+			cart.line_items.each do |item|
+				subtotal += (item.quantity * item.product.price)
+			end
+		subtotal
 		else
 			nil
 		end

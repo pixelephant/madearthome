@@ -95,6 +95,7 @@
 	</div>
 </section>
 
+<% box = 0 %>
 <div class="box-wrap clearfix">
 	<section class="box third has-ribbon" id="specifications">
 		<div class="ribbon"></div>
@@ -110,21 +111,23 @@
 		<% if !@product.weight.nil? %>
 			<p><span><%= t('.weight') %>: </span><%= @product.weight %></p>
 		<% end %>
+		<% box += 1 %>
 	</section>
 
 	<% if !@product.advice.nil? %>
-	<section class="box third mid has-ribbon" id="expert-advice">
+	<section class="box third has-ribbon<%= box_class(box % 3) %>" id="expert-advice">
 		<div class="ribbon"></div>
 		<h3><%= t('.expert_advice') %></h3>
 		<p>
-			<%= lead(@product.advice) %>
+			<%= lead(@product.advice).html_safe %>
 		</p>
 	</section>
+		<% box += 1 %>
 	<% end %>
 
 	<% if @product.stores.any? %>
 	<% store = @product.stores.first %>
-	<section class="box third last has-ribbon" id="try-it">
+	<section class="box third has-ribbon<%= box_class(box % 3) %>" id="try-it">
 		<div class="ribbon"></div>
 		<h3><%= t('.try_it_out') %></h3>
 		<strong><%= t('.try_it_out_store_start') %><%= store.name %><%= t('.try_it_out_store_end') %></strong>
@@ -134,7 +137,30 @@
 			<p>H-SZ: 10-18</p>
 		</div>
 	</section>
+	<% box += 1 %>
 	<% end %>
+
+	<% if !@product.video.blank? %>
+		<section class="box third has-ribbon<%= box_class(box % 3) %>" id="video">
+			<%= @product.video %>
+		</section>
+		<% box += 1 %>
+	<% end %>
+
+	<% if @product.links.any? %>
+		<% @product.links.each do |link| %>
+			<section class="box third has-ribbon<%= box_class(box % 3) %>" id="link">
+				<%= link_to link.link_text, link.url %>
+			</section>
+			<% box += 1 %>
+		<% end %>
+	<% end %>
+
+	<% while (box % 3) > 0 do %>
+	<%= render :partial => ('home/product_ad_' + (box % 3).to_s), :locals => {:cl => (box % 3)} %>
+	<% box += 1 %>
+	<% end %>
+
 </div>
 
 <% if !@designer.nil? %>
@@ -177,6 +203,6 @@
 		    </li>
 		<% end %>
 		</ul>
-	</div><!-- carousel 
+	</div><!-- carousel
 	<a href="#" class="arrow right"></a>
 </section>-->
