@@ -29,6 +29,19 @@ module ApplicationHelper
 		end
 	end
 
+	def cart_subtotal
+		if Cart.exists?(session[:cart_id])
+			cart = Cart.find(session[:cart_id])
+			subtotal = 0
+			cart.line_items.each do |item|
+				subtotal += (item.quantity * item.product.price)
+			end
+		subtotal
+		else
+			nil
+		end
+	end
+
 	def lead(string)
 		return '' if string.blank?
 		s = string.split(' ', 5)
