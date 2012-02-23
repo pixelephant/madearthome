@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Madearthome - <%= t('.title') %></title>
+  <%= stylesheet_link_tag    "application", controller_name %>
+  <%= stylesheet_link_tag    "comingsoon" %>
+  <%= javascript_include_tag "application", controller_name %>
+  <%= csrf_meta_tags %>
+  <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
+</head>
+<body>
+	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started -->
+	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+<header id="main-header">
+	<nav id="misc-menu">
+		<ul class="main-ul">
+			<li>
+				<ul id="language-selector">
+					<% LANGUAGES.each do |lang| %>
+						<% if lang[1] == I18n.locale.to_s %>
+							<li class="active <%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
+						<% else %>
+							<li class="<%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
+						 <% end %>
+					<% end %>
+				</ul>
+			</li>
+			<li><%= link_to t('.register'), "/register" %></li>
+			<li><%= link_to t('.login'), "/login" %></li>
+			<li><%= link_to t('.wishlist'),"/wishlist" %></li>
+			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
+		</ul>
+	</nav>
+	<div id="header-wrapper">
+		<a href="/home">
+			<% if params[:controller] == 'home'%>
+			<h1 id="logo">
+				Flairspring<span>Comfort on your side</span>
+			</h1>
+			<% else %>
+			  <h2 id="logo">
+				Flairspring<span>Comfort on your side</span>
+			</h2>
+			<% end %>
+		</a>
+		<span class="helptext">
+			<em>Need help?</em> <span class="lead">call our support line</span>
+			<span class="telephone">06-1-123-5432</span>
+		</span>
+	</div>
+</header>
+
+
+<% if params[:controller] == 'home'%>
+<%= render 'slider' %>
+<% end %>
+<div id="main-wrap">
+	<%= yield %>
+</div>
+
+<section id="social-promo">
+	<%= render 'home/shops_promo' %>
+	<%= render 'home/support_promo' %>
+</section>
+
+<footer id="main-footer">
+	<div id="main-footer-inner">
+		helplinks only
+	</div>
+</footer>
+</body>
+</html>

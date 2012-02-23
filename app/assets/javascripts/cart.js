@@ -30,5 +30,24 @@ $("document").ready(function(){
 	     min_move_y: 20,
 	     preventDefaultEvents: true
 	});
-
+	
+	$(".quantity-cell input[type='number']").bind("input",function(){
+		var $this = $(this);
+		var price = parseInt($this.parents("tr").find(".price-cell span").html());
+		$this.parents("tr").find(".sum-price-cell span").html(price * parseInt($this.val()));
+	});
+	
+	$(".delete").click(function(){
+		var $this = $(this);
+		var prodId = $(this).parents("tr").data("id")
+		//$.ajax({
+		//  type: 'POST',
+		//  url: "/cart/delete",
+		//	data: {id : prodId},
+		//  success: function(resp){
+			$this.parents("tr").fadeOut();
+		//}});
+		return false;
+	});
+	
 });

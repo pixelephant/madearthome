@@ -1,71 +1,80 @@
 @import '_mixins.css.scss';
 
+#cart{
+	margin-top: 120px;
+
+}
+
+#cart-top{
+	border-bottom:1px solid $border-gray;
+	padding-bottom:20px;
+	h3{
+		float:left;
+		margin-bottom:0;
+	}
+	.right{
+		float:right;
+		font-weight:normal;
+		a{
+			@include small-caps;
+			color:$brand-lightblue;
+			@include transition-03s;
+			&:hover{
+				color:$brand-darkblue;
+			}
+		}
+	}
+}
+
 #cart-table{
 	.update{
+		display:block;
+	}
+	.discount-element{
+		margin:10px 0;
 		display:block;
 	}
 	input[type="number"]{
 		width:55px;
 	}
+	
 	width:100%;
+	
 	thead{
 		border-bottom:1px solid $border-gray;
 		th{
-			height:40px;
-			line-height:40px;
-		}
-		h3{
-			float:left;
-			margin-bottom:0;
-		}
-		p{
-			float:right;
-			a{
-				@include small-caps;
-			}
-		}
-	}
-	tfoot{
-		td{
-			width:220px;
-			padding:20px 10px;
-			vertical-align:middle;
-		}
-		.total-cell{
-			text-align:right;
-		}
-		span{
-			margin:3px 0;
-			display:block;
-			@include font-gill;
-			font-size:18px;
-		}
-		.total{
-			font-size:25px;
-			color:$orange;
-		}
-		.checkout-cell{
-			text-align:right;
-			input[type="submit"]{
-					@include cta-submit;
-					font-size:15px;
-					padding:12px 28px;
-			}
-			a{
-				display:block;
-				margin-top:3px;
-				color:$link-color;
-			}
+			padding:10px 5px;
+			color:#adadad;
+			font-weight:normal;
+			text-align:left;
+			font-size:12px;
 		}
 	}
 	tbody{
 		tr{
 			border-bottom:1px solid $border-gray;
+			
 		}
 		td{
-			width:220px;
+/*			width:220px;*/
 			padding:20px 10px;
 			vertical-align:middle;
+		}
+		.cell-names{
+			td{
+				color:#A9A9A9;
+				font-size:12px;
+				padding:10px 5px;
+			}
+		}
+		.sum-price-cell{
+			width:130px;
+		}
+		.multiply-cell,.equals-cell{
+			width:30px;
+			color:#adadad;
+			@include font-gill;
+			font-size:16px;
 		}
 		.product-cell{
 			img{
@@ -77,15 +86,18 @@
 			}
 			h6{
 				@include font-gill;
-				color:$orange;
+				color:$brand-darkblue;
 				margin-bottom:5px;
+			}
+			p{
+				margin-top:5px;
+				line-height:1;
 			}
 			.property{
 				@include small-caps;
-				margin-bottom:10px;
 			}
 		}
-		.price-cell{
+		.price-cell,.sum-price-cell{
 			@include font-gill;
 			color:#565654;
 			font-size:18px;
@@ -108,4 +120,64 @@
 		color:$link-color;
 		line-height:1.5;
 	}
+}
+
+tfoot{
+
+	.checkout-cell{
+		text-align:right;
+		input[type="submit"]{
+				@include cta-submit;
+				font-size:15px;
+				padding:12px 28px;
+		}
+		a{
+			display:block;
+			margin-top:3px;
+			color:$link-color;
+		}
+	}
+}
+
+#coupon{
+	float:left;
+}
+
+#total{
+	background:#eee;
+	float:left;
+	text-align:right;
+	span,b{
+		font-weight:normal;
+		margin:3px;
+		@include font-gill;
+		font-size:18px;
+	}
+	b{
+		margin-right:20px;
+	}
+	.total-price{
+		font-size:25px;
+		color:$brand-orange;
+	}
+	form{
+		float:right;
+	}
+	input[type="submit"]{
+			@include cta-submit;
+			font-size:15px;
+			padding:12px 28px;
+	}
+	a{
+		color:$brand-lightblue;
+		@include transition-03s;
+		&:hover{
+			color:$brand-darkblue;
+		}
+	}
+}
+
+#total-price{
+	margin-top:10px;
+	border-top:1px dotted $brand-lightblue;
 }

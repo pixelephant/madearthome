@@ -1,65 +1,78 @@
 <p id="notice"><%= notice %></p>
 
 <section id="cart" class="box full">
-
+	<div id="cart-top" class="clearfix">
+		<h3>Kosarad tartalma</h3>
+		<p class="right"><a href="#">Login</a> or <a href="#">Register</a> for faster checkout!</p>
+	</div>
 	<% if @cart %>
 		<table id="cart-table">
 			<thead>
 				<tr>
-					<th colspan="2"><h3>Kosarad tartalma</h3></th>
-					<th colspan="2"><p><a href="#">Login</a> or <a href="#">Register</a> for faster checkout!</p></th>
+						<th>Termék</th>
+						<th>Kedvezmények</th>
+						<th>Darab ár</th>
+						<th width=20 class="multiply-cell">&nbsp;</th>
+						<th>Mennyiség</th>
+						<th></th>
+						<th>Összesen</th>
+						<th></th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td class="coupon-cell">
-						<label for="">Kupon-kód</label><input type="text" name="" id="" />
-					</td>
-					<td class="total-cell">
-						<span class="sub">Cart subtotal</span>
-						<span class="sub">Shipping</span>
-						<span class="total">Total</span>
-					</td>
-					<td class="sum-cell">
-						<span class="sub"><%= cart_subtotal %></span>
-						<span class="sub">Van-e személyes átvétel? Ft</span>
-						<span class="total">256 000 Ft</span>
-					</td>
-					<td class="checkout-cell">
-						<form action="#">
-							<input type="submit" value="Fizetés" />
-							<a href="">Vásárlás folytatása</a>
-						</form>
-					</td>
-				</tr>
-			</tfoot>
 			<tbody>
-				<tr>
-					<% @cart.line_items.each do |li| %>
+			<% @cart.line_items.each do |li| %>
+				<tr data-id="<%= li.product.id %>">
 						<td class="product-cell">
-							<%= image_tag li.product.default_photo.image_file.medium, :title => li.product.default_photo.alt, :class => "class" %>
-							<div>
+							<div class="clearfix">
+								<%= image_tag li.product.default_photo.image_file.medium, :title => li.product.default_photo.alt, :class => "class" %>
 								<h6><%= li.product.name %></h6>
+							</div>
 								<% li.product.optional_properties.each do |property| %>
 									<p><span class="property"><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
 								<% end %>
-							</div>
 						</td>
 						<td class="discount-cell">
-							Eligible for free shipping
+							<span class="discount-element">Ajándék kutya</span>
+							<span class="discount-element">Ingyenes összeszerelés</span>
 						</td>
 						<td class="price-cell">
-							<%= productPrice(li.product.id) %>
+							<span>
+								<%= productPrice(li.product.id) %>
+							</span> Ft
+						</td>
+						<td class="multiply-cell">
+							x
+						</td>
+						<td class="quantity-cell">
+							<input type="number" min='0' max="5" name="" id="" value="<%= li.quantity %>"/> db
+						</td>
+						<td class="equals-cell">
+							=
+						</td>
+						<td class="sum-price-cell">
+							<span>630</span> Ft
 						</td>
 						<td class="actions-cell">
-							<input type="number" min='1' name="" id="" value="<%= li.quantity %>"/> db
 							<a class="delete" href="">x</a>
-							<a href="#" class="update">update</a>
 						</td>
 					</tr>
 				<% end %>
 			</tbody>
 		</table>
+		<div id="cart-bottom" class="clearfix">
+			<div id="coupon">
+				<label for="">Kupon-kód</label><input type="text" name="" id="" />
+			</div>
+			<div id="total">
+				<p><b>Cart subtotal</b> <span class="subtotal"><%= cart_subtotal %></span> Ft</p>
+				<p><b>Shipping</b> <span class="shipping-cost">123</span> Ft</p>
+				<p id="total-price"><b>Total</b> <span class="total-price">123</span> Ft</p>
+				<form action="#">
+					<input type="submit" value="Fizetés" />
+				 	 | <a href="">Vásárlás folytatása</a>
+				</form>
+			</div>
+		</div>
 	<% else %>
 		Kosarad üres
 	<% end %>
