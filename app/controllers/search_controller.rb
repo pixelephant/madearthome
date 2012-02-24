@@ -7,9 +7,11 @@ class SearchController < ApplicationController
 	  end
 
 		if params[:page] == 'all'
+			session[:view_all] = true
 			@products = @search.results
 			@kaminari_products = Kaminari.paginate_array(@search.results).page(params[:page]).per(21)
 		else
+			session[:view_all] = false
 			@products = Kaminari.paginate_array(@search.results).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end

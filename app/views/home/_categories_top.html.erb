@@ -13,7 +13,11 @@
 							</div>
 							<div class="col1">
 						<% end %>
-						<li><%= link_to sub_cat.name, category_custom_category_path(category, sub_cat) %></li>
+						<li>
+							<%= link_to_if(session[:view_all], sub_cat.name, category_custom_category_path(category, sub_cat, :page => 'all')) do %>
+							<%=		link_to(sub_cat.name, category_custom_category_path(category, sub_cat)) %>
+							<% end %>
+						</li>
 					<% end %>
 				</div>
 			</ul>

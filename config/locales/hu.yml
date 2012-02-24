@@ -20,6 +20,8 @@ hu:
   home:
     breadcrumb:
       home: "Főoldal"
+      search_text_start: ""
+      search_text_end: " találatot kaptunk az alábbi kifejezésre: "
     last_viewed_carousel:
       last_viewed_products: "Utoljára megtekintve"
     minicart:

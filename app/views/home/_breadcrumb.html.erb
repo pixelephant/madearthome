@@ -1,15 +1,24 @@
 <a href="/"><%= t('.home') %></a>
-<% links = [] %>
-<% links << link_to(@category.name, @category).to_s if !@category.nil? %>
-<% links << link_to(@custom_category.name, category_custom_category_path(@custom_category)).to_s if !@custom_category.nil? %>
-<% links << link_to(@product.name, @product).to_s if !@product.nil? %>
 
-<% links.each do |link| %>
-<%= " > " %>
-<%= link %>
-<% end %>
+<% if controller == 'search' %>
+
+<%= " > " + t('.search_text_start') + @products.count.to_s + t('.search_text_end') + '"' + params['search'] + '"' %>
+
+<% else %>
+
+	<% links = [] %>
+	<% links << link_to(@category.name, @category).to_s if !@category.nil? %>
+	<% links << link_to(@custom_category.name, category_custom_category_path(@custom_category)).to_s if !@custom_category.nil? %>
+	<% links << link_to(@product.name, @product).to_s if !@product.nil? %>
+
+	<% links.each do |link| %>
+	<%= " > " %>
+	<%= link %>
+	<% end %>
 
 
 <h1 id="site-title">
-	Szuper seo h1 tag
+	<% links.last %>
 </h1>
+
+<% end %>
