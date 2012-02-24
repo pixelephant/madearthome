@@ -31,7 +31,7 @@
 		display:block;
 	}
 	.discount-element{
-		margin:10px 0;
+		margin:5px 0;
 		display:block;
 	}
 	input[type="number"]{
@@ -71,10 +71,13 @@
 			width:130px;
 		}
 		.multiply-cell,.equals-cell{
-			width:30px;
+			width:10px;
 			color:#adadad;
 			@include font-gill;
 			font-size:16px;
+		}
+		.quantity-cell{
+			width:100px;
 		}
 		.product-cell{
 			width:220px;
@@ -90,18 +93,26 @@
 				color:$brand-darkblue;
 				margin-bottom:5px;
 			}
+		}
+		.property-cell{
 			p{
-				margin-top:5px;
+				margin:5px 0;
 				line-height:1;
-			}
-			.property{
-				@include small-caps;
+				font-size:16px;
 			}
 		}
+		.property{
+			@include small-caps;
+			font-size:16px;
+		}
+		
 		.price-cell,.sum-price-cell{
 			@include font-gill;
 			color:#565654;
 			font-size:18px;
+		}
+		.price-cell{
+			width:70px
 		}
 		.actions-cell{
 			text-align:center;
@@ -119,7 +130,7 @@
 }
 
 #cart-bottom{
-	margin-top:10px;
+	margin-top:20px;
 	border:1px dashed #aaa;
 	background:#eee;
 }
@@ -180,7 +191,7 @@
 }
 
 #checkout-form{
-	margin-top:10px;
+	margin-top:20px;
 	float:right;
 	input[type="submit"]{
 		@include cta-submit;
