@@ -28,8 +28,6 @@ $("document").ready(function(){
 			step: 10
 			});	
 	});
-	
-	jQuery("#example")
 
 	$.prettyLoader({
 		loader: '/assets/prettyLoader/ajax-loader.gif',

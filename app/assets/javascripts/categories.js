@@ -1,7 +1,6 @@
 //= require jquery.easing
 //= require carousel
 //= require mousewheel
-//= require modal
 
 /**
  * jQuery Plugin to obtain touch gestures from iPhone, iPod Touch and iPad, should also work with Android mobile phones (not tested yet!)
@@ -16,42 +15,52 @@
 
 $("document").ready(function(){
 	
-	$(".carousel").jCarouselLite({
-	        btnPrev: ".left",
-	        btnNext: ".right",
+	$("#newest-beds").jCarouselLite({
+	        btnPrev: $("#newest-beds").parent().find(".left"),
+	        btnNext: $("#newest-beds").parent().find(".left"),
 		    mouseWheel: true,
 		    visible: 6,
 		    scroll: 2
 	});
 	
-	$(".carousel").touchwipe({
-	     wipeLeft: function() { $(".right").trigger("click"); },
-	     wipeRight: function() { $(".left").trigger("click"); },
+	$("#newsest-beds").touchwipe({
+	     wipeLeft: function() { $("#newest-beds").parent().find(".left").trigger("click"); },
+	     wipeRight: function() { $("#newest-beds").parent().find(".left").trigger("click"); },
 	     min_move_x: 20,
 	     min_move_y: 20,
 	     preventDefaultEvents: true
 	});
 	
-	$(".quicklook").click(function(){
-	
-		$("#product-modal").modal({
-			onClose: function (dialog) {
-				dialog.data.fadeOut('slow', function () {
-					dialog.container.slideUp('slow', function () {
-						dialog.overlay.fadeOut('slow', function () {
-							$.modal.close(); // must call this!
-						});
-					});
-				});
-			},
-			onOpen: function (dialog) {
-				dialog.overlay.fadeIn('slow', function () {
-					dialog.container.slideDown('slow', function () {
-						dialog.data.fadeIn('slow');
-					});
-				});
-			}
-		});
-		return false;
+	$("#popular-products").jCarouselLite({
+	        btnPrev: $("#popular-products").parent().find(".left"),
+	        btnNext: $("#popular-products").parent().find(".left"),
+		    mouseWheel: true,
+		    visible: 6,
+		    scroll: 2
 	});
+	
+	$("#popular-products").touchwipe({
+	     wipeLeft: function() { $("#popular-products").parent().find(".left").trigger("click"); },
+	     wipeRight: function() { $("#popular-products").parent().find(".left").trigger("click"); },
+	     min_move_x: 20,
+	     min_move_y: 20,
+	     preventDefaultEvents: true
+	});
+	
+	$("#super-deals").jCarouselLite({
+	        btnPrev: $("#super-deals").parent().find(".left"),
+	        btnNext: $("#super-deals").parent().find(".left"),
+		    mouseWheel: true,
+		    visible: 6,
+		    scroll: 2
+	});
+	
+	$("#super-deals").touchwipe({
+	     wipeLeft: function() { $("#super-deals").parent().find(".left").trigger("click"); },
+	     wipeRight: function() { $("#super-deals").parent().find(".left").trigger("click"); },
+	     min_move_x: 20,
+	     min_move_y: 20,
+	     preventDefaultEvents: true
+	});
+	
 });

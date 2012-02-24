@@ -5,13 +5,16 @@
 @import '_mixins.css.scss';
 
 #main-header{
-	background:#7309AA;
+	background:#aaa;
 }
 
 #slider-wrap{
-	background:#7309AA;
+	background:#aaa;
 	padding-top:20px;
 	padding-bottom:25px;
+	-webkit-box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
+	box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
 }
 
 #slider{
@@ -128,12 +131,20 @@
 	}
 }
 
+#slide-1{
+	background:url(slider_images/uttermost_white_room.png) no-repeat;
+}
+
+#slide-2{
+	background:url(slider_images/uttermost_kutya.png) no-repeat;
+}
+
 #slide-1-thumb .mask{
-	background:rgba(115,9,170,0.6);
+	background:rgba(170,170,170,0.6);
 }
 
 #slide-2-thumb .mask{
-	background:rgba(155,237,0,0.6);
+	background:rgba(205, 133, 63,0.6);
 }
 
 #slide-3-thumb .mask{
@@ -155,7 +166,9 @@
 .plus{
 	display:block;
 	@include font-gill;
-	color:white;
+	color:$brand-lightblue;
+	background:$brand-darkblue;
+	@include border-radius(60px,60px,60px,60px);
 	opacity:0.8;
 	font-size:45px;
 	position:absolute;
@@ -207,6 +220,7 @@
 	color:white;
 	font-size:19px;
 	@include small-caps;
+	color:white;
 	position:relative;
 	top:-25px;
 	p{

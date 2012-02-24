@@ -292,7 +292,8 @@ html{
 	}
 	.lead{
 		@include small-caps;
-		font-size:17px;
+		color:white;
+		font-size:19px;
 	}
 	.telephone{
 		margin:10px 0;
@@ -338,33 +339,28 @@ html{
 }
 
 #minicart{
+	@include box-shadow;
 	display:none;
-	padding:25px;
-	width:400px;
+	padding:10px;
+	width:420px;
 	position:absolute;
 	right:-8px;
 	margin-top:0px;
 	z-index:4;
 	background:white;
 	border:1px solid $border-gray;
-	@include border-radius(3px, 3px, 3px, 3px);
-	@include transition-03s;
-	@include box-shadow;
-	.row{
-		overflow:hidden;
+	
+	table{
+		width:99.9%;
+		border:1px solid $border-gray;
+	}
+	
+	tr{
 		border-bottom:1px solid $border-gray;
-		padding:10px;
-		&.total{
-			border-bottom:none;
-			padding-left:70px;
-			font-size:16px;
-			@include font-gill;
-			text-transform:uppercase;
-			.total-price{
-				text-transform:none;				
-				float:right;
-				color:$orange;
-			}
+		border-right:1px solid $border-gray;
+		td{
+			padding:10px;
+			vertical-align:middle;
 		}
 		img{
 			float:left;
@@ -372,22 +368,31 @@ html{
 			height:50px;
 			border:1px solid $border-gray;
 		}
-		span{
+		.title{
+			@include font-gill;
+			color: $brand-darkblue;
+			margin-left:5px;
+			margin-top:5px;
+		}
+		.property-cell span{
 			display:block;
+			@include small-caps;
+			font-size:16px;
 		}
-		.data{
-			margin-left:10px;
-			float:left;
-			.title{
-				text-transform:uppercase;
-				@include font-gill;
-				font-size:14px;
-				font-weight:bold;
-				display:block;
-			}
+		.quantity-cell,.price-cell{
+			@include font-gill;
 		}
-		.price{
-			float:right;
+		.total-price{
+			margin-left:25px;			
+			color:$brand-orange;
+		}
+	}
+	.total{
+		font-size:18px;
+		@include font-gill;
+		text-align:right;
+		td{
+			padding-right:20px;
 		}
 	}
 	a{
@@ -662,7 +667,7 @@ html{
 	overflow:hidden;
 	p{
 		line-height:1.2;
-		font-size:15px;
+		font-size:16px;
 		margin:10px 0;
 		strong{
 			color:$orange;
@@ -670,7 +675,7 @@ html{
 		}
 	}
 	em{
-		font-size:18px;
+		font-size:20px;
 		@include small-caps;
 		display:block;
 		span{
@@ -834,15 +839,34 @@ label.error{
 #twitter{
 	background:url(bg-tw.png) no-repeat;
 	padding:0;
-	width:310px;
-	height:175px;
+	padding:20px;
+	width:270px;
+	height:135px;
+	h3,h4{
+		color:white;
+	}
+	h4{
+		margin-bottom:45px;
+	}
+	iframe{
+		display:block;
+		margin:10px 0;
+	}
 }
 
 #facebook{
 	padding:0;
 	background:url(bg-f.png) no-repeat;
-	width:310px;
-	height:175px;
+	padding:0;
+	padding:20px;
+	width:270px;
+	height:135px;
+	h3,h4{
+		color:white;
+	}
+	h4{
+		margin-bottom:65px;
+	}
 }
 
 @import "_sliders.css.scss";

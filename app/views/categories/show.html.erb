@@ -6,14 +6,20 @@
 					<%= render 'home/category_menu_left' %>
 				</ul>
 			</nav>
-			<form action="#" id="filter-form" class="box">
-				<h3><%= t('.filter') %></h3>
-				<fieldset>
-					<legend>Kedvezmények</legend>
-					<div class="field"><label for="">Ingyenes szállítás</label><input type="checkbox" name="kedv" id="" /></div>
-					<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
-				</fieldset>
-			</form>
+			<div id="custom-offers-1" class="box offers">
+				<h3>Melyik helyiségbe</h3>
+				<a href="#">Háló</a>
+				<a href="#">Fürdő</a>
+				<a href="#">Nappali</a>
+				<a href="#">Kert</a>
+			</div>
+			<div id="custom-offers-2" class="box offers">
+				<h3>Anyag szerinte</h3>
+				<a href="#">Fa</a>
+				<a href="#">Fém</a>
+				<a href="#">Műanyag</a>
+				<a href="#">Üveggyapot</a>
+			</div>
 	</section>
 	
 		<section id="promo-list">
@@ -38,7 +44,7 @@
 		</section>
 </div>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-products"} %>
-<%= render :partial => "home/product_slider_halves", :locals => {:title => "Legújabb ágyaink", :id => "newest-products"} %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-beds"} %>
+<%= render :partial => "home/product_slider_halves", :locals => {:title1 => "Népszerű", :id1 => "popular-products", :id2 => "super-deals", :title2 => "Szuper akció" } %>
 
 <%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>

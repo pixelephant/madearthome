@@ -77,6 +77,7 @@
 			font-size:16px;
 		}
 		.product-cell{
+			width:220px;
 			img{
 				width:50px;
 				height:50px;
@@ -103,13 +104,8 @@
 			font-size:18px;
 		}
 		.actions-cell{
-			text-align:right;
-			width:100px;
-			.update{
-            	@include small-caps;
-				margin-right:25px;
-				color:$link-color;
-			}
+			text-align:center;
+			width:5px;
 		}
 	}
 }
@@ -122,31 +118,52 @@
 	}
 }
 
-tfoot{
-
-	.checkout-cell{
-		text-align:right;
-		input[type="submit"]{
-				@include cta-submit;
-				font-size:15px;
-				padding:12px 28px;
-		}
-		a{
-			display:block;
-			margin-top:3px;
-			color:$link-color;
-		}
-	}
+#cart-bottom{
+	margin-top:10px;
+	border:1px dashed #aaa;
+	background:#eee;
 }
 
 #coupon{
+	padding:20px;
 	float:left;
+	width:200px;
+	label{
+		display:block;
+		margin-bottom:5px;
+		color:#333;
+	}
+	input[type="text"]{
+		border: 1px solid #C2C2C2;
+		margin: 0;
+		padding: 0;
+		-moz-border-radius: 3px 3px 3px 3px;
+		border-radius: 3px 3px 3px 3px;
+		border-radius: 3px 3px 3px 3px;
+		-webkit-appearance: textfield;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		height: 20px;
+		font-size: 16px;
+		padding: 2px;
+		float:left;
+		width:100px;
+	}
+	.button{
+		@include button;
+		padding:6px;
+		float:left;
+		margin-left:5px;
+	}
 }
 
 #total{
-	background:#eee;
+	width:558px;
+	padding-right:120px;
 	float:left;
 	text-align:right;
+	position:relative;
 	span,b{
 		font-weight:normal;
 		margin:3px;
@@ -160,13 +177,15 @@ tfoot{
 		font-size:25px;
 		color:$brand-orange;
 	}
-	form{
-		float:right;
-	}
+}
+
+#checkout-form{
+	margin-top:10px;
+	float:right;
 	input[type="submit"]{
-			@include cta-submit;
-			font-size:15px;
-			padding:12px 28px;
+		@include cta-submit;
+		font-size:15px;
+		padding:12px 28px;
 	}
 	a{
 		color:$brand-lightblue;
@@ -179,5 +198,4 @@ tfoot{
 
 #total-price{
 	margin-top:10px;
-	border-top:1px dotted $brand-lightblue;
 }
