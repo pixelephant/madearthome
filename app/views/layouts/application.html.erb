@@ -42,7 +42,7 @@
 	</nav>
 	<div id="header-wrapper">
 		<a href="/home">
-			<% if params[:controller] == 'home'%>
+			<% if params[:controller] == 'home' %>
 			<h1 id="logo">
 				Flairspring<span>Comfort on your side</span>
 			</h1>
@@ -74,7 +74,7 @@
 		<% if params[:controller] != 'home'%>
 		<nav id="breadcrumb" class="clearfix">
 			<p>
-				<%= render 'home/breadcrumb' %>
+				<%= render :partial => 'home/breadcrumb', :locals => {:controller => params['controller']} %>
 			</p>
 		</nav>
 		<% end %>
