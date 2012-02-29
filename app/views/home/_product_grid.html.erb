@@ -3,7 +3,7 @@
 <div data-id="<%= product.id %>" class="<%= cl %>">
 		<%= link_to product_path(product) do %>
 		<div class="image">
-			<span class="quicklook">quicklook</span>
+			<a rel="group" class="fancybox ajax" href="/products/quicklook/<%= product.id %>"><span class="quicklook">quicklook</span></a>
 				<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 		</div>
 		<div class="clearfix">
@@ -20,14 +20,3 @@
 	<% end %>
 </div>
 <% end %>
-
-<section id="product-modal-wrap">
-	<!-- keyboard léptetés -->
-		<div id="product-modal">
-			<a id="modal-prev" class="arrow left" href="#"><%= t('previous') %></a>
-			<div class="clearfix">
-				<%= render 'products/modal_product' %>
-			</div>
-			<a id="modal-next" class="arrow right" href="#"><%= t('next') %></a>
-		</div>
-</section>

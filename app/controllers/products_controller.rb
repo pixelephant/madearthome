@@ -26,8 +26,8 @@ class ProductsController < ApplicationController
     end
   end
 
-	# POST /product/quicklook/1
-	# POST /product/quicklook/1.json
+	# POST /products/quicklook/1
+	# POST /products/quicklook/1.json
 	def quicklook
     @product = Product.find(params[:id]).translate
 		@category = @product.category
