@@ -57,18 +57,19 @@
 				</div>
 			</div>
 			<div id="properties-box">
-				<form id="product-form" name="product-form" action="<%= line_items_path(:product_id => @product.id) %>" method="POST">
-					<div class="left">
+			<!-- FormFor -->
+			<%= form_for LineItem.new, :url => line_items_path(:product_id => @product.id) do |f| %>
+				<div class="left">
 						<% @product.optional_properties.each do |property| %>
 							<p>
-								<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
+							<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
 	<%= select("property_category", "id", @product.properties.where(:property_category_id => property.property_category_id).collect {|p| [ p.property_name, p.id]}) %>
 							</p>
 						<% end %>
 
 						<% @product.given_properties.each do |property| %>
 							<p>
-								<label for=""><%= PropertyCategory.find(property.property_category.id).translate.category_name %></label>
+								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
 								<%= property.translate.property_name %>
 							</p>
 						<% end %>
@@ -82,9 +83,10 @@
 						</div>
 					</div>
 					<div class="right">
-							<input type="submit" value="<%= t('.add_to_cart') %>">
+							<%= f.submit t('.add_to_cart'), :disable_with => "Editing..." %>
 					</div>
-				</form>
+			<% end %>
+			<!-- FormFor -->
 			</div>
 			<div id="short-description-box">
 				<p>
