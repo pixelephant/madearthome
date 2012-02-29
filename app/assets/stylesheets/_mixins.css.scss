@@ -29,12 +29,13 @@
 @include meyer-reset;
 
 @mixin small-caps{
-	font-variant:small-caps;
+/*	font-variant:small-caps;
 	font-style:normal;
 	font-weight:normal;
-	text-transform:lowercase;
 	color:black;
-	font-size:19px;
+	font-size:19px;*/
+	font-family: 'Alegreya SC';
+	text-transform:lowercase;
 }
 
 @mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {
@@ -110,7 +111,7 @@
 }
 
 @mixin font-garamond{
-	font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	font-family: 'Alegreya',Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
 
 @mixin transition-03s{
