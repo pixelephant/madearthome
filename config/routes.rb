@@ -47,7 +47,9 @@ Madearthome::Application.routes.draw do
 		resources :stores
 
 		resources :links
-
+    
+    resources :comingsoon
+    
 		resources :line_items
 
 		resources :carts
