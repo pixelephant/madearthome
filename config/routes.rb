@@ -15,6 +15,8 @@ Madearthome::Application.routes.draw do
   get "admin/index"
 
 	match "admin" => 'admin#index'
+	
+	match "comingsoon" => "application#comingsoon"
 
 	#Admin ajax routes START
 
@@ -36,7 +38,7 @@ Madearthome::Application.routes.draw do
 
 		match 'search' => 'search#index'
 
-		post 'products/quicklook' => "products#quicklook"
+		get 'products/quicklook/:id' => "products#quicklook"
 
 		resources :links_products
 

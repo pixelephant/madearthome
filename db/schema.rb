@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227123605) do
+ActiveRecord::Schema.define(:version => 20120215142538) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage",  :null => false
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
     t.string   "sku",               :null => false
     t.integer  "price",             :null => false
-    t.integer  "designer_id"
-    t.integer  "manufacturer_id"
+    t.integer  "designer_id",       :null => false
+    t.integer  "manufacturer_id",   :null => false
     t.string   "slug"
     t.text     "advice"
     t.string   "video"
@@ -216,13 +216,6 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
 
   create_table "properties_to_custom_categories", :force => true do |t|
     t.integer  "custom_category_id"
-    t.integer  "property_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "properties_to_line_items", :force => true do |t|
-    t.integer  "line_item_id"
     t.integer  "property_id"
     t.datetime "created_at"
     t.datetime "updated_at"

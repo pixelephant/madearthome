@@ -1,7 +1,7 @@
 //= require jquery.easing
 //= require carousel
 //= require mousewheel
-//= require modal
+//= require jquery.fancybox
 //= require jquery.prettyLoader
 //= require jquery.slider.min
 
@@ -29,10 +29,10 @@ $("document").ready(function(){
 			});	
 	});
 
-	$.prettyLoader({
+	/*$.prettyLoader({
 		loader: '/assets/prettyLoader/ajax-loader.gif',
 		bind_to_ajax: true
-	});
+	});*/
 
 	$("#last-viewed .carousel").jCarouselLite({
 	        btnPrev: "#last-viewed .left",
@@ -50,13 +50,21 @@ $("document").ready(function(){
 	     preventDefaultEvents: true
 	});
 
-
-	$(".quicklook").click(function(){
+	
+	$(".fancybox").fancybox({
+			type : 'ajax',
+			openEffect	: 'elastic',
+			closeEffect	: 'elastic',
+			autoSize: true,
+			arrows: true,
+		});
+	
+/*	$(".quicklook").click(function(){
 		var id = $(this).parents(".product").data("id");
 		$(this).parents(".product").addClass("opened");
 		$("#product-modal").data("next-id",$(this).parents(".product").next().data("id"));
 		$("#product-modal").data("prev-id",$(this).parents(".product").prev().data("id"));
-		$("#product-modal").modal({
+		/*$("#product-modal").modal({
 			onClose: function (dialog) {
 				$("#product-grid .opened").removeClass("opened");
 				dialog.data.fadeOut('slow', function () {
@@ -83,6 +91,7 @@ $("document").ready(function(){
 				});
 			}
 		});
+		
 		return false;
 	});
 
@@ -108,6 +117,6 @@ $("document").ready(function(){
 			$("#product-modal").data("prev-id",$("#product-grid .opened").prev().data("id"));
 		}});
 		return false;
-	});
+	});*/
 
 });
