@@ -1,0 +1,86 @@
+@import '_mixins.css.scss';
+@import '_form.css.scss';
+@import '_login.css.scss';
+@import '_shipping.css.scss';
+
+#checkout{
+	margin-top: 120px;
+	position:relative;
+}
+
+#top{
+	border-bottom:1px solid $border-gray;
+	padding-bottom:20px;
+	span{
+		float:right;
+		color:#60bb78;
+		@include small-caps;
+		font-size:16px;
+		background: url(secure.png) no-repeat left center;
+		padding-left:25px;
+	}
+}
+
+#steps{
+	margin:0 auto 20px auto;
+	width:435px;
+	text-align:center;
+	li{
+		float:left;
+		padding:0px 30px 10px 30px;
+		color:#afafaf;
+		font-style:italic;
+		border-bottom:1px solid $brand-lightblue;
+		background:url(flags/hu.png) no-repeat center 20px;
+		&.active{
+			background:url(flags/bh.png) no-repeat center 20px;
+		}
+	}
+}
+
+#guest-box{
+	background:#eaf1f8;
+	border:1px dashed $border-gray;
+	padding:20px;
+	width:400px;
+	margin-top:20px;
+	height:290px;
+	float:left;
+	text-align:center;
+	h4{
+		text-align:center;
+		font-size:24px;
+		font-style:italic;
+		margin-bottom:20px;
+		margin-top:0;
+	}
+	p{
+		font-style:italic;
+		text-align:center;
+		margin-bottom:40px;
+		.lead{
+			font-style:normal;
+		}
+	}
+	a{
+		@include cta-submit;
+		padding:8px 16px;
+	}
+}
+
+#cart-summary{
+	position:absolute;
+	right:40px;
+	top:150px;
+	width:250px;
+	border:1px solid $border-gray;
+	height:200px;
+	background:white;
+	&.fixed{
+		position:fixed;
+		top:0;
+	}
+	div.box{
+		
+	}
+}

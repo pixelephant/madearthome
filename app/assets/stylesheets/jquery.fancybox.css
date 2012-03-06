@@ -76,8 +76,7 @@
 	left: 50%;
 	margin-top: -22px;
 	margin-left: -22px;
-	background-position: 0 -108px;
-	opacity: 0.8;
+	opacity: 1;
 	cursor: pointer;
 	z-index: 1010;
 }

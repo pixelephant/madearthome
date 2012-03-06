@@ -49,6 +49,10 @@ Madearthome::Application.routes.draw do
 		resources :links
     
     resources :comingsoon
+  
+    match 'checkout/billing_shipping' => 'checkout#billing_shipping'
+  
+    resources :checkout
     
 		resources :line_items
 

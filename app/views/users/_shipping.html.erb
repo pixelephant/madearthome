@@ -1,0 +1,80 @@
+<form action="#" id="shipping-form">
+	
+	<div class="block">
+		<h5>Contact information</h5>
+		<fieldset>
+			<div class="half">
+				<label for="contact-title">Titulus</label>
+				<input type="text" name="contact-title" id="contact-title" />
+			</div>
+			<div class="half">
+				<label for="contact-firstname">Vezetéknév</label>
+				<input type="text" name="contact-firstname" id="contact-firstname" />
+			</div>
+			<div class="half">
+				<label for="contact-lastname">Utónév</label>
+				<input type="text" name="contact-lastname" id="contact-lastname" />
+			</div>
+		</fieldset>
+		<fieldset>
+			<label for="contact-email">Email address</label>
+			<input type="email" name="contact-email" id="contact-email" />
+		</fieldset>
+		<fieldset>
+			<label for="contact-phone">Phone number</label>
+			<input type="tel" name="contact-phone" id="contact-phone" />
+		</fieldset>
+	</div>
+	
+	<div class="block">
+	<h5>Delivery information</h5>
+	<fieldset>
+			<label for="shipping-name">Company name <small>(not required)</small></label>
+			<input type="text" name="shipping-name" id="shipping-name" />
+	</fieldset>
+	<fieldset>
+		<div class="half">
+			<label for="shipping-postal">Zip</label>
+			<input class="postal" type="text" name="shipping-postal" id="shipping-postal" />
+		</div>
+		<div class="half">
+			<label for="shipping-city">City</label>
+			<input type="text" name="shipping-city" id="shipping-city" />
+		</div>
+	</fieldset>
+	<fieldset>
+		<label for="shipping-address">Address</label>
+		<input class="address" type="text" name="shipping-address" id="shipping-address" />
+	</fieldset>
+	</div>
+	
+	<div class="block">
+		<h5>Billing information</h5>
+		<fieldset>
+			<label id="same-label" for="same-as-delivery">Same as delivery information</label>
+			<input type="checkbox" name="same-as-delivery" id="same-as-delivery" />
+		</fieldset>
+		<fieldset>
+				<label for="billing-name">Company name <small>(not required)</small></label>
+				<input type="text" name="billing-name" id="billing-name" />
+		</fieldset>
+		<fieldset>
+			<div class="half">
+				<label for="billing-postal">Zip</label>
+				<input class="postal" type="text" name="billing-postal" id="billing-postal" />
+			</div>
+			<div class="half">
+				<label for="billing-city">City</label>
+				<input type="text" name="billing-city" id="billing-city" />
+			</div>
+		</fieldset>
+		<fieldset>
+			<label for="billing-address">Address</label>
+			<input class="address" type="text" name="billing-address" id="billing-address" />
+		</fieldset>
+	</div>
+	<fieldset>
+		<input type="submit" value="Tovább" />
+		<a href="#">vissza</a>
+	</fieldset>
+</form>
