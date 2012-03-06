@@ -1,9 +1,9 @@
 <% @products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div data-id="<%= product.id %>" class="<%= cl %>">
+		<a rel="group" class="fancybox ajax" href="/products/quicklook/<%= product.id %>"><span class="quicklook">quicklook</span></a>
 		<%= link_to product_path(product) do %>
 		<div class="image">
-			<a rel="group" class="fancybox ajax" href="/products/quicklook/<%= product.id %>"><span class="quicklook">quicklook</span></a>
 				<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
 		</div>
 		<div class="clearfix">

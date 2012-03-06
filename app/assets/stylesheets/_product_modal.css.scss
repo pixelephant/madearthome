@@ -25,6 +25,8 @@
 		color:$orange;
 		li{
 			line-height:1.5;
+			position:relative;
+			z-index:1010;
 		}
 	}
 	.short-description{
@@ -41,6 +43,8 @@
 		float:right;
 		padding:9px;
 		margin:10px;
+		position:relative;
+		z-index:1010;
 	}
 	.price{
 		margin:10px 0;

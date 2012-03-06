@@ -57,6 +57,7 @@
 	}
 	label{
 		margin-right:3px;
+		font-size:14px;
 	}
 	.update{
 		float:right;
@@ -108,17 +109,14 @@
 .order-buttons{
 	float:left;
 	a{
-		color:$link-color;
-		padding:0 1px;
-		@include transition-03s;
-	}
-	a:hover{
-		color:$link-color-hover;
+		@include button;
+		margin:0 5px;
 	}
 }
 
 nav.pagination{
 	float:right;
+	padding-top:2px;
 	span{
 		padding:0 1px;
 	}
@@ -134,6 +132,12 @@ nav.pagination{
 	.current{
 		color:$heading-gray;
 	}
+}
+
+#back-to-top{
+	font-size:10px;
+	float:left;
+	margin-right:5px;
 }
 
 @import 'quicklook_product.css.scss';

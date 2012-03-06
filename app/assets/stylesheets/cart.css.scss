@@ -2,7 +2,6 @@
 
 #cart{
 	margin-top: 120px;
-
 }
 
 #cart-top{
@@ -11,6 +10,7 @@
 	h3{
 		float:left;
 		margin-bottom:0;
+		margin-top:3px;
 	}
 	.right{
 		float:right;
@@ -27,18 +27,50 @@
 }
 
 #cart-table{
-	.update{
-		display:block;
+	width:100%;
+	
+	.cell-names{
+		color:#A9A9A9;
+		font-size:12px;
+		padding:10px 5px;
+	}
+	
+	
+	.discount-cell{
+		font-size:14px;
 	}
 	.discount-element{
 		margin:5px 0;
 		display:block;
 	}
+	
+	
+	.sum-price-cell{
+		width:130px;
+	}
 	input[type="number"]{
 		width:55px;
 	}
+	.quantity-cell{
+		width:100px;
+	}
 	
-	width:100%;
+	.product-cell{
+		width:220px;
+		img{
+			width:50px;
+			height:50px;
+			border:3px solid $border-blue;
+			float:left;
+			margin-right:10px;
+		}
+		h6{
+			@include font-gill;
+			color:$brand-darkblue;
+			margin-top:5px;
+			float:left;
+		}
+	}
 	
 	thead{
 		border-bottom:1px solid $border-gray;
@@ -56,60 +88,37 @@
 			
 		}
 		td{
-/*			width:220px;*/
 			padding:20px 10px;
 			vertical-align:middle;
 		}
-		.cell-names{
-			td{
-				color:#A9A9A9;
-				font-size:12px;
-				padding:10px 5px;
-			}
-		}
-		.sum-price-cell{
-			width:130px;
-		}
+		
+		
 		.multiply-cell,.equals-cell{
 			width:10px;
 			color:#adadad;
 			@include font-gill;
 			font-size:16px;
 		}
-		.quantity-cell{
-			width:100px;
-		}
-		.product-cell{
-			width:220px;
-			img{
-				width:50px;
-				height:50px;
-				border:3px solid $border-gray;
-				float:left;
-				margin-right:10px;
-			}
-			h6{
-				@include font-gill;
-				color:$brand-darkblue;
-				margin-bottom:5px;
-			}
-		}
+		
+		
 		.property-cell{
+			font-size:14px;
 			p{
 				margin:5px 0;
 				line-height:1;
-				font-size:16px;
 			}
 		}
 		.property{
 			@include small-caps;
-			font-size:16px;
 		}
 		
-		.price-cell,.sum-price-cell{
+		.price-cell,.sum-price-cell span{
 			@include font-gill;
 			color:#565654;
-			font-size:18px;
+			font-size:22px;
+		}
+		.sum-price-cell span{
+			color:$brand-darkblue;
 		}
 		.price-cell{
 			width:70px
@@ -132,17 +141,18 @@
 #cart-bottom{
 	margin-top:20px;
 	border:1px dashed #aaa;
-	background:#eee;
+	background:#eaf1f8;
+	padding:20px;
 }
 
 #coupon{
-	padding:20px;
 	float:left;
 	width:200px;
 	label{
 		display:block;
-		margin-bottom:5px;
+		margin-bottom:10px;
 		color:#333;
+		@include small-caps;
 	}
 	input[type="text"]{
 		border: 1px solid #C2C2C2;
@@ -170,8 +180,7 @@
 }
 
 #total{
-	width:558px;
-	padding-right:120px;
+	width:585px;
 	float:left;
 	text-align:right;
 	position:relative;
@@ -181,11 +190,19 @@
 		@include font-gill;
 		font-size:18px;
 	}
+	.subtotal,.shipping-cost{
+		font-size:22px;
+	}
 	b{
 		margin-right:20px;
+		@include small-caps;
 	}
 	.total-price{
 		font-size:25px;
+		color:$brand-orange;
+	}
+	
+	#total-price{
 		color:$brand-orange;
 	}
 }
@@ -207,6 +224,13 @@
 	}
 }
 
-#total-price{
-	margin-top:10px;
+#main-footer-inner{
+	border:none;
+	a{
+		display:block;
+		float:left;
+		padding-top:10px;
+		color:white;
+		margin:0 5px;
+	}
 }

@@ -18,7 +18,8 @@
 		z-index:1;
 		color:white;
 		@include font-gill;
-		width:155px;
+		width:145px;
+		left:10px;
 		height:25px;
 		padding-left:10px;
 		line-height:25px;
@@ -33,7 +34,7 @@
 		@include transition-03s;
 	}
 	&:hover .quicklook{
-		top:0px;
+		top:10px;
 	}
 }
 

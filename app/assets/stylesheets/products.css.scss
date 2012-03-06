@@ -209,6 +209,7 @@ border-bottom: 5px solid black;
 	height:49px;
 	line-height:20px;
 	border-bottom:1px solid $border-gray;
+	color:$brand-darkblue;
 	h2{
 		float:left;
 		font-size:23px;
@@ -291,10 +292,10 @@ border-bottom: 5px solid black;
 		}
 	}
 	input[type="submit"]{
-		@include cta-submit;
+		@include cart-button;
 		font-size:18px;
 		padding:9px;
-		background-image: url(cart-button.png) no-repeat left center;
+		padding-left:35px;
 	}
 }
 

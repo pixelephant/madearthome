@@ -55,17 +55,11 @@
 }
 
 @mixin search-gradient {
-	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 0%, #ededed 5%, #e1e1e1 95%, #c2c2c2 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(5%,#ededed), color-stop(95%,#e1e1e1), color-stop(100%,#c2c2c2)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#ededed 5%,#e1e1e1 95%,#c2c2c2 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffffff 0%,#ededed 5%,#e1e1e1 95%,#c2c2c2 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffffff 0%,#ededed 5%,#e1e1e1 95%,#c2c2c2 100%); /* IE10+ */
-	background: linear-gradient(top,  #ffffff 0%,#ededed 5%,#e1e1e1 95%,#c2c2c2 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2c2c2',GradientType=0 ); /* IE6-9 */
+	@include background-gradient(#fefefe,#ececec);
 }
 
 @mixin button-gradient{
+	
 	background: #efc048; /* Old browsers */
 	background: -moz-linear-gradient(top,  #efc048 0%, #e95321 5%, #ef7a48 90%, #efbf48 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efc048), color-stop(5%,#e95321), color-stop(90%,#ef7a48), color-stop(100%,#efbf48)); /* Chrome,Safari4+ */
@@ -86,6 +80,34 @@
 	background: linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc048', endColorstr='#efbf48',GradientType=0 ); /* IE6-9 */
 }
+
+@mixin cart-button{
+	background:url(cart-button-orange.png) no-repeat 5px center	#efc048; /* Old browsers */
+	background: url(cart-button-orange.png) no-repeat 5px center, -moz-linear-gradient(top,  #efc048 0%, #e95321 5%, #ef7a48 90%, #efbf48 100%); /* FF3.6+ */
+	background: url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efc048), color-stop(5%,#e95321), color-stop(90%,#ef7a48), color-stop(100%,#efbf48)); /* Chrome,Safari4+ */
+	background: url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* Chrome10+,Safari5.1+ */
+	background: url(cart-button-orange.png) no-repeat 5px center, -o-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* Opera 11.10+ */
+	background: url(cart-button-orange.png) no-repeat 5px center, -ms-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* IE10+ */
+	background: url(cart-button-orange.png) no-repeat 5px center, linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc048', endColorstr='#efbf48',GradientType=0 ); /* IE6-9 */
+	border:1px solid #E95321;
+	color:white;
+	@include font-gill;
+	cursor:pointer;
+	@include transition-03s;
+	@include border-radius(3px,3px,3px,3px);
+	text-decoration:none;
+	text-transform:uppercase;
+/*	font-weight:bold; */
+	&:hover{
+		@include text-shadow(0,0,#333,3px);
+	}
+	&:active{
+		position:relative;
+		top:1px;
+	}
+}
+
 
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
     background-color: $startColor;
@@ -140,11 +162,11 @@
 }
 
 @mixin button{
-	border:1px solid #c2c2c2;
+	border:1px solid #a1a1a1;
 	padding:0;
 	margin:0;
-	@include search-gradient;
-	color:$link-color;
+	@include background-gradient(#fefefe,#ececec);
+	color:#575757;
 	@include font-gill;
 	cursor:pointer;
 	@include transition-03s;
@@ -152,14 +174,14 @@
 	text-decoration:none;
 	text-transform:uppercase;
 	font-size:12px;
-	padding:2px;
-/*	font-weight:bold; */
+	padding:4px;
 	&:hover{
-		@include text-shadow(0,0,#333,3px);
+		@include background-gradient(#fefefe,#e0eaf5);
+		border-color:#94badc;
 	}
-	&:active{
-		position:relative;
-		top:1px;
+	&:active,.active{
+		@include background-gradient(#c3c3c3,#dfdfdf);
+		border-color:#a1a1a1;
 	}
 }
 

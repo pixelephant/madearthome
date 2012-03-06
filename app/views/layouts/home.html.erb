@@ -9,11 +9,11 @@
 
   <title>Madearthome - <%= t('.title') %></title>
   <%= stylesheet_link_tag    "application", controller_name %>
-  <%= stylesheet_link_tag    "comingsoon" %>
   <%= javascript_include_tag "application", controller_name %>
   <%= csrf_meta_tags %>
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
-<link href='http://fonts.googleapis.com/css?family=Alegreya+SC|Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Alegreya+SC|Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started -->
@@ -41,7 +41,7 @@
 	</nav>
 	<div id="header-wrapper">
 		<a href="/home">
-			<% if params[:controller] == 'home'%>
+			<% if params[:controller] == 'home' %>
 			<h1 id="logo">
 				Flairspring<span>Comfort on your side</span>
 			</h1>
@@ -53,29 +53,77 @@
 		</a>
 		<span class="helptext">
 			<em>Need help?</em> <span class="lead">call our support line</span>
-			<span class="telephone">06-1-123-5432</span>
+			<span class="telephone">06-1-123-5432asd</span>
 		</span>
+		<div id="minicart-wrapper">
+			<%= render 'home/minicart' %>
+		</div>
+		<div id="search-wrapper">
+			<%= form_tag "/" + I18n.locale.to_s + "/search", :id => 'search-form', :method => :get do %>
+		    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('.search') + '...' %>
+    		<%= submit_tag t('.search'), :name => nil %>
+			<% end %>
+			<p id="search-examples"><strong>Pl.:</strong> <a href="#">accent table</a>, <a href="#">working chair</a></p>
+		</div>
+		<nav id="main-nav">
+			<ul class="clearfix">
+				<%= render 'home/categories_top' %>
+			</ul>
+		</nav>
+		<% if params[:controller] != 'home'%>
+		<nav id="breadcrumb" class="clearfix">
+			<p>
+				<%= render :partial => 'home/breadcrumb', :locals => {:controller => params['controller']} %>
+			</p>
+		</nav>
+		<% end %>
 	</div>
+	<% if params[:controller] == 'home'%>
+		<%= render 'slider' %>
+	<% end %>
 </header>
 
-
-<% if params[:controller] == 'home'%>
-<%= render 'slider' %>
-<% end %>
 <div id="main-wrap">
 	<%= yield %>
 </div>
 
 <section id="social-promo">
-	<%= render 'home/shops_promo' %>
-	<%= render 'home/support_promo' %>
+	<%= render 'home/newsletter' %>
+	<%= render 'home/contact_promo' %>
 </section>
 
 <footer id="main-footer">
 	<div id="main-footer-inner">
-		<a href="#">Biztonságos vásárlás</a>
-		<a href="#">Szállítási információk</a>
-		<a href="#">Fizetési lehetőségek</a>
+		<div>
+			<h3>Shop</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
+		<div>
+			<h3>About</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
+		<div class="last">
+			<h3>Connect</h3>
+			<ul>
+				<li><a class="level-1" href="#">Lorem</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+				<li><a href="#">Ipsum</a></li>
+			</ul>
+		</div>
 	</div>
 </footer>
 </body>

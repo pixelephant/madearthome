@@ -1,6 +1,7 @@
 //= require jquery.easing
 //= require carousel
 //= require mousewheel
+//= require jquery.fancybox
 
 /*
  Color animation jQuery-plugin
@@ -34,6 +35,14 @@ function get_random_color() {
 }
 
 $(document).ready(function(){
+	
+	$(".fancybox").fancybox({
+			type : 'ajax',
+			openEffect	: 'elastic',
+			closeEffect	: 'elastic',
+			autoSize: true,
+			arrows: true,
+		});
 
 	$("#newest-products").jCarouselLite({
 	        btnPrev: $(".slider .left"),
@@ -54,7 +63,7 @@ $(document).ready(function(){
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);
 		$this.siblings().removeClass("active").end().addClass("active");
-		$("#main-header,#slider-wrap").animate({
+		$("#main-header").animate({
 			backgroundColor: $this.data("color")
 		},300);
 		$("#slider").scrollTo($this.find("a").attr("href"),300);

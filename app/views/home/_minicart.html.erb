@@ -27,11 +27,11 @@
 			</tbody>
 			<tfoot>
 				<tr class="total">
-					<td colspan="4">Subtotal <span class="total-price"><%= cart.total %></span> Ft</td>
+					<td colspan="4">Subtotal* <span class="total-price"><%= cart.total %></span> Ft</td>
 				</tr>
 				<tr>
 					<td colspan="4">
-						Ide jöhet esetleg valami ármagyarázat<%= link_to t('.cart_link'), "/cart", :class => "button" %>
+						<small>*Szállítási díj nélkül</small><%= link_to t('.cart_link'), "/cart", :class => "button" %>
 					</td>
 				</tr>
 			</tfoot>
