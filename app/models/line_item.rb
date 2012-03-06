@@ -4,4 +4,6 @@ class LineItem < ActiveRecord::Base
 
 	has_many :properties_to_line_items
 	has_many :properties, :through => :properties_to_line_items
+
+	accepts_nested_attributes_for :properties
 end

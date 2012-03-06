@@ -25,7 +25,6 @@ class LineItemsController < ApplicationController
   # GET /line_items/new.json
   def new
     @line_item = LineItem.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @line_item }
@@ -47,7 +46,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to '/cart', notice: 'Line item was successfully created.' }
+        format.html { redirect_to '/cart', notice: params }
         format.json { render json: @line_item, status: :created, location: @line_item }
       else
         format.html { render action: "new" }
