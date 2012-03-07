@@ -3,6 +3,10 @@
 @import '_login.css.scss';
 @import '_shipping.css.scss';
 
+input[type="submit"]{
+	padding:12px 50px !important;
+}
+
 #checkout{
 	margin-top: 120px;
 	position:relative;
@@ -68,19 +72,162 @@
 	}
 }
 
-#cart-summary{
+#summary-wrap{
 	position:absolute;
 	right:40px;
-	top:150px;
+	top:110px;
 	width:250px;
-	border:1px solid $border-gray;
-	height:200px;
-	background:white;
-	&.fixed{
-		position:fixed;
+	height:300px;
+}
+
+#cart-summary{
+		width:250px;
+		height:200px;
+		position:absolute;
 		top:0;
+		&.fixed{
+			position:fixed;
+			top:0;
+		}
+		.section{
+			border:1px solid $border-gray;
+			background:white;
+			padding:10px;
+			margin-top:20px;
+			h5{
+				text-transform:uppercase;
+				@include font-gill;
+				color:$brand-lightblue;
+				text-align:center;
+				margin-bottom:20px;
+			}
+			a{
+				font-size:14px;
+				margin:5px 0;
+				display:block;
+				color:$link-color;
+				@include transition-03s;
+				&:hover,&:active{
+					color:$link-color-hover;
+				}
+			}
+			p{
+				margin:5px 0;
+				font-size:14px;
+				.price{
+					float:right;
+				}
+				&.total{
+					border-top:1px dotted;
+					padding-top:5px;
+					color:$brand-orange;
+					@include font-gill;
+				}
+				&.phone{
+					font-size:28px;
+					color:$brand-orange;
+					text-align:center;
+					font-style:italic;
+					margin-top:-10px;
+				}
+			}
+		}
+}
+
+#gift-label,#gift-wrap{
+	float:left;
+}
+
+#gift-label{
+	margin-left:10px;
+}
+
+input[type="radio"]{
+	float:left;
+}
+
+.right-label{
+	float:left;
+	margin-left:10px;
+}
+
+.step-back{
+	float:right;
+	font-size:12px;
+	margin-top:18px;
+}
+
+
+.thankyou{
+	h3{
+		font-size:100px;
+		color:$brand-orange;
+		@include font-garamond;
+		font-style:italic;
+		text-align:center;
 	}
-	div.box{
-		
+	h4{
+		text-align:center;
+		font-size:25px;
+		color:$text-color;
+		@include small-caps;
+	}
+	table{
+		border:1px solid $border-gray;
+		margin-top:40px;
+		tr{
+			height:25px;
+			line-height:25px;
+			&.info{
+				color:$brand-lightblue;
+				&.last{
+					border-bottom:1px solid $border-gray;
+				}
+			}
+			td,th{
+				padding:5px;
+			}
+		}
+	}
+	thead{
+		tr{
+			border-bottom:1px solid $border-gray;
+		}
+	}
+	tbody{
+		td{
+			text-align:left;
+		}
+		td.right{
+			text-align:right;
+		}
+	}
+	tfoot{
+		border-top:1px solid $border-gray;
+		color:$brand-darkblue;
+		.email{
+			color:$brand-orange;
+			font-style:italic;
+		}
+	}
+	.promo{
+			text-align:center;
+			margin-top:40px;
+			padding:20px;
+			background:#eaf1f8;
+			border:1px dashed $border-gray;
+			p{
+				font-size:30px;
+				em{
+				 	color:$brand-darkblue;
+				font-style:italic;
+				}
+				margin-bottom:20px;
+			}
+			a{
+				@include cta-submit;
+				padding:12px 24px;
+				margin-bottom:10px;
+			}
 	}
 }

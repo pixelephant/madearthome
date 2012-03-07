@@ -37,8 +37,10 @@ form{
 	}
 	.block{
 		padding:20px;
-		background:rgba(228,228,228,0.3);
+		background:#eaf1f8;
+		border:1px dashed $border-gray;
 		margin-bottom:10px;
+		width:595px;
 	}
 	fieldset{
 		margin-bottom:20px;

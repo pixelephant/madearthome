@@ -51,6 +51,10 @@ Madearthome::Application.routes.draw do
     resources :comingsoon
   
     match 'checkout/billing_shipping' => 'checkout#billing_shipping'
+    
+    match 'checkout/payment' => 'checkout#payment'
+    
+    match 'checkout/thankyou' => 'checkout#thankyou'
   
     resources :checkout
     

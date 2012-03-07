@@ -10,4 +10,12 @@ class CheckoutController < ApplicationController
     render 'billing-shipping'
   end
 
+  def payment
+    render 'payment'
+  end
+  
+  def thankyou
+    render 'thankyou'
+  end
+
 end
