@@ -71,25 +71,26 @@
 }
 
 #product-list{
-	padding:0 25px;
-	width:660px;
+	width:710px;
 	float:left;
 }
 
 #product-grid{
-	overflow:hidden;
-	padding:10px 15px 10px 20px;
+	padding-left:10px;
 }
 
 
 #action-top,#action-bottom{
 	height:50px;
 	line-height:50px;
-	border-bottom:1px solid $border-gray;
 	overflow:hidden;
+	padding:0 10px;
+	width:680px;
+	margin-left:10px;
 }
 
 #action-bottom{
+	margin-top:20px;
 	border-bottom:none;
 	border-top:1px solid $border-gray;
 }
