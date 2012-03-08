@@ -549,25 +549,21 @@ html{
 }
 
 #breadcrumb{
-	height:45px;
-	line-height:45px;
 	p{
 		float:left;
 	}
-	padding:10px 0;
 	font-size:15px;
 	a{
-		font-size:15px;
-		color:black;
+		font-size:13px;
+		color:$text-color;
 	}
+	margin:10px 0;
 }
 
 #site-title{
 	float:right;
-	color:#333;
+	color:$text-color;
 	margin:0;
-	height:45px;
-	line-height:45px;
 	font-size: 22px;
 	font-style: italic;
 	font-weight: normal;
@@ -636,9 +632,10 @@ html{
 	}
 	
 	&.half{
-		width:470px;
+		width:430px;
 		float:left;
 		margin-right:10px;
+		padding:20px;
 	}
 }
 
@@ -810,8 +807,8 @@ label.error{
 
 .box.promo{
 	padding:10px;
-	float:left;
 	margin:20px 10px;
+	float:left;
 	position:relative;
 	.ribbon-start{
 		float:left;

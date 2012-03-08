@@ -19,18 +19,60 @@
 $("document").ready(function(){
 	
 	$('.zoomable').jqzoom({
-		zoomType: 'innerzoom',
 		title: false,
-		preloadText: 'Képek betöltése...',
+		zoomType: 'reverse',
+		zoomWidth: 478,  
+		zoomHeight:300, 
+        yOffset:38,
+		preloadText: '',
 	});
 	
-	$(".carousel").carouFredSel({
-		items: 6,
-		scroll:3,
-		align: "left",
-		prev : ".left",
-		next : ".right",
-		auto : false
+	$("#related-products .carousel ul").carouFredSel({
+		items: 4,
+		scroll:2,
+		auto : false,
+		circular : true,
+		infinite : true,	
+		prev : {
+			button      : "#related-products .left",
+	        easing      : "easeOutSine"
+		    },
+		next : {
+			button      : "#related-products .right",
+	        easing      : "easeOutSine"
+	    }
+	});
+	
+	$("#popular-products .carousel ul").carouFredSel({
+		items: 4,
+		scroll:2,
+		auto : false,
+		circular : true,
+		infinite : true,	
+		prev : {
+			button      : "#popular-products .left",
+	        easing      : "easeOutSine"
+		    },
+		next : {
+			button      : "#popular-products .right",
+	        easing      : "easeOutSine"
+	    }
+	});
+	
+	$("#also-products .carousel ul").carouFredSel({
+		items: 4,
+		scroll:2,
+		auto : false,
+		circular : true,
+		infinite : true,	
+		prev : {
+			button      : "#also-products .left",
+	        easing      : "easeOutSine"
+		    },
+		next : {
+			button      : "#also-products .right",
+	        easing      : "easeOutSine"
+	    }
 	});
 	
 });

@@ -18,22 +18,6 @@ var shipping_fee = 4500;
 
 $("document").ready(function(){
 	
-	var top = $('#comment').offset().top - parseFloat($('#comment').css('marginTop').replace(/auto/, 0));
-	  $(window).scroll(function (event) {
-	    // what the y position of the scroll is
-	    var y = $(this).scrollTop();
-
-	    // whether that's below the form
-	    if (y >= top) {
-	      // if so, ad the fixed class
-	      $('#comment').addClass('fixed');
-	    } else {
-	      // otherwise remove it
-	      $('#comment').removeClass('fixed');
-	    }
-	  });
-	
-	
 	function recalculate_sum(){
 		var subtotal = 0;
 		$.each($(".sum-price-cell span"),function(){
@@ -49,21 +33,21 @@ $("document").ready(function(){
 		$(".total-price").html(subtotal + shipping)
 	}
 	
-	$(".carousel").jCarouselLite({
-	        btnPrev: ".left",
-	        btnNext: ".right",
-		    mouseWheel: true,
-		    visible: 6,
-		    scroll: 2
-	});
-	
-	$(".carousel").touchwipe({
-	     wipeLeft: function() { $(".right").trigger("click"); },
-	     wipeRight: function() { $(".left").trigger("click"); },
-	     min_move_x: 20,
-	     min_move_y: 20,
-	     preventDefaultEvents: true
-	});
+		$("#cart-slider ul").carouFredSel({
+			items: 4,
+			scroll:2,
+			auto : false,
+			circular : true,
+			infinite : true,	
+			prev : {
+				button      : "#cart-slider .left",
+		        easing      : "easeOutSine"
+			    },
+			next : {
+				button      : "#cart-slider .right",
+		        easing      : "easeOutSine"
+		    },
+		});
 	
 	$(".quantity-cell input[type='number']").bind("input",function(){
 		var $this = $(this);
