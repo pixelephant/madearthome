@@ -24,20 +24,13 @@ $("document").ready(function(){
 		preloadText: 'Képek betöltése...',
 	});
 	
-	$("#related-products .carousel").jCarouselLite({
-	        btnPrev: $(".slider .left"),
-	        btnNext: $(".slider .right"),
-		    mouseWheel: true,
-		    visible: 6,
-		    scroll: 2
-	});
-	
-	$(".carousel").touchwipe({
-	     wipeLeft: function() { $(".right").trigger("click"); },
-	     wipeRight: function() { $(".left").trigger("click"); },
-	     min_move_x: 20,
-	     min_move_y: 20,
-	     preventDefaultEvents: true
+	$(".carousel").carouFredSel({
+		items: 6,
+		scroll:3,
+		align: "left",
+		prev : ".left",
+		next : ".right",
+		auto : false
 	});
 	
 });
