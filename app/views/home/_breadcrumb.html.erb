@@ -2,7 +2,7 @@
 
 <% if controller == 'search' %>
 
-<%= " > " + t('.search_text', :item_count => @products.count.to_s, :search_term => params['search']) %>
+<%= " } " + t('.search_text', :item_count => @products.count.to_s, :search_term => params['search']) %>
 
 <% else %>
 
@@ -12,7 +12,7 @@
 	<% links << link_to(@product.name, @product).to_s if !@product.nil? %>
 
 	<% links.each do |link| %>
-	<%= " > " %>
+	<%= " } " %>
 	<%= link %>
 	<% end %>
 

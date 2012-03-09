@@ -44,21 +44,22 @@ $(document).ready(function(){
 			arrows: true,
 		});
 
-	$("#newest-products").jCarouselLite({
-	        btnPrev: $(".slider .left"),
-	        btnNext: $(".slider .right"),
-		    mouseWheel: true,
-		    visible: 4,
-		    scroll: 1
-	});
+		$("#newest-products ul").carouFredSel({
+			items: 4,
+			scroll:2,
+			auto : false,
+			circular : true,
+			infinite : true,	
+			prev : {
+				button      : "#newest-products .left",
+		        easing      : "easeOutSine"
+			    },
+			next : {
+				button      : "#newest-products .right",
+		        easing      : "easeOutSine"
+		    },
+		});
 	
-	$(".carousel").touchwipe({
-	     wipeLeft: function() { $(".right").trigger("click"); },
-	     wipeRight: function() { $(".left").trigger("click"); },
-	     min_move_x: 20,
-	     min_move_y: 20,
-	     preventDefaultEvents: true
-	});
 	
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);

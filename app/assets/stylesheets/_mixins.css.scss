@@ -28,6 +28,28 @@
 
 @include meyer-reset;
 
+
+$brand-darkblue: #405FA9;
+$brand-lightblue: #1A8BAA;
+$brand-orange: #E45501;
+
+$border-blue: #DDE8F5;
+
+$heading-blue: $brand-darkblue;
+$subheading-blue: $brand-lightblue;
+
+$orange: #e95321;
+$border-gray: #E1E1E1;
+$heading-gray: #3C3C3B;
+$link-color: #3F5EA9;
+$link-color-hover: saturate($link-color,70%);
+
+$text-color:#3C3C3B;
+
+
+
+
+
 @mixin small-caps{
 /*	font-variant:small-caps;
 	font-style:normal;
@@ -206,24 +228,6 @@
 		top:1px;
 	}
 }
-
-
-$brand-darkblue: #405FA9;
-$brand-lightblue: #1A8BAA;
-$brand-orange: #E45501;
-
-$border-blue: #DDE8F5;
-
-$heading-blue: $brand-darkblue;
-$subheading-blue: $brand-lightblue;
-
-$orange: #e95321;
-$border-gray: #E1E1E1;
-$heading-gray: #3C3C3B;
-$link-color: #3F5EA9;
-$link-color-hover: saturate($link-color,70%);
-
-$text-color:#3C3C3B;
 
 /* new clearfix */
 .clearfix:after {
