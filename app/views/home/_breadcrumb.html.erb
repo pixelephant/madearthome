@@ -2,7 +2,7 @@
 
 <% if controller == 'search' %>
 
-<%= " > " + t('.search_text_start') + @products.count.to_s + t('.search_text_end') + '"' + params['search'] + '"' %>
+<%= " > " + t('.search_text', :item_count => @products.count.to_s, :search_term => params['search']) %>
 
 <% else %>
 

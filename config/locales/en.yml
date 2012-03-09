@@ -7,21 +7,17 @@ en:
   next: "Next"
   previous: "Previous"
   show: "Show"
-
-  layouts:
-    application:
-      title: "Site title"
-      search: "Search"
-      top_menu_need_help: "Need help? Call:"
-      register: "Register"
-      login: "Login"
-      wishlist: "Wishlist"
+  title: "Site title"
+  search: "Search"
+  top_menu_need_help: "Need help? Call:"
+  register: "Register"
+  login: "Login"
+  wishlist: "Wishlist"
 
   home:
     breadcrumb:
       home: "Home"
-      search_text_start: "We found "
-      search_text_end: " item(s) for "
+      search_text: "We found %{item_count} item(s) for \"%{search_term}\""
     last_viewed_carousel:
       last_viewed_products: "Last viewed"
     minicart:

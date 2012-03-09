@@ -7,21 +7,17 @@ hu:
   next: "Következő"
   previous: "Előző"
   show: "Megtekintés"
-
-  layouts:
-    application:
-      title: "Oldal címe"
-      search: "Keresés"
-      top_menu_need_help: "Segítséget szeretne? Hívjon minket:"
-      register: "Regisztráció"
-      login: "Bejelentkezés"
-      wishlist: "Kívánságlista"
+  title: "Oldal címe"
+  search: "Keresés"
+  top_menu_need_help: "Segítséget szeretne? Hívjon minket:"
+  register: "Regisztráció"
+  login: "Bejelentkezés"
+  wishlist: "Kívánságlista"
 
   home:
     breadcrumb:
       home: "Főoldal"
-      search_text_start: ""
-      search_text_end: " találatot kaptunk az alábbi kifejezésre: "
+      search_text: "%{item_count} találatot kaptunk az alábbi kifejezésre: \"%{search_term}\""
     last_viewed_carousel:
       last_viewed_products: "Utoljára megtekintve"
     minicart:
