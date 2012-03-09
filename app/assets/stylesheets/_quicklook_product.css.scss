@@ -1,18 +1,61 @@
 .no-touch .quicklook{
-	right:-100%;
+	opacity:0;
 	top:5px;
 }
 
 .touch .quicklook{
-	right:0px;
+	opacity:1;
 	top:5px;
+}
+
+.ribbon-start{
+	float:left;
+	height:35px;
+	width:11px;
+	background:url(ribbon-start.png) no-repeat;
+}
+.ribbon-end{
+	float:left;
+	height:30px;
+	width:11px;
+	background:url(ribbon-end.png) no-repeat;
+}
+.ribbon{
+	height:35px;
+	position:absolute;
+	left:-11px;
+	z-index:2;
+	top:10px;
+	p{
+		float:left;
+		background:$brand-orange;
+		@include font-gill;
+		color:white;
+		text-transform:uppercase;
+		height:30px;
+		line-height:30px;
+		padding:0 5px !important;
+		
+	}
 }
 
 .product{
 	padding:22px;
 	margin:20px 20px 0px 0px;
 	position:relative;
-	overflow:hidden;
+	@include transition-03s;
+	
+	&.has-ribbon{
+		position:relative;
+		.ribbon{
+			width:50px;
+			height:75px;
+			position:absolute;
+			right:0;
+			top:-10px;
+		}
+	}
+	
 	&.last{
 		margin:20px 0px 0px 0px;
 	}
@@ -21,23 +64,23 @@
 		z-index:1;
 		color:white;
 		@include font-gill;
-		width:25px;
-		top:5px;
-		right:-100%;
-		height:15px;
-		line-height:15px;
-		font-size:12px;
-		text-transform:uppercase;
+		top:10px;
+		right:5px;
+		height:16px;
+		line-height:16px;
+		padding-right:30px;
 		display:block;
 		background-image:url(quicklook.png);
 		background-repeat:no-repeat;
-		background-position:center;
-		@include box-rgba(0,0,0,0.6);
-		text-decoration:none;
+		background-position:center right;
+		opacity:0;
 		@include transition-03s;
 	}
 	&:hover .quicklook{
-		right:0;
+		opacity:1;
+	}
+	&:hover{
+	
 	}
 }
 
@@ -55,12 +98,8 @@
 		}
 	}
 	.left{
-		float:left;
-		padding-right:5px;
-		width:150px;
 	}
 	.right{
-		float:right;
 		img{
 			width:20px;
 			height:20px;

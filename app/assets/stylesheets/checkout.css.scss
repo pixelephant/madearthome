@@ -43,7 +43,7 @@ input[type="submit"]{
 }
 
 #guest-box{
-	background:#eaf1f8;
+	background:#F2F7FB;
 	border:1px dashed $border-gray;
 	padding:20px;
 	width:400px;
@@ -229,5 +229,23 @@ input[type="radio"]{
 				padding:12px 24px;
 				margin-bottom:10px;
 			}
+	}
+}
+
+
+#main-footer-inner{
+	border:none;
+	a{
+		display:block;
+		float:left;
+		padding-top:10px;
+		color:white;
+		margin:0 5px;
+		text-decoration:none;
+		color:rgba(255,255,255,0.9);
+		@include transition-03s;
+		&:hover{
+			color:rgba(255,255,255,1);
+		}
 	}
 }

@@ -9,7 +9,6 @@
 #product-inner{
 	border:1px solid $border-gray;
 	width:938px;
-	overflow:hidden;
 }
 
 #picture-wrap{
@@ -18,11 +17,13 @@
 	padding:10px;
 	border-right:1px solid $border-gray;
 	border-bottom:1px solid $border-gray;
+	text-align:center;
 }
 
 #current-picture{
 	width:440px;
 	height:300px;
+	text-align:center;
 }
 
 .arrow-up {
@@ -42,7 +43,7 @@
 		margin:20px 10px;
 		display:block;
 		float:left;
-		border:5px solid $border-gray;
+		border:5px solid $border-blue;
 		height:50px;
 		width:50px;
 	}
@@ -247,5 +248,26 @@
 	img{
 		float:right;
 		margin:20px;
+	}
+}
+
+#set-slider{
+	a{
+		text-align:center;
+		margin-right:19px;
+		display:block;
+		float:left;
+		text-decoration:none;
+		color:$brand-lightblue;
+		display:block;
+		text-decoration:underline;
+		@include font-gill;
+		@include transition-03s;
+		img{
+			border:5px solid $border-blue;
+		}
+		&:hover .name{
+			color: $brand-darkblue;
+		}
 	}
 }

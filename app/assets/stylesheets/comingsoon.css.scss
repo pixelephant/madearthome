@@ -7,7 +7,9 @@
 		overflow:hidden;
 	}
 	#logo{
-		margin-top:0;
+		margin:0 auto;
+		float:none;
+		height:120px;
 	}
 	.box{
 		text-align:center;
@@ -22,7 +24,6 @@
 		line-height:30px;
 		font-size:20px;
 		font-style:italic;
-		padding:20px;
 		color:#444;
 		float:left;
 		span{
@@ -34,6 +35,10 @@
 		p,em{
 		}
 	}
+}
+
+.about strong{
+	color:$brand-orange;
 }
 
 #soon-newsletter{

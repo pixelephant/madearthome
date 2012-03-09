@@ -130,6 +130,22 @@
 	}
 }
 
+//sima-hover-active
+
+.delete{
+	display:block;
+	text-indent:-9999px;
+	width:20px;
+	height:20px;
+	background:url(x.png) 0 0 no-repeat;
+	&:hover{
+		background-position:-21px 0px;
+	}
+	&:active{
+		background-position:-42px 0px;
+	}
+}
+
 #faq-links{
 	a{
 		display:block;
@@ -141,7 +157,7 @@
 #cart-bottom{
 	margin-top:20px;
 	border:1px dashed #aaa;
-	background:#eaf1f8;
+	background:#F2F7FB;
 	padding:20px;
 }
 
@@ -232,5 +248,11 @@
 		padding-top:10px;
 		color:white;
 		margin:0 5px;
+		text-decoration:none;
+		color:rgba(255,255,255,0.9);
+		@include transition-03s;
+		&:hover{
+			color:rgba(255,255,255,1);
+		}
 	}
 }

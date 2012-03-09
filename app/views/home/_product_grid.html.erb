@@ -1,6 +1,7 @@
 <% @products.each_with_index do |product,i| %>
 <% cl = i % 3 == 2 ? 'product last' : 'product'%>
 <div data-id="<%= product.id %>" class="<%= cl %> product-box box ">
+		<div class="ribbon"><span class="ribbon-start"></span><p>New</p><span class="ribbon-end"></span></div>
 		<a rel="group" class="fancybox ajax" href="/products/quicklook/<%= product.id %>"><span class="quicklook"></span></a>
 		<%= link_to product_path(product) do %>
 		<div class="image">
@@ -14,6 +15,8 @@
 				<%= render 'products/price', :product => product %>
 			</div>
 			<div class="right">
+				<%= image_tag "lz.png", :title => "lazyboy", :class => "class" %>
+				<%= image_tag "lz.png", :title => "lazyboy", :class => "class" %>
 				<%= image_tag "lz.png", :title => "lazyboy", :class => "class" %>
 			</div>
 		</div>
