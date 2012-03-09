@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Madearthome - <%= t('.title') %></title>
+  <title>Madearthome - <%= t('title') %></title>
   <%= stylesheet_link_tag    "application", controller_name %>
   <%= stylesheet_link_tag    "comingsoon" %>
   <%= javascript_include_tag "application", controller_name %>
@@ -33,9 +33,9 @@
 					<% end %>
 				</ul>
 			</li>
-			<li><%= link_to t('.register'), "/register" %></li>
-			<li><%= link_to t('.login'), "/login" %></li>
-			<li><%= link_to t('.wishlist'),"/wishlist" %></li>
+			<li><%= link_to t('register'), "/register" %></li>
+			<li><%= link_to t('login'), "/login" %></li>
+			<li><%= link_to t('wishlist'),"/wishlist" %></li>
 			<li><%= link_to "Blog", "http://www.madeartdesign.hu/magazinhu/" %></li>
 		</ul>
 	</nav>
