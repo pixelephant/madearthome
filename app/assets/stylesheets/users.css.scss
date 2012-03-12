@@ -1,3 +1,47 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_mixins.css.scss';
+@import '_form.css.scss';
+@import '_login.css.scss';
+
+#top{
+	border-bottom:1px solid $border-gray;
+	padding-bottom:20px;
+	span{
+		float:right;
+		color:#60bb78;
+		@include small-caps;
+		font-size:16px;
+		background: url(secure.png) no-repeat left center;
+		padding-left:25px;
+	}
+}
+
+
+#register-cta-box{
+	background:#F2F7FB;
+	border:1px dashed $border-gray;
+	padding:20px;
+	width:400px;
+	margin-top:20px;
+	height:290px;
+	float:left;
+	text-align:center;
+	h4{
+		text-align:center;
+		font-size:24px;
+		font-style:italic;
+		margin-bottom:20px;
+		margin-top:0;
+	}
+	p{
+		font-style:italic;
+		text-align:center;
+		margin-bottom:40px;
+		.lead{
+			font-style:normal;
+		}
+	}
+	a{
+		@include cta-submit;
+		padding:8px 16px;
+	}
+}

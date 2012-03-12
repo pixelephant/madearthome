@@ -607,6 +607,10 @@ html{
 	p{
 		line-height:1.5;
 	}
+	em{
+		color:$brand-orange;
+		font-style:italic;
+	}
 	@include box-shadow;
 	background:white;
 	padding:0;
@@ -888,3 +892,18 @@ label.error{
 }
 
 @import "_sliders.css.scss";
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #aaa;
+	background-color: white;
+	padding: 10px;
+	opacity: 0.85;
+	color:$text-color;
+	font-weight:normal;
+	font-size:13px;
+	line-height:1.5;
+}
+#tooltip h3, #tooltip div { margin: 0; }
