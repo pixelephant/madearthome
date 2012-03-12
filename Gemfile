@@ -47,6 +47,9 @@ gem 'kaminari'
 gem 'sunspot_solr'
 gem 'sunspot_rails'
 
+#MailChimp
+gem 'gibbon'
+
 #gem 'seed_dumper'
 #, :git => 'git://github.com/kevTheDev/seed_dumper.git'
 

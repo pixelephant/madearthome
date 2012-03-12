@@ -2,7 +2,7 @@ Madearthome::Application.routes.draw do
 
 	#Admin
 
-	devise_for :users, :path => '', :path_names => { :sign_in => "admin/login", :sign_out => "admin/logout", :sign_up => "admin/register" }
+	devise_for :users, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
 	post 'admin/parse_save_from_excel' => "admin_custom#parse_save_from_excel"
 
@@ -15,7 +15,7 @@ Madearthome::Application.routes.draw do
   get "admin/index"
 
 	match "admin" => 'admin#index'
-	
+
 	match "comingsoon" => "application#comingsoon"
 
 	#Admin ajax routes START
@@ -47,17 +47,17 @@ Madearthome::Application.routes.draw do
 		resources :stores
 
 		resources :links
-    
+
     resources :comingsoon
-  
+
     match 'checkout/billing_shipping' => 'checkout#billing_shipping'
-    
+
     match 'checkout/payment' => 'checkout#payment'
-    
+
     match 'checkout/thankyou' => 'checkout#thankyou'
-  
+
     resources :checkout
-    
+
 		resources :line_items
 
 		resources :carts
