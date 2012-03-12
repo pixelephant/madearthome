@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309125440) do
+ActiveRecord::Schema.define(:version => 20120227123605) do
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage",  :null => false
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(:version => 20120309125440) do
     t.datetime "updated_at"
     t.string   "sku",               :null => false
     t.integer  "price",             :null => false
-    t.integer  "designer_id"
-    t.integer  "manufacturer_id"
+    t.integer  "designer_id",       :null => false
+    t.integer  "manufacturer_id",   :null => false
     t.string   "slug"
     t.text     "advice"
     t.string   "video"
@@ -311,7 +311,6 @@ ActiveRecord::Schema.define(:version => 20120309125440) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

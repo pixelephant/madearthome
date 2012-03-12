@@ -188,8 +188,9 @@
 		width:100px;
 	}
 	.button{
-		@include button;
-		padding:6px;
+		@include gray-button;
+		font-size:12px;
+		padding:6px 5px;
 		float:left;
 		margin-left:5px;
 	}
@@ -227,9 +228,8 @@
 	margin-top:20px;
 	float:right;
 	input[type="submit"]{
-		@include cta-submit;
+		@include orange-button;
 		font-size:15px;
-		padding:12px 28px;
 	}
 	a{
 		color:$brand-lightblue;

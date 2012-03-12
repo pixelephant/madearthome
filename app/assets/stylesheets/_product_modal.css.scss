@@ -39,9 +39,8 @@
 		}
 	}
 	.button{
-		@include cta-submit;
+		@include orange-button;
 		float:right;
-		padding:9px;
 		margin:10px;
 		position:relative;
 		z-index:1010;

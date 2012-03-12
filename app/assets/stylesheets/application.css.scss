@@ -404,10 +404,9 @@ html{
 		margin-top:10px;
 		color:$link-color;
 		&.button{
-			@include cta-submit;
+			@include blue-button;
 			margin-left:10px;
 			float:right;
-			padding:9px;
 			font-size:16px;
 		}
 	}
@@ -434,7 +433,7 @@ html{
 		font-size:16px;
 	}
 	input[type="submit"]{
-		@include cta-submit;
+		@include orange-button;
 		font-size:12px;
 		height:29px;
 		padding:0 9px;
@@ -652,7 +651,7 @@ html{
 
 #social-promo{
 	input[type="submit"]{
-		@include cta-submit;
+		@include orange-button;
 		font-size:12px;
 		padding:5px 9px;
 		vertical-align:top;
