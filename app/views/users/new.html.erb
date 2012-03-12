@@ -1,5 +1,26 @@
-<h1>New user</h1>
+<section id="reglogin" class="box full clearfix">
+	<h3 id="top">Register or login <span id="secure">Secure connection</span></h3>
+	<%= render "users/login" %>
+	<%= render "users/register-cta" %>
+</section>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', users_path %>
+<div class="box-wrap clearfix">
+	<section class="box third">
+		<h3>Whislist</h3>
+		<p>
+			<span class="lead">registered customers</span> are able to create whishlists
+		</p>
+	</section>
+	<section class="box third mid">
+		<h3>Faster checkout</h3>
+		<p>
+			<span class="lead">by registering</span> your checkout process will be as fast as three clicks, since your data will be stored
+		</p>
+	</section>
+	<section class="box third last">
+		<h3>Special deals</h3>
+		<p>
+			<span class="lead">our registered customers</span> get <em>special deals</em> and usually save <em>~10%</em> with our hűségprogram
+		</p>
+	</section>
+</div>

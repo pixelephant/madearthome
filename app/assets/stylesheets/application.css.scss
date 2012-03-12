@@ -233,9 +233,9 @@ html{
 			a{
 				text-decoration:none;
 				color:#fff;
-				@include transition-03s;
+				opacity:0.9;
 				&:hover {
-					@include text-shadow(0,0,#333,3px);
+					opacity:1;
 				}
 			}
 		}
@@ -326,7 +326,7 @@ html{
 	}
 	a.minicart{
 		padding-top:27px;
-		background: url(cart-icon.png) center -5px no-repeat;
+		background: url(cart-icon.png) center 0 no-repeat;
 		display:block;
 		@include font-gill;
 		color:$brand-darkblue;
@@ -464,6 +464,7 @@ html{
 			border-left:1px solid #42579E;
 			border-right:1px solid #6F80C0;
 			position:relative;
+			@include transition-03s;
 			&.first{
 				border-left:none;
 			}
@@ -473,14 +474,17 @@ html{
 			&.active{
 				@include background-gradient(#94BADC, #68A4D1);
 			}
-			&:hover a{
-					color:#ddd;
+			&:hover{
+				background:white;
+				a{
+						color:#3F5EA9;
+				}
 			}
 			&:hover .sub{
-				left:0px;
+				left:-1px;
 			}
 			&:hover .sub.right{
-				right:0;
+				right:-1px;
 				left:auto;
 			}
 			&:hover .sub a{
@@ -505,9 +509,9 @@ html{
 		z-index:100;
 		position:absolute;
 		left:-999em;
-	//	@include background-gradient(#94BADC, #68A4D1);
 		background:white;
-		border:5px solid $brand-orange;
+		border:1px solid #c2c2c2;
+		border-top:none;
 		padding:10px;
 		width:525px;
 		div.column{
@@ -515,12 +519,11 @@ html{
 			float:left;
 		}
 		h5{
-			color:$brand-darkblue;
+			color:#3C3C3B;
 			font-size:14px;
 			@include small-caps;
 			margin-bottom:16px;
 			line-height:1.5;
-			border-bottom:1px dotted $brand-orange;
 			width:160px;
 		}
 		li{
@@ -537,11 +540,15 @@ html{
 				font-size:14px;
 				text-transform:none;
 				font-variant:normal;
-				color:#3c3c3c;
+				color:#3F5EA9;
+				@include transition-03s;
+				&:hover{
+					color:black;
+				}
 			}
 			&.fix{
 				a{
-					color:purple;
+					color:$brand-orange;
 				}
 			}
 		}
@@ -599,6 +606,10 @@ html{
 	}
 	p{
 		line-height:1.5;
+	}
+	em{
+		color:$brand-orange;
+		font-style:italic;
 	}
 	@include box-shadow;
 	background:white;
@@ -673,6 +684,7 @@ html{
 		span{
 			font-variant:normal;
 			font-style:italic;
+			@include font-garamond;
 		}
 	}
 	.half{
@@ -691,16 +703,19 @@ html{
 	.twitter{
 		background: url(twitter.png) no-repeat left center;
 		padding-left:20px;
+		margin:0 5px;
 	}
 	
 	.facebook{
 		background: url(facebook.png) no-repeat left center;
 		padding-left:20px;
+		margin:0 5px;
 	}
 	
 	.blog{
 		background: url(feed.png) no-repeat left center;
 		padding-left:20px;
+		margin:0 5px;
 	}
 }
 
@@ -775,8 +790,9 @@ label.error{
 						@include small-caps;
 					}
 					@include transition-03s;
+					opacity:0.9;
 					&:hover{
-						@include text-shadow(0,0,#333,3px);
+						opacity:1;
 					}
 				}
 			}
@@ -876,3 +892,18 @@ label.error{
 }
 
 @import "_sliders.css.scss";
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #aaa;
+	background-color: white;
+	padding: 10px;
+	opacity: 0.85;
+	color:$text-color;
+	font-weight:normal;
+	font-size:13px;
+	line-height:1.5;
+}
+#tooltip h3, #tooltip div { margin: 0; }

@@ -74,6 +74,7 @@ $text-color:#3C3C3B;
   -webkit-border-bottom-right-radius: $br;
   -webkit-border-bottom-left-radius: $bl;
   border-radius: $tl $tr $br $bl;
+ -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 }
 
 @mixin search-gradient {
@@ -89,7 +90,6 @@ $text-color:#3C3C3B;
 	background: -o-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* IE10+ */
 	background: linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc048', endColorstr='#efbf48',GradientType=0 ); /* IE6-9 */
 }
 
 @mixin button-gradient-hover{
@@ -100,7 +100,6 @@ $text-color:#3C3C3B;
 	background: -o-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* IE10+ */
 	background: linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc048', endColorstr='#efbf48',GradientType=0 ); /* IE6-9 */
 }
 
 @mixin cart-button{
@@ -111,7 +110,6 @@ $text-color:#3C3C3B;
 	background: url(cart-button-orange.png) no-repeat 5px center, -o-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* Opera 11.10+ */
 	background: url(cart-button-orange.png) no-repeat 5px center, -ms-linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* IE10+ */
 	background: url(cart-button-orange.png) no-repeat 5px center, linear-gradient(top,  #efc048 0%,#e95321 5%,#ef7a48 90%,#efbf48 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efc048', endColorstr='#efbf48',GradientType=0 ); /* IE6-9 */
 	border:1px solid #E95321;
 	color:white;
 	@include font-gill;
@@ -139,7 +137,6 @@ $text-color:#3C3C3B;
     background-image:     -ms-linear-gradient(top, $startColor, $endColor);
     background-image:      -o-linear-gradient(top, $startColor, $endColor);
     background-image:         linear-gradient(top, $startColor, $endColor);
-    filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor);
 }
 
 @mixin text-shadow($h: $horizontal_offset, $v: $vertical_offset, $c: $shadow_color, $b: $blur_radius) {

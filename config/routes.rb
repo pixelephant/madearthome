@@ -105,7 +105,9 @@ Madearthome::Application.routes.draw do
 		resources :orders
 
 		resources :user_addresses
-
+    
+    match 'users/register' => 'users#register'
+    
 		resources :users
 
 		resources :categories do

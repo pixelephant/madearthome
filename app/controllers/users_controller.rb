@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  
+  def register
+    render "register"
+  end
+  
+  
   # GET /users
   # GET /users.json
   def index

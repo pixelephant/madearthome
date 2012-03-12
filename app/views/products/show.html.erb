@@ -1,5 +1,5 @@
 <section class="box full" id="product-box">
-	<div id="product-inner">
+	<div id="product-inner" class="clearfix">
 		<div id="left-side">
 			<% if @product.photos.any? %>
 			<div id="picture-wrap">
@@ -90,6 +90,10 @@
 		</div>
 	</div>
 </section>
+
+
+<%= render :partial => "show_set" %>
+
 
 <% box = 0 %>
 <div class="box-wrap clearfix">

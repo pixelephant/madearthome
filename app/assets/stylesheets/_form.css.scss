@@ -37,7 +37,7 @@ form{
 	}
 	.block{
 		padding:20px;
-		background:#eaf1f8;
+		background:#F2F7FB;
 		border:1px dashed $border-gray;
 		margin-bottom:10px;
 		width:595px;
@@ -45,4 +45,12 @@ form{
 	fieldset{
 		margin-bottom:20px;
 	}
+}
+
+a.tooltip{
+
+}
+
+input[type="checkbox"]{
+	margin:0 5px;
 }
