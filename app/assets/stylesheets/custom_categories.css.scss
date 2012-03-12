@@ -96,21 +96,21 @@
 }
 
 .view-all{
-	@include button;
-	height:15px;
-	text-transform:none;
+	@include gray-button;
 	float: right;
-	line-height: 1.2;
-	margin: 15px 10px;
-	&:hover{
-		@include text-shadow(0,0,#333,1px);
-	}
+	line-height:1.5;
+	font-size:12px;
+	padding:2px 3px;
+	margin: 16px 10px;
+
 }
 
 .order-buttons{
 	float:left;
 	a{
-		@include button;
+		@include gray-button;
+		font-size:12px;
+		padding:3px 2px;
 		margin:0 5px;
 	}
 }

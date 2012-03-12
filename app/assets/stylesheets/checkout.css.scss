@@ -67,8 +67,7 @@ input[type="submit"]{
 		}
 	}
 	a{
-		@include cta-submit;
-		padding:8px 16px;
+		@include orange-button;
 	}
 }
 
@@ -225,8 +224,7 @@ input[type="radio"]{
 				margin-bottom:20px;
 			}
 			a{
-				@include cta-submit;
-				padding:12px 24px;
+				@include orange-button;
 				margin-bottom:10px;
 			}
 	}

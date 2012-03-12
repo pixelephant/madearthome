@@ -41,7 +41,10 @@
 		}
 	}
 	a{
-		@include cta-submit;
-		padding:8px 16px;
+		@include orange-button;
 	}
+}
+
+#or{
+	@include gray-button;
 }

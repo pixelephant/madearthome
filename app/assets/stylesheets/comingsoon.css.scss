@@ -58,9 +58,8 @@
 		font-size:28px;
 	}
 	input[type="submit"]{
-		@include cta-submit;
+		@include orange-button;
 		font-size:16px;
-		padding:5px 9px;
 		vertical-align:top;
 	}
 	input[type="email"]{

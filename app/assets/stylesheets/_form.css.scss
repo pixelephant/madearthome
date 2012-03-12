@@ -13,8 +13,7 @@ form{
 	}
 
 	input[type="submit"]{
-		@include cta-submit;
-		padding:4px;
+		@include orange-button;
 	}
 
 	a{

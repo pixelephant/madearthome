@@ -33,7 +33,7 @@
 		width:100%;
 	}
 	input[type="submit"]{
-		padding:8px 16px;
+		@include blue-button;
 	}
 	label{
 		display:block;
