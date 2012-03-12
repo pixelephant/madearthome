@@ -32,11 +32,17 @@ set :use_sudo, false
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
- namespace :deploy do
-   task :start {}
-   task :stop {}
-   task :restart, :roles => :app, :except => { :no_release => true } do
+# namespace :deploy do
+#   task :start {}
+#   task :stop {}
+#   task :restart, :roles => :app, :except => { :no_release => true } do
      #run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-			run "#{try} touch #{File.join(current_path,'tmp','restart.txt')}"
-   end
- end
+#			run "#{try} touch #{File.join(current_path,'tmp','restart.txt')}"
+#   end
+# end
+
+desc "Restarting after deployment"
+task :after_deploy, :roles => [:app, :db, :web] do
+ run "sed 's/# ENV\\[/ENV\\[/g' #{deploy_to}/current/config/environment.rb > #{deploy_to}/current/config/environment.temp"
+ run "mv #{deploy_to}/current/config/environment.temp #{deploy_to}/current/config/environment.rb"
+end
