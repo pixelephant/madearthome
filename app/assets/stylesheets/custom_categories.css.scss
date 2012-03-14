@@ -122,16 +122,16 @@ nav.pagination{
 		padding:0 1px;
 	}
 	span,a{
-		color:$link-color;
+		color:$brand-lightblue;
 	}
 	a{
 		@include transition-03s;
 	}
 	a:hover{
-		color:$link-color-hover;
+		color:$brand-darkblue;
 	}
 	.current{
-		color:$heading-gray;
+		color:$text-color;
 	}
 }
 

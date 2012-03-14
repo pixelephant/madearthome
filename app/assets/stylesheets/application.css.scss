@@ -5,9 +5,6 @@
  *= require_self
 */
 
-@import '_mixins.css.scss';
-
-
 input::-moz-focus-inner,button::-moz-focus-inner{ 
     border: 0;
     padding: 0;
@@ -140,13 +137,7 @@ td { vertical-align: top; }
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
 }
 
-p a{
-	color:$brand-lightblue;
-	@include transition-03s;
-	&:hover{
-		color: $brand-darkblue;
-	}
-}
+@import '_mixins.css.scss';
 
 p .lead{
 	@include small-caps;
@@ -166,7 +157,7 @@ html{
 	height:100%;
 	@include font-garamond;
 	background: url(bg.jpg) repeat;
-	color:#3c3c3c;
+	color:$text-color;
 }
 
 
@@ -232,10 +223,9 @@ html{
 			}
 			a{
 				text-decoration:none;
-				color:#fff;
-				opacity:0.9;
+				color:white;
 				&:hover {
-					opacity:1;
+					color:$brand-darkblue;
 				}
 			}
 		}
@@ -290,7 +280,7 @@ html{
 	float:left;
 	padding:20px;
 	font-size:16px;
-	color:#585858;
+	color:$text-color;
 	em{
 		font-style:italic;
 	}
@@ -317,9 +307,8 @@ html{
 	@include border-radius(3px,3px,3px,3px);
 	border:1px solid #c2c2c2;
 	padding:5px 5px 5px 5px;
-	&:hover{
+	&:hover,&:focus{
 		background:white;
-		@include border-radius(3px,3px,0px,0px);
 		#minicart{
 			display:block;
 		}
@@ -336,7 +325,7 @@ html{
 		display:block;
 		text-align:center;
 		&.empty{
-			color:#3c3c3c;
+			color:$text-color;
 			background: url(cart-icon-gray.png) center -5px no-repeat;
 		}
 	}
@@ -402,7 +391,6 @@ html{
 	a{
 		float:right;
 		margin-top:10px;
-		color:$link-color;
 		&.button{
 			@include blue-button;
 			margin-left:10px;
@@ -428,7 +416,7 @@ html{
 	input[type="search"]{
 		@include text-input;
 		height:28px;
-		width:205px;
+		width:185px;
 		float:left;
 		font-size:16px;
 	}
@@ -446,6 +434,12 @@ html{
 	margin-top:5px;
 	font-style:italic;
 	font-size:18px;
+	a{
+		color:$brand-lightblue;
+		&:hover{
+			color:$brand-darkblue;
+		}
+	}
 }
 
 #main-nav{
@@ -473,20 +467,20 @@ html{
 			&.active{
 				@include background-gradient(#94BADC, #68A4D1);
 			}
-			&:hover{
+			&:hover,&:focus{
 				background:white;
 				a{
-						color:#3F5EA9;
+						color:$brand-darkblue;
 				}
 			}
-			&:hover .sub{
+			&:hover .sub,&:focus .sub{
 				left:-1px;
 			}
-			&:hover .sub.right{
+			&:hover .sub.right,	&:focus .sub.right{
 				right:-1px;
 				left:auto;
 			}
-			&:hover .sub a{
+			&:hover .sub a, &:focus .sub a{
 				text-shadow:none;
 			}
 			a{
@@ -518,7 +512,7 @@ html{
 			float:left;
 		}
 		h5{
-			color:#3C3C3B;
+			color:$text-color;
 			font-size:14px;
 			@include small-caps;
 			margin-bottom:16px;
@@ -539,15 +533,19 @@ html{
 				font-size:14px;
 				text-transform:none;
 				font-variant:normal;
-				color:#3F5EA9;
+				color:$brand-lightblue;
 				@include transition-03s;
 				&:hover{
-					color:black;
+					color:$brand-darkblue;
 				}
 			}
 			&.fix{
 				a{
 					color:$brand-orange;
+					@include transition-03s;
+					&:hover,&:active{
+						color: $brand-lightorange;
+					}
 				}
 			}
 		}
@@ -562,6 +560,16 @@ html{
 	a{
 		font-size:13px;
 		color:$text-color;
+		@include transition-03s;
+		&:hover{
+			color:black;
+		}
+	}
+	.home{
+		text-indent:-9999em;
+		background:url(breadcrumb-home.png) no-repeat;
+		width:17px;
+		height:18px;
 	}
 	margin:10px 0;
 }
@@ -591,7 +599,7 @@ html{
 		@include font-gill;
 	}
 	h3{
-		color:$heading-blue;
+		color:$brand-darkblue;
 		margin-bottom:25px;
 		font-size:18px;
 	}
@@ -650,6 +658,13 @@ html{
 }
 
 #social-promo{
+	a{
+		color:$brand-lightblue;
+		@include transition-03s;
+		&:hover{
+			color:$brand-darkblue;
+		}
+	}
 	input[type="submit"]{
 		@include orange-button;
 		font-size:12px;
@@ -672,7 +687,7 @@ html{
 		font-size:16px;
 		margin:10px 0;
 		strong{
-			color:$orange;
+			color:$brand-orange;
 			font-weight:bold;
 		}
 	}
@@ -693,7 +708,7 @@ html{
 	}
 	h3{
 		text-transform:uppercase;
-		color:$orange;
+		color:$brand-orange;
 		font-size:20px;
 		@include font-gill;
 		font-weight:bold;
@@ -749,7 +764,7 @@ label.error{
 }
 
 #main-footer{
-	border-top:2px solid $orange;
+	border-top:2px solid $brand-orange;
 	background:#62a6cd;
 	width:100%;
 }
@@ -788,10 +803,8 @@ label.error{
 					&.level-1{
 						@include small-caps;
 					}
-					@include transition-03s;
-					opacity:0.9;
 					&:hover{
-						opacity:1;
+						color:$brand-darkblue;
 					}
 				}
 			}

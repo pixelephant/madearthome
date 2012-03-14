@@ -134,7 +134,7 @@
 		text-decoration:line-through;
 	}
 	&.discount-price span{
-		color:$orange;
+		color:$brand-orange;
 	}
 }
 
@@ -168,9 +168,6 @@
 	.links{
 		position:absolute;
 		bottom:20px;
-		a{
-			color:$link-color;
-		}
 	}
 	input[type="submit"]{
 		@include cart-button;

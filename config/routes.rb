@@ -43,6 +43,8 @@ Madearthome::Application.routes.draw do
 		resources :links_products
 
 		resources :products_stores
+		
+		resources :brand
 
 		resources :stores
 
