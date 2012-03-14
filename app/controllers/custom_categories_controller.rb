@@ -21,7 +21,7 @@ class CustomCategoriesController < ApplicationController
 			@products = @custom_category.products
 			@kaminari_products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
 		else
-			session[:view_all] = true
+			session[:view_all] = false
 			@products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
