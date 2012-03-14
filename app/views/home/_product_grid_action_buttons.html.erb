@@ -1,6 +1,7 @@
 <div class="order-buttons">
-	<a href="#"><%= t('.newest') %></a>
-	<a href="#"><%= t('.name') %></a>
-	<a href="#"><%= t('.lowest_price') %></a>
-	<a href="#"><%= t('.highest_price') %></a>
+	<!--a href="<%= request.fullpath %>"><%= t('.newest') %></a-->
+	<%= link_to t('.newest'), url_for(params.merge(:sort => 'newest')) %>
+	<%= link_to t('.name'), url_for(params.merge(:sort => 'name')) %>
+	<%= link_to t('.lowest_price'), url_for(params.merge(:sort => 'lowest_price')) %>
+	<%= link_to t('.highest_price'), url_for(params.merge(:sort => 'highest_price')) %>
 </div>
