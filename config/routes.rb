@@ -8,10 +8,6 @@ Madearthome::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  #devise_for :users do
-		#get "/admin/login" => "devise/sessions#new"
-#	end
-
   get "admin/index"
 
 	match "admin" => 'admin#index'
@@ -105,9 +101,9 @@ Madearthome::Application.routes.draw do
 		resources :orders
 
 		resources :user_addresses
-    
+
     match 'users/register' => 'users#register'
-    
+
 		resources :users
 
 		resources :categories do

@@ -1,5 +1,7 @@
 RailsAdmin.config do |config|
 
+	config.authorize_with :cancan
+
 	#Custom actions
 	config.actions do
 		member :import do
@@ -8,7 +10,7 @@ RailsAdmin.config do |config|
 		config.actions do
 		  # root actions
 		  dashboard                     # mandatory
-		  # collection actions 
+		  # collection actions
 		  index                         # mandatory
 		  new
 		  export
@@ -35,7 +37,7 @@ PropertiesToCustomCategory]
 		end
 	end
 
-	#Property 
+	#Property
 	config.model Property do
 		#Property name
 		object_label_method do
@@ -58,7 +60,7 @@ PropertiesToCustomCategory]
 	config.model Product do
 		#Product edit form
 		edit do
-			
+
 			field :product_relates do
 				associated_collection_scope do
 					product = bindings[:object]
@@ -70,7 +72,7 @@ PropertiesToCustomCategory]
 			end
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
-		end		
+		end
 	end
 
 	#CustomCategory
@@ -78,11 +80,11 @@ PropertiesToCustomCategory]
 
 	config.model CustomCategory do
 		#Product edit form
-		edit do	
+		edit do
 
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
-		end		
+		end
 	end
 
 	#Discount
@@ -119,7 +121,7 @@ PropertiesToCustomCategory]
 		end
 		object_label_method do
 			:discount_label_method
-		end		
+		end
 	end
 
 	#Photos name

@@ -52,6 +52,7 @@ GEM
     bootstrap-sass (1.4.4)
       sass-rails (~> 3.1)
     builder (3.0.0)
+    cancan (1.6.7)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     coffee-rails (3.1.1)
@@ -182,6 +183,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  cancan
   carrierwave
   coffee-rails (~> 3.1.1)
   devise
