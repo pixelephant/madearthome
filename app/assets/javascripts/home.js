@@ -42,6 +42,10 @@ $(document).ready(function(){
 			closeEffect	: 'elastic',
 			autoSize: true,
 			arrows: true,
+			openEffect: 'elastic',
+			closeEffect: 'elastic',
+			nextEffect: 'none',
+			prevEffect: 'none'			
 		});
 	
 	$("#slider-thumbs li").click(function(){

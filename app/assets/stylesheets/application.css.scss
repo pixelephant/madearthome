@@ -567,6 +567,10 @@ html{
 	}
 	.home{
 		text-indent:-9999em;
+		display:block;
+		float:left;
+		margin-right:5px;
+		margin-top:-1px;
 		background:url(breadcrumb-home.png) no-repeat;
 		width:17px;
 		height:18px;
