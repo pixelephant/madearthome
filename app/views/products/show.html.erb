@@ -61,7 +61,7 @@
 				<div class="left">
 
 
-						<% @product.given_properties.each do |property| %>
+						<% @product.optional_properties.each do |property| %>
 							<p>
 								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
 								<%= property.translate.property_name %>
@@ -104,13 +104,13 @@
 			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
 		<% end %>
 
-		<% if !@product.dimensions.nil? %>
-			<p><span><%= t('.dimensions') %>: </span><%= @product.dimensions %></p>
+		<% @product.given_properties.each do |property| %>
+			<p>
+				<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
+				<%= property.translate.property_name %>
+			</p>
 		<% end %>
 
-		<% if !@product.weight.nil? %>
-			<p><span><%= t('.weight') %>: </span><%= @product.weight %></p>
-		<% end %>
 		<% box += 1 %>
 	</section>
 
