@@ -1,8 +1,7 @@
 <section class="full slider big clearfix" id="<%= id %>">
-	<h3><%= title %></h3>
-	  <a href="#" class="arrow left"></a>
-	  <div class="carousel big">
-		<ul>
+	<h3><%= title %> <a href="#" class="arrow right"></a><a href="#" class="arrow left"></a></h3>  
+  <div class="slider-inner"> 
+		<ul class="carousel">
 			<li >
 				<a href="#">
 					<%= image_tag "matthew.png", :title => "title", :class => "class" %>
@@ -53,6 +52,5 @@
 				</a>
 			</li>
 		</ul>
-	</div><!-- carousel -->
-	<a href="#" class="arrow right"></a>
+	</div>
 </section>

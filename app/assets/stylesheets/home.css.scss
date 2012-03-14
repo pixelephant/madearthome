@@ -253,8 +253,12 @@
 		float:left;
 	}
 	a{
+		color:$brand-lightblue;
 		float:right;
 		margin:5px;
+		&:hover{
+			color:$brand-darkblue;
+		}
 	}
 }
 

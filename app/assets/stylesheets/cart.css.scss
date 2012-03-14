@@ -149,7 +149,7 @@
 #faq-links{
 	a{
 		display:block;
-		color:$link-color;
+		color:$brand-lightblue;
 		line-height:1.5;
 	}
 }
@@ -240,19 +240,4 @@
 	}
 }
 
-#main-footer-inner{
-	border:none;
-	a{
-		display:block;
-		float:left;
-		padding-top:10px;
-		color:white;
-		margin:0 5px;
-		text-decoration:none;
-		color:rgba(255,255,255,0.9);
-		@include transition-03s;
-		&:hover{
-			color:rgba(255,255,255,1);
-		}
-	}
-}
+@import "_simple_footer.css.scss";

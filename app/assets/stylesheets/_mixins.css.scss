@@ -29,23 +29,24 @@
 @include meyer-reset;
 
 
-$brand-darkblue: #405FA9;
-$brand-lightblue: #1A8BAA;
-$brand-orange: #E45501;
+$brand-darkblue: #3f5ea9;
+$brand-lightblue: #1992c1;
+$brand-orange: #e95321;
+$brand-lightorange: #E89323;
 
 $border-blue: #DDE8F5;
 
-$heading-blue: $brand-darkblue;
-$subheading-blue: $brand-lightblue;
-
-$orange: #e95321;
 $border-gray: #E1E1E1;
-$heading-gray: #3C3C3B;
-$link-color: #3F5EA9;
-$link-color-hover: saturate($link-color,70%);
 
-$text-color:#3C3C3B;
+$text-color:#575756;
 
+@mixin transition-03s{
+//	  -webkit-transition: all 0.3s ease;  /* Saf3.2+, Chrome */
+//	     -moz-transition: all 0.3s ease;  /* FF4+ */
+//	      -ms-transition: all 0.3s ease;  /* IE10 */
+//	       -o-transition: all 0.3s ease;  /* Opera 10.5+ */
+//	          transition: all 0.3s ease;
+}
 
 @mixin orange-gradient{
 	background: #efbd49; /* Old browsers */
@@ -140,11 +141,6 @@ $text-color:#3C3C3B;
 
 
 @mixin small-caps{
-/*	font-variant:small-caps;
-	font-style:normal;
-	font-weight:normal;
-	color:black;
-	font-size:19px;*/
 	font-family: 'Alegreya SC';
 	text-transform:lowercase;
 }
@@ -186,7 +182,6 @@ $text-color:#3C3C3B;
 	@include border-radius(3px,3px,3px,3px);
 	text-decoration:none;
 	text-transform:uppercase;
-/*	font-weight:bold; */
 	&:hover,&:focus{
 		background:url(cart-button-orange.png) no-repeat 5px center #efbd49; /* Old browsers */
 		background:url(cart-button-orange.png) no-repeat 5px center, -moz-linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* FF3.6+ */
@@ -209,7 +204,7 @@ $text-color:#3C3C3B;
 
 
 @mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
-    background-color: $startColor;
+    background: $startColor;
     background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
     background-image: -webkit-linear-gradient(top, $startColor, $endColor);
     background-image:    -moz-linear-gradient(top, $startColor, $endColor);
@@ -234,14 +229,6 @@ $text-color:#3C3C3B;
 	font-family: 'Alegreya',Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
 }
 
-@mixin transition-03s{
-	  -webkit-transition: all 0.3s ease;  /* Saf3.2+, Chrome */
-	     -moz-transition: all 0.3s ease;  /* FF4+ */
-	      -ms-transition: all 0.3s ease;  /* IE10 */
-	       -o-transition: all 0.3s ease;  /* Opera 10.5+ */
-	          transition: all 0.3s ease;
-}
-
 @mixin box-shadow{	
   -webkit-box-shadow: 4px 3px 5px rgba(0,0,0,0.4); 
      -moz-box-shadow: 4px 3px 5px rgba(0,0,0,0.4); 
@@ -251,7 +238,7 @@ $text-color:#3C3C3B;
 @mixin text-input{
 	border:1px solid #c2c2c2;
 	margin:0;
-	padding:0;
+	padding:0 2px;
 	@include border-radius(3px,3px,3px,3px);
 	-webkit-appearance: textfield;
 	-moz-box-sizing: content-box;
@@ -327,7 +314,6 @@ $text-color:#3C3C3B;
 	}
 }
 
-/* new clearfix */
 .clearfix:after {
 	visibility: hidden;
 	display: block;

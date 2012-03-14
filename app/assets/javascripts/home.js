@@ -43,23 +43,6 @@ $(document).ready(function(){
 			autoSize: true,
 			arrows: true,
 		});
-
-		$("#newest-products ul").carouFredSel({
-			items: 4,
-			scroll:2,
-			auto : false,
-			circular : true,
-			infinite : true,	
-			prev : {
-				button      : "#newest-products .left",
-		        easing      : "easeOutSine"
-			    },
-			next : {
-				button      : "#newest-products .right",
-		        easing      : "easeOutSine"
-		    },
-		});
-	
 	
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);
