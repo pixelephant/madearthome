@@ -3,6 +3,8 @@ class CartController < ApplicationController
 
   def index
 		@cart = Cart.find(session[:cart_id])
+	rescue ActiveRecord::RecordNotFound
+    @cart = Cart.new
   end
 
   def new
