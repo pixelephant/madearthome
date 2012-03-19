@@ -1,5 +1,10 @@
 @import '_mixins.css.scss';
 
+p.empty-cart{
+	font-size:40px;
+	text-align:center;
+}
+
 #cart{
 	margin-top: 120px;
 }
@@ -143,14 +148,6 @@
 	}
 	&:active{
 		background-position:-42px 0px;
-	}
-}
-
-#faq-links{
-	a{
-		display:block;
-		color:$brand-lightblue;
-		line-height:1.5;
 	}
 }
 

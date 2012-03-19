@@ -160,6 +160,14 @@ html{
 	color:$text-color;
 }
 
+p a{
+	color:$brand-lightblue;
+	@include transition-03s;
+	&:hover{
+		color:$brand-darkblue;
+	}
+}
+
 
 .arrow{
 	width:30px;
@@ -370,7 +378,7 @@ html{
 		.property-cell span{
 			display:block;
 			@include small-caps;
-			font-size:16px;
+			font-size:14px;
 		}
 		.quantity-cell,.price-cell{
 			@include font-gill;

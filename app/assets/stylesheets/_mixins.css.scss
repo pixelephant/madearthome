@@ -308,7 +308,7 @@ $text-color:#575756;
 		border:1px solid #93bcdb;
 	}
 	
-	&:active{
+	&:active,&.active{
 		@include gray-gradient-active;
 		border:1px solid #a2a1a1;
 	}

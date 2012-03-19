@@ -42,7 +42,7 @@
 #filter-form{
 	fieldset{
 		margin-bottom:25px;
-		border-bottom:1px dotted $brand-darkblue;
+		border-bottom:1px solid $border-gray;
 	}
 	legend{
 		@include small-caps;
@@ -60,6 +60,7 @@
 		font-size:14px;
 	}
 	.update{
+		font-size:12px;
 		float:right;
 		margin:5px;
 		color:$brand-lightblue;
