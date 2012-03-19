@@ -16,13 +16,23 @@ class CustomCategoriesController < ApplicationController
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
 
+		if params[:sort] == 'by_name'
+			sort = :name
+		elsif params[:sort] == 'by_lowest_price'
+			sort = :price
+		elsif params[:sort] == 'by_highest_price'
+			sort = :price
+		else
+			sort = :updated_at
+		end
+
 		if params[:page] == 'all'
 			session[:view_all] = true
-			@products = @custom_category.products
-			@kaminari_products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
+			@products = @custom_category.products.sort_by(&sort)
+			@kaminari_products = Kaminari.paginate_array(@custom_category.products.sort_by(&sort)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
-			@products = Kaminari.paginate_array(@custom_category.products).page(params[:page]).per(21)
+			@products = Kaminari.paginate_array(@custom_category.products.sort_by(&sort)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 
