@@ -617,6 +617,10 @@ html{
 	}
 	p{
 		line-height:1.5;
+		img{
+			float:right;
+			margin:10px;
+		}
 	}
 	em{
 		color:$brand-orange;

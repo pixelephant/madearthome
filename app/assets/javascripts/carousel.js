@@ -1,3 +1,5 @@
+//= require mousewheel
+
 $(document).ready(function(){
 	
 	$(".slider .left").click(function(){

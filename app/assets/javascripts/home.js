@@ -1,6 +1,5 @@
 //= require jquery.easing
 //= require carousel
-//= require mousewheel
 //= require jquery.fancybox
 
 /*
@@ -35,7 +34,7 @@ function get_random_color() {
 }
 
 $(document).ready(function(){
-	
+
 	$(".fancybox").fancybox({
 			type : 'ajax',
 			openEffect	: 'elastic',

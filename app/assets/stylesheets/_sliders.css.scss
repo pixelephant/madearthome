@@ -10,6 +10,12 @@
 		-webkit-overflow-scrolling: touch;
 		padding-bottom:30px;
 	}
+	li{
+		display:-moz-inline-stack;
+		display:inline-block;
+		zoom:1;
+		*display:inline;
+	}
 	&.full{
 			img{
 				width:110px;
@@ -37,7 +43,6 @@
 		float:left;
 		overflow:hidden;
 		li{
-			float:left;
 			a{
 				text-align:center;
 				@include font-gill;
@@ -102,4 +107,8 @@
 			margin-right:20px;
 		}
 	}
+}
+
+.no-touch .slider-inner{
+	overflow:hidden;
 }
