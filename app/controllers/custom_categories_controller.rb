@@ -16,11 +16,11 @@ class CustomCategoriesController < ApplicationController
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
 
-		if params[:sort] == 'name'
+		if params[:sort] == 'by_name'
 			sort = :name
-		elsif params[:sort] == 'lowest_price'
+		elsif params[:sort] == 'by_lowest_price'
 			sort = :price
-		elsif params[:sort] == 'highest_price'
+		elsif params[:sort] == 'by_highest_price'
 			sort = :price
 		else
 			sort = :updated_at
