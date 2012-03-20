@@ -28,7 +28,7 @@ RailsAdmin.config do |config|
 
 	#Add all excluded models here:
 	config.excluded_models = [PropertiesToProduct, Wishlist, WishlistItem, PropertyCategoriesToCategory,AdvantagesToProduct,DiscountsToProduct,PropertiesToCategory,RelatedProduct,
-PropertiesToCustomCategory]
+PropertiesToCustomCategory,Cart]
 
 	#Category
 	config.model Category do
