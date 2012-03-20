@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
+	translates :short_description, :long_description, :advice
+
 	has_many :photos
 	belongs_to :category
 #	has_many :properties_to_products
@@ -31,8 +33,6 @@ class Product < ActiveRecord::Base
 	has_many :order_items
 
 	has_many :line_items
-
-	has_many :product_translations
 
 	searchable do
     text :name, :short_description, :long_description
@@ -80,23 +80,6 @@ class Product < ActiveRecord::Base
 
 	def given_properties
 		self.properties.find(:all, :group => "property_category_id", :having => "SUM(properties.property_category_id) = properties.property_category_id")
-	end
-
-	def translate
-
-		ignore = ["id","created_at","updated_at","locale","product_id"]
-
-		if I18n.locale.to_s != I18n.default_locale.to_s
-			translation = ProductTranslation.where(:product_id => self, :locale => I18n.locale.to_s)
-			if !translation.empty?
-				attributes = translation.first.attributes.keys
-				attributes.delete_if {|x| ignore.include?(x)}
-				attributes.each do |a|
-					self.send("#{a}=", translation.first.send(a.to_sym)) if !translation.first.send(a.to_sym).blank?
-				end
-			end
-		end
-		self
 	end
 
 end

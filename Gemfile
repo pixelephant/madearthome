@@ -51,6 +51,9 @@ gem 'sunspot_rails'
 #MailChimp
 gem 'gibbon'
 
+#Translation
+gem 'globalize3'
+
 #gem 'seed_dumper'
 #, :git => 'git://github.com/kevTheDev/seed_dumper.git'
 
