@@ -1,5 +1,4 @@
 <% Category.all.each_with_index do |category, index| %>
-	<% category = category.translate %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_path(category) %>
 		<% if category.custom_categories.any? %>
@@ -28,7 +27,7 @@
 						<%= link_to "New arrivals", "#" %>
 					</li>
 				</div>
-				
+
 				<div class="column">
 					<div class="block">
 						<h5>Shop by category</h5>
@@ -37,7 +36,7 @@
 						<li><a href="#">Kerek és lapos</a></li>
 						<li><a href="#">La-z-boy specials</a></li>
 						<li><a href="#">Már már tökéletes</a></li>
-						<li><a href="#">Ezt vedd anyádéknak</a></li>																				
+						<li><a href="#">Ezt vedd anyádéknak</a></li>
 					</div>
 					<div class="block">
 						<h5>Shop by color</h5>
@@ -52,13 +51,13 @@
 						<h5>Shopy by room</h5>
 						<li><a href="#">Nappali</a></li>
 						<li><a href="#">Ebédlő</a></li>
-						<li><a href="#">Háló</a></li>					
+						<li><a href="#">Háló</a></li>
 					</div>
 					<div class="block">
 						<h5>Shopy by brand</h5>
 						<li><a href="#">La-z-boy</a></li>
 						<li><a href="#">Surya</a></li>
-						<li><a href="#">Uttermost</a></li>					
+						<li><a href="#">Uttermost</a></li>
 					</div>
 				</div>
 				<div class="column">

@@ -1,4 +1,6 @@
-class Contents < ActiveRecord::Base
+class Content < ActiveRecord::Base
+
+translates :text
 
 extend FriendlyId
 friendly_id :name, use: :slugged

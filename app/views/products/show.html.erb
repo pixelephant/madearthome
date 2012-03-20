@@ -63,8 +63,8 @@
 
 						<% @product.optional_properties.each do |property| %>
 							<p>
-								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
-								<%= property.translate.property_name %>
+								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
+								<%= property.property_name %>
 							</p>
 						<% end %>
 
@@ -106,8 +106,8 @@
 
 		<% @product.given_properties.each do |property| %>
 			<p>
-				<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).translate.category_name ) %>
-				<%= property.translate.property_name %>
+				<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
+				<%= property.property_name %>
 			</p>
 		<% end %>
 

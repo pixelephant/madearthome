@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @product = Product.find(params[:id]).translate
+    @product = Product.find(params[:id])
 		@category = @product.category
 		#session[:last_viewed_products] = []
 		(session[:last_viewed_products] ||= []).delete(params[:id])
@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 	# POST /products/quicklook/1
 	# POST /products/quicklook/1.json
 	def quicklook
-    @product = Product.find(params[:id]).translate
+    @product = Product.find(params[:id])
 		@category = @product.category
 		#session[:last_viewed_products] = []
 		(session[:last_viewed_products] ||= []).delete(params[:id])
