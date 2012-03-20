@@ -16,6 +16,16 @@ $(document).ajaxSend(function(event, request, settings) {
 });
 
 $("document").ready(function(){
+
+/*	if (!Modernizr.touch){
+ 		$(".slider-inner").mousewheel(function(event, delta) {
+
+      this.scrollLeft -= (delta * 30);
+
+      event.preventDefault();
+
+   });
+	} */
 	
 	$("#newsletter-form").validate({
 		debug: true,

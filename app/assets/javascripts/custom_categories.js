@@ -61,6 +61,8 @@ $("document").ready(function(){
 			closeEffect	: 'elastic',
 			autoSize: true,
 			arrows: true,
+			nextEffect: 'none',
+			prevEffect: 'none'
 		});
 	
 /*	$(".quicklook").click(function(){

@@ -73,7 +73,6 @@
 		background-image:url(quicklook.png);
 		background-repeat:no-repeat;
 		background-position:center right;
-		opacity:0;
 		@include transition-03s;
 	}
 	&:hover .quicklook{
