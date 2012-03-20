@@ -5,6 +5,11 @@ class CartController < ApplicationController
 		@cart = Cart.find(session[:cart_id])
 	rescue ActiveRecord::RecordNotFound
     @cart = Cart.new
+		if @cart.total == 0
+			render "empty"
+		else
+			render "index"
+		end
   end
 
   def new
