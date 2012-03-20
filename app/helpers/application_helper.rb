@@ -15,7 +15,7 @@ module ApplicationHelper
 		cl = []
     cl << 'active' if params[:id] == page_name
 		cl << 'first' if index == 0
-		cl << 'last' if Category.count == index + 1
+		cl << 'last' if (Category.count && !Content.all.any?) == index + 1
 
 		return raw ' class="' << cl.join(" ") << '"'
   end

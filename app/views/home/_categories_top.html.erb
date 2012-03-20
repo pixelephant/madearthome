@@ -76,3 +76,17 @@
 		<% end %>
 	</li>
 <% end %>
+<% Content.all.each do |content| %>
+	<li class="last">
+	<a href="#"><%= content.name %></a>
+	<% if content.subcontents.any? %>
+		<ul class="sub right">
+		<% content.subcontents.each do |subcontent| %>
+			<div>
+				<li><%= link_to subcontent.name, subcontent.slug %></li>
+			</div>
+		<% end %>
+		</ul>
+	<% end %>
+	</li>
+<% end %>

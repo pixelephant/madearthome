@@ -32,14 +32,17 @@ Madearthome::Application.routes.draw do
 
 	scope '(:locale)' do
 
+		match 'test-subcontent' => "subcontents#testsubcontent"
+		match 'subcontent2' => "subcontents#subcontent2"
+
 		match 'search' => 'search#index'
 
 		get 'products/quicklook/:id' => "products#quicklook"
 
-		resources :links_products
+		#resources :links_products
 
 		resources :products_stores
-		
+
 		resources :brand
 
 		resources :stores
@@ -62,7 +65,7 @@ Madearthome::Application.routes.draw do
 
 		resources :cart
 
-		resources :mass_uploads
+		#resources :mass_uploads
 
 		resources :manufacturer_photos
 
@@ -76,7 +79,7 @@ Madearthome::Application.routes.draw do
 
 		resources :discounts
 
-		resources :related_products
+		#resources :related_products
 
 		resources :designers
 
@@ -92,11 +95,11 @@ Madearthome::Application.routes.draw do
 
 		resources :wishlists
 
-		resources :properties_to_products
+		#resources :properties_to_products
 
-		resources :properties
+		#resources :properties
 
-		resources :property_categories
+		#resources :property_categories
 
 		resources :order_items
 
