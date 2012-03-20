@@ -27,6 +27,10 @@ $("document").ready(function(){
    });
 	} */
 	
+	$("a.tooltip").click(function(){
+		return false;
+	})
+
 	$("#newsletter-form").validate({
 		debug: true,
 		rules: {
