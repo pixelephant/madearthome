@@ -144,6 +144,13 @@ nav.pagination{
 	font-size:10px;
 	float:left;
 	margin-right:5px;
+	background: url(back-to-top.png) no-repeat center left;
+	padding-left:20px;
+	color:$brand-lightblue;
+	@include transition-03s;
+	&:hover{
+		color:$brand-darkblue;
+	}
 }
 
 @import 'fancybox.css.scss';

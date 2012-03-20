@@ -43,6 +43,10 @@ Madearthome::Application.routes.draw do
 
 		resources :products_stores
 
+		match 'brand/lazboy' => 'brand#lazboy'
+
+		match 'brand/uttermost' => 'brand#uttermost'		
+
 		resources :brand
 
 		resources :stores

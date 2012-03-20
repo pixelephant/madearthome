@@ -48,6 +48,13 @@ $text-color:#575756;
 //	          transition: all 0.3s ease;
 }
 
+@mixin inline-block{
+	display:-moz-inline-stack;
+	display:inline-block;
+	zoom:1;
+	*display:inline;
+}
+
 @mixin orange-gradient{
 	background: #efbd49; /* Old browsers */
 	background: -moz-linear-gradient(top,  #efbd49 0%, #ee7a48 10%, #e85322 90%, #efbd49 100%); /* FF3.6+ */

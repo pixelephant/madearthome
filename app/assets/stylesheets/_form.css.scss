@@ -47,7 +47,14 @@ form{
 }
 
 a.tooltip{
-
+	text-indent:-9999em;
+	background:url(question.png) no-repeat center;
+	margin-left:10px;
+	position:relative;
+	top:-4px;
+	width:18px;
+	height:18px;
+	@include inline-block;
 }
 
 input[type="checkbox"]{
