@@ -13,6 +13,7 @@ en:
   register: "Register"
   login: "Login"
   wishlist: "Wishlist"
+  aboutus: "About us"
 
   home:
     breadcrumb:

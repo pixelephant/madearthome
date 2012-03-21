@@ -76,17 +76,20 @@
 		<% end %>
 	</li>
 <% end %>
-<% Content.all.each do |content| %>
-	<li class="last">
-	<a href="#"><%= content.name %></a>
-	<% if content.subcontents.any? %>
-		<ul class="sub right">
-		<% content.subcontents.each do |subcontent| %>
-			<div>
-				<li><%= link_to subcontent.name, subcontent.slug %></li>
+<li class="last">
+	<a href="#"><%= t('aboutus') %></a>
+	<ul class="sub right">
+		<div class="column">
+		<% Content.all.each do |content| %>
+			<div class="block">
+				<h5><%= content.name %></h5>
+				<% if content.subcontents.any? %>
+					<% content.subcontents.each do |subcontent| %>
+							<li><%= link_to subcontent.name, subcontent.slug %></li>
+					<% end %>
+				<% end %>
 			</div>
 		<% end %>
-		</ul>
-	<% end %>
-	</li>
-<% end %>
+		</div>
+	</ul>
+</li>
