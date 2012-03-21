@@ -7,4 +7,7 @@ friendly_id :name, use: :slugged
 
 belongs_to :content
 
+validates :name, :text, :presence => true
+validates :name, :uniqueness => true
+
 end
