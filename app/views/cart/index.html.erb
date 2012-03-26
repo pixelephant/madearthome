@@ -1,3 +1,4 @@
+<% @r_products = Array.new %>
 <p id="notice"><%= notice %></p>
 
 <section id="cart" class="box full clearfix">
@@ -22,6 +23,10 @@
 			</thead>
 			<tbody>
 			<% @cart.line_items.each do |li| %>
+
+				<% li.product.product_relates.each do |rel| %>
+					<% @r_products << rel %>
+				<% end %>
 				<tr data-id="<%= li.product.id %>">
 						<td class="product-cell">
 							<div class="clearfix">
@@ -78,7 +83,7 @@
 		</div>
 		<form id="checkout-form" action="#">
 			<input type="submit" value="Fizetés" />
-		 	 | <%= link_to "Vásrlás folytatása", :back %>
+		 	 | <%= link_to "Vásárlás folytatása", :back %>
 		</form>
 	<% else %>
 		<p class="empty-cart">Kosarad üres! Nézd meg a speckó ajánlatainkat alább! </p>
@@ -102,4 +107,4 @@
 	</section>
 </div>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A kosaradban lévőkhöz ajánljuk", :id => "cart-slider"} %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A kosaradban lévőkhöz ajánljuk", :id => "cart-slider", :products => @r_products } %>

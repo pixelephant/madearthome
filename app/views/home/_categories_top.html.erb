@@ -85,7 +85,7 @@
 				<h5><%= content.name %></h5>
 				<% if content.subcontents.any? %>
 					<% content.subcontents.each do |subcontent| %>
-							<li><%= link_to subcontent.name, subcontent.slug %></li>
+							<li><%= link_to subcontent.name, "/" + subcontent.slug %></li>
 					<% end %>
 				<% end %>
 			</div>
