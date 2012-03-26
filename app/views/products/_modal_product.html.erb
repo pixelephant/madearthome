@@ -32,7 +32,7 @@
 							<% end %>
 
 							<% @product.given_properties.each do |property| %>
-								<p><span><%= property.property_category.translate.category_name %>: </span><%= property.translate.property_name %></p>
+								<p><span><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
 							<% end %>
 
 						</div>
@@ -41,9 +41,9 @@
 								<%= lead(@product.short_description) %>
 							</p>
 						</div>
-						<a class="button" href="#"><%= t('show') %></a>
+						<a class="button" href="<%= product_path(@product) %>"><%= t('show') %></a>
 					</div>
 				<% end %>
-				
+
 			</div>
 		</div>

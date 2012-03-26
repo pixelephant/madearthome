@@ -47,7 +47,7 @@
 	</div>
 </section>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products"} %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products", :products => Product.order(:updated_at).limit(10) } %>
 
 <section class="box full" id="about-us">
 	<h3>A Flairspringről</h3>
