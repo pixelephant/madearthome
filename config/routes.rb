@@ -41,6 +41,8 @@ Madearthome::Application.routes.draw do
 
 		#resources :links_products
 
+		resources :about
+
 		resources :products_stores
 
 		match 'brand/lazboy' => 'brand#lazboy'

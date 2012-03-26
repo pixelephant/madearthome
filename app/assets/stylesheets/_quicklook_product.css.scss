@@ -86,7 +86,7 @@
 .product{
 	float:left;
 	width:175px;
-	height:255px;
+	height:285px;
 	a{
 		text-decoration:none;
 		color:$brand-lightblue;
@@ -99,6 +99,8 @@
 	.left{
 	}
 	.right{
+		position:absolute;
+		bottom:10px;
 		img{
 			width:20px;
 			height:20px;
