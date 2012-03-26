@@ -151,7 +151,7 @@
 		}
 	}
 	position:relative;
-	height:150px;
+	height:152px;
 	border-bottom:1px solid $border-gray;
 	padding:20px;
 	p{
@@ -166,8 +166,7 @@
 		}
 	}
 	.links{
-		position:absolute;
-		bottom:0px;
+		
 	}
 	input[type="submit"]{
 		@include cart-button;
