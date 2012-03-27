@@ -17,6 +17,7 @@ class Product < ActiveRecord::Base
 	has_many :advantages_to_products
 	belongs_to :designer
 	belongs_to :manufacturer
+	belongs_to :brand
 
 	has_many :related_products
 	has_many :product_relates, :through => :related_products, :foreign_key => "product_id"

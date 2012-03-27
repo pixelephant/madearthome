@@ -5,10 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :user_address_attributes
-	has_many :user_addresses
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :address, :addresses
+	has_many :addresses
 	has_many :orders
 	has_one :wishlist
 
-	accepts_nested_attributes_for :user_addresses
+	accepts_nested_attributes_for :addresses
 end

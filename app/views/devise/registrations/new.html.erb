@@ -62,7 +62,7 @@
 		</div>
 		<div class="block">
 			<h5>Billing info</h5>
-			<%= f.fields_for :addresses do |builder| %>
+			<%= f.fields_for :address do |builder| %>
     			<fieldset>
 					<%= builder.label :zip %>
 	  				<%= builder.text_field :zip %>
