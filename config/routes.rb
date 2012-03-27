@@ -24,6 +24,8 @@ Madearthome::Application.routes.draw do
 
 	#Ajax routes START
 	post 'home/language' => "home#language"
+
+	post 'cart/remove_item' => "cart#remove_item"
 	#Ajax routes END
 
 	#Categories START
@@ -47,7 +49,7 @@ Madearthome::Application.routes.draw do
 
 		match 'brand/lazboy' => 'brand#lazboy'
 
-		match 'brand/uttermost' => 'brand#uttermost'		
+		match 'brand/uttermost' => 'brand#uttermost'
 
 		resources :brand
 

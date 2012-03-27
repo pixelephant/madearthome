@@ -1,4 +1,4 @@
-<div id="login-box">
+<!--div id="login-box">
 	<h4>Already a member?</h4>
 	<p><span class="lead">log in</span> <%= logintext %></p>
 	<form action="#">
@@ -12,7 +12,29 @@
 		</fieldset>
 		<fieldset>
 			<input type="submit" value="Log in" />
-			<a href="#">Forgotten password?</a>		
+			<a href="#">Forgotten password?</a>
 		</fieldset>
 	</form>
+</div-->
+
+<div id="login-box">
+	<h4>Already a member?</h4>
+	<p><span class="lead">log in</span> <%= logintext %></p>
+	<div id="login-box">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  <fieldset><%= f.label :email %>
+		  <%= f.email_field :email %></fieldset>
+
+		  <fieldset><%= f.label :password %>
+		  <%= f.password_field :password %></fieldset>
+
+		  <% if devise_mapping.rememberable? -%>
+		    <!--div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div-->
+		  <% end -%>
+
+		  <fieldset><%= f.submit "Log in" %></fieldset>
+		<% end %>
+	</div>
+
+	<%= render :partial => "devise/shared/links" %>
 </div>

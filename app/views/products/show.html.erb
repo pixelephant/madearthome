@@ -180,4 +180,4 @@
 <%= render :partial => "home/product_slider_halves", :locals => {:title1 => "Legnépszerűbbek", :id1 => "popular-products", :title2 => "Mások ezt vették hozzá", :id2 => "also-products"} %>
 
 <!-- RELATED PRODUCTS -->
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A termékhez ajánljuk", :id => "related-products"} %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A termékhez ajánljuk", :id => "related-products", :products => @product.product_relates } %>
