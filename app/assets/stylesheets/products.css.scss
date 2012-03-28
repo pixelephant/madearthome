@@ -104,7 +104,6 @@
 	}
 	img{
 		float:right;
-		height:42px;
 		margin:4px 4px 0px 4px;
 	}
 }
@@ -240,10 +239,13 @@
 	p{
 	  line-height:1.5;
 	  margin:15px 0;
+	  text-align:justify;
 	}
 	img{
 		float:right;
 		margin:20px;
+		height:160px;
+		border:5px solid $border-blue;
 	}
 }
 
