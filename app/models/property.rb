@@ -16,6 +16,8 @@ class Property < ActiveRecord::Base
 	has_many :properties_to_custom_categories
 	has_many :custom_categories, :through => :properties_to_custom_categories
 
+	has_and_belongs_to_many :product_sets
+
 	validates :property_name, :presence => true
 
 end

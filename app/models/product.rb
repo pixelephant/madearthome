@@ -27,19 +27,21 @@ class Product < ActiveRecord::Base
 	has_many :discounts_to_products
 	has_many :discounts, :through => :discounts_to_products
 
-	validates :name, :sku, :price, :category, :presence => true
-
-	validates :sku, :name, :uniqueness => true
+	has_and_belongs_to_many :product_sets
 
 	has_many :order_items
 
 	has_many :line_items
 
+	validates :name, :sku, :price, :category, :presence => true
+
+	validates :sku, :name, :uniqueness => true
+
 	searchable do
     text :name, :short_description, :long_description
- 		text :product_translations do
-		    product_translations.map {|product_translation|  product_translation.long_description}
-	  end
+ 			# text :product_translations do
+		  #   product_translations.map {|product_translation|  product_translation.long_description}
+	  	# end
   end
 
 

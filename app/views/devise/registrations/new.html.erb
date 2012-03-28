@@ -48,6 +48,7 @@
 		<div class="block">
 			<h5>Billing info</h5>
 			<%= f.fields_for :addresses do |builder| %>
+					<%= builder.hidden_field :billing, :value => true %>
     			<fieldset>
 					<%= builder.label :zip %>
 	  				<%= builder.text_field :zip %>

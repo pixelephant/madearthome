@@ -44,7 +44,7 @@
 		</section>
 </div>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-beds", :products => @category.products } %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-beds", :products => @category.products.order(:updated_at).limit(10) } %>
 <%= render :partial => "home/product_slider_halves", :locals => {:title1 => "Népszerű", :id1 => "popular-products", :id2 => "super-deals", :title2 => "Szuper akció" } %>
 
 <%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>
