@@ -38,9 +38,9 @@ class CartController < ApplicationController
   def remove_item
     respond_to do |format|
       if LineItem.delete_all(["cart_id = ? AND product_id = ?", current_cart, params[:id]])
-        format.json { render json: "asd" }
+        format.json { render json: "true" }
       else
-        format.json { render json: "qwe" }
+        format.json { render json: "false" }
       end
     end
   end

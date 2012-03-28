@@ -38,14 +38,16 @@ $("document").ready(function(){
 		  url: "/cart/remove_item",
 			data: {id : prodId},
 		  success: function(resp){
-			$this.parents("tr").fadeOut(300, function(){
-				$(this).remove();
-				if(!$("#cart-table tbody tr").length){
-					$("#cart-table,#cart-bottom,form").remove();
-					$("#cart").append("<p>Üres</p>");
-				}
-				recalculate_sum();
-				});
+		  	if(resp == true){
+		  		$this.parents("tr").fadeOut(300, function(){
+					$(this).remove();
+					if(!$("#cart-table tbody tr").length){
+						$("#cart-table,#cart-bottom,form").remove();
+						$("#cart").append("<p>Üres</p>");
+					}
+					recalculate_sum();
+					});
+		  	}
 		}});
 		return false;
 	});
