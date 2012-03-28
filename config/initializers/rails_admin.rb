@@ -71,7 +71,7 @@ PropertiesToCustomCategory,PropertiesToLineItem,Cart]
 				end
 			end
 			include_all_fields
-			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates
+			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates, :order_items, :line_items
 		end
 	end
 
