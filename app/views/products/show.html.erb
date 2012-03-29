@@ -38,8 +38,7 @@
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
-				<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-				<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
+				<%= image_tag "logo-uttermost_small.png", :title => "title", :class => "class" %>
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
@@ -80,7 +79,6 @@
 							<%= f.submit t('.add_to_cart'), :disable_with => "Folyamatban..." %>
 					</div>
 			<% end %>
-			<!-- FormFor -->
 			</div>
 			<div id="short-description-box">
 				<p>
@@ -92,7 +90,7 @@
 </section>
 
 
-<%= render :partial => "show_set" %>
+
 
 
 <% box = 0 %>

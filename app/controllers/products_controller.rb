@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
 		@designer = @product.designer
-		@manufacturer = @product.manufacturer
+		@manufacturer = @product.brand
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
