@@ -1,26 +1,7 @@
-<!--div id="login-box">
-	<h4>Already a member?</h4>
-	<p><span class="lead">log in</span> <%= logintext %></p>
-	<form action="#">
-		<fieldset>
-			<label for="login-email">Email address</label>
-			<input type="email" name="login-email" id="login-email" />
-		</fieldset>
-		<fieldset>
-			<label for="login-password">Password</label>
-			<input type="password" name="login-password" id="login-password" />
-		</fieldset>
-		<fieldset>
-			<input type="submit" value="Log in" />
-			<a href="#">Forgotten password?</a>
-		</fieldset>
-	</form>
-</div-->
-
 <div id="login-box">
 	<h4>Already a member?</h4>
 	<p><span class="lead">log in</span> <%= logintext %></p>
-	<div id="login-box">
+	<!-- <div id="login-box"> -->
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 		  <fieldset><%= f.label :email %>
 		  <%= f.email_field :email %></fieldset>
@@ -32,7 +13,11 @@
 		    <!--div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div-->
 		  <% end -%>
 
+		  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  			<%= link_to "Forgot your password?", new_password_path(resource_name) %>
+			<% end -%>
+
 		  <fieldset><%= f.submit "Log in" %></fieldset>
 		<% end %>
-	</div>
+	<!-- </div> -->
 </div>
