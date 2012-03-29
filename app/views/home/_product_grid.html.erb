@@ -15,9 +15,9 @@
 				<%= render 'products/price', :product => product %>
 			</div>
 			<div class="right">
-				<%= image_tag "logo-lazyboy_small.png", :title => "lazyboy", :class => "class" %>
-				<%= image_tag "logo-surya_small.png", :title => "sury", :class => "class" %>
-				<%= image_tag "logo-uttermost_small.png", :title => "uttermost", :class => "class" %>
+				<% if !product.brand.blank? %>
+				<%= image_tag product.brand.small_image_file %>
+				<% end %>
 			</div>
 		</div>
 	<% end %>

@@ -38,7 +38,7 @@
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
-				<%= image_tag "logo-uttermost_small.png", :title => "title", :class => "class" %>
+				<%= image_tag(@product.brand.small_image_file.to_s) %>
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
@@ -168,8 +168,8 @@
 	<% end %>
 
 	<!-- MANUFACTURER -->
-	<% if !@manufacturer.nil? %>
-		<%= render :partial => "about_manufacturer", :locals => {:manufacturer => @manufacturer}%>
+	<% if !@brand.nil? %>
+		<%= render :partial => "about_brand", :locals => {:brand => @brand}%>
 	<% end %>
 </div>
 

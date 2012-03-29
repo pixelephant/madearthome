@@ -16,6 +16,13 @@
 		margin-bottom:0;
 }
 
+#register #top{
+	margin-bottom:20px;
+}
+
+#register .block{
+	width:auto !important;
+}
 
 #register-cta-box{
 	background:#F2F7FB;
@@ -23,7 +30,7 @@
 	padding:20px;
 	width:400px;
 	margin-top:20px;
-	height:290px;
+	height:330px;
 	float:left;
 	text-align:center;
 	h4{
@@ -48,4 +55,14 @@
 
 #or{
 	@include gray-button;
+}
+
+.user_new{
+	label{
+		margin-bottom:5px !important;
+	}
+	.forgot{
+		display:block;
+		text-align:center;
+	}
 }

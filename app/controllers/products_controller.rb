@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
 		@designer = @product.designer
-		@manufacturer = @product.brand
+		@brand = @product.brand
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
 		@designer = @product.designer
-		@manufacturer = @product.manufacturer
+		@brand = @product.brand
     respond_to do |format|
       format.html { render :partial => 'modal_product' }
       format.json { render json: @product }

@@ -6,7 +6,6 @@
 //
 //= require modernizr
 //= require jquery
-//= require jquery.validate
 
 $(document).ajaxSend(function(event, request, settings) {
     if ( settings.type == 'post' ) {

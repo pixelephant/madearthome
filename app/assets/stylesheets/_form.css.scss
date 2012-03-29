@@ -60,3 +60,14 @@ a.tooltip{
 input[type="checkbox"]{
 	margin:0 5px;
 }
+
+input.error,.error-box{
+	background:#ffc0cb;
+}
+.error-box{
+	color:red;
+}
+
+label.error{
+	font-size:12px;
+}
