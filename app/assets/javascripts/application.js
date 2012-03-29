@@ -30,14 +30,4 @@ $("document").ready(function(){
 	$("a.tooltip").click(function(){
 		return false;
 	})
-
-	$("#newsletter-form").validate({
-		debug: true,
-		rules: {
-			"newsletter": {required: true, email: true}
-		},
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parents("form"));
-		}
-	});
 });

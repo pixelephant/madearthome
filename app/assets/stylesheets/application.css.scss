@@ -673,6 +673,13 @@ p a{
 	}
 }
 
+#newsletter-button{
+	color:white !important;
+	@include orange-button;
+	position:relative;
+	top:15px;
+	}
+
 #social-promo{
 	a{
 		color:$brand-lightblue;
