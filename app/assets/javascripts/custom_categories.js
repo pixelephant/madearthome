@@ -20,23 +20,23 @@ $("document").ready(function(){
 	$("#back-to-top").click(function(){
 		$('html,body').animate({scrollTop: $($(this).attr("href")).offset().top -10},'slow');
 		return false;
-	})
+	});
 	
 	$.each($("input[type='slider']"),function(){
 		var $this = $(this);
 		$this.slider({
 			skin: "blue",
-			from: $this.val().split(";")[0],
-			to: $this.val().split(";")[1],
-			heterogeneity: ['1/1'],
-			step: 10
+			from: parseFloat($this.val().split(";")[0]),
+			to: parseFloat($this.val().split(";")[1]),
+			step: 0.1,
+			dimension: '&nbsp;' + $this.data("unit")
 			});	
 	});
-
-	/*$.prettyLoader({
+/*	
+	$.prettyLoader({
 		loader: '/assets/prettyLoader/ajax-loader.gif',
 		bind_to_ajax: true
-	});*/
+	});
 
 /*	$("#last-viewed .carousel").jCarouselLite({
 	        btnPrev: "#last-viewed .left",
