@@ -1,10 +1,10 @@
 <div id="login-box">
 	<h4>Already a member?</h4>
-	<% if !@user.errors.any? %>
+	<% if flash[:alert].blank? %>
   	<p><span class="lead">log in</span> <%= logintext %></p>
   <% else %>
 		<div class="error-box">
-			<p>Nincs ilyen felhasználó. Bocsi.</p>
+			<p><%= flash[:alert] %></p>
 		</div>
   <% end %>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
