@@ -53,7 +53,7 @@ Madearthome::Application.routes.draw do
 
 		match 'brand/uttermost' => 'brand#uttermost'
 
-		resources :brand
+		resources :brands
 
 		resources :stores
 

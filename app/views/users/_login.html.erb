@@ -1,12 +1,12 @@
 <div id="login-box">
 	<h4>Already a member?</h4>
-	<!-- ha van error ez nem látszik -->
-	<p><span class="lead">log in</span> <%= logintext %></p>
-	<!-- <div id="login-box"> -->
-	<!-- error ha van ide bele -->
+	<% if !@user.errors.any? %>
+  	<p><span class="lead">log in</span> <%= logintext %></p>
+  <% else %>
 		<div class="error-box">
 			<p>Nincs ilyen felhasználó. Bocsi.</p>
 		</div>
+  <% end %>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 		  <fieldset><%= f.label :email %>
 		  <%= f.email_field :email, :class => "required email" %></fieldset>
@@ -24,5 +24,4 @@
   			<%= link_to "Forgot your password?", new_password_path(resource_name), :class => "forgot" %>
 			<% end -%>
 		<% end %>
-	<!-- </div> -->
 </div>
