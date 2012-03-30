@@ -55,6 +55,8 @@ Madearthome::Application.routes.draw do
 
 		resources :brand
 
+		resources :ad
+
 		resources :stores
 
 		resources :links

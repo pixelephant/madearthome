@@ -1,0 +1,28 @@
+@import '_mixins.css.scss';
+
+#register-promo{
+	a{text-decoration:none;}
+	.inner{
+		background: #e6e7e9;
+	}
+	h5{
+		letter-spacing:1px;
+		@include font-gill;
+		text-transform:uppercase;
+		text-align:center;
+		font-size:20px;
+		color:white;
+		padding:10px 40px;
+		background:$brand-orange;
+	}
+	ul{
+		margin:20px 0 0 0;
+		padding-bottom:20px;
+		li{
+			color:$brand-lightblue;
+			font-size:20px;
+			line-height:1.5;
+			text-align:center;
+		}
+	}
+}
