@@ -1,8 +1,9 @@
 class Category < ActiveRecord::Base
-	extend FriendlyId
-	friendly_id :name, use: :slugged
 
 	translates :name
+
+	extend FriendlyId
+	friendly_id :name, :use => [:slugged]
 
 	has_many :products
 	has_many :property_categories_to_categories
