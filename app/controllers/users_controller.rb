@@ -4,6 +4,9 @@ class UsersController < ApplicationController
     render "register"
   end
   
+  def account
+    render "account"
+  end
   
   # GET /users
   # GET /users.json

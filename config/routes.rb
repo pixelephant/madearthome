@@ -121,6 +121,8 @@ Madearthome::Application.routes.draw do
 
     match 'users/register' => 'users#register'
 
+    match 'users/account' => 'users#account'
+
 		resources :users
 
 		resources :categories do

@@ -1,6 +1,8 @@
 @import '_mixins.css.scss';
 @import '_form.css.scss';
 @import '_login.css.scss';
+@import 'fancybox.css.scss';
+@import '_product_modal.css.scss';
 
 #top{
 	border-bottom:1px solid $border-gray;
@@ -64,5 +66,108 @@
 	.forgot{
 		display:block;
 		text-align:center;
+	}
+}
+
+#loyalty,#edit-data{
+	background:#F2F7FB;
+	border:1px dashed $border-gray;
+	padding:20px;
+	width:400px;
+	margin-top:20px;
+	height:230px;
+	float:left;
+	text-align:center;
+	h4{
+		text-align:center;
+		font-size:24px;
+		font-style:italic;
+		margin-bottom:20px;
+		margin-top:0;
+	}
+}
+
+#loyalty{
+	margin-right:35px;
+	h4{
+		margin-top:20px;
+	}
+	.button{
+		@include orange-button;
+		top:20px;
+		position:relative;
+	}
+}
+
+#loyalty-sum{
+	font-size:24px;
+	color:$brand-darkblue;
+	@include font-gill;
+	margin-bottom:20px;
+}
+
+#edit-data{
+	.button{
+		@include blue-button;
+		top:20px;
+		position:relative;
+	}
+}
+
+
+.username{
+	background:none !important;
+	color:$text-color !important;
+}
+
+.table-wrap{
+	margin-top:40px;
+	h4{
+		@include font-gill;
+		text-transform:uppercase;
+		margin-top:0;
+		margin-bottom:20px;
+		font-weight:bold;
+	}
+}
+
+.user-table{
+	width:100%;
+	border:1px solid #c2c2c2;
+	thead{
+		@include background-gradient(#fafafa,#efefef);
+		th{
+			color:$brand-orange;
+			@include font-gill;
+			font-size:14px;
+			font-weight:normal;
+			padding:10px;
+			text-align:left;
+		}
+	}
+	tfoot{
+		@include background-gradient(#fafafa,#efefef);
+	}
+	tbody{
+		a{
+			color:$brand-lightblue;
+			@include transition-03s;
+			&:hover{
+				color:$brand-darkblue;
+			}
+		}
+		tr{
+			border-top:1px solid #c2c2c2;
+			border-bottom:1px solid #c2c2c2;
+			@include font-gill;
+			font-weight:normal;
+			font-size:14px;
+			&:nth-child(even){
+				@include background-gradient(#f4f5f7,#dee8f4);
+			}
+		}
+		td{
+			padding:10px;
+		}
 	}
 }
