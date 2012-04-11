@@ -2,9 +2,9 @@
 
 #sidebar{
 	margin-top:-20px;
-	width:235px;
+	width:230px;
 	float:left;
-	margin-right:15px;
+	margin-right:20px;
 	.box{
 		padding:20px;
 	}
@@ -23,7 +23,7 @@
 
 #category-nav{
 	ul{
-		margin-bottom:25px;
+		margin-bottom:20px;
 	}
 }
 
@@ -35,8 +35,7 @@
 
 #promo-list{
 	margin-top:-20px;
-	padding:0 25px;
-	width:660px;
+	width:710px;
 	float:left;
 }
 
@@ -175,6 +174,31 @@
 		position:absolute;
 		bottom:20px;
 		right:20px;
+	}
+}
+
+/* Promó dobozok */
+
+.cpromo{
+	padding:20px;
+	float:left;
+	&.small{
+		width:86px;
+		height:125px;
+	}
+	&.big{
+		width:524px;
+		height:310px;
+		margin-right:20px;
+	}
+}
+
+.crow{
+	.small{
+		margin-right:20px;
+		&.last{
+			margin-right:0;
+		}
 	}
 }
 
