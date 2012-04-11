@@ -1,5 +1,5 @@
 <form action="#" id="shipping-form">
-	
+
 	<div class="block">
 		<h5>Contact information</h5>
 		<fieldset>
@@ -9,7 +9,7 @@
 			</div>
 			<div class="half">
 				<label for="contact-firstname">Vezetéknév</label>
-				<input type="text" name="contact-firstname" id="contact-firstname" />
+				<input type="text" name="contact-firstname" id="contact-firstname" value="{current_user.name}"/>
 			</div>
 			<div class="half">
 				<label for="contact-lastname">Utónév</label>
@@ -25,7 +25,7 @@
 			<input type="tel" name="contact-phone" id="contact-phone" />
 		</fieldset>
 	</div>
-	
+
 	<div class="block">
 	<h5>Delivery information</h5>
 	<fieldset>
@@ -47,7 +47,7 @@
 		<input class="address" type="text" name="shipping-address" id="shipping-address" />
 	</fieldset>
 	</div>
-	
+
 	<div class="block">
 		<h5>Billing information</h5>
 		<fieldset>
@@ -79,3 +79,81 @@
 	</div>
 
 </form>
+
+<%= form_for "payment" do |f| %>
+<div>
+	<h5>Contact information</h5>
+		<fieldset>
+			<div class="half">
+				<label for="contact-title">Titulus</label>
+				<input type="text" name="contact-title" id="contact-title" />
+			</div>
+			<div class="half">
+				<%= f.label :name %>
+  			<%= f.text_field :name, :value => current_user.name %>
+			</div>
+			<div class="half">
+				<label for="contact-lastname">Utónév</label>
+				<input type="text" name="contact-lastname" id="contact-lastname" />
+			</div>
+		</fieldset>
+		<fieldset>
+			<%= f.label :email %>
+			<%= f.email_field :email, :value => current_user.email %>
+		</fieldset>
+		<fieldset>
+			<%= f.label :phone %>
+			<%= f.phone_field :phone %>
+		</fieldset>
+</div>
+<div class="block">
+	<h5>Delivery information</h5>
+	<fieldset>
+		<% f.label :shipping_name do %>
+		<%= 'Company name <small>(not required)</small>'.html_safe %>
+		<% end %>
+		<%= f.text_field :shipping_name, :value => "" %>
+	</fieldset>
+	<fieldset>
+		<div class="half">
+			<%= f.label :shipping_zip %>
+			<%= f.text_field :shipping_zip, :value => @shipping_address.zip, :size => 4 %>
+		</div>
+		<div class="half">
+			<%= f.label :shipping_city %>
+			<%= f.text_field :shipping_city, :value => @shipping_address.city %>
+		</div>
+	</fieldset>
+	<fieldset>
+		<%= f.label :shipping_additional %>
+		<%= f.text_field :shipping_additional, :value => @shipping_address.additional %>
+	</fieldset>
+	</div>
+	<div class="block">
+		<h5>Billing information</h5>
+		<fieldset>
+			<%= f.label "same", "Same as delivery" %>
+			<%= f.check_box "same" %>
+		</fieldset>
+		<fieldset>
+			<% f.label :billing_name do %>
+				<%= 'Company name <small>(not required)</small>'.html_safe %>
+			<% end %>
+			<%= f.text_field :billing_name, :value => "" %>
+		</fieldset>
+		<fieldset>
+			<div class="half">
+				<%= f.label :billing_zip %>
+				<%= f.text_field :billing_zip, :value => @billing_address.zip, :size => 4 %>
+			</div>
+			<div class="half">
+				<%= f.label :billing_city %>
+				<%= f.text_field :billing_city, :value => @billing_address.city %>
+			</div>
+		</fieldset>
+		<fieldset>
+			<%= f.label :billing_additional %>
+			<%= f.text_field :billing_additional, :value => @billing_address.additional %>
+		</fieldset>
+	</div>
+<% end %>

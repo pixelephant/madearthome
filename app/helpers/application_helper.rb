@@ -1,5 +1,20 @@
 module ApplicationHelper
 
+	#Devise login
+	def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  #Devise login end
+
+
 	def box_class(number)
 		cl = ""
 		cl = " mid" if number == 1
@@ -47,6 +62,14 @@ module ApplicationHelper
 		subtotal
 		else
 			nil
+		end
+	end
+
+	def cart_shipping
+		if cart_subtotal < 500
+			return 1000
+		else
+			return 0
 		end
 	end
 

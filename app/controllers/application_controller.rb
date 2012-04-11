@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
 		if current_user.try(:admin?)
 			admin_path
 		else
-			"/"
+			if current_cart.line_items.any?
+				"/" + I18n.locale.to_s + "/checkout"
+			else
+				"/"
+			end
 		end
   end
 
