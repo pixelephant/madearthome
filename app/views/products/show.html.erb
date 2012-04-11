@@ -38,7 +38,7 @@
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
-				<%= image_tag(@product.brand.small_image_file.to_s) %>
+				<%= image_tag(@product.brand.to_s) %>
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">

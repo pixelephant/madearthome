@@ -5,6 +5,6 @@
 		<li>Billing &amp; Shipping</li>
 		<li>Verify &amp; Payment</li>
 	</ol>
-	<%= render :partial => "users/login", :locals => { :logintext => "to checkout with your saved info" } %>
+	<%= render :partial => "users/login", :locals => { :logintext => "to checkout with your saved info", :resource => resource } %>
 	<%= render "guest" %>
 </section>
