@@ -37,16 +37,21 @@
 	}
 }
 
+.about{
+	margin-bottom:20px;
+}
+
 .about strong{
 	color:$brand-orange;
 }
 
 #soon-newsletter{
+	margin-top:30px;
 	padding:0 20px;
 	float:left;
 	width:420px;
 	p{
-		margin-top:40px;
+		margin-top:10px;
 		font-size:20px;
 		margin-bottom:20px;
 	}
@@ -55,9 +60,9 @@
 	}
 	strong{
 		color:$brand-darkblue;
-		font-size:28px;
+		
 	}
-	input[type="submit"]{
+	.button{
 		@include orange-button;
 		font-size:16px;
 		vertical-align:top;
