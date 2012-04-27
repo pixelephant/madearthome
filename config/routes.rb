@@ -16,6 +16,8 @@ Madearthome::Application.routes.draw do
 
 	match "comingsoon" => "application#comingsoon"
 
+	resources :comingsoon
+
 	#Admin ajax routes START
 
 	post 'admin_ajax/getcategoryproperties' => "admin_ajax#getCategoryProperties"
