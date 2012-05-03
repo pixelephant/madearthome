@@ -17,7 +17,7 @@ class CartController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @cart }
+      format.json { render :json => @cart }
     end
   end
 
@@ -26,11 +26,11 @@ class CartController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
-        format.json { render json: @cart, status: :created, location: @cart }
+        format.html { redirect_to @cart, :notice => 'Cart was successfully created.' }
+        format.json { render :json => @cart, :status => :created, :location => @cart }
       else
-        format.html { render action: "new" }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @cart.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -38,9 +38,9 @@ class CartController < ApplicationController
   def remove_item
     respond_to do |format|
       if LineItem.delete_all(["cart_id = ? AND product_id = ?", current_cart, params[:id]])
-        format.json { render json: "true" }
+        format.json { render :json => "true" }
       else
-        format.json { render json: "false" }
+        format.json { render :json => "false" }
       end
     end
   end

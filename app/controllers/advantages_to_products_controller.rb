@@ -44,7 +44,7 @@ class AdvantagesToProductsController < ApplicationController
 
     respond_to do |format|
       if @advantages_to_product.save
-        format.html { redirect_to @advantages_to_product, notice: 'Advantages to product was successfully created.' }
+        format.html { redirect_to @advantages_to_product, :notice => 'Advantages to product was successfully created.' }
         format.json { render json: @advantages_to_product, status: :created, location: @advantages_to_product }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class AdvantagesToProductsController < ApplicationController
 
     respond_to do |format|
       if @advantages_to_product.update_attributes(params[:advantages_to_product])
-        format.html { redirect_to @advantages_to_product, notice: 'Advantages to product was successfully updated.' }
+        format.html { redirect_to @advantages_to_product, :notice => 'Advantages to product was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

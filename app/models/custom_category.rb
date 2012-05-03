@@ -1,6 +1,6 @@
 class CustomCategory < ActiveRecord::Base
 	extend FriendlyId
-	friendly_id :name, use: :slugged
+	friendly_id :name, :use => :slugged
 
 	has_many :properties, :through => :properties_to_custom_categories
 	has_many :properties_to_custom_categories

@@ -6,7 +6,7 @@ class ManufacturerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @manufacturer_photos }
+      format.json { render :json => @manufacturer_photos }
     end
   end
 
@@ -17,7 +17,7 @@ class ManufacturerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @manufacturer_photo }
+      format.json { render :json => @manufacturer_photo }
     end
   end
 
@@ -28,7 +28,7 @@ class ManufacturerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @manufacturer_photo }
+      format.json { render :json => @manufacturer_photo }
     end
   end
 
@@ -45,10 +45,10 @@ class ManufacturerPhotosController < ApplicationController
     respond_to do |format|
       if @manufacturer_photo.save
         format.html { redirect_to @manufacturer_photo, notice: 'Manufacturer photo was successfully created.' }
-        format.json { render json: @manufacturer_photo, status: :created, location: @manufacturer_photo }
+        format.json { render :json => @manufacturer_photo, status: :created, location: @manufacturer_photo }
       else
         format.html { render action: "new" }
-        format.json { render json: @manufacturer_photo.errors, status: :unprocessable_entity }
+        format.json { render :json => @manufacturer_photo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class ManufacturerPhotosController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @manufacturer_photo.errors, status: :unprocessable_entity }
+        format.json { render :json => @manufacturer_photo.errors, status: :unprocessable_entity }
       end
     end
   end

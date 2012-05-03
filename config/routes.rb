@@ -14,7 +14,8 @@ Madearthome::Application.routes.draw do
 
 	match "admin" => 'admin#index'
 
-	match "comingsoon" => "application#comingsoon"
+	match "comingsoon" => "comingsoon#index"
+	match "adatvedelem" => "comingsoon#how"
 
 	resources :comingsoon
 

@@ -6,7 +6,7 @@ class DiscountsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @discounts }
+      format.json { render :json => @discounts }
     end
   end
 
@@ -17,7 +17,7 @@ class DiscountsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @discount }
+      format.json { render :json => @discount }
     end
   end
 
@@ -28,7 +28,7 @@ class DiscountsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @discount }
+      format.json { render :json => @discount }
     end
   end
 
@@ -45,10 +45,10 @@ class DiscountsController < ApplicationController
     respond_to do |format|
       if @discount.save
         format.html { redirect_to @discount, notice: 'Discount was successfully created.' }
-        format.json { render json: @discount, status: :created, location: @discount }
+        format.json { render :json => @discount, status: :created, location: @discount }
       else
         format.html { render action: "new" }
-        format.json { render json: @discount.errors, status: :unprocessable_entity }
+        format.json { render :json => @discount.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class DiscountsController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @discount.errors, status: :unprocessable_entity }
+        format.json { render :json => @discount.errors, status: :unprocessable_entity }
       end
     end
   end

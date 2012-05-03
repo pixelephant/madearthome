@@ -6,7 +6,7 @@ class CustomCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @custom_categories }
+      format.json { render :json => @custom_categories }
     end
   end
 
@@ -38,7 +38,7 @@ class CustomCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @custom_category }
+      format.json { render :json => @custom_category }
     end
   end
 
@@ -49,7 +49,7 @@ class CustomCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @custom_category }
+      format.json { render :json => @custom_category }
     end
   end
 
@@ -65,11 +65,11 @@ class CustomCategoriesController < ApplicationController
 
     respond_to do |format|
       if @custom_category.save
-        format.html { redirect_to @custom_category, notice: 'Custom category was successfully created.' }
-        format.json { render json: @custom_category, status: :created, location: @custom_category }
+        format.html { redirect_to @custom_category, :notice => 'Custom category was successfully created.' }
+        format.json { render :json => @custom_category, :status => :created, :location => @custom_category }
       else
-        format.html { render action: "new" }
-        format.json { render json: @custom_category.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @custom_category.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -81,11 +81,11 @@ class CustomCategoriesController < ApplicationController
 
     respond_to do |format|
       if @custom_category.update_attributes(params[:custom_category])
-        format.html { redirect_to @custom_category, notice: 'Custom category was successfully updated.' }
+        format.html { redirect_to @custom_category, :notice => 'Custom category was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @custom_category.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @custom_category.errors, :status => :unprocessable_entity }
       end
     end
   end

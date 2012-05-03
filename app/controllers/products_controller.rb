@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @products }
+      format.json { render :json => @products }
     end
   end
 
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 		@brand = @product.brand
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @product }
+      format.json { render :json => @product }
     end
   end
 
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
 		@brand = @product.brand
     respond_to do |format|
       format.html { render :partial => 'modal_product' }
-      format.json { render json: @product }
+      format.json { render :json => @product }
     end
 	end
 
@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @product }
+      format.json { render :json => @product }
     end
   end
 
@@ -65,11 +65,11 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render json: @product, status: :created, location: @product }
+        format.html { redirect_to @product, :notice => 'Product was successfully created.' }
+        format.json { render :json => @product, :status => :created, :location => @product }
       else
-        format.html { render action: "new" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @product.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -81,11 +81,11 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, :notice => 'Product was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @product.errors, :status => :unprocessable_entity }
       end
     end
   end

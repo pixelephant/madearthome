@@ -6,7 +6,7 @@ class RelatedProductsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @related_products }
+      format.json { render :json => @related_products }
     end
   end
 
@@ -17,7 +17,7 @@ class RelatedProductsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @related_product }
+      format.json { render :json => @related_product }
     end
   end
 
@@ -28,7 +28,7 @@ class RelatedProductsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @related_product }
+      format.json { render :json => @related_product }
     end
   end
 
@@ -45,10 +45,10 @@ class RelatedProductsController < ApplicationController
     respond_to do |format|
       if @related_product.save
         format.html { redirect_to @related_product, notice: 'Related product was successfully created.' }
-        format.json { render json: @related_product, status: :created, location: @related_product }
+        format.json { render :json => @related_product, status: :created, location: @related_product }
       else
         format.html { render action: "new" }
-        format.json { render json: @related_product.errors, status: :unprocessable_entity }
+        format.json { render :json => @related_product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class RelatedProductsController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @related_product.errors, status: :unprocessable_entity }
+        format.json { render :json => @related_product.errors, status: :unprocessable_entity }
       end
     end
   end

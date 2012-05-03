@@ -6,7 +6,7 @@ class DesignerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @designer_photos }
+      format.json { render :json => @designer_photos }
     end
   end
 
@@ -17,7 +17,7 @@ class DesignerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @designer_photo }
+      format.json { render :json => @designer_photo }
     end
   end
 
@@ -28,7 +28,7 @@ class DesignerPhotosController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @designer_photo }
+      format.json { render :json => @designer_photo }
     end
   end
 
@@ -45,10 +45,10 @@ class DesignerPhotosController < ApplicationController
     respond_to do |format|
       if @designer_photo.save
         format.html { redirect_to @designer_photo, notice: 'Designer photo was successfully created.' }
-        format.json { render json: @designer_photo, status: :created, location: @designer_photo }
+        format.json { render :json => @designer_photo, status: :created, location: @designer_photo }
       else
         format.html { render action: "new" }
-        format.json { render json: @designer_photo.errors, status: :unprocessable_entity }
+        format.json { render :json => @designer_photo.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class DesignerPhotosController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @designer_photo.errors, status: :unprocessable_entity }
+        format.json { render :json => @designer_photo.errors, status: :unprocessable_entity }
       end
     end
   end

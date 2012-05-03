@@ -6,7 +6,7 @@ class PropertyCategoriesToCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @property_categories_to_categories }
+      format.json { render :json => @property_categories_to_categories }
     end
   end
 
@@ -17,7 +17,7 @@ class PropertyCategoriesToCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @property_categories_to_category }
+      format.json { render :json => @property_categories_to_category }
     end
   end
 
@@ -28,7 +28,7 @@ class PropertyCategoriesToCategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @property_categories_to_category }
+      format.json { render :json => @property_categories_to_category }
     end
   end
 
@@ -45,10 +45,10 @@ class PropertyCategoriesToCategoriesController < ApplicationController
     respond_to do |format|
       if @property_categories_to_category.save
         format.html { redirect_to @property_categories_to_category, notice: 'Property categories to category was successfully created.' }
-        format.json { render json: @property_categories_to_category, status: :created, location: @property_categories_to_category }
+        format.json { render :json => @property_categories_to_category, status: :created, location: @property_categories_to_category }
       else
         format.html { render action: "new" }
-        format.json { render json: @property_categories_to_category.errors, status: :unprocessable_entity }
+        format.json { render :json => @property_categories_to_category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,7 +64,7 @@ class PropertyCategoriesToCategoriesController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @property_categories_to_category.errors, status: :unprocessable_entity }
+        format.json { render :json => @property_categories_to_category.errors, status: :unprocessable_entity }
       end
     end
   end
