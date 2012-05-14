@@ -99,6 +99,10 @@ p.small-text{
 	/* Prevent FOUC (see FAQ page) and keep things readable if javascript is disabled */
 	overflow-y: auto;
 	overflow-x: hidden;
+	img{
+		width:440px;
+		height:260px;
+	}
 }
 
 .anythingSlider{
