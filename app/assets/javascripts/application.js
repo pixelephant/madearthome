@@ -6,6 +6,7 @@
 //
 //= require modernizr
 //= require jquery
+//= require jquery.fancybox
 
 $(document).ajaxSend(function(event, request, settings) {
     if ( settings.type == 'post' ) {
@@ -15,17 +16,17 @@ $(document).ajaxSend(function(event, request, settings) {
 });
 
 $("document").ready(function(){
-
-/*	if (!Modernizr.touch){
- 		$(".slider-inner").mousewheel(function(event, delta) {
-
-      this.scrollLeft -= (delta * 30);
-
-      event.preventDefault();
-
-   });
-	} */
 	
+  $("#properties-box input[type='submit']").click(function(){
+    $.fancybox({
+      href : "#alert-wrap",
+      openEffect  : 'elastic',
+      closeEffect : 'elastic',
+      autoSize: true
+    });
+    return false;
+  });
+
 	$("a.tooltip").click(function(){
 		return false;
 	})

@@ -965,3 +965,30 @@ label.error{
 	line-height:1.5;
 }
 #tooltip h3, #tooltip div { margin: 0; }
+
+
+/* béta stílusok*/
+
+@import "fancybox.css.scss";
+
+#misc-menu .main-ul, #minicart-wrapper{
+	display:none;
+}
+
+#alert-wrap{
+	display:none;
+	text-align:center;
+	h3{
+		font-weight:bold;
+		text-transform:uppercase;
+		@include font-gill;
+		color:$brand-darkblue;
+		margin-bottom:25px;
+		font-size:18px;
+	}
+	p{
+		margin:10px 0;
+		line-height:1.5;
+	}
+}
+
