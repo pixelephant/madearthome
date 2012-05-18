@@ -29,10 +29,10 @@ class CustomCategoriesController < ApplicationController
 		if params[:page] == 'all'
 			session[:view_all] = true
 			@products = @custom_category.products(sort)
-			@kaminari_products = Kaminari.paginate_array(@custom_category.products(sort)).page(params[:page]).per(21)
+			@kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
-			@products = Kaminari.paginate_array(@custom_category.products(sort)).page(params[:page]).per(21)
+			@products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 
