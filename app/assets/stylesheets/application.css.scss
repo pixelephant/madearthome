@@ -614,10 +614,21 @@ p a{
 		color:$brand-darkblue;
 		margin-bottom:25px;
 		font-size:18px;
+		&.marg{
+			margin-top:20px;
+		}
 	}
 	h4{
 		font-size:16px;
 		margin-top:-20px;
+		color:$brand-orange;
+		@include font-garamond;
+		text-transform:none;
+		font-weight:normal;
+	}
+	h5{
+		font-size:16px;
+		margin:20px 0;
 		color:$brand-orange;
 		@include font-garamond;
 		text-transform:none;
@@ -629,6 +640,9 @@ p a{
 			float:right;
 			margin:10px;
 		}
+	}
+	p.full{
+		margin:10px 0;
 	}
 	em{
 		color:$brand-orange;
@@ -670,6 +684,15 @@ p a{
 		float:left;
 		margin-right:10px;
 		padding:20px;
+	}
+
+	ul li{
+		line-height:1.5;
+		list-style:disc;
+		list-style-position:inside;
+		strong{
+			color:#E95321;
+		}
 	}
 }
 
@@ -942,3 +965,30 @@ label.error{
 	line-height:1.5;
 }
 #tooltip h3, #tooltip div { margin: 0; }
+
+
+/* béta stílusok*/
+
+@import "fancybox.css.scss";
+
+#misc-menu .main-ul, #minicart-wrapper{
+	display:none;
+}
+
+#alert-wrap{
+	display:none;
+	text-align:center;
+	h3{
+		font-weight:bold;
+		text-transform:uppercase;
+		@include font-gill;
+		color:$brand-darkblue;
+		margin-bottom:25px;
+		font-size:18px;
+	}
+	p{
+		margin:10px 0;
+		line-height:1.5;
+	}
+}
+

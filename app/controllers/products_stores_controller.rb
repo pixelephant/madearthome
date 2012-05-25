@@ -6,7 +6,7 @@ class ProductsStoresController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @products_stores }
+      format.json { render :json => @products_stores }
     end
   end
 
@@ -17,7 +17,7 @@ class ProductsStoresController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @products_store }
+      format.json { render :json => @products_store }
     end
   end
 
@@ -28,7 +28,7 @@ class ProductsStoresController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @products_store }
+      format.json { render :json => @products_store }
     end
   end
 
@@ -44,11 +44,11 @@ class ProductsStoresController < ApplicationController
 
     respond_to do |format|
       if @products_store.save
-        format.html { redirect_to @products_store, notice: 'Products store was successfully created.' }
-        format.json { render json: @products_store, status: :created, location: @products_store }
+        format.html { redirect_to @products_store, :notice => 'Products store was successfully created.' }
+        format.json { render :json => @products_store, :status => :created, :location => @products_store }
       else
-        format.html { render action: "new" }
-        format.json { render json: @products_store.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @products_store.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class ProductsStoresController < ApplicationController
 
     respond_to do |format|
       if @products_store.update_attributes(params[:products_store])
-        format.html { redirect_to @products_store, notice: 'Products store was successfully updated.' }
+        format.html { redirect_to @products_store, :notice => 'Products store was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @products_store.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @products_store.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -6,7 +6,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @order_items }
+      format.json { render :json => @order_items }
     end
   end
 
@@ -17,7 +17,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @order_item }
+      format.json { render :json => @order_item }
     end
   end
 
@@ -28,7 +28,7 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @order_item }
+      format.json { render :json => @order_item }
     end
   end
 
@@ -44,11 +44,11 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to @order_item, notice: 'Order item was successfully created.' }
-        format.json { render json: @order_item, status: :created, location: @order_item }
+        format.html { redirect_to @order_item, :notice => 'Order item was successfully created.' }
+        format.json { render :json => @order_item, :status => :created, :location => @order_item }
       else
-        format.html { render action: "new" }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @order_item.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class OrderItemsController < ApplicationController
 
     respond_to do |format|
       if @order_item.update_attributes(params[:order_item])
-        format.html { redirect_to @order_item, notice: 'Order item was successfully updated.' }
+        format.html { redirect_to @order_item, :notice => 'Order item was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @order_item.errors, :status => :unprocessable_entity }
       end
     end
   end

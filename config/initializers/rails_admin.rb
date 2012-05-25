@@ -62,13 +62,13 @@ PropertiesToCustomCategory,PropertiesToLineItem,Cart]
 		edit do
 
 			field :product_relates do
-				associated_collection_scope do
-					product = bindings[:object]
-					Proc.new { |scope|
-						scope = scope.where("products.id != ?", product.id) if product.id.present?
-						scope
-					}
-				end
+				# associated_collection_scope do
+				# 	product = bindings[:object]
+				# 	Proc.new { |scope|
+				# 		scope = scope.where("products.id != ?", product.id) if product.id.present?
+				# 		scope
+				# 	}
+				# end
 			end
 			include_all_fields
 			exclude_fields :properties_to_products, :advantages_to_products, :discounts_to_products, :inverse_product_relates, :order_items, :line_items

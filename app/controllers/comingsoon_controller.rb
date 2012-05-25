@@ -1,8 +1,12 @@
 class ComingsoonController < ApplicationController
-  
+
   layout "comingsoon"
-  
-  def show
+
+  def index
 		render "index"
+  end
+
+  def how
+		render "how"
   end
 end

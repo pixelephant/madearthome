@@ -1,5 +1,18 @@
 @import '_mixins.css.scss';
-
+@import 'categories.css.scss';
 #top{
 	text-align:center;
+}
+
+.about-box img{
+	border:5px solid $border-blue;
+}
+
+.third{
+	position:relative;
+	img{
+		margin: 0 auto 10px auto;
+		width:220px;		
+		display:block;
+	}
 }

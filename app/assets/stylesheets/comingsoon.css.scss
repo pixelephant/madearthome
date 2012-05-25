@@ -37,6 +37,13 @@
 	}
 }
 
+.how{
+	text-align:left !important;
+	h3,h4{
+		margin:20px 0 !important;
+	}
+}
+
 .about{
 	margin-bottom:20px;
 }
@@ -60,7 +67,7 @@
 	}
 	strong{
 		color:$brand-darkblue;
-		
+
 	}
 	.button{
 		@include orange-button;
@@ -75,7 +82,7 @@
 		margin-right:4px;
 		width:220px;
 	}
-	
+
 }
 
 p.small-text{
@@ -92,6 +99,10 @@ p.small-text{
 	/* Prevent FOUC (see FAQ page) and keep things readable if javascript is disabled */
 	overflow-y: auto;
 	overflow-x: hidden;
+	img{
+		width:440px;
+		height:260px;
+	}
 }
 
 .anythingSlider{

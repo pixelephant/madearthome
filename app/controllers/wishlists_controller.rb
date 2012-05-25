@@ -6,7 +6,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @wishlists }
+      format.json { render :json => @wishlists }
     end
   end
 
@@ -17,7 +17,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @wishlist }
+      format.json { render :json => @wishlist }
     end
   end
 
@@ -28,7 +28,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @wishlist }
+      format.json { render :json => @wishlist }
     end
   end
 
@@ -44,11 +44,11 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
-        format.json { render json: @wishlist, status: :created, location: @wishlist }
+        format.html { redirect_to @wishlist, :notice => 'Wishlist was successfully created.' }
+        format.json { render :json => @wishlist, :status => :created, :location => @wishlist }
       else
-        format.html { render action: "new" }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @wishlist.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.update_attributes(params[:wishlist])
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully updated.' }
+        format.html { redirect_to @wishlist, :notice => 'Wishlist was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @wishlist.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @wishlist.errors, :status => :unprocessable_entity }
       end
     end
   end

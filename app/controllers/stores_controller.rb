@@ -6,7 +6,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @stores }
+      format.json { render :json => @stores }
     end
   end
 
@@ -17,7 +17,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @store }
+      format.json { render :json => @store }
     end
   end
 
@@ -28,7 +28,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @store }
+      format.json { render :json => @store }
     end
   end
 
@@ -44,11 +44,11 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
-        format.json { render json: @store, status: :created, location: @store }
+        format.html { redirect_to @store, :notice => 'Store was successfully created.' }
+        format.json { render :json => @store, :status => :created, :location => @store }
       else
-        format.html { render action: "new" }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @store.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +60,11 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.update_attributes(params[:store])
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to @store, :notice => 'Store was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @store.errors, :status => :unprocessable_entity }
       end
     end
   end

@@ -14,7 +14,10 @@ Madearthome::Application.routes.draw do
 
 	match "admin" => 'admin#index'
 
-	match "comingsoon" => "application#comingsoon"
+	match "comingsoon" => "comingsoon#index"
+	match "adatvedelem" => "comingsoon#how"
+
+	resources :comingsoon
 
 	#Admin ajax routes START
 
@@ -63,13 +66,15 @@ Madearthome::Application.routes.draw do
 
     resources :comingsoon
 
+    resources :checkout
+
     match 'checkout/billing_shipping' => 'checkout#billing_shipping'
+
+    post 'checkout/payment' => 'checkout#payment'
 
     match 'checkout/payment' => 'checkout#payment'
 
     match 'checkout/thankyou' => 'checkout#thankyou'
-
-    resources :checkout
 
 		resources :line_items
 

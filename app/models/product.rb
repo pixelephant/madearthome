@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 	extend FriendlyId
-	friendly_id :name, use: :slugged
+	friendly_id :name, :use => :slugged
 
 	translates :short_description, :long_description, :advice
 
