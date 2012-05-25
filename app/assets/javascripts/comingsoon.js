@@ -20,4 +20,7 @@ $(document).ready(function(){
 	    resumeDelay: 5000,
 	    animationTime: 500,
 	});
+
+	
+
 });
