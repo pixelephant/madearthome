@@ -40,6 +40,17 @@ class CustomCategory < ActiveRecord::Base
 					end
 				end
 			end
+			
+			a = ""
+			if params[:designer].include?("NULL")
+				params[:designer].delete("NULL")
+				a = " OR (products.designer_id IS NULL)"
+			end
+			
+			unless params[:designer].blank?
+				q << ("((products.designer_id IN (" + params[:designer].join(",") + "))#{a})")
+			end
+
 			q = q.join(" AND ")
 			#query
 
