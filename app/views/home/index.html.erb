@@ -79,7 +79,7 @@
 <section class="box full" id="brands">
 	<h3>Our brands</h3>
 	<% Brand.all.each do |brand| %>
-		<%= link_to "#" do %>
+		<%= link_to ('/brand/' + brand.name.downcase) do %>
 			<%= image_tag brand.image_file.thumb, :title => brand.name, :class => "class" %>
 		<% end %>
 	<% end %>

@@ -1,6 +1,6 @@
 <% Category.all.each_with_index do |category, index| %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
-		<%= link_to category.name, category_path(category) %>
+		<%= link_to category.name, category_url(:locale => I18n.locale, :id => category.slug) %>
 		<% if category.custom_categories.any? %>
 			<ul class="sub <%= 'right ' if index > (Category.count - 4) %> clearfix">
 				<div class="col1">
@@ -13,8 +13,8 @@
 							<div class="col1">
 						<% end %>
 						<li>
-							<%= link_to_if(session[:view_all], sub_cat.name, category_custom_category_path(category, sub_cat, :page => 'all')) do %>
-							<%=		link_to(sub_cat.name, category_custom_category_path(category, sub_cat)) %>
+							<%= link_to_if(session[:view_all], sub_cat.name, custom_category_url(category, sub_cat, :page => 'all')) do %>
+							<%=	link_to(sub_cat.name, custom_category_url(category, sub_cat)) %>
 							<% end %>
 						</li>
 					<% end %>

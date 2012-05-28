@@ -37,7 +37,7 @@ Madearthome::Application.routes.draw do
 	#match "/:id" => "categories#show"
 	#Categories END
 
-	scope '(:locale)' do
+	scope '(:locale)', :locale => /en|hu/ do
 
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
@@ -52,11 +52,11 @@ Madearthome::Application.routes.draw do
 
 		resources :products_stores
 
-		match 'brand/lazboy' => 'brand#lazboy'
+		match 'brand/la-z-boy' => 'brand#lazboy', :as => :lazboy
 
-		match 'brand/uttermost' => 'brand#uttermost'
+		match 'brand/uttermost' => 'brand#uttermost', :as => :uttermost
 
-		resources :brands
+		#resources :brands
 
 		resources :ad
 
@@ -82,41 +82,19 @@ Madearthome::Application.routes.draw do
 
 		resources :cart
 
-		#resources :mass_uploads
-
 		resources :manufacturer_photos
 
 		resources :designer_photos
 
-		#resources :properties_to_custom_categories
-
-		#resources :properties_to_categories
-
-		#resources :discounts_to_products
-
 		resources :discounts
-
-		#resources :related_products
 
 		resources :designers
 
 		resources :manufacturers
 
-		#resources :advantages_to_products
-
-		#resources :advantages
-
-		#resources :property_categories_to_categories
-
 		resources :wishlist_items
 
 		resources :wishlists
-
-		#resources :properties_to_products
-
-		#resources :properties
-
-		#resources :property_categories
 
 		resources :order_items
 
@@ -130,13 +108,21 @@ Madearthome::Application.routes.draw do
 
 		resources :users
 
-		resources :categories do
-			resources :custom_categories
-		end
-
 		resources :photos
 
 		resources :products
+
+		match "(:locale/):category_id/:id" => 'custom_categories#show', :as => :custom_category
+
+		match "(:locale/):id" => 'categories#show', :as => :category
+
+		match ":category_id/:id" => 'custom_categories#show', :as => :custom_category
+
+		match ":id" => 'categories#show', :as => :category
+
+		resources :categories do
+			resources :custom_categories
+		end
 
 		#get "home/index"
 

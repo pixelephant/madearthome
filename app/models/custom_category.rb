@@ -6,8 +6,8 @@ class CustomCategory < ActiveRecord::Base
 	has_many :properties_to_custom_categories
 
 	belongs_to :category
-
 	belongs_to :discount
+	belongs_to :custom_category_group
 
 	validates :name,:category_id , :presence => true
 
@@ -42,12 +42,12 @@ class CustomCategory < ActiveRecord::Base
 			end
 			
 			a = ""
-			if params[:designer].include?("NULL")
-				params[:designer].delete("NULL")
-				a = " OR (products.designer_id IS NULL)"
-			end
 			
 			unless params[:designer].blank?
+				if params[:designer].include?("NULL")
+					params[:designer].delete("NULL")
+					a = " OR (products.designer_id IS NULL)"
+				end
 				q << ("((products.designer_id IN (" + params[:designer].join(",") + "))#{a})")
 			end
 
