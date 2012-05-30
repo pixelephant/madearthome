@@ -2,6 +2,9 @@ class Category < ActiveRecord::Base
 
 	translates :name
 
+	has_many :category_translations, :dependent => :destroy
+	accepts_nested_attributes_for :category_translations
+
 	extend FriendlyId
 	friendly_id :name, :use => [:slugged]
 

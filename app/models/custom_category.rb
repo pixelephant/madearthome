@@ -1,6 +1,14 @@
 class CustomCategory < ActiveRecord::Base
+
+  default_scope :order => 'custom_category_group_id DESC'
+
 	extend FriendlyId
 	friendly_id :name, :use => :slugged
+
+	translates :name
+
+	has_many :custom_category_translations, :dependent => :destroy
+	accepts_nested_attributes_for :custom_category_translations
 
 	has_many :properties, :through => :properties_to_custom_categories
 	has_many :properties_to_custom_categories

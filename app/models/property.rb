@@ -2,6 +2,9 @@ class Property < ActiveRecord::Base
 
 	translates :property_name
 
+	has_many :property_translations, :dependent => :destroy
+	accepts_nested_attributes_for :property_translations
+
 	#has_many :properties_to_products
 	#has_many :products, :through => :properties_to_products
 	has_and_belongs_to_many :products
