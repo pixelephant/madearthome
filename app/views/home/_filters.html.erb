@@ -7,32 +7,38 @@
 <input type="slider" name="sslider" value="1;100" id="sslider">
 
 <%= field_set_tag t('designer') do %>
-	<% Designer.all.each do |designer| %>
+	<% @designers.each do |designer| %>
 		<div class="field">
 			<label for="<%= designer.name.parameterize %>"> <%= designer.name %> </label>
-			<%= check_box_tag designer.name.parameterize, designer.id, true %>
+			<%= check_box_tag 'designer[]', designer.id, true %>
 		</div>
 	<% end %>
-	<%= link_to "update", "/", :class => "update" %>
+		<% if @designers.any? %>
+			<div class="field">
+				<label for="nil"> Nincs designer </label>
+				<%= check_box_tag 'designer[]', "NULL", true %>
+			</div>
+		<% end %>
+	<%= submit_tag "update", :class => "update" %>
 <% end %>
 
-<% PropertyCategory.order("category_name").each do |property_category| %>
+<% @property_categories.each do |property_category| %>
 	<% if property_category.properties.any? %>
 		<%= field_set_tag property_category.category_name.to_s do %>
 			<% if is_a_number?(l = property_category.properties.sort_by(&:property_name).first.property_name) && is_a_number?(h = property_category.properties.sort_by(&:property_name).last.property_name) && h > l %>
 <!-- Csúszka helye -->
 			<!-- mértékegységek nem lehetnek törtek, a low és a high value nem jó mindenhol -->
-			<input id="<%= property_category.category_name.to_s.parameterize %>" type="slider" data-unit="mm" name="<%= property_category.category_name.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
+			<input id="<%= property_category.id.to_s.parameterize %>" type="slider" data-unit="mm" name="<%= property_category.id.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
 <!-- Csúszka helye  -->
 			<% elsif property_category.properties.count < 15 %>
 				<% property_category.properties.all.each do |property| %>
 					<div class="field">
-						<label for="<%= property.property_name.parameterize %>"> <%= property.property_name %> </label>
-						<%= check_box_tag property.property_name.parameterize, property.id, true %>
+						<label for="<%= property.property_category.id.to_s %>"> <%= property.property_name %> </label>
+						<%= check_box_tag property.property_category.id.to_s + "[]", property.id, true %>
 					</div>
 				<% end %>
 			<% end %>
-			<%= link_to "update", "/", :class => "update" %>
+			<%= submit_tag "update", :class => "update" %>
 		<% end %>
 	<% end %>
 <% end %>

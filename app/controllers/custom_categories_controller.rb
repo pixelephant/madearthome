@@ -16,6 +16,9 @@ class CustomCategoriesController < ApplicationController
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
 
+    @property_categories = PropertyCategory.find(:all, :joins => :property_categories_to_categories, :select => "property_categories.*", :conditions => ["property_categories_to_categories.category_id = #{@category.id}"], :group => "property_categories.id")
+    @designers = Designer.find(:all, :joins => :products, :select => "designers.*", :conditions => ["designers.id = products.designer_id AND products.category_id = #{@category.id}"], :group => "designers.id")
+
 		if params[:sort] == 'by_name'
 			sort = 'name'
 		elsif params[:sort] == 'by_lowest_price'
@@ -29,10 +32,10 @@ class CustomCategoriesController < ApplicationController
 		if params[:page] == 'all'
 			session[:view_all] = true
 			@products = @custom_category.products(sort)
-			@kaminari_products = Kaminari.paginate_array(@custom_category.products(sort)).page(params[:page]).per(21)
+			@kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
-			@products = Kaminari.paginate_array(@custom_category.products(sort)).page(params[:page]).per(21)
+			@products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528201947) do
+ActiveRecord::Schema.define(:version => 20120411145924) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -108,19 +108,12 @@ ActiveRecord::Schema.define(:version => 20120528201947) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id",              :null => false
+    t.integer  "category_id", :null => false
     t.integer  "discount_id"
     t.string   "slug"
-    t.integer  "custom_category_group_id"
   end
 
   add_index "custom_categories", ["slug"], :name => "index_custom_categories_on_slug"
-
-  create_table "custom_category_groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "designer_photos", :force => true do |t|
     t.integer  "designer_id"
@@ -405,6 +398,7 @@ ActiveRecord::Schema.define(:version => 20120528201947) do
     t.integer  "subcontent_id"
     t.string   "locale"
     t.text     "text"
+<<<<<<< HEAD
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -429,9 +423,25 @@ ActiveRecord::Schema.define(:version => 20120528201947) do
     t.string   "city",       :null => false
     t.string   "street",     :null => false
     t.string   "additional", :null => false
+=======
+>>>>>>> c698939be5cf172b6cf2dfa42941bbc7b4734909
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "subcontent_translations", ["locale"], :name => "index_subcontent_translations_on_locale"
+  add_index "subcontent_translations", ["subcontent_id"], :name => "index_subcontent_translations_on_subcontent_id"
+
+  create_table "subcontents", :force => true do |t|
+    t.integer  "content_id"
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "subcontents", ["slug"], :name => "index_subcontents_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "password"
