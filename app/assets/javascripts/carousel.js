@@ -1,5 +1,3 @@
-//= require mousewheel
-
 $(document).ready(function(){
 	
 	$(".slider .left").click(function(){
@@ -8,7 +6,7 @@ $(document).ready(function(){
 		var $slider = $this.find(".slider-inner");
 		$slider.animate({
 			"scrollLeft" : $slider.scrollLeft() - itemWidth*2
-		},300,"easeInOutSine");
+		},300,"easeOutQuad");
 		return false;
 	});
 
@@ -18,7 +16,7 @@ $(document).ready(function(){
 		var $slider = $this.find(".slider-inner");
 		$slider.animate({
 			"scrollLeft" : $slider.scrollLeft() + itemWidth*2
-			},300,"easeInOutSine");
+			},300,"easeInOutQuad");
 		return false;
 	});
 
