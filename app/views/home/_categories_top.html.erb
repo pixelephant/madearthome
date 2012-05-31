@@ -1,20 +1,28 @@
 <% Category.all.each_with_index do |category, index| %>
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
-		<%= link_to category.name, category_path(category) %>
+		<%= link_to category.name, category_url(:locale => I18n.locale, :id => category.slug) %>
 		<% if category.custom_categories.any? %>
 			<ul class="sub <%= 'right ' if index > (Category.count - 4) %> clearfix">
 				<div class="col1">
-					<h5>jeje huja</h5>
 					<% sub_categories = category.custom_categories  %>
+					<% current = "" %>
 					<% product_per_column = sub_categories.count / 3 if !sub_categories.blank? %>
 					<% sub_categories.each_with_index do |sub_cat,i| %>
+						<% unless current == sub_cat.custom_category_group_id %>
+							<% if sub_cat.custom_category_group_id.blank? %>
+								<h5>-----------------------</h5>
+							<% else %>
+								<h5><%= sub_cat.custom_category_group.name %></h5>
+							<% end %>
+							<% current = sub_cat.custom_category_group_id %>
+						<% end %>
 						<% if i == product_per_column || i == product_per_column * 2 %>
 							</div>
 							<div class="col1">
 						<% end %>
 						<li>
-							<%= link_to_if(session[:view_all], sub_cat.name, category_custom_category_path(category, sub_cat, :page => 'all')) do %>
-							<%=		link_to(sub_cat.name, category_custom_category_path(category, sub_cat)) %>
+							<%= link_to_if(session[:view_all], sub_cat.name, custom_category_url(category, sub_cat, :page => 'all')) do %>
+							<%=	link_to(sub_cat.name, custom_category_url(category, sub_cat)) %>
 							<% end %>
 						</li>
 					<% end %>
@@ -28,7 +36,7 @@
 					</li>
 				</div>
 
-				<div class="column">
+<!-- 				<div class="column">
 					<div class="block">
 						<h5>Shop by category</h5>
 						<li><a href="#">Színes szagos</a></li>
@@ -71,7 +79,7 @@
 						<li class="fix"><%= link_to "New arrivals", "#" %></li>
 						<li class="fix"><%= link_to "Sale", "#" %></li>
 					</div>
-				</div>
+				</div> -->
 			</ul>
 		<% end %>
 	</li>

@@ -4,6 +4,9 @@ class Product < ActiveRecord::Base
 
 	translates :short_description, :long_description, :advice
 
+	has_many :product_translations, :dependent => :destroy
+	accepts_nested_attributes_for :product_translations
+
 	has_many :photos
 	belongs_to :category
 #	has_many :properties_to_products

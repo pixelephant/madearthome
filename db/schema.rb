@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227123605) do
+ActiveRecord::Schema.define(:version => 20120528201947) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "additional"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "billing"
+    t.text     "name"
+  end
+
+  create_table "advantage_translations", :force => true do |t|
+    t.integer  "advantage_id"
+    t.string   "locale"
+    t.string   "advantage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "advantage_translations", ["advantage_id"], :name => "index_advantage_translations_on_advantage_id"
+  add_index "advantage_translations", ["locale"], :name => "index_advantage_translations_on_locale"
 
   create_table "advantages", :force => true do |t|
     t.string   "advantage",  :null => false
@@ -24,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.integer  "advantage_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "brands", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file"
+    t.string   "small_image_file"
   end
 
   create_table "carts", :force => true do |t|
@@ -49,16 +80,47 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
+  add_index "category_translations", ["locale"], :name => "index_category_translations_on_locale"
+
+  create_table "content_translations", :force => true do |t|
+    t.integer  "content_id"
+    t.string   "locale"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "content_translations", ["content_id"], :name => "index_content_translations_on_content_id"
+  add_index "content_translations", ["locale"], :name => "index_content_translations_on_locale"
+
+  create_table "contents", :force => true do |t|
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "contents", ["slug"], :name => "index_contents_on_slug"
+
   create_table "custom_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "category_id", :null => false
+    t.integer  "category_id",              :null => false
     t.integer  "discount_id"
     t.string   "slug"
+    t.integer  "custom_category_group_id"
   end
 
   add_index "custom_categories", ["slug"], :name => "index_custom_categories_on_slug"
+
+  create_table "custom_category_groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "designer_photos", :force => true do |t|
     t.integer  "designer_id"
@@ -68,11 +130,23 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  create_table "designer_translations", :force => true do |t|
+    t.integer  "designer_id"
+    t.string   "locale"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "designer_translations", ["designer_id"], :name => "index_designer_translations_on_designer_id"
+  add_index "designer_translations", ["locale"], :name => "index_designer_translations_on_locale"
+
   create_table "designers", :force => true do |t|
     t.string   "name",        :null => false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "brand_id"
   end
 
   create_table "discounts", :force => true do |t|
@@ -119,6 +193,17 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  create_table "manufacturer_translations", :force => true do |t|
+    t.integer  "manufacturer_id"
+    t.string   "locale"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "manufacturer_translations", ["locale"], :name => "index_manufacturer_translations_on_locale"
+  add_index "manufacturer_translations", ["manufacturer_id"], :name => "index_6da15d1c9c6370d7a4052d927db51ec7a1b71f9f"
+
   create_table "manufacturers", :force => true do |t|
     t.string   "name",        :null => false
     t.text     "description"
@@ -157,16 +242,39 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  create_table "product_sets", :force => true do |t|
+    t.integer  "price"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_sets_products", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "product_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_sets_properties", :force => true do |t|
+    t.integer  "product_set_id"
+    t.integer  "property_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_translations", :force => true do |t|
     t.integer  "product_id"
     t.string   "locale"
-    t.string   "name"
-    t.string   "short_description"
+    t.text     "short_description"
     t.text     "long_description"
     t.text     "advice"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "product_translations", ["locale"], :name => "index_product_translations_on_locale"
+  add_index "product_translations", ["product_id"], :name => "index_product_translations_on_product_id"
 
   create_table "products", :force => true do |t|
     t.string   "name",              :null => false
@@ -177,11 +285,12 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
     t.string   "sku",               :null => false
     t.integer  "price",             :null => false
-    t.integer  "designer_id",       :null => false
-    t.integer  "manufacturer_id",   :null => false
+    t.integer  "designer_id"
+    t.integer  "manufacturer_id"
     t.string   "slug"
     t.text     "advice"
     t.string   "video"
+    t.integer  "brand_id"
   end
 
   add_index "products", ["slug"], :name => "index_products_on_slug"
@@ -249,6 +358,9 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  add_index "property_category_translations", ["locale"], :name => "index_property_category_translations_on_locale"
+  add_index "property_category_translations", ["property_category_id"], :name => "index_9a9dcff740ab916c9bc8193c91eafe8f63c79e3d"
+
   create_table "property_translations", :force => true do |t|
     t.integer  "property_id"
     t.string   "locale"
@@ -256,6 +368,9 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "property_translations", ["locale"], :name => "index_property_translations_on_locale"
+  add_index "property_translations", ["property_id"], :name => "index_property_translations_on_property_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -286,6 +401,28 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "updated_at"
   end
 
+  create_table "subcontent_translations", :force => true do |t|
+    t.integer  "subcontent_id"
+    t.string   "locale"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subcontent_translations", ["locale"], :name => "index_subcontent_translations_on_locale"
+  add_index "subcontent_translations", ["subcontent_id"], :name => "index_subcontent_translations_on_subcontent_id"
+
+  create_table "subcontents", :force => true do |t|
+    t.integer  "content_id"
+    t.string   "name"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "subcontents", ["slug"], :name => "index_subcontents_on_slug"
+
   create_table "user_addresses", :force => true do |t|
     t.integer  "user_id"
     t.string   "zip",        :null => false
@@ -298,7 +435,6 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
 
   create_table "users", :force => true do |t|
     t.string   "password"
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                                 :default => "", :null => false
@@ -311,6 +447,11 @@ ActiveRecord::Schema.define(:version => 20120227123605) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "admin"
+    t.string   "title_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

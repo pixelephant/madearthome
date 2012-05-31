@@ -2,6 +2,8 @@
 	<p><span>10 év garancia ülőgarnitúráinkra</span> &amp; <span>30 nap visszavételi garancia</span> &amp; <span>Ingyenes lakberendezési tanácsadás</span></p>
 </div>
 
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products", :products => Product.order(:updated_at).limit(10) } %>
+
 <section id="promo-boxes">
 	<div class="box promo">
 		<div class="ribbon"><span class="ribbon-start"></span><p>Matthew</p><span class="ribbon-end"></span></div>
@@ -47,7 +49,6 @@
 	</div>
 </section>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products", :products => Product.order(:updated_at).limit(10) } %>
 
 <section class="box full" id="about-us">
 	<h3>Üdvözöljük a Flairspring online boltjában!</h3>
@@ -79,7 +80,7 @@
 <section class="box full" id="brands">
 	<h3>Our brands</h3>
 	<% Brand.all.each do |brand| %>
-		<%= link_to "#" do %>
+		<%= link_to ('/brand/' + brand.name.downcase) do %>
 			<%= image_tag brand.image_file.thumb, :title => brand.name, :class => "class" %>
 		<% end %>
 	<% end %>

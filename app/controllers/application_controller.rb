@@ -44,6 +44,8 @@ class ApplicationController < ActionController::Base
 			else
 				logger.error "No available_locales"
 			end
+		else
+			I18n.locale = "en"
 		end
 	end
 
