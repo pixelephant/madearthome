@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528201947) do
+ActiveRecord::Schema.define(:version => 20120530115458) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -116,11 +116,33 @@ ActiveRecord::Schema.define(:version => 20120528201947) do
 
   add_index "custom_categories", ["slug"], :name => "index_custom_categories_on_slug"
 
+  create_table "custom_category_group_translations", :force => true do |t|
+    t.integer  "custom_category_group_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "custom_category_group_translations", ["custom_category_group_id"], :name => "index_2d2af31d0c65d872f84f034613e30745ce4dbf44"
+  add_index "custom_category_group_translations", ["locale"], :name => "index_custom_category_group_translations_on_locale"
+
   create_table "custom_category_groups", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "custom_category_translations", :force => true do |t|
+    t.integer  "custom_category_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "custom_category_translations", ["custom_category_id"], :name => "index_2ed22b0e6ab5c4c96ef06c49b081590ff17c3b7e"
+  add_index "custom_category_translations", ["locale"], :name => "index_custom_category_translations_on_locale"
 
   create_table "designer_photos", :force => true do |t|
     t.integer  "designer_id"
