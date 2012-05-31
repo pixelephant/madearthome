@@ -429,6 +429,7 @@ p a{
 		font-size:16px;
 	}
 	input[type="submit"]{
+		@include transition-03s;
 		@include orange-button;
 		font-size:12px;
 		height:29px;
@@ -465,7 +466,7 @@ p a{
 			border-left:1px solid #42579E;
 			border-right:1px solid #6F80C0;
 			position:relative;
-			@include transition-03s;
+			//@include transition-03s;
 			&.first{
 				border-left:none;
 			}
@@ -497,7 +498,7 @@ p a{
 				@include font-gill;
 				font-size:14px;
 				text-decoration:none;
-				@include transition-03s;
+				//@include transition-03s;
 				text-transform:uppercase;
 			}
 		}
@@ -966,29 +967,6 @@ label.error{
 }
 #tooltip h3, #tooltip div { margin: 0; }
 
-
-/* béta stílusok*/
-
-@import "fancybox.css.scss";
-
-#misc-menu .main-ul, #minicart-wrapper{
+#language-selector{
 	display:none;
 }
-
-#alert-wrap{
-	display:none;
-	text-align:center;
-	h3{
-		font-weight:bold;
-		text-transform:uppercase;
-		@include font-gill;
-		color:$brand-darkblue;
-		margin-bottom:25px;
-		font-size:18px;
-	}
-	p{
-		margin:10px 0;
-		line-height:1.5;
-	}
-}
-
