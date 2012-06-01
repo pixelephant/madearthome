@@ -37,7 +37,8 @@ Madearthome::Application.routes.draw do
 	#match "/:id" => "categories#show"
 	#Categories END
 
-	scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
+	# Nyelv eleje
+	# scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
 
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
@@ -112,23 +113,24 @@ Madearthome::Application.routes.draw do
 
 		resources :products
 
-		match "(:locale/):category_id/:id" => 'custom_categories#show', :as => :custom_category
+		# match "(:locale/):category_id/:id" => 'custom_categories#show', :as => :custom_category
 
-		match "(:locale/):id" => 'categories#show', :as => :category
+		# match "(:locale/):id" => 'categories#show', :as => :category
 
 		match ":category_id/:id" => 'custom_categories#show', :as => :custom_category
 
 		match ":id" => 'categories#show', :as => :category
 
-		resources :categories do
-			resources :custom_categories, :as => :custom_category
-		end
+		# resources :categories do
+		# 	resources :custom_categories, :as => :custom_category
+		# end
 
 		#get "home/index"
 
 		root :to => 'home#index', :as => 'index'
 
-	end
+	#end
+	#Nyelv vége
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
