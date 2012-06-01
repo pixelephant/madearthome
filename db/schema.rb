@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120530115458) do
+ActiveRecord::Schema.define(:version => 20120601130843) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120530115458) do
     t.datetime "updated_at"
     t.integer  "discount_id"
     t.string   "slug"
+    t.integer  "position"
   end
 
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
