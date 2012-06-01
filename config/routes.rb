@@ -37,7 +37,7 @@ Madearthome::Application.routes.draw do
 	#match "/:id" => "categories#show"
 	#Categories END
 
-	scope '(:locale)', :locale => /en|hu/ do
+	scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
 
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
@@ -121,7 +121,7 @@ Madearthome::Application.routes.draw do
 		match ":id" => 'categories#show', :as => :category
 
 		resources :categories do
-			resources :custom_categories
+			resources :custom_categories, :as => :custom_category
 		end
 
 		#get "home/index"

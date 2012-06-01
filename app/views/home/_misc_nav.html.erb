@@ -4,7 +4,7 @@
 			<ul id="language-selector">
 				<% LANGUAGES.each do |lang| %>
 					<% if lang[1] == I18n.locale.to_s %>
-						<li class="active <%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1]) %></li>
+						<li class="active <%= lang[1] %>"><%= link_to lang[0], url_for( params.merge(:locale => lang[1]) ) %></li>
 					<% else %>
 						<li class="<%= lang[1] %>"><%= link_to lang[0], url_for( :locale => lang[1] ) %></li>
 					 <% end %>
