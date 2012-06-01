@@ -52,6 +52,10 @@ $(document).ready(function(){
 		var myPlayer = this;
 	});
 
+	myPlayer.addEvent("ended",function(){
+		$(myPlayer.posterImage.el).show();
+	})
+
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);
 		$this.siblings().removeClass("active").end().addClass("active");

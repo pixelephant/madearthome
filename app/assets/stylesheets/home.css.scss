@@ -30,14 +30,17 @@
 	overflow:hidden;
 	.slide{
 		width:940px;
-		height:415px;
+		height:425px;
 		float:left;
-		line-height:415px;
+		line-height:425px;
 		text-align:center;
 		color:white;
 		font-size:50px;
 		@include font-gill;
 		position:relative;
+		&.video{
+			background:black;
+		}
 	}
 }
 
