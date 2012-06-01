@@ -6,6 +6,9 @@ class SearchController < ApplicationController
   	  fulltext params[:search]
 	  end
 
+	  @designers = Designer.all
+	  @property_categories = PropertyCategory.limit(2)
+
 		if params[:page] == 'all'
 			session[:view_all] = true
 			@products = @search.results

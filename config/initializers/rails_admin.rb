@@ -1,5 +1,8 @@
 RailsAdmin.config do |config|
 
+	require 'i18n'
+  I18n.default_locale = :en
+
 	config.authorize_with :cancan
 
 	#Custom actions

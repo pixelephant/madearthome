@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
 
 	translates :name
 
+	default_scope :order => 'position ASC'
+
 	has_many :category_translations, :dependent => :destroy
 	accepts_nested_attributes_for :category_translations
 

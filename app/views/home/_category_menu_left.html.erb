@@ -2,7 +2,7 @@
 	<h3>Shop by category</h3>
 	<% @category.custom_categories.each do |custom_category| %>
 		<li>
-			<%= link_to custom_category.name, category_custom_category_path(@category, custom_category) %>
+			<%= link_to custom_category.name, custom_category_path(@category, custom_category) %>
 		</li>
 	<% end %>
 </ul>
