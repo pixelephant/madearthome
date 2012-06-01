@@ -47,13 +47,34 @@ $(document).ready(function(){
 			prevEffect: 'none'			
 		});
 	
+	var myPlayer = _V_("example_video_1");
+	_V_("example_video_1").ready(function(){
+		var myPlayer = this;
+	});
+
 	$("#slider-thumbs li").click(function(){
 		var $this = $(this);
 		$this.siblings().removeClass("active").end().addClass("active");
 		$("#main-header").animate({
 			backgroundColor: $this.data("color")
 		},300);
-		$("#slider").scrollTo($this.find("a").attr("href"),300);
+		$("#slider").scrollTo($this.find("a").attr("href"),300,function(){
+			if($($this.find("a").attr("href")).hasClass("video")){
+			$("#slider-thumbs ul").animate({
+				marginTop: 0
+			},300,function(){
+				myPlayer.play();
+			});
+		}
+		else{
+			$("#slider-thumbs ul").animate({
+				marginTop: -80
+			},300,function(){
+				myPlayer.pause();
+			});	
+		}
+		});
+		
 		return false;
 	});
 	
