@@ -14,6 +14,10 @@
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? -%>
   <link href='http://fonts.googleapis.com/css?family=Alegreya+SC|Alegreya:400italic,700italic,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
+<!-- VIDEÓ -->
+<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/c/video.js"></script>
+
 </head>
 <body>
 	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6. chromium.org/developers/how-tos/chrome-frame-getting-started -->
@@ -34,8 +38,8 @@
 			<% end %>
 		</a>
 		<span class="helptext">
-			<em>Need help?</em> <span class="lead">call our support line</span>
-			<span class="telephone">06-1-123-5432asd</span>
+			<em>Segíthetünk?</em> <span class="lead">Hívja ügyfélszolgálatunkat</span>
+			<span class="telephone">+36-30-375-8600</span>
 		</span>
 		<div id="minicart-wrapper">
 			<%= render 'home/minicart' %>
@@ -44,8 +48,8 @@
 			<%= form_tag "/" + I18n.locale.to_s + "/search", :id => 'search-form', :method => :get do %>
 		    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('search') + '...' %>
     		<%= submit_tag t('search'), :name => nil %>
+    		<p id="search-examples"><strong>Pl.:</strong> <a href="/search?utf8=✓&search=kör+alakú+tükör">kör alakú tükör</a>, <a href="/search?utf8=✓&search=dohányzó+asztal"> dohányzó asztal</a></p>
 			<% end %>
-			<p id="search-examples"><strong>Pl.:</strong> <a href="#">accent table</a>, <a href="#">working chair</a></p>
 		</div>
 		<nav id="main-nav">
 			<ul class="clearfix">
