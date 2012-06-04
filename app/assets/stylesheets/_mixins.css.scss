@@ -60,6 +60,7 @@ $text-color:#575756;
   background: -webkit-gradient(linear, left top, left bottom, from(#ef7a48), to(#e95422)); /* Saf4+, Chrome */
   background: -webkit-linear-gradient(top, #ef7a48, #e95422); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background:    -moz-linear-gradient(top, #ef7a48, #e95422); /* FF3.6+ */
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ef7a48, endColorStr=#e95422);
   background:     -ms-linear-gradient(top, #ef7a48, #e95422); /* IE10 */
   background:      -o-linear-gradient(top, #ef7a48, #e95422); /* Opera 11.10+ */
   background:         linear-gradient(to bottom, #ef7a48, #e95422);
@@ -70,6 +71,7 @@ $text-color:#575756;
   background: -webkit-gradient(linear, left top, left bottom, from(#f49d47), to(#ef7a48)); /* Saf4+, Chrome */
   background: -webkit-linear-gradient(top, #f49d47, #ef7a48); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background:    -moz-linear-gradient(top, #f49d47, #ef7a48); /* FF3.6+ */
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#f49d47, endColorStr=#ef7a48);
   background:     -ms-linear-gradient(top, #f49d47, #ef7a48); /* IE10 */
   background:      -o-linear-gradient(top, #f49d47, #ef7a48); /* Opera 11.10+ */
   background:         linear-gradient(to bottom, #f49d47, #ef7a48);
@@ -80,6 +82,7 @@ $text-color:#575756;
   background: -webkit-gradient(linear, left top, left bottom, from(#ef7a48), to(#f49d47)); /* Saf4+, Chrome */
   background: -webkit-linear-gradient(top, #ef7a48, #f49d47); /* Chrome 10+, Saf5.1+, iOS 5+ */
   background:    -moz-linear-gradient(top, #ef7a48, #f49d47); /* FF3.6+ */
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ef7a48, endColorStr=#f49d47);
   background:     -ms-linear-gradient(top, #ef7a48, #f49d47); /* IE10 */
   background:      -o-linear-gradient(top, #ef7a48, #f49d47); /* Opera 11.10+ */
   background:         linear-gradient(to bottom, #ef7a48, #f49d47);
@@ -155,8 +158,8 @@ $text-color:#575756;
 @mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {
   background-color: transparent;
   background-color: rgba($r, $g, $b, $opacity);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr#$color,endColorstr=$color);
-            zoom:   1;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$color,endColorstr=$color);
+  zoom:   1;
 }
 
 @mixin border-radius($tl: 5px, $tr: 5px, $br: 5px, $bl: 5px) {
@@ -215,6 +218,7 @@ $text-color:#575756;
     background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
     background-image: -webkit-linear-gradient(top, $startColor, $endColor);
     background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+    filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#{$startColor}, endColorStr=#{$endColor});
     background-image:     -ms-linear-gradient(top, $startColor, $endColor);
     background-image:      -o-linear-gradient(top, $startColor, $endColor);
     background-image:         linear-gradient(top, $startColor, $endColor);
