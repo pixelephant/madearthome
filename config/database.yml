@@ -16,7 +16,7 @@ development:
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
+  socket: /opt/lampp/var/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,11 +25,11 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: madearthome_test
+  database: madearthome_production
   pool: 5
   username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  password: tyeF2q
+  host: 176.58.103.30
 
 production:
   adapter: mysql2
@@ -37,6 +37,6 @@ production:
   reconnect: false
   database: madearthome_production
   pool: 5
-  username: balazs_madearthome
+  username: root
   password: tyeF2q
-  socket: mysql.rails.pixelephant.hu
+  host: 176.58.103.30
