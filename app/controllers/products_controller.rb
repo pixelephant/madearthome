@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  include ActionView::Helpers::TextHelper
   # GET /products
   # GET /products.json
   def index
@@ -13,8 +14,14 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+
     @product = Product.find(params[:id])
 		@category = @product.category
+
+    @title = @product.name + " - " + @category.name
+    @description = truncate(@product.long_description, :length => 156)
+    @keywords = @product.name + "," + @category.name
+
 		#session[:last_viewed_products] = []
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])

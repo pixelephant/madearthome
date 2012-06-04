@@ -16,6 +16,16 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 		@products = @category.products
 
+    @title = " - " + @category.name
+
+    @description = @category.name.to_s
+
+    @keywords = ""
+    @category.custom_categories.each do |cc|
+      @keywords = @keywords + "," + cc.name
+    end
+    @keywords = @keywords + "," + @description
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @category }

@@ -16,6 +16,18 @@ class CustomCategoriesController < ApplicationController
     @custom_category = CustomCategory.find(params[:id])
 		@category = @custom_category.category
 
+    @title = " - " + @category.name + " - " + @custom_category.name
+
+    @description = @custom_category.name.to_s
+
+    @keywords = ""
+
+    if @custom_category.properties.any?
+      @custom_category.properties.each do |prop|
+        @keywords = @keywords + "," + prop.property_name
+      end
+    end
+
     @property_categories = PropertyCategory.find(:all, :joins => :property_categories_to_categories, :select => "property_categories.*", :conditions => ["property_categories_to_categories.category_id = #{@category.id}"], :group => "property_categories.id")
     @designers = Designer.find(:all, :joins => :products, :select => "designers.*", :conditions => ["designers.id = products.designer_id AND products.category_id = #{@category.id}"], :group => "designers.id")
 
