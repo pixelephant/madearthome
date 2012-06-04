@@ -139,9 +139,12 @@ td { vertical-align: top; }
 
 @import '_mixins.css.scss';
 
+
+//Alegreya windows, small-caps páros pixel kell legyen, bold-ot nem használhatunk
+
 p .lead{
 	@include small-caps;
-	font-size:17px;
+	font-size:18px;
 }
 
 em{
@@ -168,6 +171,10 @@ p a{
 	}
 }
 
+
+b,strong{
+	font-weight:normal;
+}
 
 .arrow{
 	width:31px;

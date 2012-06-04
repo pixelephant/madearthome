@@ -126,10 +126,10 @@
 		margin:0 auto;
 		margin-bottom:5px;
 		border-bottom:1px solid $border-gray;
+		text-align:center;
 	}
 	img{
 		width:175px;
-		height:175px;
 		@include transition-03s;
 		z-index:1;
 	}
