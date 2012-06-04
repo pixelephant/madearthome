@@ -94,7 +94,7 @@ Modernizr.addTest('fontsmoothing', function() {
     }
 });
 
-alert(Modernizr.fontsmoothing);
+
 
   $("#properties-box input[type='submit']").click(function(){
     $.fancybox({
