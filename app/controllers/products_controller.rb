@@ -18,8 +18,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 		@category = @product.category
 
-    @title = @product.name + " - " + @category.name
-    @description = truncate(@product.long_description, :length => 156)
+    @title = @product.name.capitalize + " - " + @category.name
+    @description = truncate(@product.long_description, :length => 156).capitalize
     @keywords = @product.name + "," + @category.name
 
 		#session[:last_viewed_products] = []

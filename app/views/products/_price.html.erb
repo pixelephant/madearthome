@@ -1,7 +1,7 @@
 <p class="price">
 <% if product.price != productPrice(product.id)%>
-	<span class="current-price"><%= productPrice(product.id) %> Ft</span> <span class="old-price"><%= product.price %></span>
+	<span class="current-price"><%= (productPrice(product.id)) %> Ft</span> <span class="old-price"><%= product.price %></span>
 <% else %>
-	<span><%= product.price %> Ft</span>
+	<span><%= (product.price) %> Ft</span>
 <% end %>
 </p>
