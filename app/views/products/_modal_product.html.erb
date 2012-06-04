@@ -16,12 +16,6 @@
 					<div class="third" id="price">
 						<%= render :partial => "price", :locals => { :product => @product } %>
 					</div>
-					<!-- <div class="third">
-						<a href="#">Kapható szettben!</a>
-					</div>
-					<div class="third last">
-						<a href="#">Ajándék lámpával!</a>
-					</div> -->
 				</div>
 				<div class="properties">
 					<% unless @product.designer.blank? %>
@@ -30,10 +24,8 @@
 					<% unless @product.manufacturer.blank? %>
 						<p><span><%= t('manufacturer') %>: </span><%= @product.manufacturer.name %></p>
 					<% end %>
-					<% @product.given_properties.each do |property| %>
-						<% unless property.property_category.category_name.blank? || property.property_name.blank? %>
-							<p><span><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
-						<% end %>		
+					<% @size_weight.each do |property| %>
+						<p><span><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
 					<% end %>
 
 				</div>

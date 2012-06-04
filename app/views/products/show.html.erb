@@ -38,12 +38,13 @@
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
-				<%= image_tag(@product.brand.to_s) %>
+				<%= image_tag(@product.brand.small_image_file.to_s) unless @product.brand.blank? %>
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
-					<p class="list-price"><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
+					<p><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
 					<% if @product.price != productPrice(@product) %>
+						<p class="list-price"><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
 						<p class="discount-price"><%= t('.sale_price') %>: <span> <%= productPrice(@product) %> Ft</span></p>
 					<% end %>
 				</div>
@@ -58,9 +59,7 @@
 			<!-- FormFor -->
 			<%= form_for LineItem.new, :url => line_items_path(:product_id => @product.id) do |f| %>
 				<div class="left">
-
-
-						<% @product.optional_properties.each do |property| %>
+						<% @size_weight.each do |property| %>
 							<p>
 								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
 								<%= property.property_name %>
@@ -102,7 +101,7 @@
 			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
 		<% end %>
 
-		<% @product.given_properties.each do |property| %>
+		<% @properties.each do |property| %>
 			<p>
 				<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
 				<%= property.property_name %>
