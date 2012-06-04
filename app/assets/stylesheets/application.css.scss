@@ -968,6 +968,13 @@ label.error{
 }
 #tooltip h3, #tooltip div { margin: 0; }
 
-#language-selector{
+
+//Béta stílusok
+
+#blog-link{
+	display:block !important;
+}
+
+#language-selector,#minicart-wrapper,#main-nav ul li ul,#brands,#misc-menu ul li{
 	display:none;
 }
