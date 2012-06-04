@@ -68,7 +68,8 @@ class CustomCategory < ActiveRecord::Base
 		end
 
 		p = Product.find(:all, :joins => :properties, :select => "products.*, count(properties.id)", :conditions => ["properties.id IN (?) AND products.category_id = ?#{q}", properties_of_custom_category, self.category_id], :group => "products.id having count(properties.id) = #{properties_of_custom_category.count}", :order => ["products." + sort])
-
+		logger.info "Custom Category products"
+		logger.debug "p value: #{p}"
 		return p
 	end
 

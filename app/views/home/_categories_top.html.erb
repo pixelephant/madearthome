@@ -2,7 +2,7 @@
 	<li<%= is_active_category_with_index?(category.slug, index) %>>
 		<%= link_to category.name, category_url(:locale => (I18n.locale unless I18n.locale == I18n.default_locale), :id => category.slug) %>
 		<% if category.custom_categories.any? %>
-			<ul class="sub <%= 'right ' if index > (Category.count - 4) %> clearfix">
+			<ul class="sub <%= 'right ' if index > (Category.count - 2) %> clearfix">
 				<div class="col1">
 					<% sub_categories = category.custom_categories  %>
 					<% current = "" %>
