@@ -7,9 +7,11 @@ gem 'rails', '3.1.3'
 
 gem 'mysql2'
 
-# gem 'execjs'
+gem 'rails-i18n'
 
-# gem 'therubyracer'
+gem 'execjs'
+
+gem 'therubyracer'
 
 # Gems used only for assets and not required
 # in production environments by default.

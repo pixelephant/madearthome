@@ -162,7 +162,7 @@
 
 <div class="clearfix">
 	<!-- DESIGNER -->
-	<% if !@designer.nil? %>
+	<% unless @designer.nil? || @designer.description.blank? %>
 		<%= render :partial => "about_designer", :locals => {:designer => @designer}%>
 	<% end %>
 
