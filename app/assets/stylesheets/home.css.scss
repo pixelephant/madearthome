@@ -281,6 +281,93 @@
 #promo-boxes{
 	width:960px;
 	overflow:hidden;
+	a{
+		text-decoration:none;
+	}
+}
+
+.promowrap{
+	float:left;
+	width:320px;
+}
+
+#random-item{
+	height:300px;
+	width:190px;
+}
+
+#lamps-promo{
+	text-align:center;
+	h5{
+		top:40%;
+		position:absolute;
+		@include font-gill;
+		color:$brand-darkblue;
+		font-size:30px;
+		text-align:center;
+		width:100%;
+	}
+}
+
+#news-promo{
+	margin-top:0;
+	a{text-decoration:none;}
+	.inner{
+		width:280px;
+		height:130px;
+		background:url(/assets/home/newsletter.png) no-repeat center;
+	}
+	h5{
+		letter-spacing:1px;
+		@include font-gill;
+		text-transform:uppercase;
+		font-size:26px;
+		color:$brand-darkblue;
+		margin-top:0;
+		padding:10px 10px 22px 10px;
+	}
+	p{
+		line-height:1;
+		padding:10px 5px;
+		color:$brand-lightblue;
+		span{
+			color:$brand-orange;
+		}
+		background:rgba(255,255,255,0.8);
+	}
+}
+
+#facebook-promo{
+	padding:0;
+	background:url(bg-f.png) no-repeat;
+	padding:0;
+	padding:20px;
+	width:260px;
+	height:135px;
+	h3,h4{
+		color:white;
+	}
+	h4{
+		margin-bottom:60px;
+	}
+}
+
+#twitter-promo{
+	background:url(bg-tw.png) no-repeat;
+	padding:0;
+	padding:20px;
+	width:270px;
+	height:135px;
+	h3,h4{
+		color:white;
+	}
+	h4{
+		margin-bottom:45px;
+	}
+	iframe{
+		display:block;
+		margin:10px 0;
+	}
 }
 
 #brands a{
