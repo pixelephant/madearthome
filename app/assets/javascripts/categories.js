@@ -1,6 +1,8 @@
 //= require jquery.easing
 //= require carousel
 //= require mousewheel
+//= require jquery.fancybox
+//= require custom_categories
 
 /**
  * jQuery Plugin to obtain touch gestures from iPhone, iPod Touch and iPad, should also work with Android mobile phones (not tested yet!)

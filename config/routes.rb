@@ -16,6 +16,7 @@ Madearthome::Application.routes.draw do
 
 	match "comingsoon" => "comingsoon#index"
 	match "adatvedelem" => "comingsoon#how"
+	match "sajtoanyagok" => "comingsoon#sajtoanyagok"
 
 	resources :comingsoon
 
