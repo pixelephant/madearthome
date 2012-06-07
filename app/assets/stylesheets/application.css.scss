@@ -701,7 +701,8 @@ b,strong{
 		list-style:disc;
 		list-style-position:inside;
 		strong{
-			color:#E95321;
+		
+		font-style:italic;
 		}
 	}
 }
@@ -923,39 +924,6 @@ label.error{
 			padding:0 5px;
 			
 		}
-	}
-}
-
-#twitter{
-	background:url(bg-tw.png) no-repeat;
-	padding:0;
-	padding:20px;
-	width:270px;
-	height:135px;
-	h3,h4{
-		color:white;
-	}
-	h4{
-		margin-bottom:45px;
-	}
-	iframe{
-		display:block;
-		margin:10px 0;
-	}
-}
-
-#facebook{
-	padding:0;
-	background:url(bg-f.png) no-repeat;
-	padding:0;
-	padding:20px;
-	width:270px;
-	height:135px;
-	h3,h4{
-		color:white;
-	}
-	h4{
-		margin-bottom:65px;
 	}
 }
 

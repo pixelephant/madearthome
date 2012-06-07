@@ -93,7 +93,7 @@
 	color:$brand-darkblue;
 	h2{
 		float:left;
-		font-size:23px;
+		font-size:22px;
 		padding:9px 10px 0 20px;
 		.sku{
 			font-size:12px;
@@ -153,12 +153,13 @@
 	height:150px;
 	border-bottom:1px solid $border-gray;
 	padding:20px;
+	overflow:hidden;
 	p{
-		margin-bottom:12px;
+		margin-bottom:5px;
 		label{
 			float:left;
-			width:100px;
-			margin-right:60px;
+			width:135px;
+			margin-right:20px;
 		}
 		input[type="number"]{
 			width:35px;
@@ -172,6 +173,7 @@
 		font-size:18px;
 		padding:9px;
 		padding-left:35px;
+		margin-top:55px;
 	}
 }
 

@@ -5,27 +5,57 @@
 <%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products", :products => Product.order(:updated_at).limit(10) } %>
 
 <section id="promo-boxes">
-	<div class="box promo">
-		<div class="ribbon"><span class="ribbon-start"></span><p>Matthew</p><span class="ribbon-end"></span></div>
-		<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+	<div class="box promo" id="lamps-promo">
+		<a href="/lampak">
+			<%= image_tag "home/lamps.png", :title => "900 féle lámpa" %>
+			<h5>900 féle lámpa</h5>
+		</a>
 	</div>
-	<div class="box promo">
-		<div class="ribbon"><span class="ribbon-start"></span><p>Matthew-t szeretjük</p><span class="ribbon-end"></span></div>
-		<%= image_tag "matthew.png", :title => "title", :class => "class" %>
+	<div class="promowrap">
+		<div class="promo box" id="facebook-promo">
+			<h3>Lájkolja az oldalunkat</h3>
+			<h4>nyereményekért és friss hírekért</h4>
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=239184792781836";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+			<div class="fb-like" data-href="http://www.pixelephant.hu" data-send="true" data-width="200" data-show-faces="false"></div>
+		</div>
+		<div class="box promo" id="news-promo">
+			<a href="http://eepurl.com/jS0aD">
+				<div class="inner">
+					<h5><span>Hírlevél</span></h5>
+					<p>Minden feliratkozónak <span>2000 Ft</span> értékű kupon!</p>
+				</div>
+			</a>
+		</div>
 	</div>
-	<div class="box promo">
-		<div class="ribbon"><span class="ribbon-start"></span><p>Kutya ül a fotelben és néz</p><span class="ribbon-end"></span></div>
-		<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
+
+	<div class="box promo" id="random-item">
+		<div class="ribbon"><span class="ribbon-start"></span><p>Random termék</p><span class="ribbon-end"></span></div>
 	</div>
-	<div class="box promo">
-		<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+
+	<div class="box promo" id="lazyboy-promo">
+		<a href="/fotelek">
+			<div class="ribbon"><span class="ribbon-start"></span><p>Lazyboy komfort fotelek</p><span class="ribbon-end"></span></div>
+			<%= image_tag "home/lazboy.png", :title => "Lazboy komfort fotelek" %>
+		</a>
 	</div>
-	<div class="box promo">
-		<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
+
+	<div class="box promo" id="store-promo">
+		<div class="ribbon"><span class="ribbon-start"></span><p>Vásárlás előtt kipróbálná?</p><span class="ribbon-end"></span></div>
+		<%= image_tag "home/store.png" %>
 	</div>
-	<div class="box promo">
-		<%= image_tag "logo.png", :title => "title", :class => "class" %>
+
+	<div class="box promo" id="mirror-promo">
+		<div class="ribbon"><span class="ribbon-start"></span><p>400 féle keretezett tükör</p><span class="ribbon-end"></span></div>
+		<%= image_tag "home/mirrors.png" %>
 	</div>
+
 	<!--<div class="promo box" id="twitter">
 		<h3>Kövess twitteren</h3>
 		<h4>Napi akciókért!</h4>
@@ -34,19 +64,6 @@
 		<a href="https://twitter.com/share" class="twitter-share-button" data-via="pixnorbi" data-lang="hu">Tweet</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</div>-->
-	<div class="promo box" id="facebook">
-		<h3>Lájkolja az oldalunkat</h3>
-		<h4>nyereményekért és friss hírekért</h4>
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=239184792781836";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		<div class="fb-like" data-href="http://www.pixelephant.hu" data-send="true" data-width="200" data-show-faces="false"></div>
-	</div>
 </section>
 
 
