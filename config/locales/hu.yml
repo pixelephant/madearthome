@@ -86,5 +86,5 @@ hu:
         unit: "Ft"
         precision: "0"
         separator: ","
-        delimiter: "."
+        delimiter: " "
         format: "%n&nbsp;%u"
