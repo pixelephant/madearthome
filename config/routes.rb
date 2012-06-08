@@ -120,7 +120,8 @@ Madearthome::Application.routes.draw do
 
 		match ":category_id/:id" => 'custom_categories#show', :as => :custom_category
 
-		match ":id" => 'categories#show', :as => :category
+		# match ":id" => 'categories#show', :as => :category
+		match ":id" => 'custom_categories#show', :as => :category
 
 		# resources :categories do
 		# 	resources :custom_categories, :as => :custom_category

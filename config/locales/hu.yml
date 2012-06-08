@@ -44,6 +44,16 @@ hu:
     show:
       categories: "Kategóriák"
       filter: "Szűrés"
+      newest: "Legújabb"
+      name: "Név"
+      lowest_price: "Legolcsóbb"
+      highest_price: "Legdrágább"
+      view_all: "Összes"
+      first: "&laquo; Első"
+      last: "Utolsó &raquo;"
+      previous: "&lsaquo; Előző"
+      next: "Következő &rsaquo;"
+      truncate: "..."
 
   products:
     show:
