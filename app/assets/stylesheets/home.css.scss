@@ -288,6 +288,32 @@
 	text-decoration:none;
 }
 
+#newsletter-promo{
+	a{text-decoration:none;}
+	.inner{
+		width:290px;
+		height:155px;
+		background:url(newsletter-promo.jpg) no-repeat center;
+	}
+	h5{
+		letter-spacing:1px;
+		@include font-gill;
+		text-transform:uppercase;
+		font-size:26px;
+		color:$brand-darkblue;
+		padding:58px 5px 0px 5px;
+		margin:0;
+	}
+	p{
+		line-height:1;
+		padding:10px 5px;
+		color:$brand-lightblue;
+		span{
+			color:$brand-orange;
+		}
+		background:rgba(255,255,255,0.8);
+	}
+}
 
 @import 'fancybox.css.scss';
 
