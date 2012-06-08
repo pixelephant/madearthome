@@ -86,12 +86,17 @@
 	<div class="hr"></div>
 	<h3>Friss hírek</h3>
 	<h4>A Flairspring blogból</h4>
-	<div class="blog-entry">
+	<% @blogposts.each do |article| %>
+		<div class="blog-entry">			
+			<p><span class="lead"><%= article.post_title %></span><%= truncate strip_tags(article.post_content).html_safe, :length => 470, :omission => '...' %><%= link_to "Bővebben &raquo;".html_safe, "http://blog.flairsprin.hu/?p=" + article.id.to_s %></p>
+		</div>
+	<% end %>
+	<!-- <div class="blog-entry">
 		<p><span class="lead">Mauris eu erat et</span> <%= image_tag "matthew.png", :title => "title", :class => "class" %> sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. <a href="#">Bővebben &raquo;</a></p>
 	</div>
 	<div class="blog-entry">
 		<p><span class="lead">Mauris eu erat et</span> <%= image_tag "matthew.png", :title => "title", :class => "class" %> sapien posuere bibendum at fermentum purus. Fusce molestie ultrices tortor sed tincidunt. Nam at sapien enim, quis vestibulum tortor. Pellentesque et leo nulla, nec vulputate nulla. Sed blandit quam eu dolor viverra ac suscipit est sollicitudin. <a href="#">Bővebben &raquo;</a></p>
-	</div>
+	</div> -->
 </section>
 
 <section class="box full" id="brands">
