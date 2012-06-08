@@ -28,9 +28,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 		@products = @category.products.order(sort)
 
-    @title = " - " + @category.name
+    @title = " - " + @category.name.capitalize
 
-    @description = @category.name.to_s
+    @description = @category.name.to_s.capitalize
 
     @keywords = ""
     # @category.custom_categories.each do |cc|

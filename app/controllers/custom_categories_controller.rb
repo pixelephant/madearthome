@@ -18,9 +18,10 @@ class CustomCategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @custom_category = Category.find(params[:id])
 
-    @title = " - " + @category.name + " - " + @custom_category.name
+    # @title = " - " + @category.name.capitalize + " - " + @custom_category.name.titleize
+    @title = @category.name.capitalize
 
-    @description = @custom_category.name.to_s
+    @description = @custom_category.name.to_s.capitalize
 
     @keywords = ""
 

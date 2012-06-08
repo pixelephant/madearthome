@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     @size_weight = @product.properties.joins(:property_category).where(:property_categories => {:id => [74,75,76,77]})
     @properties = @product.properties.joins(:property_category).where("property_categories.id NOT IN (74,75,76,77)")
 
-    @title = @product.name.capitalize + " - " + @category.name
+    @title = @product.name.titleize + " - " + @category.name
     @description = truncate(@product.long_description, :length => 156).capitalize
     @keywords = @product.name + "," + @category.name
 
