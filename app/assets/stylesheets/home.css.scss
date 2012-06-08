@@ -6,15 +6,13 @@
 
 
 #main-header{
-	background:#aaa;
-	-webkit-box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
+	background-color:#66364E;
 	-moz-box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
 	box-shadow: 1px 10px 10px 1px rgba(0, 0, 0, 0.4);
 	padding-bottom:20px;
 }
 
 #slider-wrap{
-
 	padding-top:20px;
 	padding-bottom:25px;
 }
@@ -32,11 +30,6 @@
 		width:940px;
 		height:425px;
 		float:left;
-		line-height:425px;
-		text-align:center;
-		color:white;
-		font-size:50px;
-		@include font-gill;
 		position:relative;
 		&.video{
 			background:black;
@@ -156,12 +149,44 @@
 	background:url(slider_images/uttermost_2.jpg) no-repeat;
 }
 
+#slide-4{
+	background:url(slider_images/open.jpg) no-repeat left top white;
+	div{
+		float:right;
+		width:306px;
+		text-align:center;
+	}
+	img{
+		margin-top:70px;
+	}
+	p,h4{
+		font-size:20px;
+		line-height:2;
+	}
+	em{
+		@include small-caps;
+	}
+	h4{
+		color:$brand-darkblue;
+		@include font-gill;
+		text-transform:uppercase;
+	}	
+}
+
+#slide-5{
+	background:url(slider_images/laz1.jpg) no-repeat;
+}
+
+#slide-6{
+	background:url(slider_images/laz2.jpg) no-repeat;
+}
+
 #slide-1-thumb .mask{
-	background:rgba(170,170,170,0.6);
+	background:rgba(102,54,78,0.6);
 }
 
 #slide-2-thumb .mask{
-	background:rgba(205, 133, 63,0.6);
+	background:rgba(54, 54, 102,0.6);
 }
 
 #slide-3-thumb .mask{
@@ -169,15 +194,15 @@
 }
 
 #slide-4-thumb .mask{
-	background:rgba(0,178,92,0.6);
+	background:rgba(54,91,102,0.6);
 }
 
 #slide-5-thumb .mask{
-	background:rgba(42,68,128,0.6);
+	background:rgba(102,71,54,0.6);
 }
 
 #slide-6-thumb .mask{
-	background:rgba(240,108,152,0.6);
+	background:rgba(54,74,102,0.6);
 }
 
 .plus{
@@ -202,19 +227,109 @@
 }
 
 #slide-1-plus-1{
-	top:15px;
-	left:300px;
+	top:100px;
+	left:100px;
 }
 
 #slide-1-plus-2{
-	top:150px;
-	left:30px;
+	top:137px;
+	left:211px;
 }
 
 #slide-1-plus-3{
-	bottom:60px;
-	right:300px;
+	top:123px;
+	left:290px;
 }
+
+#slide-1-plus-4{
+	top:300px;
+	left:170px;
+}
+
+#slide-1-plus-5{
+	top:173px;
+	left:441px;
+}
+
+#slide-1-plus-6{
+	top:22px;
+	left:770px;
+}
+
+#slide-1-plus-7{
+	top:320px;
+	left:416px;
+}
+
+#slide-1-plus-8{
+	top:295px;
+	left:790px;
+}
+
+#slide-1-plus-9{
+	top:224px;
+	left:810px;
+}
+
+#slide-1-plus-10{
+	top:273px;
+	left:899px;
+}
+
+
+
+
+
+#slide-2-plus-1{
+	top:300px;
+	left:90px;
+}
+
+#slide-2-plus-2{
+	top:236px;
+	left:35px;
+}
+
+#slide-2-plus-3{
+	top:137px;
+	left:211px;
+}
+
+#slide-2-plus-4{
+	top:192px;
+	left:290px;
+}
+
+#slide-2-plus-5{
+	top:42px;
+	left:270px;
+}
+
+#slide-2-plus-6{
+	top:222px;
+	left:490px;
+}
+
+#slide-2-plus-7{
+	top:226px;
+	left:647px;
+}
+
+#slide-2-plus-8{
+	top:336px;
+	left:377px;
+}
+
+#slide-2-plus-9{
+	top:218px;
+	left:755px;
+}
+
+#slide-2-plus-10{
+	top:118px;
+	left:570px;
+}
+
 
 #main-wrap{
 	position:relative;
@@ -254,6 +369,7 @@
 		margin-top:20px;
 	}
 	overflow:hidden;
+	margin-top:0;
 }
 
 .blog-entry{
@@ -297,6 +413,7 @@
 }
 
 #lamps-promo{
+	height:300px;
 	text-align:center;
 	h5{
 		top:40%;
@@ -305,7 +422,7 @@
 		color:$brand-darkblue;
 		font-size:30px;
 		text-align:center;
-		width:100%;
+		width:370px;
 	}
 }
 
@@ -343,12 +460,12 @@
 	padding:0;
 	padding:20px;
 	width:260px;
-	height:135px;
+	height:110px;
 	h3,h4{
 		color:white;
 	}
 	h4{
-		margin-bottom:60px;
+		margin-bottom:35px;
 	}
 }
 
@@ -375,31 +492,59 @@
 	text-decoration:none;
 }
 
-#newsletter-promo{
-	a{text-decoration:none;}
-	.inner{
-		width:290px;
-		height:155px;
-		background:url(newsletter-promo.jpg) no-repeat center;
-	}
-	h5{
-		letter-spacing:1px;
+
+
+#lazyboy-promo{
+	margin-top:0;
+	margin-bottom:0;
+	.feat{
+		position:absolute;
+		color:$brand-darkblue;
 		@include font-gill;
 		text-transform:uppercase;
-		font-size:26px;
+		text-align:center;
+	}
+	#lab{
+		top:215px;
+		left:476px;
+	}
+	#doles{
+		top:90px;
+		left:195px;
+	}
+	#emel{
+		top:110px;
+		left:615px;
+	}
+}
+
+#store-promo{
+	width:530px;
+	height:300px;
+	background: url(home/store.png) no-repeat center white;
+	h5{
+		margin-top:75px;
+		@include font-gill;
 		color:$brand-darkblue;
-		padding:58px 5px 0px 5px;
-		margin:0;
+		font-size:20px;
+
 	}
-	p{
-		line-height:1;
-		padding:10px 5px;
-		color:$brand-lightblue;
-		span{
-			color:$brand-orange;
-		}
-		background:rgba(255,255,255,0.8);
+	.st,h5{
+		width:212px;
+		text-align:center;
 	}
+	em{
+		color:$text-color;
+		@include small-caps;
+		font-style:normal;
+	}
+	a{
+		font-size:15px;
+	}
+}
+
+#mirror-promo{
+	height:300px;
 }
 
 @import 'fancybox.css.scss';
