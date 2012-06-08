@@ -145,7 +145,7 @@ nav.pagination{
 	font-size:10px;
 	float:left;
 	margin-right:5px;
-	background: url(back-to-top.png) no-repeat center left;
+	background: url(back-to-top.png) no-repeat left 15px;
 	padding-left:20px;
 	color:$brand-lightblue;
 	@include transition-03s;
