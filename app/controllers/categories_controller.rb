@@ -13,18 +13,39 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+
+
+    if params[:sort] == 'by_name'
+      sort = 'name'
+    elsif params[:sort] == 'by_lowest_price'
+      sort = 'price ASC'
+    elsif params[:sort] == 'by_highest_price'
+      sort = 'price DESC'
+    else
+      sort = 'updated_at'
+    end
+
     @category = Category.find(params[:id])
-		@products = @category.products
+		@products = @category.products.order(sort)
 
     @title = " - " + @category.name
 
     @description = @category.name.to_s
 
     @keywords = ""
-    @category.custom_categories.each do |cc|
-      @keywords = @keywords + "," + cc.name
+    # @category.custom_categories.each do |cc|
+      # @keywords = @keywords + "," + cc.name
+    # end
+    # @keywords = @keywords + "," + @description
+
+    if params[:page] == 'all'
+      session[:view_all] = true
+      @kaminari_products = Kaminari.paginate_array(@products).page(params[:page]).per(21)
+    else
+      session[:view_all] = false
+      @products = Kaminari.paginate_array(@products).page(params[:page]).per(21)
+      @kaminari_products = @products
     end
-    @keywords = @keywords + "," + @description
 
     respond_to do |format|
       format.html # show.html.erb

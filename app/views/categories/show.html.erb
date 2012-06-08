@@ -1,60 +1,35 @@
 <div class="clearfix">
 	<section id="sidebar">
-			<nav id="category-nav">
-				<%= render "home/category_menu_left" %>
-			</nav>
+			<form action="" id="filter-form" class="">
+				<div id="filters" class="box">
+					<h3><%= t('.filter') %></h3>
+				</div>
+				<nav id="category-nav">
+						<%= render 'home/category_menu_left' %>
+				</nav>
+				
+			</form>
 	</section>
 
-		<section id="promo-list">
-			
-			<div class="clearfix">
-				<div class="box cpromo big" id="fotelek">
-					<h3>Funkciógazdag fotelek</h3>
-				</div>
+	<section id="product-list">
+		<div id="action-top" class="box">
+			<%= render 'home/product_grid_action_buttons' %>
 
-				<div class="box cpromo small">
-					<p>1</p>
-				</div>
-				<div class="box cpromo small">
-					<p>2</p>
-				</div>
-			</div>
-			<div class="clearfix crow">
-				<div class="box cpromo small">
-					<p>1</p>
-				</div>
-				<div class="box cpromo small">
-					<p>1</p>
-				</div>
-				<div class="box cpromo small">
-					<p>1</p>
-				</div>
-				<div class="box cpromo small">
-					<p>1</p>
-				</div>
-				<div class="box cpromo small last">
-					<p>1</p>
-				</div>
-			</div>
-			<div class="box promo">
-				<%= image_tag "matthew.png", :title => "title", :class => "class" %>
-			</div>
-			<div class="box promo">
-				<%= image_tag "uttermost.png", :title => "title", :class => "class" %>
-			</div>
-			<div class="box promo">
-				<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
-			</div>
-			<div class="box promo">
-				<%= image_tag "cart-icon.png", :title => "title", :class => "class" %>
-			</div>
-			<div class="box promo">
-				<%= image_tag "logo.png", :title => "title", :class => "class" %>
-			</div>
-		</section>
+			<% c = "view-all" %>
+			<% c = c + " active" if session[:view_all] %>
+
+			<%= link_to t('.view_all'), request.path + "?page=all", :class => c %>
+			<%= paginate @kaminari_products, :window => 2, :outer_window => 1 %>
+		</div>
+		<div id="product-grid" class="clearfix">
+			<%= render 'home/product_grid' %>
+		</div>
+		<div id="action-bottom" class="box">
+			<a id="back-to-top" href="#product-list">back to top</a>
+			<%= render 'home/product_grid_action_buttons' %>
+			<%= link_to t('.view_all'), request.path + "?page=all", :class => "view-all" %>
+			<%= paginate @kaminari_products, :window => 2, :outer_window => 1 %>
+		</div>
+	</section>
 </div>
-
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb ágyaink", :id => "newest-beds", :products => @category.products.order(:updated_at).limit(10) } %>
-<%= render :partial => "home/product_slider_halves", :locals => {:title1 => "Népszerű", :id1 => "popular-products", :id2 => "super-deals", :title2 => "Szuper akció" } %>
-
 <%= render 'home/last_viewed_carousel' if !session[:last_viewed_products].blank? %>

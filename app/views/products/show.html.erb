@@ -37,7 +37,7 @@
 		<% end %>
 		<div id="right-side">
 			<div id="product-title">
-				<h2><%= @product.name %> <span class="sku">  <%= @product.sku %></span> </h2>
+				<h2><%= @product.name %> <span class="sku">Cikkszám:  <%= @product.sku %></span> </h2>
 				<%= image_tag(@product.brand.small_image_file.to_s) unless @product.brand.blank? %>
 			</div>
 			<div id="info-box">
@@ -162,7 +162,7 @@
 
 <div class="clearfix">
 	<!-- DESIGNER -->
-	<% if !@designer.nil? %>
+	<% unless @designer.nil? || @designer.description.blank? %>
 		<%= render :partial => "about_designer", :locals => {:designer => @designer}%>
 	<% end %>
 
