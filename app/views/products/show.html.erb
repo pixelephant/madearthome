@@ -2,39 +2,38 @@
 	<div id="product-inner" class="clearfix">
 		<div id="left-side">
 			<% if @product.photos.any? %>
-			<div id="picture-wrap">
-				<div id="current-picture">
-					<a href=<%= @product.default_photo.image_file.to_s %> class='zoomable' rel="gal1">
-						<%= image_tag(@product.default_photo.image_file.product_page_default.to_s) %>
-					</a>
-				</div>
-			</div>
-			<div id="picture-list">
-				<% @product.photos.each do |photo| %>
-						<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">
-				  			<%= image_tag(photo.image_file.thumb.to_s) %>
+				<div id="picture-wrap">
+					<div id="current-picture">
+						<a href=<%= @product.default_photo.image_file.to_s %> class='zoomable' rel="gal1">
+							<%= image_tag(@product.default_photo.image_file.product_page_default.to_s) %>
 						</a>
-
-				<% end %>
-			</div>
-			<div id="social-buttons">
-			  	<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) return;
-				  js = d.createElement(s); js.id = id;
-				  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=136997593064327";
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
-
-				<div class="fb-like" data-href="http://www.madeart.hu" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-				<div class="tw-like">
-					<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
 				</div>
-			  </div>
-		</div>
-		<% end %>
+				<div id="picture-list">
+					<% @product.photos.each do |photo| %>
+							<a class="<%= photo.default? ? 'zoomThumbActive' : '' %>" href="#" rel="{gallery: 'gal1', smallimage: '<%=photo.image_file.medium.to_s %>',largeimage: '<%=photo.image_file.to_s%>'}">
+					  			<%= image_tag(photo.image_file.thumb.to_s) %>
+							</a>
+					<% end %>
+				</div>
+				<div id="social-buttons">
+				  	<div id="fb-root"></div>
+					<script>(function(d, s, id) {
+					  var js, fjs = d.getElementsByTagName(s)[0];
+					  if (d.getElementById(id)) return;
+					  js = d.createElement(s); js.id = id;
+					  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=136997593064327";
+					  fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+
+					<div class="fb-like" data-href="http://www.madeart.hu" data-send="true" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+					<div class="tw-like">
+						<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+				</div>
+			</div>
+			<% end %>
 		<div id="right-side">
 			<div id="product-title">
 				<h2><%= @product.name %> <span class="sku">Cikkszám:  <%= @product.sku %></span> </h2>
@@ -42,10 +41,10 @@
 			</div>
 			<div id="info-box">
 				<div class="third" id="price">
-					<p><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
+					<p><%= t('.list_price') %>: <span> <%= number_to_currency(@product.price, :precision => 0) %></span></p>
 					<% if @product.price != productPrice(@product) %>
-						<p class="list-price"><%= t('.list_price') %>: <span> <%= @product.price %> Ft</span></p>
-						<p class="discount-price"><%= t('.sale_price') %>: <span> <%= productPrice(@product) %> Ft</span></p>
+						<p class="list-price"><%= t('.list_price') %>: <span> <%= number_to_currency(@product.price, :precision => 0) %></span></p>
+						<p class="discount-price"><%= t('.sale_price') %>: <span> <%= number_to_currency(productPrice(@product), :precision => 0) %></span></p>
 					<% end %>
 				</div>
 				<div class="third">
@@ -61,8 +60,8 @@
 				<div class="left">
 						<% @size_weight.each do |property| %>
 							<p>
-								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
-								<%= property.property_name %>
+								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name.capitalize ) %>
+								<%= property.property_name.capitalize %>
 							</p>
 						<% end %>
 
@@ -88,53 +87,44 @@
 	</div>
 </section>
 
-
-
-
-
 <% box = 0 %>
 <div class="box-wrap clearfix">
 	<section class="box third has-ribbon" id="specifications">
 		<div class="ribbon"></div>
 		<h3><%= t('.specifications') %></h3>
+		
 		<% if !@designer.nil? %>
 			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
 		<% end %>
 
-		<% @properties.each do |property| %>
-			<p>
-				<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name ) %>
-				<%= property.property_name %>
-			</p>
-		<% end %>
-
+		<%= render :partial => ('products/properties') %>
 		<% box += 1 %>
 	</section>
 
 	<% if !@product.advice.nil? %>
-	<section class="box third has-ribbon<%= box_class(box % 3) %>" id="expert-advice">
-		<div class="ribbon"></div>
-		<h3><%= t('.expert_advice') %></h3>
-		<p>
-			<%= lead(@product.advice).html_safe %>
-		</p>
-	</section>
+		<section class="box third has-ribbon<%= box_class(box % 3) %>" id="expert-advice">
+			<div class="ribbon"></div>
+			<h3><%= t('.expert_advice') %></h3>
+			<p>
+				<%= lead(@product.advice).html_safe %>
+			</p>
+		</section>
 		<% box += 1 %>
 	<% end %>
 
 	<% if @product.stores.any? %>
-	<% store = @product.stores.first %>
-	<section class="box third has-ribbon<%= box_class(box % 3) %>" id="try-it">
-		<div class="ribbon"></div>
-		<h3><%= t('.try_it_out') %></h3>
-		<strong><%= t('.try_it_out_store_start') %><%= store.name %><%= t('.try_it_out_store_end') %></strong>
-		<div class="address">
-			<p>1101 <a target="_blank" href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
-			<p><%= store.address %></p>
-			<p>H-SZ: 10-18</p>
-		</div>
-	</section>
-	<% box += 1 %>
+		<% store = @product.stores.first %>
+		<section class="box third has-ribbon<%= box_class(box % 3) %>" id="try-it">
+			<div class="ribbon"></div>
+			<h3><%= t('.try_it_out') %></h3>
+			<strong><%= t('.try_it_out_store_start') %><%= store.name %><%= t('.try_it_out_store_end') %></strong>
+			<div class="address">
+				<p>1101 <a target="_blank" href="http://maps.google.com/?q=<%= store.lat << ',' << store.long %>"><%= image_tag "map.png", :title => "title", :class => "class" %></a></p>
+				<p><%= store.address %></p>
+				<p>H-SZ: 10-18</p>
+			</div>
+		</section>
+		<% box += 1 %>
 	<% end %>
 
 	<% if !@product.video.blank? %>
@@ -177,4 +167,4 @@
 <%= render :partial => "home/product_slider_halves", :locals => {:title1 => "Legnépszerűbbek", :id1 => "popular-products", :title2 => "Mások ezt vették hozzá", :id2 => "also-products"} %>
 
 <!-- RELATED PRODUCTS -->
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "A termékhez ajánljuk", :id => "related-products", :products => @product.product_relates } %>
+<%= (render :partial => "home/product_slider_full_big", :locals => {:title => "A termékhez ajánljuk", :id => "related-products", :products => @product.product_relates }) if @product.product_relates.any? %>

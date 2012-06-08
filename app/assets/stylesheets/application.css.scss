@@ -296,7 +296,7 @@ b,strong{
 	float:left;
 	padding:20px 0 20px 10px;
 	font-size:16px;
-	color:$text-color;
+	color:white;
 	em{
 		font-style:italic;
 	}
@@ -839,7 +839,15 @@ label.error{
 		float:left;
 		padding:20px 30px;
 		&.last{
-			border-right:none;			
+			border-right:none;	
+			p{
+				line-height:2;
+				color:white;
+				a{
+					color:white !important;
+					text-decoration:none;
+				}
+			}		
 		}
 		h3{
 			@include font-gill;
@@ -847,11 +855,12 @@ label.error{
 			color:white;
 			font-size:18px;
 			text-transform:uppercase;
+			margin-bottom:20px;
 		}
 		ul{
 			display:block;
 			float:left;
-			margin:15px 15px 15px 0px;
+			margin:0px 15px 15px 0px;
 			li{
 				line-height:1.2;
 				a{

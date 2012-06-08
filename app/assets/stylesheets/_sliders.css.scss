@@ -15,6 +15,7 @@
 		display:inline-block;
 		zoom:1;
 		*display:inline;
+		text-align:center;
 	}
 	&.full{
 			img{
@@ -28,7 +29,7 @@
 			}
 			&.big{
 				img{
-					border:10px solid $border-blue;
+					
 					width:155px;
 					height:155px;
 				}
@@ -88,7 +89,7 @@
 		@include font-gill;
 	}
 	img{
-		border:5px solid $border-blue;
+		
 	}
 	&.half{
 		float:left;

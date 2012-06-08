@@ -2,14 +2,29 @@
 	<section id="slider">
 		<div class="slide" id="slide-1">
 
-			<a rel="group" href="/products/quicklook/1" id="slide-1-plus-1" class="plus fancybox ajax" href="">+</a>
-			<a rel="group" href="/products/quicklook/2" id="slide-1-plus-2" class="plus fancybox ajax" href="">+</a>	
-			<a rel="group" href="/products/quicklook/3" id="slide-1-plus-3" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/1" id="slide-1-plus-1" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/2" id="slide-1-plus-2" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group1" href="/products/quicklook/3" id="slide-1-plus-3" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/1" id="slide-1-plus-4" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/2" id="slide-1-plus-5" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group1" href="/products/quicklook/3" id="slide-1-plus-6" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/1" id="slide-1-plus-7" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/2" id="slide-1-plus-8" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group1" href="/products/quicklook/3" id="slide-1-plus-9" class="plus fancybox ajax" href="">+</a>
+			<a rel="group1" href="/products/quicklook/3" id="slide-1-plus-10" class="plus fancybox ajax" href="">+</a>
 		</div>
 		<div class="slide" id="slide-2">
-			<a rel="group" href="/products/quicklook/1" id="slide-1-plus-1" class="plus fancybox ajax" href="">+</a>
-			<a rel="group" href="/products/quicklook/2" id="slide-1-plus-2" class="plus fancybox ajax" href="">+</a>	
-			<a rel="group" href="/products/quicklook/3" id="slide-1-plus-3" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/1" id="slide-2-plus-1" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/2" id="slide-2-plus-2" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group2" href="/products/quicklook/3" id="slide-2-plus-3" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/1" id="slide-2-plus-4" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/2" id="slide-2-plus-5" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group2" href="/products/quicklook/3" id="slide-2-plus-6" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/1" id="slide-2-plus-7" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/2" id="slide-2-plus-8" class="plus fancybox ajax" href="">+</a>	
+			<a rel="group2" href="/products/quicklook/3" id="slide-2-plus-9" class="plus fancybox ajax" href="">+</a>
+			<a rel="group2" href="/products/quicklook/3" id="slide-2-plus-10" class="plus fancybox ajax" href="">+</a>
+			
 		</div>
 		<div class="slide video" id="slide-3">
 			<video id="example_video_1" class="video-js vjs-default-skin" controls width="940" height="415" poster="http://video-js.zencoder.com/oceans-clip.jpg" preload="auto" data-setup="{}">
@@ -19,23 +34,29 @@
 			</video>
 		</div>
 		<div class="slide" id="slide-4">
-			4
+			<div>
+				<%= image_tag 'slider_images/slider_ribbon.png' %>
+				<p><a href="http://g.co/maps/eubnb">1054 Budapest, Szabadság tér 14</a></p>
+				<p><em>Nyitvatartás</em></p>
+				<p>H-P : 10-20, Szo-V : 10-18 </p>
+				<h4>Várjuk szeretettel!</h4>
+			</div>
 		</div>
 		<div class="slide" id="slide-5">
-			5
+			<%= image_tag 'slider_images/lbc.png' %>
 		</div>
 		<div class="slide" id="slide-6">
-			6
+			<%= image_tag 'slider_images/lbc.png' %>
 		</div>
 	</section>
 </div>
 <div id="slider-thumbs">
 	<ul class="clearfix">
-		<li data-color="#aaa" id="slide-1-thumb" class="active"><a href="#slide-1"><%= image_tag "slider_images/uttermost_1_thumb.jpg", :title => "uttermost" %></a><div class="mask"><h5>Uttermost</h5></div></li>
-		<li data-color="#CD853F" id="slide-2-thumb"><a href="#slide-2"><%= image_tag "slider_images/uttermost_2_thumb.jpg", :title => "uttermost" %></a><div class="mask"><h5>Uttermost</h5></div></li>
+		<li data-color="#66364E" id="slide-1-thumb" class="active"><a href="#slide-1"><%= image_tag "slider_images/uttermost_1_thumb.jpg", :title => "uttermost" %></a><div class="mask"><h5>Uttermost</h5></div></li>
+		<li data-color="#363666" id="slide-2-thumb"><a href="#slide-2"><%= image_tag "slider_images/uttermost_2_thumb.jpg", :title => "uttermost" %></a><div class="mask"><h5>Uttermost</h5></div></li>
 		<li data-color="#3914AF" id="slide-3-thumb"><a href="#slide-3"><%= image_tag "uttermost.png", :title => "title", :class => "class" %></a><div class="mask"><h5>&#9654;</h5></div></li>
-		<li data-color="#00B25C" id="slide-4-thumb"><a href="#slide-4"><%= image_tag "matthew.png", :title => "title", :class => "class" %></a><div class="mask"><h5>Slide 5</h5></div></li>
-		<li data-color="#2A4480" id="slide-5-thumb"><a href="#slide-5"><%= image_tag "uttermost.png", :title => "title", :class => "class" %></a><div class="mask"><h5>Slide 5</h5></div></li>
-		<li data-color="#F06C98" id="slide-6-thumb"><a href="#slide-6"><%= image_tag "matthew.png", :title => "title", :class => "class" %></a><div class="mask"><h5>Slide 1</h5></div></li>
+		<li data-color="#365B66" id="slide-4-thumb"><a href="#slide-4"><%= image_tag "slider_images/open_thumb.jpg", :title => "megnyitottunk" %></a><div class="mask"><h5>Üzletünk</h5></div></li>
+		<li data-color="#664736" id="slide-5-thumb"><a href="#slide-5"><%= image_tag "slider_images/laz1_thumb.jpg", :title => "lazboy" %></a><div class="mask"><h5>Lazboy</h5></div></li>
+		<li data-color="#364A66" id="slide-6-thumb"><a href="#slide-6"><%= image_tag "slider_images/laz2_thumb.jpg", :title => "lazboy" %></a><div class="mask"><h5>Lazboy</h5></div></li>
 	</ul>
 </div>

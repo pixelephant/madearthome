@@ -11,8 +11,8 @@
 				<li>
 					<%= link_to product do %>
 						<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
-						<p class="name"><%= product.name %></p>
-						<p class="price"><span class="current-price"><%= product.price %> Ft</span> <span class="old-price">140 00 Ft</span></p>
+						<p class="name"><%= product.name.titleize %></p>
+						<%= render :partial => "products/price", :locals => {:product => product } %>
 					<% end %>
 				</li>
 			<% end %>
