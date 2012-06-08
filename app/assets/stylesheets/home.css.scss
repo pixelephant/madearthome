@@ -175,10 +175,16 @@
 
 #slide-5{
 	background:url(slider_images/laz1.jpg) no-repeat;
+	img{
+		position:absolute;
+	}
 }
 
 #slide-6{
 	background:url(slider_images/laz2.jpg) no-repeat;
+	img{
+		position:absolute;
+	}
 }
 
 #slide-1-thumb .mask{
