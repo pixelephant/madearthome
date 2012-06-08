@@ -1,7 +1,7 @@
 <p class="price">
 <% if product.price != productPrice(product.id)%>
-	<span class="current-price"><%= (productPrice(product.id)) %> Ft</span> <span class="old-price"><%= product.price %></span>
+	<span class="current-price"><%= number_to_currency(productPrice(product.id), :precision => 0) %> </span> <span class="old-price"><%= number_to_currency(product.price, :precision => 0) %></span>
 <% else %>
-	<span><%= (product.price) %> Ft</span>
+	<span><%= number_to_currency(product.price.to_i, :precision => 0) %> </span>
 <% end %>
 </p>

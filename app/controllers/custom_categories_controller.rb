@@ -13,22 +13,25 @@ class CustomCategoriesController < ApplicationController
   # GET /custom_categories/1
   # GET /custom_categories/1.json
   def show
-    @custom_category = CustomCategory.find(params[:id])
-		@category = @custom_category.category
+    # @custom_category = CustomCategory.find(params[:id])
+		# @category = @custom_category.category
+    @category = Category.find(params[:id])
+    @custom_category = Category.find(params[:id])
 
-    @title = " - " + @category.name + " - " + @custom_category.name
+    # @title = " - " + @category.name.capitalize + " - " + @custom_category.name.titleize
+    @title = @category.name.capitalize
 
-    @description = @custom_category.name.to_s
+    @description = @custom_category.name.to_s.capitalize
 
     @keywords = ""
 
-    if @custom_category.properties.any?
-      @custom_category.properties.each do |prop|
-        @keywords = @keywords + "," + prop.property_name
-      end
-    end
+    # if @custom_category.properties.any?
+    #   @custom_category.properties.each do |prop|
+    #     @keywords = @keywords + "," + prop.property_name
+    #   end
+    # end
 
-    @property_categories = PropertyCategory.find(:all, :joins => :property_categories_to_categories, :select => "property_categories.*", :conditions => ["property_categories_to_categories.category_id = #{@category.id}"], :group => "property_categories.id")
+    # @property_categories = PropertyCategory.find(:all, :joins => :property_categories_to_categories, :select => "property_categories.*", :conditions => ["property_categories_to_categories.category_id = #{@category.id}"], :group => "property_categories.id")
     @designers = Designer.find(:all, :joins => :products, :select => "designers.*", :conditions => ["designers.id = products.designer_id AND products.category_id = #{@category.id}"], :group => "designers.id")
 
 		if params[:sort] == 'by_name'
@@ -43,11 +46,14 @@ class CustomCategoriesController < ApplicationController
 
 		if params[:page] == 'all'
 			session[:view_all] = true
-			@products = @custom_category.products(sort)
-			@kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
+			# @products = @custom_category.products(sort)
+			# @kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
+      @products = @category.products
+      @kaminari_products = Kaminari.paginate_array(@category.products.order(sort)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
-			@products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
+		# @products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
+      @products = Kaminari.paginate_array(@category.products.order(sort)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 

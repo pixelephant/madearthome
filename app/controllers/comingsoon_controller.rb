@@ -1,5 +1,7 @@
 class ComingsoonController < ApplicationController
 
+  caches_page :index, :how, :sajtoanyagok
+
   layout "comingsoon"
 
   def index
@@ -8,5 +10,9 @@ class ComingsoonController < ApplicationController
 
   def how
 		render "how"
+  end
+
+  def sajtoanyagok
+		render "sajtoanyagok"
   end
 end

@@ -18,10 +18,10 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 		@category = @product.category
 
-    @size_weight = @product.properties.joins(:property_category).where(:property_categories => {:id => [24,25,26,27]})
-    @properties = @product.properties.joins(:property_category).where("property_categories.id NOT IN (24,25,26,27)")
+    @size_weight = @product.properties.joins(:property_category).where(:property_categories => {:id => [74,75,76,77]})
+    @properties = @product.properties.joins(:property_category).where("property_categories.id NOT IN (74,75,76,77)")
 
-    @title = @product.name.capitalize + " - " + @category.name
+    @title = @product.name.titleize + " - " + @category.name
     @description = truncate(@product.long_description, :length => 156).capitalize
     @keywords = @product.name + "," + @category.name
 
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
 		@category = @product.category
 
-    @size_weight = @product.properties.joins(:property_category).where(:property_categories => {:id => [24,25,26,27]})
+    @size_weight = @product.properties.joins(:property_category).where(:property_categories => {:id => [74,75,76,77]})
 		#session[:last_viewed_products] = []
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
