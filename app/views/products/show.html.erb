@@ -60,7 +60,7 @@
 				<div class="left">
 						<% @size_weight.each do |property| %>
 							<p>
-								<%= label(:property_category, :id, PropertyCategory.find(property.property_category.id).category_name.capitalize ) %>
+								<%= label(:property_category, :id, PropertyCategory.find(property.property_category_id).category_name.capitalize ) %>
 								<%= property.property_name.capitalize %>
 							</p>
 						<% end %>
