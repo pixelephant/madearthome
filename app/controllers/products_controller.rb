@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
 		#session[:last_viewed_products] = []
 		(session[:last_viewed_products] ||= []).delete(params[:id])
 		session[:last_viewed_products] << params[:id] if !session[:last_viewed_products].index(params[:id])
+    session[:last_viewed_products] = session[:last_viewed_products][(session[:last_viewed_products].length-6),6] if session[:last_viewed_products].length > 6
 		@designer = @product.designer
 		@brand = @product.brand
     respond_to do |format|
