@@ -184,12 +184,16 @@ PropertiesToCustomCategory,PropertiesToLineItem,Cart]
 	end
 
 	#Custom label methods
+	# def property_label_method
+	# 	if self.property_category.nil?
+	# 		self.property_name
+	# 	else
+	# 		self.property_category.category_name + ": " + self.property_name
+	# 	end
+	# end
+
 	def property_label_method
-		if self.property_category.nil?
-			self.property_name
-		else
-			self.property_category.category_name + ": " + self.property_name
-		end
+		self.property_name
 	end
 
 	def property_category_label_method
