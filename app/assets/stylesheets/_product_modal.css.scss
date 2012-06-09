@@ -24,6 +24,7 @@
 	div.right{
 		width:460px;
 		padding:10px;
+		min-height:280px;
 	}
 	.short-description{
 		margin:10px 0;
@@ -40,15 +41,18 @@
 		margin:10px;
 		position:relative;
 		z-index:1010;
+		position:absolute;
+		bottom:0;
+		right:0;
 	}
 	.price{
 		margin:10px 0;
 		@include font-gill;
 		font-weight:bold;
 		text-decoration:none;
-		color:$text-color;
+		color:#3c3c3c;
 		.current-price{
-			color:orange;
+			color:$brand-orange;
 		}
 		.old-price{
 			font-weight:normal;
