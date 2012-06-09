@@ -2,7 +2,7 @@
 	<p><span>10 év garancia ülőgarnitúráinkra</span> &amp; <span>30 nap visszavételi garancia</span> &amp; <span>Ingyenes lakberendezési tanácsadás</span></p>
 </div>
 
-<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legújabb termékeink", :id => "newest-products", :products => Product.order(:updated_at).limit(10) } %>
+<%= render :partial => "home/product_slider_full_big", :locals => {:title => "Legnépszerűbb termékeink", :id => "newest-products", :products => Product.where(:sku => ['26685', '23051', '09510', '23025', '14522 B', '24182', '24146', '19632', '26987', '32201', '20482', '50422', '08068']).order(:updated_at).limit(13) } %>
 
 <section id="promo-boxes">
 	<div class="box promo" id="lamps-promo">
