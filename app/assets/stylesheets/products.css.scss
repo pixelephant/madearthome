@@ -160,6 +160,7 @@
 			float:left;
 			width:135px;
 			margin-right:20px;
+			@include small-caps;
 		}
 		input[type="number"]{
 			width:35px;
@@ -192,11 +193,11 @@
 
 #specifications{
 	.ribbon{
-		background:url(ribbon-spec.png) no-repeat;
+		//background:url(ribbon-spec.png) no-repeat;
 	}
 	p{
 		display:block;
-		span{
+		label{
 			@include small-caps;
 			font-size:17px;
 		}
@@ -205,13 +206,13 @@
 
 #expert-advice{
 	.ribbon{
-		background:url(ribbon-advice.png) no-repeat;
+		//background:url(ribbon-advice.png) no-repeat;
 	}
 }
 
 #try-it{
 	.ribbon{
-		background:url(ribbon-loc.png) no-repeat;
+		//background:url(ribbon-loc.png) no-repeat;
 	}
 	.address{
 		margin-top:10px;
