@@ -3,14 +3,14 @@
 		<% unless @product.blank? %>
 			<div class="left">
 				<% photo = @product.photos.second || @product.default_photo %>
-				<%= image_tag photo.image_file.medium, :title => photo.alt, :class => "img" %>
+				<%= image_tag photo.image_file.medium, :title => photo.alt, :class => "img" unless photo.nil? %>
 			</div>
 			<div class="right">
 				<div id="product-title">
 					<h2><%= @product.name.titleize %>
 						<span class="sku">Cikkszám: <%= @product.sku %></span>
 					</h2>
-					<%= image_tag "lz.png", :title => "title", :class => "class" %>
+					<%= image_tag @product.brand.image_file, :title => @product.brand.name, :class => "class" %>
 				</div>
 				<div id="info-box">
 					<div class="third" id="price">
@@ -25,13 +25,13 @@
 						<p><span><%= t('manufacturer') %>: </span><%= @product.manufacturer.name %></p>
 					<% end %>
 					<% @size_weight.each do |property| %>
-						<p><span><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
+						<p><span><%= property.property_category.category_name.to_s %>: </span><%= property.property_name %></p>
 					<% end %>
 
 				</div>
 				<div id="short-description-box">
 					<p>
-						<%= lead(@product.short_description) %>
+						<%= lead(@product.long_description).html_safe %>
 					</p>
 				</div>
 				<a class="button" href="<%= product_path(@product) %>"><%= t('show') %></a>
