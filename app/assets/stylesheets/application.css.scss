@@ -699,6 +699,9 @@ b,strong{
 		float:left;
 		margin-right:10px;
 		padding:20px;
+		&.last{
+			margin-right:0px;
+		}
 	}
 
 	ul li{
