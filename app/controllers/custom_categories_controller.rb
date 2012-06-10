@@ -20,6 +20,7 @@ class CustomCategoriesController < ApplicationController
 
     # @title = " - " + @category.name.capitalize + " - " + @custom_category.name.titleize
     @title = @category.name.capitalize
+    @property_categories = PropertyCategory.all
 
     @description = @custom_category.name.to_s.capitalize
 
