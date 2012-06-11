@@ -7,11 +7,11 @@
 		}
 	}
 	width:760px;
-	min-height:300px;
+	min-height:400px;
 	margin:0 auto;
 	position:relative;
 	.img{
-		width:250px;
+		max-width:250px;
 		}
 	div.left,div.right{
 		float:left;
@@ -19,6 +19,7 @@
 	div.left{
 		width:260px;
 		padding:10px;
+		text-align:center;
 	}
 	div.right{
 		width:460px;
