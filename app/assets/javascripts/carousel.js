@@ -5,7 +5,7 @@ $(document).ready(function(){
 		var itemWidth = $this.find("li").eq(0).outerWidth();
 		var $slider = $this.find(".slider-inner");
 		$slider.animate({
-			"scrollLeft" : $slider.scrollLeft() - itemWidth*3
+			"scrollLeft" : $slider.scrollLeft() - itemWidth*4
 		},300,"easeOutQuad");
 		return false;
 	});
@@ -15,8 +15,8 @@ $(document).ready(function(){
 		var itemWidth = $this.find("li").eq(0).outerWidth();
 		var $slider = $this.find(".slider-inner");
 		$slider.animate({
-			"scrollLeft" : $slider.scrollLeft() + itemWidth*3
-			},300,"easeInOutQuad");
+			"scrollLeft" : $slider.scrollLeft() + itemWidth*4
+			},300,"easeOutQuad");
 		return false;
 	});
 

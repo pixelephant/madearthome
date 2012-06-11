@@ -5,6 +5,12 @@
 
 $(window).load(function(){
 	
+	$("#add-to-whishlist").click(function(){
+		//ajax call
+		$(this).addClass("added").find("span").html("Kívánságlistán");
+		return false;
+	});
+
 	$(".fancybox").fancybox({
 			openEffect	: 'elastic',
 			closeEffect	: 'elastic',
