@@ -50,7 +50,9 @@ Madearthome::Application.routes.draw do
 
 		#resources :links_products
 
-		resources :about
+		match 'rolunk' => "about#index"
+
+		#resources :about
 
 		resources :products_stores
 
