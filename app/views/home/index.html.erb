@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="box promo" id="random-item">
-		<div class="ribbon"><span class="ribbon-start"></span><p>@randomProduct.name</p><span class="ribbon-end"></span></div>
+		<div class="ribbon"><span class="ribbon-start"></span><p><%= @randomProduct.name %></p><span class="ribbon-end"></span></div>
 		<%= link_to (image_tag @randomProduct.photos.first.image_file, :title => @randomProduct.name, :width => 200, :height => 300) , @randomProduct %>
 	</div>
 
