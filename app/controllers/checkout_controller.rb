@@ -33,6 +33,22 @@ class CheckoutController < ApplicationController
   end
 
   def thankyou
+    if current_user
+      #@user = current_user
+      @user = User.first
+      @order = @user.orders.last
+      @arrival = "2012-07-01"
+      @items = @order.order_items
+      @cart = 123
+    else
+      @user = User.new
+      @user = User.first
+      @order = @user.orders.last
+      @arrival = "2012-07-01"
+      @items = @order.order_items
+      @cart = 123
+    end
+
     render 'thankyou'
   end
 
