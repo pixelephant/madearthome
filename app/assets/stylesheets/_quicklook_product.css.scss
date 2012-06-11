@@ -130,10 +130,12 @@
 	}
 	td{
 		height:185px;
+		width:175px;
 		vertical-align:middle;
 	}
 	img{
-		height:175px;
+		max-height:175px;
+		max-width:175px;
 		@include transition-03s;
 		z-index:1;
 	}
