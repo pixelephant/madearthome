@@ -426,13 +426,13 @@ b,strong{
 	@include border-radius(3px,3px,3px,3px);
 	padding:10px;
 	border:1px solid #c2c2c2;
-	width:280px;
+	width:240px;
 	height:45px;
 	//line-height:30px;
 	input[type="search"]{
 		@include text-input;
 		height:28px;
-		width:185px;
+		width:145px;
 		float:left;
 		font-size:16px;
 	}
