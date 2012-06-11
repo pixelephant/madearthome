@@ -181,39 +181,77 @@ $text-color:#575756;
 	@include background-gradient(#fefefe,#ececec);
 }
 
+
 @mixin cart-button{
-	background:url(cart-button-orange.png) no-repeat 5px center	#efc048; /* Old browsers */
-	background: url(cart-button-orange.png) no-repeat 5px center, -moz-linear-gradient(top,  #efc048 0%, #e95321 10%, #ef7a48 90%, #efbf48 100%); /* FF3.6+ */
-	background: url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efc048), color-stop(10%,#e95321), color-stop(90%,#ef7a48), color-stop(100%,#efbf48)); /* Chrome,Safari4+ */
-	background: url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top,  #efc048 0%,#e95321 10%,#ef7a48 90%,#efbf48 100%); /* Chrome10+,Safari5.1+ */
-	background: url(cart-button-orange.png) no-repeat 5px center, -o-linear-gradient(top,  #efc048 0%,#e95321 10%,#ef7a48 90%,#efbf48 100%); /* Opera 11.10+ */
-	background: url(cart-button-orange.png) no-repeat 5px center, -ms-linear-gradient(top,  #efc048 0%,#e95321 10%,#ef7a48 90%,#efbf48 100%); /* IE10+ */
-	background: url(cart-button-orange.png) no-repeat 5px center, linear-gradient(top,  #efc048 0%,#e95321 10%,#ef7a48 90%,#efbf48 100%); /* W3C */
-	border:1px solid #E95321;
+	background:url(cart-button-orange.png) no-repeat 5px center #ef7a48;
+	background:url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, from(#ef7a48), to(#e95422)); /* Saf4+, Chrome */
+	background:url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top, #ef7a48, #e95422); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background:url(cart-button-orange.png) no-repeat 5px center,    -moz-linear-gradient(top, #ef7a48, #e95422); /* FF3.6+ */
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ef7a48, endColorStr=#e95422);
+	background:url(cart-button-orange.png) no-repeat 5px center,     -ms-linear-gradient(top, #ef7a48, #e95422); /* IE10 */
+	background:url(cart-button-orange.png) no-repeat 5px center,      -o-linear-gradient(top, #ef7a48, #e95422); /* Opera 11.10+ */
+	background:url(cart-button-orange.png) no-repeat 5px center,         linear-gradient(to bottom, #ef7a48, #e95422);
 	color:white;
-	@include font-gill;
-	cursor:pointer;
-	@include transition-03s;
-	@include border-radius(3px,3px,3px,3px);
-	text-decoration:none;
-	text-transform:uppercase;
+	@include button;
+	border: 1px solid #e95422;
+	-moz-box-shadow:
+		2px 2px 2px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		2px 2px 2px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,0.7);
+	box-shadow:
+		2px 2px 2px rgba(000,000,000,0.1),
+		inset 0px 0px 3px rgba(255,255,255,0.7);	
+	text-shadow:
+		-1px -1px 0px rgba(071,031,000,0.3),
+		1px 1px 0px rgba(255,255,255,0.4);
+
 	&:hover,&:focus{
-		background:url(cart-button-orange.png) no-repeat 5px center #efbd49; /* Old browsers */
-		background:url(cart-button-orange.png) no-repeat 5px center, -moz-linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* FF3.6+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efbd49), color-stop(90%,#e85322), color-stop(100%,#efbd49)); /* Chrome,Safari4+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* Chrome10+,Safari5.1+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -o-linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* Opera 11.10+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -ms-linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* IE10+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, linear-gradient(top,  #efbd49 0%, #e85322 90%, #efbd49 100%); /* W3C */
+		background:url(cart-button-orange.png) no-repeat 5px center #f49d47;
+		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, from(#f49d47), to(#ef7a48)); /* Saf4+, Chrome */
+		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top, #f49d47, #ef7a48); /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background:url(cart-button-orange.png) no-repeat 5px center,    -moz-linear-gradient(top, #f49d47, #ef7a48); /* FF3.6+ */
+		filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#f49d47, endColorStr=#ef7a48);
+		background:url(cart-button-orange.png) no-repeat 5px center,     -ms-linear-gradient(top, #f49d47, #ef7a48); /* IE10 */
+		background:url(cart-button-orange.png) no-repeat 5px center,      -o-linear-gradient(top, #f49d47, #ef7a48); /* Opera 11.10+ */
+		background:url(cart-button-orange.png) no-repeat 5px center,         linear-gradient(to bottom, #f49d47, #ef7a48);
+		border: 1px solid #e95422;
+		-moz-box-shadow:
+			2px 2px 2px rgba(000,000,000,0.1),
+			inset 0px 0px 3px rgba(255,255,255,0.7);
+		-webkit-box-shadow:
+			2px 2px 2px rgba(000,000,000,0.1),
+			inset 0px 0px 3px rgba(255,255,255,0.7);
+		box-shadow:
+			2px 2px 2px rgba(000,000,000,0.1),
+			inset 0px 0px 3px rgba(255,255,255,0.7);
+		text-shadow:
+			-1px -1px 0px rgba(079,032,006,0.3),
+			1px 1px 0px rgba(255,255,255,0.4);
 	}
 	&:active{
-		background:url(cart-button-orange.png) no-repeat 5px center #efbd49; /* Old browsers */
-		background:url(cart-button-orange.png) no-repeat 5px center, -moz-linear-gradient(top,  #efbd49 0%, #e85322 10%, #efbd49 100%); /* FF3.6+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efbd49), color-stop(10%,#e85322), color-stop(100%,#efbd49)); /* Chrome,Safari4+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top,  #efbd49 0%, #e85322 10%, #efbd49 100%); /* Chrome10+,Safari5.1+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -o-linear-gradient(top,  #efbd49 0%, #e85322 10%, #efbd49 100%); /* Opera 11.10+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, -ms-linear-gradient(top,  #efbd49 0%, #e85322 10%, #efbd49 100%); /* IE10+ */
-		background:url(cart-button-orange.png) no-repeat 5px center, linear-gradient(top,  #efbd49 0%, #e85322 10%, #efbd49 100%); /* W3C */
+		background:url(cart-button-orange.png) no-repeat 5px center #ef7a48;
+		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-gradient(linear, left top, left bottom, from(#ef7a48), to(#f49d47)); /* Saf4+, Chrome */
+		background:url(cart-button-orange.png) no-repeat 5px center, -webkit-linear-gradient(top, #ef7a48, #f49d47); /* Chrome 10+, Saf5.1+, iOS 5+ */
+		background:url(cart-button-orange.png) no-repeat 5px center,    -moz-linear-gradient(top, #ef7a48, #f49d47); /* FF3.6+ */
+		filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#ef7a48, endColorStr=#f49d47);
+		background:url(cart-button-orange.png) no-repeat 5px center,     -ms-linear-gradient(top, #ef7a48, #f49d47); /* IE10 */
+		background:url(cart-button-orange.png) no-repeat 5px center,      -o-linear-gradient(top, #ef7a48, #f49d47); /* Opera 11.10+ */
+		background:url(cart-button-orange.png) no-repeat 5px center,         linear-gradient(to bottom, #ef7a48, #f49d47);
+		border: 1px solid #e95422;
+		-moz-box-shadow:
+			2px 2px 2px rgba(000,000,000,0),
+			inset 0px 0px 5px rgba(143,086,026,0.3);
+		-webkit-box-shadow:
+			2px 2px 2px rgba(000,000,000,0),
+			inset 0px 0px 5px rgba(143,086,026,0.3);
+		box-shadow:
+			2px 2px 2px rgba(000,000,000,0),
+			inset 0px 0px 5px rgba(143,086,026,0.3);
+		text-shadow:
+			-1px -1px 0px rgba(069,040,010,0.3),
+			1px 1px 0px rgba(255,255,255,0.4);
 	}
 }
 
