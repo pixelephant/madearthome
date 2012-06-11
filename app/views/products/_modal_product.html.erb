@@ -10,7 +10,7 @@
 					<h2><%= @product.name.titleize %>
 						<span class="sku">Cikkszám: <%= @product.sku %></span>
 					</h2>
-					<%= image_tag @product.brand.image_file, :title => @product.brand.name, :class => "class" %>
+					<%= image_tag @product.brand.small_image_file, :title => @product.brand.name, :class => "class" %>
 				</div>
 				<div id="info-box">
 					<div class="third" id="price">
