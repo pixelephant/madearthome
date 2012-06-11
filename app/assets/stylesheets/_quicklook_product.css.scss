@@ -128,8 +128,12 @@
 		border-bottom:1px solid $border-gray;
 		text-align:center;
 	}
+	td{
+		height:185px;
+		vertical-align:middle;
+	}
 	img{
-		width:175px;
+		height:175px;
 		@include transition-03s;
 		z-index:1;
 	}

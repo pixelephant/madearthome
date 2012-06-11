@@ -5,7 +5,13 @@
 		<a rel="group" class="fancybox ajax" href="/products/quicklook/<%= product.id %>"><span class="quicklook"></span></a>
 		<%= link_to product_path(product) do %>
 		<div class="image">
-				<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
+			<table>
+				<tr>
+					<td>
+						<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>	
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div class="clearfix">
 			<div class="left">

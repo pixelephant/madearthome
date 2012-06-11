@@ -10,7 +10,13 @@
 			<% products.each do |product| %>
 				<li>
 					<%= link_to product do %>
-						<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>
+						<table>
+							<tr>
+								<td>
+									<%= image_tag product.default_photo.image_file.medium, :title => product.default_photo.alt, :class => "class" if !product.default_photo.nil? %>	
+								</td>
+							</tr>
+						</table>
 						<p class="name"><%= product.name.titleize %></p>
 						<%= render :partial => "products/price", :locals => {:product => product } %>
 					<% end %>
