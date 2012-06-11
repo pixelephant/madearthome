@@ -41,6 +41,8 @@ Madearthome::Application.routes.draw do
 	# Nyelv eleje
 	# scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
 
+		match 'category' => "categories#index"
+
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
 
