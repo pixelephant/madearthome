@@ -18,7 +18,7 @@ $(window).load(function(){
 
 	if (!Modernizr.touch){
 		$("#current-picture").css("paddingLeft", (440 - ($("#current-picture img")[0].width))/2);
-	
+		$("#current-picture").css("paddingTop", (300 - ($("#current-picture img")[0].height))/2);
 	   	$('.zoomable').jqzoom({
 			title: false,
 			zoomType: 'reverse',
