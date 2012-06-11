@@ -17,6 +17,7 @@ class Category < ActiveRecord::Base
 	has_many :properties, :through => :properties_to_category
 
 	has_many :custom_categories
+	has_and_belongs_to_many :custom_category_groups
 
 	belongs_to :discount
 
