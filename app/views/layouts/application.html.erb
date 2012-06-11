@@ -44,10 +44,14 @@
 			<%= render 'home/minicart' %>
 		</div>
 		<div id="search-wrapper">
-			<%= form_tag "/" + I18n.locale.to_s + "/search", :id => 'search-form', :method => :get do %>
-		    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('search') + '...' %>
-    		<%= submit_tag t('search'), :name => nil %>
-    		<p id="search-examples"><strong>Pl.:</strong> <a href="/search?utf8=✓&search=kör+alakú+tükör">kör alakú tükör</a>, <a href="/search?utf8=✓&search=dohányzó+asztal"> dohányzó asztal</a></p>
+			<%= form_tag "/kereses", :id => 'search-form', :method => :get do %>
+			    <%= text_field_tag :search, params[:search], :type => 'search', :placeholder => t('search') + '...' %>
+	    		<%= submit_tag t('search'), :name => nil %>
+				<p id="search-examples"><strong>Pl.:</strong> 
+	    		<% SEARCH_TERMS.sample(2).each do |term| %>
+	    			<a href="/kereses?utf8=✓&search=<%= u term %>"> <%= term.to_s %></a>
+	    		<% end %>
+		    	</p>
 			<% end %>
 		</div>
 		<nav id="main-nav">

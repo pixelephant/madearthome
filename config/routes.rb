@@ -44,7 +44,7 @@ Madearthome::Application.routes.draw do
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
 
-		match 'search' => 'search#index'
+		match 'kereses' => 'search#index'
 
 		get 'products/quicklook/:id' => "products#quicklook"
 
