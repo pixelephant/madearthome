@@ -8,11 +8,27 @@
 	border:5px solid $border-blue;
 }
 
+.about-box ul li{
+	margin-bottom:15px;
+	strong{
+		color:$brand-orange;
+	}
+}
+
 .third{
 	position:relative;
 	img{
 		margin: 0 auto 10px auto;
 		width:220px;		
 		display:block;
+	}
+}
+
+#category-nav{
+	li{
+		list-style:none;
+	}	
+	.box{
+		height:495px;
 	}
 }
