@@ -1,0 +1,44 @@
+@import '_mixins.css.scss';
+
+#buyback_ad{
+	height:300px;
+	position:relative;
+	background:url(boxes/visszavasarlas.png) no-repeat center 65px;
+	background-color:$brand-darkblue;
+	h3{
+		position:absolute;
+		bottom:0;
+		color:white;
+		text-align:center;
+		width:260px;
+		line-height:1.5;
+	}
+}
+
+#store_ad{
+	height:300px;
+	a{
+		text-decoration:none;
+	}
+	img{
+		border:5px solid $border-blue;
+	}
+	p{
+		margin-top:25px;
+		text-align:center;
+	}
+}
+
+#specifications{
+	height:300px;
+	.ribbon{
+		//background:url(ribbon-spec.png) no-repeat;
+	}
+	p{
+		display:block;
+		label{
+			@include small-caps;
+			font-size:17px;
+		}
+	}
+}
