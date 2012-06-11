@@ -37,24 +37,22 @@
 				<%= image_tag(@product.brand.small_image_file.to_s) unless @product.brand.blank? %>
 			</div>
 			<div id="info-box">
-				<div class="third" id="price">
+				<div id="price">
 					<p><%= t('.list_price') %>: <span> <%= number_to_currency(@product.price, :precision => 0) %></span></p>
 					<% if @product.price != productPrice(@product) %>
 						<p class="list-price"><%= t('.list_price') %>: <span> <%= number_to_currency(@product.price, :precision => 0) %></span></p>
 						<p class="discount-price"><%= t('.sale_price') %>: <span> <%= number_to_currency(productPrice(@product), :precision => 0) %></span></p>
 					<% end %>
 				</div>
-				<div class="third">
+				<!--<div class="third">
 
 				</div>
 				<div class="third last">
 
-				</div>
+				</div>-->
 			</div>
 			<div id="properties-box">
 			<!-- FormFor -->
-			<%= form_for LineItem.new, :url => line_items_path(:product_id => @product.id) do |f| %>
-				<div class="left">
 						<% @size_weight.each do |property| %>
 							<p>
 								<%= label(:property_category, :id, PropertyCategory.find(property.property_category_id).category_name.capitalize ) %>
@@ -62,33 +60,40 @@
 							</p>
 						<% end %>
 
-						<p><label for="">Mennyiség</label><input type="number" name="quantity" min="1" max="5" id="quantity" value='1' /></p>
 						<p><label for="">Szállítási idő</label> 12 nap</p>
-						<p class="links">
-							<a href="#">szállítás</a>
-							<a href="#">fizetés</a>
-							<a href="#">garancia</a>
-						</p>
-					</div>
-					<div class="right">
-							<%= f.submit t('.add_to_cart'), :disable_with => "Folyamatban..." %>
-					</div>
-			<% end %>
 			</div>
-			<div id="short-description-box">
-				<p>
-					<%= lead(@product.long_description).html_safe %>
-				</p>
+			<div id="buy-box">
+				<%= form_for LineItem.new, :url => line_items_path(:product_id => @product.id) do |f| %>
+				<p><label for="">Mennyiség</label><input type="number" name="quantity" min="1" max="5" id="quantity" value='1' /></p>
+				<%= f.submit t('.add_to_cart'), :disable_with => "Folyamatban...", :id => 'add-to-cart' %>
+				<% end %>
+				<p class="links">
+					<a href="#">Szállítás információk</a>
+					<a href="#">Fizetési lehetőségek</a>
+					<a href="#">Garancia</a>
+				</p>	
 			</div>
 		</div>
 	</div>
 </section>
 
+<div id="specifications" class="box full">
+	<h3><%= t('.specifications') %></h3>
+	<p id="short-description">
+		<%= lead(@product.long_description).html_safe %>
+	</p>
+	<% if !@designer.nil? %>
+			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
+		<% end %>
+
+		<%= render :partial => ('products/properties') %>
+</div>
+
 <% box = 0 %>
 <div class="box-wrap clearfix">
-	<section class="box third has-ribbon" id="specifications">
+	<!--<section class="box third has-ribbon" id="specifications">
 		<div class="ribbon"></div>
-		<h3><%= t('.specifications') %></h3>
+		
 		
 		<% if !@designer.nil? %>
 			<p><span><%= t('designer') %>: </span><%= @designer.name %></p>
@@ -96,7 +101,7 @@
 
 		<%= render :partial => ('products/properties') %>
 		<% box += 1 %>
-	</section>
+	</section>-->
 
 	<% if !@product.advice.nil? %>
 		<section class="box third has-ribbon<%= box_class(box % 3) %>" id="expert-advice">
@@ -140,9 +145,11 @@
 		<% end %>
 	<% end %>
 
-	<% while (box % 3) > 0 do %>
-	<%= render :partial => ('home/product_ad_' + (box % 3).to_s), :locals => {:cl => (box % 3)} %>
-	<% box += 1 %>
+	<% #while (box % 3) > 0 do %>
+	<%  (1..7).each do |i|  %>
+	
+	<%= render :partial => ('home/product_ad_' + i.to_s), :locals => {:cl => (i % 3)} %>
+	
 	<% end %>
 
 </div>
