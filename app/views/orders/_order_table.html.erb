@@ -1,19 +1,19 @@
 <table class="order-table" width=100%>
 		<thead>
 			<tr>
-				<th colspan="2">e-Receipt</th>
+				<th colspan="2">Összesítő</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
 				<!-- Ennek változnia kell ha pickup-ol és nem kiszállítatt -->
-				<td colspan="2">We have sent you a copy of this to: <span class="email">example@example.com</span>. We'll keep you updated on the shipping via this email.</td>
+				<td colspan="2">Az összesítő egy példányát elküldtük az e-mail címére: <span class="email"><%= @user.email %></span>. A szállítással kapcsolatos tudnivalókról e-mailben értesítjük.</td>
 			</tr>
 		</tfoot>
 		<tbody>
 			<tr class="info">
-				<td>Order id</td>
-				<td class="right">asd-123a</td>
+				<td>Rendelés sorszáma</td>
+				<td class="right">FLRSPRNG-2012-<%= @order.id %></td>
 			</tr>
 			<tr class="info">
 				<td>Tracking code</td>
@@ -25,16 +25,14 @@
 			</tr>
 			<tr class="info last">
 				<td>Estimated arrival</td>
-				<td class="right">2012 March 12 </td>
+				<td class="right"><%= @arrival %></td>
 			</tr>
+			<% @items.each do |item| %>
 			<tr>
-				<td>1db uttermost chair (sku), piros, nagy </td>
-				<td class="right">12 000 Ft</td>
+				<td>1db <%= item.product.name %></td>
+				<td class="right"><%= number_to_currency(productPrice(item.product.id), :precision => 0) %></td>
 			</tr>
-			<tr>
-				<td>2db surya kárpit (sku), ződ </td>
-				<td class="right">26 500 Ft</td>
-			</tr>
+			<% end %>
 			<tr>
 				<td>
 					Ajándék csomagolás
@@ -51,7 +49,7 @@
 			</tr>
 			<tr>
 				<td><strong>Total</strong></td>
-				<td class="right"><strong>123 000 Ft</strong></td>
+				<td class="right"><strong><%= number_to_currency(@cart, :precision => 0) %></strong></td>
 			</tr>
 		</tbody>
 	</table>
