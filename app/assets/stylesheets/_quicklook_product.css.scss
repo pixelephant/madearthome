@@ -128,6 +128,10 @@
 		border-bottom:1px solid $border-gray;
 		text-align:center;
 	}
+	td{
+		height:185px;
+		vertical-align:middle;
+	}
 	img{
 		height:175px;
 		@include transition-03s;

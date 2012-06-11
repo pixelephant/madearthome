@@ -28,10 +28,12 @@
 				overflow:hidden;
 			}
 			&.big{
+				td{
+					vertical-align:middle;
+					height:175px;
+				}
 				img{
-					
-					width:155px;
-					height:155px;
+					width:175px;
 				}
 				li{
 					width:175px;
