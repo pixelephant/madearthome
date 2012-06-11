@@ -1,11 +1,21 @@
 //= require zoom
 //= require jquery.easing
 //= require carousel
-//= require mousewheel
-//= require modal
+//= require jquery.fancybox
 
 $(window).load(function(){
 	
+	$(".fancybox").fancybox({
+			openEffect	: 'elastic',
+			closeEffect	: 'elastic',
+			autoSize: true,
+			arrows: true,
+			openEffect: 'elastic',
+			closeEffect: 'elastic',
+			nextEffect: 'none',
+			prevEffect: 'none'			
+		});
+
 	if (!Modernizr.touch){
 		$("#current-picture").css("paddingLeft", (440 - ($("#current-picture img")[0].width))/2);
 	
@@ -15,7 +25,7 @@ $(window).load(function(){
 			zoomWidth: 478,  
 			zoomHeight:300, 
 	        yOffset:38,
-			preloadText: '',
+			preloadText: ''
 		});
 	}
 	else{
@@ -35,5 +45,4 @@ $(window).load(function(){
 			return false;
 		});
 	}
-	
 });

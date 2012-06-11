@@ -39,12 +39,10 @@ $(document).ready(function(){
 			type : 'ajax',
 			openEffect	: 'elastic',
 			closeEffect	: 'elastic',
-			autoSize: true,
+			width:"980px",
 			arrows: true,
 			openEffect: 'elastic',
 			closeEffect: 'elastic',
-			nextEffect: 'none',
-			prevEffect: 'none'			
 		});
 	
 	var myPlayer = _V_("example_video_1");
