@@ -13,6 +13,7 @@ class CustomCategoriesController < ApplicationController
   # GET /custom_categories/1
   # GET /custom_categories/1.json
   def show
+
     # @custom_category = CustomCategory.find(params[:id])
 		# @category = @custom_category.category
     @category = Category.find(params[:id])
@@ -38,11 +39,13 @@ class CustomCategoriesController < ApplicationController
     where = []
     designer = []
 
-    params[:designer].each do |d|
-      designer << d
+    unless params[:designer].blank?
+      params[:designer].each do |d|
+        designer << d
+      end
     end
 
-    where << ("designer_id IN (" + designer.join(",") + ")")
+    where << ("designer_id IN (" + designer.join(",") + ")") unless designer.blank?
 
     params.each do |key, val|
       unless key.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil

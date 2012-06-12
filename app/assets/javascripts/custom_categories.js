@@ -16,8 +16,8 @@ $("document").ready(function(){
 		var $this = $(this);
 		$this.slider({
 			skin: "blue",
-			from: parseFloat($this.val().split(";")[0]),
-			to: parseFloat($this.val().split(";")[1]),
+			from: $this.data("from"),
+			to: $this.data("to"),
 			step: 0.1,
 			dimension: '&nbsp;' + $this.data("unit")
 			});	
