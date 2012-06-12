@@ -1,3 +1,5 @@
+@import '_mixins.css.scss';
+
 form{
 	input[type="text"],input[type="email"],input[type="password"],input[type="tel"]{
 		border:1px solid $border-gray;
@@ -69,5 +71,6 @@ input.error,.error-box{
 }
 
 label.error{
-	font-size:12px;
+	font-size:13px;
+	@include font-gill;
 }
