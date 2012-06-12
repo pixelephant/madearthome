@@ -24,12 +24,17 @@
 	<% if property_category.properties.any? %>
 		<%= field_set_tag property_category.category_name.to_s do %>
 			<% unless property_category.properties.first.numeric.nil? || property_category.properties.last.numeric.nil? %>
-			<% h = property_category.properties.order("properties.numeric").last.property_name %>
-			<% l = property_category.properties.order("properties.numeric").first.property_name %>
+			
+			<%= from = l = property_category.properties.order("properties.numeric").last.property_name %>
+			<%= to = h = property_category.properties.order("properties.numeric").first.property_name %>
+
+			<% v = params[property_category.id.to_s].split(";") %>
+			
+
 			<% unit = property_category.category_name.scan(/\(?\w+\)/)[-1].gsub(")","").gsub("(","") %>
 <!-- Csúszka helye -->
 			<!-- mértékegységek nem lehetnek törtek, a low és a high value nem jó mindenhol -->
-			<input id="<%= property_category.id.to_s.parameterize %>" type="slider" data-unit="<%= unit %>" name="<%= property_category.id.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
+			<input id="<%= property_category.id.to_s.parameterize %>" type="slider" data-unit="<%= unit %>" data-from="<%= from.to_f.ceil %>" data-to="<%= to.to_f.ceil %>" name="<%= property_category.id.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
 <!-- Csúszka helye  -->
 			<% else %>
 				<% property_category.properties.each do |property| %>
