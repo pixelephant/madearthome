@@ -20,7 +20,7 @@ class CustomCategoriesController < ApplicationController
 
     # @title = " - " + @category.name.capitalize + " - " + @custom_category.name.titleize
     @title = @category.name.capitalize
-    @property_categories = PropertyCategory.all
+    @property_categories = PropertyCategory.where("id NOT IN (78,73)")
 
     @description = @custom_category.name.to_s.capitalize
 
@@ -35,26 +35,53 @@ class CustomCategoriesController < ApplicationController
     # @property_categories = PropertyCategory.find(:all, :joins => :property_categories_to_categories, :select => "property_categories.*", :conditions => ["property_categories_to_categories.category_id = #{@category.id}"], :group => "property_categories.id")
     @designers = Designer.find(:all, :joins => :products, :select => "designers.*", :conditions => ["designers.id = products.designer_id AND products.category_id = #{@category.id}"], :group => "designers.id")
 
+    where = []
+    designer = []
+
+    params[:designer].each do |d|
+      designer << d
+    end
+
+    where << ("designer_id IN (" + designer.join(",") + ")")
+
+    params.each do |key, val|
+      unless key.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil
+        if val.split(";").count == 2
+          a = val.split(";")
+          # where << "(SELECT count(products.id) FROM properties INNER JOIN products_properties ON properties.id = products_properties.property_id INNER JOIN products ON products.id = products_properties.product_id WHERE (properties.property_category_id = #{key}) AND (properties.numeric BETWEEN #{a[0]} AND #{a[1]})) > 1"
+        else
+          v = []
+          params[key].each do |p|
+            v << p.to_s
+          end
+          i = v.join(",")
+          where << "((properties.property_category_id = #{key}) AND (properties.id IN (#{i})))"
+        end
+      end
+    end
+
 		if params[:sort] == 'by_name'
-			sort = 'name'
+			sort = 'products.name'
 		elsif params[:sort] == 'by_lowest_price'
-			sort = 'price ASC'
+			sort = 'products.price ASC'
 		elsif params[:sort] == 'by_highest_price'
-			sort = 'price DESC'
+			sort = 'products.price DESC'
 		else
-			sort = 'updated_at'
+			sort = 'products.updated_at'
 		end
+
+    condit = where.join(" AND ")
 
 		if params[:page] == 'all'
 			session[:view_all] = true
 			# @products = @custom_category.products(sort)
 			# @kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
-      @products = @category.products
-      @kaminari_products = Kaminari.paginate_array(@category.products.order(sort)).page(params[:page]).per(21)
+      @products = @category.products.joins(:properties).where(condit)
+      @kaminari_products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
 		# @products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
-      @products = Kaminari.paginate_array(@category.products.order(sort)).page(params[:page]).per(21)
+      @products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 

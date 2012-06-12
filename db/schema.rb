@@ -64,11 +64,11 @@ ActiveRecord::Schema.define(:version => 20120611144541) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",        :null => false
-    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "discount_id"
     t.string   "slug"
+    t.integer  "position"
   end
 
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
@@ -344,6 +344,7 @@ ActiveRecord::Schema.define(:version => 20120611144541) do
     t.integer  "property_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "numeric"
   end
 
   create_table "properties_to_categories", :force => true do |t|

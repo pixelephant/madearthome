@@ -2,6 +2,8 @@ class Property < ActiveRecord::Base
 
 	translates :property_name
 
+	before_save :add_numeric
+
 	has_many :property_translations, :dependent => :destroy
 	accepts_nested_attributes_for :property_translations
 
@@ -22,5 +24,11 @@ class Property < ActiveRecord::Base
 	has_and_belongs_to_many :product_sets
 
 	validates :property_name, :presence => true
+
+	private
+
+	def add_numeric
+		self.numeric = self.property_name.gsub(",",".").to_f if helper.is_a_number?(self.property_name.gsub(",","."))
+	end
 
 end
