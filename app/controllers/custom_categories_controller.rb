@@ -77,11 +77,11 @@ class CustomCategoriesController < ApplicationController
 			# @products = @custom_category.products(sort)
 			# @kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
       @products = @category.products.joins(:properties).where(condit)
-      @kaminari_products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).order(sort)).page(params[:page]).per(21)
+      @kaminari_products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
 		# @products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
-      @products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).order(sort)).page(params[:page]).per(21)
+      @products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
 			@kaminari_products = @products
 		end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120601130843) do
+ActiveRecord::Schema.define(:version => 20120611144541) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -72,6 +72,13 @@ ActiveRecord::Schema.define(:version => 20120601130843) do
   end
 
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
+
+  create_table "categories_custom_category_groups", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "custom_category_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -337,6 +344,7 @@ ActiveRecord::Schema.define(:version => 20120601130843) do
     t.integer  "property_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "numeric"
   end
 
   create_table "properties_to_categories", :force => true do |t|
