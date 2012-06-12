@@ -8,7 +8,7 @@
 	<% @designers.each do |designer| %>
 		<div class="field">
 			<label for="<%= designer.name.parameterize %>"> <%= designer.name %> </label>
-			<%= check_box_tag 'designer[]', designer.id, true %>
+			<%= check_box_tag 'designer[]', designer.id, (params[:designer].include?(designer.id.to_s) ? true : false) %>
 		</div>
 	<% end %>
 		<% if @designers.any? %>
@@ -35,7 +35,7 @@
 				<% property_category.properties.each do |property| %>
 					<div class="field">
 						<label for="<%= property.property_category.id.to_s %>"> <%= property.property_name %> </label>
-						<%= check_box_tag property.property_category.id.to_s + "[]", property.id, true %>
+						<%= check_box_tag property.property_category.id.to_s + "[]", property.id, (params[property.property_category.id.to_s].include?(property.id.to_s) ? true : false) %>
 					</div>
 				<% end %>
 			<% end %>
