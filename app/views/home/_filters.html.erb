@@ -8,7 +8,7 @@
 	<% @designers.each do |designer| %>
 		<div class="field">
 			<label for="<%= designer.name.parameterize %>"> <%= designer.name %> </label>
-			<%= check_box_tag 'designer[]', designer.id, (params[:designer].include?(designer.id.to_s) ? true : false) %>
+			<%= check_box_tag 'designer[]', designer.id, ((params[:designer].include?(designer.id.to_s) ? true : false) if params[:designer]) %>
 		</div>
 	<% end %>
 		<% if @designers.any? %>
@@ -28,9 +28,9 @@
 			<% to = property_category.properties.order("properties.numeric").last.property_name %>
 			<% from = property_category.properties.order("properties.numeric").first.property_name %>
 
-			<% v = params[property_category.id.to_s].split(";") %>
-			<% l = v[0] %>
-			<% h = v[1] %>
+			<% v = params[property_category.id.to_s].split(";") if params[property_category.id.to_s] %>
+			<% params[property_category.id.to_s] ? l = v[0] : l = from %>
+			<% params[property_category.id.to_s] ? h = v[1] : h = to %>
 
 			<% unit = property_category.category_name.scan(/\(?\w+\)/)[-1].gsub(")","").gsub("(","") %>
 <!-- Csúszka helye -->
@@ -41,7 +41,7 @@
 				<% property_category.properties.each do |property| %>
 					<div class="field">
 						<label for="<%= property.property_category.id.to_s %>"> <%= property.property_name %> </label>
-						<%= check_box_tag property.property_category.id.to_s + "[]", property.id, (params[property.property_category.id.to_s].include?(property.id.to_s) ? true : false) %>
+						<%= check_box_tag property.property_category.id.to_s + "[]", property.id, ((params[property.property_category.id.to_s].include?(property.id.to_s) ? true : false) if params[property.property_category.id.to_s] ) %>
 					</div>
 				<% end %>
 			<% end %>
