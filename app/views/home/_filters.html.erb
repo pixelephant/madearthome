@@ -4,8 +4,6 @@
 	<div class="field"><label for="">Ajándék jár hozzá</label><input type="checkbox" name="kedv" id="" /></div>
 </fieldset> -->
 
-<input type="slider" name="sslider" value="1;100" id="sslider">
-
 <%= field_set_tag t('designer') do %>
 	<% @designers.each do |designer| %>
 		<div class="field">
@@ -25,10 +23,13 @@
 <% @property_categories.each do |property_category| %>
 	<% if property_category.properties.any? %>
 		<%= field_set_tag property_category.category_name.to_s do %>
-			<% if is_a_number?(l = property_category.properties.sort_by(&:property_name).first.property_name) && is_a_number?(h = property_category.properties.sort_by(&:property_name).last.property_name) && h > l %>
+			<% unless property_category.properties.first.numeric.nil? || property_category.properties.last.numeric.nil? %>
+			<% h = property_category.properties.order("properties.numeric").last.property_name %>
+			<% l = property_category.properties.order("properties.numeric").first.property_name %>
+			<% unit = property_category.category_name.scan(/\(?\w+\)/)[-1].gsub(")","").gsub("(","") %>
 <!-- Csúszka helye -->
 			<!-- mértékegységek nem lehetnek törtek, a low és a high value nem jó mindenhol -->
-			<input id="<%= property_category.id.to_s.parameterize %>" type="slider" data-unit="mm" name="<%= property_category.id.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
+			<input id="<%= property_category.id.to_s.parameterize %>" type="slider" data-unit="<%= unit %>" name="<%= property_category.id.to_s.parameterize %>" value="<%=l.to_f.floor%>;<%=h.to_f.ceil%>" />
 <!-- Csúszka helye  -->
 			<% else %>
 				<% property_category.properties.each do |property| %>
