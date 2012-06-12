@@ -25,11 +25,12 @@
 		<%= field_set_tag property_category.category_name.to_s do %>
 			<% unless property_category.properties.first.numeric.nil? || property_category.properties.last.numeric.nil? %>
 			
-			<%= from = l = property_category.properties.order("properties.numeric").last.property_name %>
-			<%= to = h = property_category.properties.order("properties.numeric").first.property_name %>
+			<% to = property_category.properties.order("properties.numeric").last.property_name %>
+			<% from = property_category.properties.order("properties.numeric").first.property_name %>
 
 			<% v = params[property_category.id.to_s].split(";") %>
-			
+			<% l = v[0] %>
+			<% h = v[1] %>
 
 			<% unit = property_category.category_name.scan(/\(?\w+\)/)[-1].gsub(")","").gsub("(","") %>
 <!-- Csúszka helye -->
