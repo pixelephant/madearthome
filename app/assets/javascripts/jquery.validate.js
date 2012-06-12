@@ -49,3 +49,21 @@ date:function(a,b){return this.optional(b)||!/Invalid|NaN/.test(new Date(a))},da
 (function(c){var a={};if(c.ajaxPrefilter)c.ajaxPrefilter(function(d,e,f){e=d.port;if(d.mode=="abort"){a[e]&&a[e].abort();a[e]=f}});else{var b=c.ajax;c.ajax=function(d){var e=("port"in d?d:c.ajaxSettings).port;if(("mode"in d?d:c.ajaxSettings).mode=="abort"){a[e]&&a[e].abort();return a[e]=b.apply(this,arguments)}return b.apply(this,arguments)}}})(jQuery);
 (function(c){!jQuery.event.special.focusin&&!jQuery.event.special.focusout&&document.addEventListener&&c.each({focus:"focusin",blur:"focusout"},function(a,b){function d(e){e=c.event.fix(e);e.type=b;return c.event.handle.call(this,e)}c.event.special[b]={setup:function(){this.addEventListener(a,d,true)},teardown:function(){this.removeEventListener(a,d,true)},handler:function(e){arguments[0]=c.event.fix(e);arguments[0].type=b;return c.event.handle.apply(this,arguments)}}});c.extend(c.fn,{validateDelegate:function(a,
 b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(f,arguments)})}})})(jQuery);
+
+
+jQuery.extend(jQuery.validator.messages, {
+	required: "Kötelező megadni.",
+	maxlength: jQuery.validator.format("Legfeljebb {0} karakter hosszú legyen."),
+	minlength: jQuery.validator.format("Legalább {0} karakter hosszú legyen."),
+	rangelength: jQuery.validator.format("Legalább {0} és legfeljebb {1} karakter hosszú legyen."),
+	email: "Érvényes e-mail címnek kell lennie.",
+	url: "Érvényes URL-nek kell lennie.",
+	date: "Dátumnak kell lennie.",
+	number: "Számnak kell lennie.",
+	digits: "Csak számjegyek lehetnek.",
+	equalTo: "Meg kell egyeznie a két értéknek.",
+	range: jQuery.validator.format("{0} és {1} közé kell esnie."),
+	max: jQuery.validator.format("Nem lehet nagyobb, mint {0}."),
+	min: jQuery.validator.format("Nem lehet kisebb, mint {0}."),
+	creditcard: "Érvényes hitelkártyaszámnak kell lennie."
+});
