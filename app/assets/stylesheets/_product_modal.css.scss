@@ -7,12 +7,11 @@
 		}
 	}
 	width:760px;
-	min-height:300px;
+	min-height:400px;
 	margin:0 auto;
 	position:relative;
 	.img{
-		width:250px;
-		height:250px;
+		max-width:250px;
 		}
 	div.left,div.right{
 		float:left;
@@ -20,6 +19,7 @@
 	div.left{
 		width:260px;
 		padding:10px;
+		text-align:center;
 	}
 	div.right{
 		width:460px;
@@ -59,12 +59,17 @@
 			text-decoration:line-through;
 		}
 	}
+	p{
+		line-height:1.5;
+	}
 }
 
 #product-title{
 	overflow:hidden;
 	line-height:1;
 	@include font-gill;
+	text-transform:uppercase;
+	color:$brand-darkblue;
 	img{
 		width:25px;
 		height:25px;

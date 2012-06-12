@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120610095719) do
+ActiveRecord::Schema.define(:version => 20120601130843) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -337,7 +337,6 @@ ActiveRecord::Schema.define(:version => 20120610095719) do
     t.integer  "property_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "numeric"
   end
 
   create_table "properties_to_categories", :force => true do |t|

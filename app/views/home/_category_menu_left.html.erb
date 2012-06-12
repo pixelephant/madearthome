@@ -1,25 +1,11 @@
+<% @category.custom_category_groups.each do |group| %>
 <ul class="box">
-	<h3>Shop by category</h3>
-	<% @category.custom_categories.each do |custom_category| %>
-		<li>
-			<%= link_to custom_category.name, custom_category_path(@category, custom_category) %>
-		</li>
+	<h3><%= group.name %></h3>
+	<% group.custom_categories.each do |custom_category| %>
+	<li>
+		<%= link_to custom_category.name, custom_category_path(@category, custom_category) %>
+	</li>
 	<% end %>
 </ul>
-<ul class="box">
-	<h3>Shop by features</h3>
-	<li><a href="#">Feat 1</a></li>
-	<li><a href="#">Feat 2</a></li>
-	<li><a href="#">Feat 3</a></li>
-	<li><a href="#">Feat 4</a></li>
-</ul>
-<ul class="box">
-	<h3>Shop by brand</h3>
-	<li><a href="#">Brand 1</a></li>
-	<li><a href="#">Brand 2</a></li>
-</ul>
-<ul class="box">
-	<h3>A Flairspring ajánlja</h3>
-	<li><a href="#">New</a></li>
-	<li><a href="#">Sale</a></li>
-</ul>
+	<% end %>
+

@@ -426,13 +426,13 @@ b,strong{
 	@include border-radius(3px,3px,3px,3px);
 	padding:10px;
 	border:1px solid #c2c2c2;
-	width:280px;
+	width:240px;
 	height:45px;
 	//line-height:30px;
 	input[type="search"]{
 		@include text-input;
 		height:28px;
-		width:185px;
+		width:145px;
 		float:left;
 		font-size:16px;
 	}
@@ -451,7 +451,7 @@ b,strong{
 	clear:both;
 	padding-top:5px;
 	font-style:italic;
-	font-size:16px;
+	font-size:13px;
 	a{
 		color:$brand-lightblue;
 		&:hover{
@@ -663,9 +663,9 @@ b,strong{
 	padding:0;
 	margin-top:20px;
 	&.third{
-		width:270px;
+		width:260px;
 		float:left;
-		margin:20px 20px 0px 0px;
+		margin:20px 10px 0 10px;
 		padding:20px;
 		&.mid{
 			width:260px;
@@ -692,6 +692,7 @@ b,strong{
 	&.full{
 		margin-top:20px;
 		padding:20px;
+		overflow:hidden;
 	}
 	
 	&.half{

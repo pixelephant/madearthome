@@ -1,5 +1,25 @@
 @import '_mixins.css.scss';
 @import '_zoom.css.scss';
+@import '_product_boxes.css.scss';
+@import 'fancybox.css.scss';
+
+#product-modals{
+	display:none;
+}
+
+#szallitas,#fizetes,#garancia{
+		width:980px;
+		h3{
+			@include font-gill;
+			color:$brand-darkblue;
+			text-transform:uppercase;
+			font-size:22px;
+			margin-bottom:20px;
+		}
+		p{
+			line-height:1.5;
+		}
+	}
 	
 #product-box{
 	margin-top:0;
@@ -109,7 +129,8 @@
 }
 
 #info-box{
-	height:79px;
+	height:59px;
+	padding:10px;
 	border-bottom:1px solid $border-gray;
 	overflow:hidden;
 	.third{
@@ -129,6 +150,10 @@
 	line-height:1.4;
 	padding-left:10px;
 	margin-top:5px;
+	span{
+		font-weight:bold;
+		font-size:20px;
+	}
 	&.list-price span{
 		text-decoration:line-through;
 	}
@@ -138,70 +163,68 @@
 }
 
 #properties-box{
-	.left{
-		float:left;
-	}
-	.right{
-		float:right;
-		div{
-			@include border-radius(3px,3px,3px,3px);
-			background:#faded3;
-			padding:4px;			
-		}
-	}
-	position:relative;
 	height:150px;
 	border-bottom:1px solid $border-gray;
 	padding:20px;
-	overflow:hidden;
 	p{
-		margin-bottom:5px;
+		line-height:1.5;
 		label{
 			float:left;
-			width:135px;
+			width:175px;
 			margin-right:20px;
 			@include small-caps;
 		}
-		input[type="number"]{
-			width:35px;
-		}
 	}
-	.links{
-		
-	}
-	input[type="submit"]{
-		@include cart-button;
-		font-size:18px;
-		padding:9px;
-		padding-left:35px;
-		margin-top:55px;
-	}
-}
-
-#product-form{
-	overflow:hidden;
 }
 
 #add-to-cart{
-	float:right;
+	@include cart-button;
+	font-size:18px;
+	padding:9px;
+	padding-left:35px;
+	margin:20px 0;
 }
 
-#short-description-box{
-	height:100px;
-	padding:30px 10px 20px 20px;
-}
-
-#specifications{
-	.ribbon{
-		//background:url(ribbon-spec.png) no-repeat;
+#add-to-whishlist{
+	@include gray-button;
+	font-size:10px;
+	padding:4px;
+	margin-left:20px;
+	position:relative;
+	top:-5px;
+	color:$brand-orange;
+	span{
+		color:$text-color;
 	}
+	&.added{
+		color:green;
+	}
+}
+
+#buy-box{
+	input[type="number"]{
+		width:35px;
+	}
+	height:136px;
+	padding:20px;
 	p{
-		display:block;
+		line-height:1.5;
 		label{
+			float:left;
+			width:175px;
+			margin-right:20px;
 			@include small-caps;
-			font-size:17px;
 		}
 	}
+	.links{
+		a{
+			margin-right:20px;
+		}
+	}
+}
+
+#short-description{
+	margin-bottom:20px;
 }
 
 #expert-advice{
@@ -238,11 +261,19 @@
 	}
 }
 
+#specifications{
+	p{
+		display:block;
+		label{
+			@include small-caps;
+			font-size:17px;
+		}
+	}
+}
+
 #about-designer,#about-manufacturer{
 	p{
 	  line-height:1.5;
-	  margin:15px 0;
-	  text-align:justify;
 	}
 	img{
 		float:right;
@@ -271,17 +302,5 @@
 		&:hover .name{
 			color: $brand-darkblue;
 		}
-	}
-}
-
-#store_ad{
-	a{
-		text-decoration:none;
-	}
-	img{
-		border:5px solid $border-blue;
-	}
-	p{
-		margin-top:5px;
 	}
 }

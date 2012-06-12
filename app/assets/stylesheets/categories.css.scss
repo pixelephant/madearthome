@@ -25,6 +25,9 @@
 	ul{
 		margin-bottom:20px;
 	}
+	li{
+		margin-bottom:15px;
+	}
 }
 
 #product-list{	
@@ -200,6 +203,10 @@
 			margin-right:0;
 		}
 	}
+}
+
+#category-nav{
+	display:block !important;
 }
 
 @import '_quicklook_product.css.scss';

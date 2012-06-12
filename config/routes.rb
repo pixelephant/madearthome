@@ -41,16 +41,20 @@ Madearthome::Application.routes.draw do
 	# Nyelv eleje
 	# scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
 
+		match 'category' => "categories#index"
+
 		match 'test-subcontent' => "subcontents#testsubcontent"
 		match 'subcontent2' => "subcontents#subcontent2"
 
-		match 'search' => 'search#index'
+		match 'kereses' => 'search#index'
 
 		get 'products/quicklook/:id' => "products#quicklook"
 
 		#resources :links_products
 
-		resources :about
+		match 'rolunk' => "about#index"
+
+		#resources :about
 
 		resources :products_stores
 
@@ -68,8 +72,6 @@ Madearthome::Application.routes.draw do
 
     resources :comingsoon
 
-    resources :checkout
-
     match 'checkout/billing_shipping' => 'checkout#billing_shipping'
 
     post 'checkout/payment' => 'checkout#payment'
@@ -77,6 +79,8 @@ Madearthome::Application.routes.draw do
     match 'checkout/payment' => 'checkout#payment'
 
     match 'checkout/thankyou' => 'checkout#thankyou'
+
+    	resources :checkout
 
 		resources :line_items
 

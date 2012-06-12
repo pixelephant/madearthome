@@ -1,26 +1,28 @@
+<%= stylesheet_link_tag("users") %>
+
 <section id="reglogin" class="box full clearfix">
-	<h3 id="top">Register or login <span id="secure">Secure connection</span></h3>
-	<%= render :partial => "users/login", :locals => { :logintext => "to view your profile, edit your info and checkout"} %>
-	<%= render "users/register-cta" %>
+	<h3 id="top">Regisztráljon vagy jelentkezzen be <!-- span id="secure">Secure connection</span--></h3>
+	<%= render :partial => "users/login", :locals => { :logintext => ", hogy szerkeszthesse adatait vagy tovább lépjen a fizetéshez", :resource => resource } %>
+	<%= render "users/register-cta", :locals => { :resource => resource} %>
 </section>
 
 <div class="box-wrap clearfix">
 	<section class="box third">
-		<h3>Whislist</h3>
+		<h3>Kívánságlista</h3>
 		<p>
-			<span class="lead">registered customers</span> are able to create whishlists
+			<span class="lead">Regisztrált vásárlóink</span> saját kívánságlistát hozhatnak létre
 		</p>
 	</section>
 	<section class="box third mid">
-		<h3>Faster checkout</h3>
+		<h3>Gyrosabb vásárlás</h3>
 		<p>
-			<span class="lead">by registering</span> your checkout process will be as fast as three clicks, since your data will be stored
+			<span class="lead">regisztrációt követően</span> nem kell minden alkalommal megadnia megrendelési adatait
 		</p>
 	</section>
 	<section class="box third last">
-		<h3>Special deals</h3>
+		<h3>Egyéni ajánlatok</h3>
 		<p>
-			<span class="lead">our registered customers</span> get <em>special deals</em> and usually save <em>~10%</em> with our hűségprogram
+			<span class="lead">Regisztrált vásárlóink</span> <em>kizárólagos kedvezményeket</em> és vásárlásaik után <em>~3%</em> kedvezményt kaphatnak hűségprogramban
 		</p>
 	</section>
 </div>

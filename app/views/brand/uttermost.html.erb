@@ -2,7 +2,16 @@
 	<section id="sidebar">
 			<nav id="category-nav">
 				<div class="box">
-					<h3>Uttermost kategóriák</h3>					
+					<h3>Uttermost termékek</h3>
+					<ul>
+						<li><a href="/tukrok">Tükrök</a></li>
+						<li><a href="/kiegeszitok">Kiegészítők</a></li>
+						<li><a href="/faldekor">Faldekor</a></li>
+						<li><a href="/fotelek">Fotelek</a></li>
+						<li><a href="/butorok">Bútorok</a></li>
+						<li><a href="/lampak">Lámpák</a></li>
+						<li><a href="/kanapek">Kanapék</a></li>
+					</ul>					
 				</div>
 			</nav>
 	</section>
@@ -11,7 +20,7 @@
 			
 			<div class="clearfix">
 				<div class="box cpromo big">
-					<%= image_tag "brands/uttermost/uttermost_big.jpg", :title => "Uttermost logó" %>
+					<%= image_tag "brands/uttermost/uttermost_big.png", :title => "Uttermost logó" %>
 				</div>
 
 				<div class="box cpromo small">
@@ -41,44 +50,30 @@
 		</section>
 </div>
 
-<div class="box full about-box">
+			<div class="box full about-box">
 				<h3>Az Uttermostról</h3>
 				<p class="full"><%= image_tag "brands/uttermost/dog.jpg", :title => "Uttermost" %><span class="lead">Az Uttermost márkát</span> 36 éve alapította Bob és Belle Cooper az Egyesült Államokban. A vállalatot, amely azóta is a Cooper család tulajdonában van, jelenleg Mac Cooper irányítja. Az Uttermost folyamatosan bővülő termékkínálatában megtalálhatóak <a href="#">bútorok</a>, <a href="#">órák</a>, <a href="#">művészeti alkotások</a> és <a href="#">különböző lakásdekorációs termékek</a>, de a cég a legnagyobb sikerét évek óta az általa gyártott <a href="#">lámpák</a> és <a href="#">tükrök</a> hatalmas választékának köszönheti. </p>
 
 				<p class="full">Az Uttermost olyan designerekkel dolgozik együtt, mint <em>Carolyn Kinder</em>, <em>Gace Feyock</em>, <em>Billy Moon</em>, <em>Matthew Williams</em>, <em>David Frisch</em>, <em>emJoe Famulari</em> és <em>Constance Lael-Linyard</em>, akik számos tervezői díj és szakmai elismerés birtokosai és meghatározó szereplők a lakberendezési iparágban. </p>
 
 				<p class="full">Az Uttermost büszke arra, hogy termékei a világ minden táján megtalálhatóak a legrangosabb hotelekben és a legnagyobb presztizsű bútor- és lakberendezési boltokban.
-A Cooper család szenvedélyesen szereti az Uttermost által gyártott tárgyakat. Az a <em>gondosság és figyelem</em>, amellyel a tervezés és a gyártás folyamatát végigkísérik meglátszik a termékek kiváló minőségén, valamint azokon a <em>különlegesen elegáns formákon</em>, amelyekről az Uttermost termékek könnyen felismerhetőek.  Az Uttermost célja az elmúlt évtizedekben is az volt és mind a mai napig az, hogy csodálatos lakberendezési kiegészítőket gyártsanak reális áron.  
-</p>
+				A Cooper család szenvedélyesen szereti az Uttermost által gyártott tárgyakat. Az a <em>gondosság és figyelem</em>, amellyel a tervezés és a gyártás folyamatát végigkísérik meglátszik a termékek kiváló minőségén, valamint azokon a <em>különlegesen elegáns formákon</em>, amelyekről az Uttermost termékek könnyen felismerhetőek.  Az Uttermost célja az elmúlt évtizedekben is az volt és mind a mai napig az, hogy csodálatos lakberendezési kiegészítőket gyártsanak reális áron.  
+				</p>
 			</div>
+			<%= (render :partial => "home/product_slider_full_big", :locals => {:title => "Legnépszerűbb termékek", :id => "popular-products", :products => @products}) %>
+
 			<div class="clearfix">
-				<div class="box third first">
+				<% Brand.where(:name => "Uttermost").first.designers.each do |designer| %>
+					<div class="box third first">
 					<div class="ribbon">
 						<span class="ribbon-start"></span>
-						<p>Carolyn Kinder</p>
+						<p><%= designer.name %></p>
 						<span class="ribbon-end"></span>
 					</div>
-					<%= image_tag "designer.png" %>
-					<p>Carolyn Kinder több mint két évtizede tervez és alkot innovatív kiegészítő kollekciókat a lakberendezési piac számára. A neve által fémjelzett tárgyak szinonimájává váltak a klasszikus, időtálló tervezésnek. 2000 januárjában, a kiegészítő iparban nyújtott addigi tevékenységének elismeréseként, első nőként megkapta a Művészeti Akadémia Teljesítmény Díját (ART).</p>
+					
+					<p><%= designer.description %></p>
 				</div>
-				<div class="box third mid">
-					<div class="ribbon">
-						<span class="ribbon-start"></span>
-						<p>Grace Feyock</p>
-						<span class="ribbon-end"></span>
-					</div>
-					<%= image_tag "designer.png" %>
-					<p>Grace Feyock több mint három évtizede tervez lakberendezési tárgyakat. Karrierjét akvarellfestő képzőművészként kezdte és gyorsan egyedi, felismerhető stílust teremtett. Akvarellfestői tapasztalatait és művészeti érzékét felhasználva 1982-ben keretezett művészeti alkotásokat készítő üzletet indított, amely meghozta számára a sikert.</p>
-				</div>
-				<div class="box third last">
-					<div class="ribbon">
-						<span class="ribbon-start"></span>
-						<p>Billy Moon</p>
-						<span class="ribbon-end"></span>
-					</div>
-					<%= image_tag "designer.png" %>
-					<p>Billy Moon, az amerikai lakberendezési iparág ikonja, több mint húsz éve tervez különleges tárgyakat. Billy először a Hold kollekciónak elnevezett, agyag és fém kiegészítőkből álló termékcsalád bemutatásával szerzett nevet magának. Új termékbevezetése után Billy megnyitotta saját gyárát Mexikóban. Az 1990-es évek elején három egymást követő évben is megkapta az ARTS díjat.</p>
-				</div>
+				<% end %>
 			</div>
 			<div class="box full">
 				<h3>További márkáink</h3>
