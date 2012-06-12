@@ -62,19 +62,21 @@ p.empty-cart{
 	}
 	
 	.product-cell{
-		width:220px;
+		width:120px;
+		vertical-align:middle;
+		text-align:center;
 		img{
-			width:50px;
-			height:50px;
-			border:3px solid $border-blue;
-			float:left;
+			max-width:50px;
+			max-height:50px;
 			margin-right:10px;
 		}
 		h6{
 			@include font-gill;
 			color:$brand-darkblue;
+			text-transform:uppercase;
+			font-size:13px;
 			margin-top:5px;
-			float:left;
+			line-height:1.2;
 		}
 	}
 	
@@ -118,13 +120,9 @@ p.empty-cart{
 			@include small-caps;
 		}
 		
-		.price-cell,.sum-price-cell span{
+		.price-cell,.sum-price-cell{
 			@include font-gill;
-			color:#565654;
-			font-size:22px;
-		}
-		.sum-price-cell span{
-			color:$brand-darkblue;
+			font-size:16px;
 		}
 		.price-cell{
 			width:70px
@@ -192,6 +190,16 @@ p.empty-cart{
 		float:left;
 		margin-left:5px;
 	}
+	div{
+		overflow:hidden;
+	}
+	span{
+		float:left;
+		height:26px;
+		line-height:26px;
+		font-size:20px;
+		margin-right:10px;
+	}
 }
 
 #total{
@@ -199,6 +207,10 @@ p.empty-cart{
 	float:left;
 	text-align:right;
 	position:relative;
+	p{
+		@include font-gill;
+		padding-left:350px;
+	}
 	span,b{
 		font-weight:normal;
 		margin:3px;
@@ -209,8 +221,8 @@ p.empty-cart{
 		font-size:22px;
 	}
 	b{
-		margin-right:20px;
 		@include small-caps;
+		float:left;
 	}
 	.total-price{
 		font-size:25px;
@@ -236,6 +248,10 @@ p.empty-cart{
 			color:$brand-darkblue;
 		}
 	}
+}
+
+.loy{
+	margin-top:20px;
 }
 
 @import "_simple_footer.css.scss";

@@ -23,7 +23,7 @@
 
 #steps{
 	margin:0 auto 20px auto;
-	width:435px;
+	width:550px;
 	text-align:center;
 	li{
 		float:left;
@@ -34,8 +34,13 @@
 		background:url(flags/hu.png) no-repeat center 20px;
 		&.active{
 			background:url(flags/bh.png) no-repeat center 20px;
+			color:black;
 		}
 	}
+}
+
+.forgot{
+	text-align:center;
 }
 
 #guest-box{
@@ -44,7 +49,7 @@
 	padding:20px;
 	width:400px;
 	margin-top:20px;
-	height:290px;
+	height:330px;
 	float:left;
 	text-align:center;
 	h4{

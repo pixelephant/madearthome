@@ -172,4 +172,17 @@
 	}
 }
 
+#tablePagination{
+	margin-top:5px;
+	padding:5px;
+}
+
+#tablePagination_paginater{
+	float:right;
+	cursor:pointer;
+	img{
+		margin:-4px 4px;
+	}
+}
+
 @import "_order_table.css.scss";
