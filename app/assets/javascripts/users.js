@@ -53,5 +53,14 @@ $(document).ready(function(){
 		optionsForRows : [5,10,20]
 	 });
 
+	$('#whishlist-table').tablePagination({
+	 	rowsPerPage : 2,
+	 	firstArrow : (new Image()).src="/assets/first.png",
+        prevArrow : (new Image()).src="/assets/prev.png",
+		lastArrow : (new Image()).src="/assets/last.png",
+		nextArrow : (new Image()).src="/assets/next.png",
+		optionsForRows : [5,10,20]
+	 });
+
 	
 });
