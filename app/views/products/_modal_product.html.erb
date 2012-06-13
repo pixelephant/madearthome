@@ -3,7 +3,13 @@
 		<% unless @product.blank? %>
 			<div class="left">
 				<% photo = @product.photos.second || @product.default_photo %>
-				<%= image_tag photo.image_file.medium, :title => photo.alt, :class => "img" unless photo.nil? %>
+				<table>
+					<tr>
+						<td>
+							<%= image_tag photo.image_file.medium, :title => photo.alt, :class => "img" unless photo.nil? %>	
+						</td>
+					</tr>
+				</table>
 			</div>
 			<div class="right">
 				<div id="product-title">
