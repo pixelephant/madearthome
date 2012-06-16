@@ -21,7 +21,6 @@
 <% end %>
 
 <% @property_categories.each do |property_category| %>
-	<%= debug property_category %>
 	<%= field_set_tag property_category[:name].to_s do %>
 		<% if property_category[:numeric] %>
 	<!-- Csúszka helye -->
