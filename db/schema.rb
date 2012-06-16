@@ -344,7 +344,7 @@ ActiveRecord::Schema.define(:version => 20120611144541) do
     t.integer  "property_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "numeric"
+    t.float    "num"
   end
 
   create_table "properties_to_categories", :force => true do |t|
