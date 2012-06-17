@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
 
   def account
-    render "account"
+    if current_user
+      @orders = current_user.orders
+      @wishlist = current_user.wishlist
+      render "account"
+    else
+      render "register"
+    end
   end
 
   # GET /users

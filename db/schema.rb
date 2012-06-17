@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611144541) do
+ActiveRecord::Schema.define(:version => 20120617104953) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -252,6 +252,8 @@ ActiveRecord::Schema.define(:version => 20120611144541) do
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "quantity"
+    t.integer  "price"
   end
 
   create_table "orders", :force => true do |t|
@@ -261,6 +263,8 @@ ActiveRecord::Schema.define(:version => 20120611144541) do
     t.text     "basket_serialization"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
+    t.date     "estimated_date"
   end
 
   create_table "photos", :force => true do |t|

@@ -34,6 +34,7 @@ Madearthome::Application.routes.draw do
 	post 'cart/remove_item' => "cart#remove_item"
 
 	post 'products/add_to_wishlist' => 'products#add_to_wishlist'
+	post 'products/remove_from_wishlist' => 'products#remove_from_wishlist'
 	#Ajax routes END
 
 	#Categories START
@@ -42,6 +43,8 @@ Madearthome::Application.routes.draw do
 
 	# Nyelv eleje
 	# scope '(:locale)/', :shallow_path => "(:locale)", :locale => /en|hu/ do
+
+		match 'fiokom' => 'users#account'
 
 		match 'category' => "categories#index"
 
@@ -98,11 +101,11 @@ Madearthome::Application.routes.draw do
 
 		resources :designers
 
-		resources :manufacturers
+		#resources :manufacturers
 
-		resources :wishlist_items
+		#resources :wishlist_items
 
-		resources :wishlists
+		#resources :wishlists
 
 		resources :order_items
 
@@ -112,9 +115,7 @@ Madearthome::Application.routes.draw do
 
     match 'users/register' => 'users#register'
 
-    match 'users/account' => 'users#account'
-
-		resources :users
+		#resources :users
 
 		resources :photos
 

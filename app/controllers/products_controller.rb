@@ -116,7 +116,6 @@ class ProductsController < ApplicationController
   end
 
   def add_to_wishlist
-
     unless current_user.blank?
       @product = Product.find(params[:id])
 
@@ -124,6 +123,23 @@ class ProductsController < ApplicationController
       wishlist = Wishlist.create(:user_id => current_user) if wishlist.nil?
 
       wishlist.wishlist_items << WishlistItem.create(:product_id => params[:id]) unless WishlistItem.find_by_product_id(params[:id])
+
+      respond_to do |format|
+        format.json { render :json => 'true' }
+      end
+    else
+      respond_to do |format|
+        format.json { render :json => 'false' }
+      end
+    end
+  end
+
+  def remove_from_wishlist
+    unless current_user.blank?
+      
+      wishlist = Wishlist.find_by_user_id(current_user.id)
+
+      wishlist.wishlist_items.find(params[:id]).delete unless params[:id].blank?
 
       respond_to do |format|
         format.json { render :json => 'true' }

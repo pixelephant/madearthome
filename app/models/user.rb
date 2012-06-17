@@ -11,4 +11,16 @@ class User < ActiveRecord::Base
 	has_one :wishlist
 
 	accepts_nested_attributes_for :addresses
+
+  def order_sum
+    sum = 0
+    self.orders.each do |order|
+      order.order_items.each do |item|
+        sum = sum + (item.quantity * item.price)
+      end
+    end
+
+    return sum
+  end
+
 end
