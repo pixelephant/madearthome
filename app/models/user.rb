@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   	attr_accessible :email, :password, :password_confirmation, :remember_me, :addresses_attributes
-	has_many :addresses
+	has_many :user_addresses
 	has_many :orders
 	has_one :wishlist
 
-	accepts_nested_attributes_for :addresses
+	accepts_nested_attributes_for :user_addresses
 
   def order_sum
     sum = 0

@@ -1,4 +1,3 @@
-<%= debug current_user %>
 <section id="account" class="box full clearfix">
 	<h3 id="top">Felhasználói fiókom <span class="username"><%= current_user.email %></span></h3>
 	<div class="clearfix">
@@ -10,9 +9,9 @@
 		</div>
 		<div id="edit-data">
 			<h4>Adatmódosítás</h4>
-			<p>Alapértelmezett szállítási címe: 1101 Garibaldi utca 123/1</p>
+			<p>Alapértelmezett szállítási címe: <%= @default_address.zip %>, <%= @default_address.city %>, <%= @default_address.street %> <%= @default_address.additional %></p>
 			<p>Alapértelmezett fizetési módja: Banki átutalás</p>
-			<p>A számlát: Kis Aladár nevére állítjuk ki</p>
+			<p>A számlát: <%= current_user.accounting_name %> nevére állítjuk ki</p>
 			<a href="#" class="button blue">Adatmódosítás</a>
 		</div>
 	</div>
@@ -64,10 +63,10 @@
 			<tbody>
 				<% @wishlist.wishlist_items.each do |item| %>
 					<tr>
-						<td><a data-product="<%= item.id %>" rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name %></a></td>
+						<td><a rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name %></a></td>
 						<td><span class="status delivered"><%= item.sold ? 'Megvéve' : 'Még nem vették meg' %></span></td>
 						<td><%= number_to_currency(item.product.price, :precision => 0) %></td>
-						<td><a href="#">törlés</a></td>
+						<td><a data-product="<%= item.id %>" class="remove-from-wishlist" href="#">törlés</a></td>
 					</tr>
 				<% end %>
 			</tbody>
