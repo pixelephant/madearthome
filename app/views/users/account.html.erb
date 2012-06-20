@@ -11,7 +11,7 @@
 			<h4>Adatmódosítás</h4>
 			<p>Alapértelmezett szállítási címe: <%= @default_address.zip %>, <%= @default_address.city %>, <%= @default_address.additional %></p>
 			<p>Alapértelmezett fizetési módja: Banki átutalás</p>
-			<p>A számlát: <%= current_user.accounting_name %> nevére állítjuk ki</p>
+			<p>A számlát: <%= @accounting_name %> nevére állítjuk ki</p>
 			<a href="#" class="button blue">Adatmódosítás</a>
 		</div>
 	</div>
