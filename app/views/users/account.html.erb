@@ -9,7 +9,7 @@
 		</div>
 		<div id="edit-data">
 			<h4>Adatmódosítás</h4>
-			<p>Alapértelmezett szállítási címe: <%= @default_address.zip %>, <%= @default_address.city %>, <%= @default_address.street %> <%= @default_address.additional %></p>
+			<p>Alapértelmezett szállítási címe: <%= @default_address.zip %>, <%= @default_address.city %>, <%= @default_address.additional %></p>
 			<p>Alapértelmezett fizetési módja: Banki átutalás</p>
 			<p>A számlát: <%= current_user.accounting_name %> nevére állítjuk ki</p>
 			<a href="#" class="button blue">Adatmódosítás</a>
@@ -61,7 +61,7 @@
 				</tr>
 			</tfoot>
 			<tbody>
-				<% @wishlist.wishlist_items.each do |item| %>
+				<% @wishlist_items.each do |item| %>
 					<tr>
 						<td><a rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name %></a></td>
 						<td><span class="status delivered"><%= item.sold ? 'Megvéve' : 'Még nem vették meg' %></span></td>

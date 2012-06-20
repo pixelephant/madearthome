@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   def account
     if current_user
       @orders = current_user.orders
-      @wishlist = current_user.wishlist
-      @default_address = current_user.user_addresses.find_by_default(true)
-      @default_address = current_user.user_addresses.first if @default_address.nil?
+      @wishlist_items = []
+      @wishlist_items = current_user.wishlist.wishlist_items if current_user.wishlist
+      @default_address = current_user.addresses.find_by_default(true)
+      @default_address = current_user.addresses.first if @default_address.nil?
       render "account"
     else
       render "register"

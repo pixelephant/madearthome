@@ -11,13 +11,16 @@ $(window).load(function(){
 		  type: 'POST',
 		  url: "/products/add_to_wishlist",
 			data: {id : $("#product-title").data("product")},
+			dataType: "json",
 			headers: {
     		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   		},
 		  success: function(resp){
 		  	console.log(resp);
-		  	if(resp == 'true'){
-		  		$(this).addClass("added").find("span").html("Kívánságlistán");
+		  	console.log(resp.status);
+		  	if(resp.status == 'true'){
+		  		console.log(this);
+		  		$("#add-to-whishlist").addClass("added").find("span").html("Kívánságlistán");
 		  	}
 		}});
 		return false;

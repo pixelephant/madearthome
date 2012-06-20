@@ -85,13 +85,15 @@ Madearthome::Application.routes.draw do
 
     match 'checkout/thankyou' => 'checkout#thankyou'
 
-    	resources :checkout
+    match 'cart' => 'cart#index'
+
+    resources :checkout
 
 		resources :line_items
 
-		resources :carts
+		#resources :carts
 
-		resources :cart
+		#resources :cart
 
 		resources :manufacturer_photos
 

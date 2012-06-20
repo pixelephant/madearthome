@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120617125454) do
     t.datetime "updated_at"
     t.boolean  "billing"
     t.text     "name"
+    t.boolean  "default"
   end
 
   create_table "advantage_translations", :force => true do |t|
@@ -466,7 +467,6 @@ ActiveRecord::Schema.define(:version => 20120617125454) do
     t.string   "additional", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "default"
   end
 
   create_table "users", :force => true do |t|

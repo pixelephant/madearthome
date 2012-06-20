@@ -3,13 +3,14 @@ class CartController < ApplicationController
 
   def index
 		@cart = Cart.find(session[:cart_id])
+    if @cart.line_items.any?
+      render "index"
+    else
+      render "empty"
+    end
 	rescue ActiveRecord::RecordNotFound
     @cart = Cart.new
-		if @cart.total == 0
-			render "empty"
-		else
-			render "index"
-		end
+		render "empty"
   end
 
   def new
