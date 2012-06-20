@@ -16,10 +16,7 @@ $(window).load(function(){
     		'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   		},
 		  success: function(resp){
-		  	console.log(resp);
-		  	console.log(resp.status);
 		  	if(resp.status == 'true'){
-		  		console.log(this);
 		  		$("#add-to-whishlist").addClass("added").find("span").html("Kívánságlistán");
 		  	}
 		}});

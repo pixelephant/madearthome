@@ -62,7 +62,7 @@
 			</tfoot>
 			<tbody>
 				<% @wishlist_items.each do |item| %>
-					<tr>
+					<tr id="<%= item.id %>">
 						<td><a rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name %></a></td>
 						<td><span class="status delivered"><%= item.sold ? 'Megvéve' : 'Még nem vették meg' %></span></td>
 						<td><%= number_to_currency(item.product.price, :precision => 0) %></td>
