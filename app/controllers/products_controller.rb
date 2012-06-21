@@ -25,14 +25,16 @@ class ProductsController < ApplicationController
     @description = truncate(@product.long_description, :length => 156).capitalize
     @keywords = @product.name + "," + @category.name
 
-    if current_user.wishlist
-      if current_user.wishlist.wishlist_items.where(:product_id => @product.id).any?
-        @on_wishlist = true
+    if current_user
+      if current_user.wishlist
+        if current_user.wishlist.wishlist_items.where(:product_id => @product.id).any?
+          @on_wishlist = true
+        else
+          @on_wishlist = false
+        end
       else
         @on_wishlist = false
       end
-    else
-      @on_wishlist = false
     end
     
 

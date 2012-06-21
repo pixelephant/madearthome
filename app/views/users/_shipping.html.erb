@@ -1,4 +1,4 @@
-~<%= form_for "payment", :url => "checkout/payment" do |f| %>
+<%= form_for "payment", :url => "checkout/payment" do |f| %>
 <div class="block">
 	<h5>Kapcsolattartási információk</h5>
 		<fieldset>
@@ -50,7 +50,7 @@
 	<div class="block">
 		<h5>Számlázási információk</h5>
 		<fieldset>
-			<%= f.label "same", "Same as delivery" %>
+			<%= f.label "same", "Szállítással megegyező" %>
 			<%= f.check_box "same" %>
 		</fieldset>
 		<fieldset>

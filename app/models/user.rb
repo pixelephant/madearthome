@@ -23,4 +23,28 @@ class User < ActiveRecord::Base
     return sum
   end
 
+  def personal_discount_used
+    if self.orders.any?
+      sum = 0
+      self.orders.each do |order|
+        sum = sum + order.discount_used.to_i
+      end
+    else
+      return 0
+    end
+    return sum
+  end
+
+  def personal_discount_available
+    if self.orders.any?
+      sum = 0
+      self.orders.each do |order|
+        sum = sum + (order.price.to_i * PERSONAL_DISCOUNT) - order.discount_used.to_i
+      end
+    else
+      return 0
+    end
+    return sum
+  end
+
 end

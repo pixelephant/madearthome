@@ -1,10 +1,9 @@
-<% @r_products = Array.new %>
 <p id="notice"></p>
 
 <section id="cart" class="box full clearfix">
 	<div id="cart-top" class="clearfix">
 		<h3>Kosarad tartalma</h3>
-		<p class="right"><a href="/login">Login</a> or <a href="/register">Register</a> for faster checkout!</p>
+		<% render 'cart/register_cta' unless current_user %>
 	</div>
 	<% if @cart %>
 		<table id="cart-table">
@@ -24,9 +23,6 @@
 			<tbody>
 			<% @cart.line_items.each do |li| %>
 
-				<% li.product.product_relates.each do |rel| %>
-					<% @r_products << rel %>
-				<% end %>
 				<tr data-id="<%= li.product.id %>">
 						<td class="product-cell">
 							<div class="clearfix">
@@ -38,6 +34,9 @@
 							<% li.product.optional_properties.each do |property| %>
 								<p><span class="property"><%= property.property_category.category_name %>: </span><%= property.property_name %></p>
 							<% end %>
+
+							<p><span class="property">Mag X Szel X Mely: </span><%= li.product.properties.where(:property_category_id => MAGASSAG).first.property_name %> X <%= li.product.properties.where(:property_category_id => SZELESSEG).first.property_name %> X <%= li.product.properties.where(:property_category_id => MELYSEG).first.property_name %></p>
+
 						</td>
 						<td class="discount-cell">
 							<span class="discount-element">Ajándék kutya</span>
@@ -80,8 +79,8 @@
 					<div>
 						<label id="use-loyalty" class="loy" for="loyalty">Törzsvásárlói pontjaim</label>
 						<div>
-							<span><%= number_to_currency((current_user.order_sum * 0.3), :precision => 0) %></span>
-							<a class="button" href="#">Beváltom</a>
+							<span><%= number_to_currency(current_user.personal_discount_available, :precision => 0) %></span>
+							<a class="button" id="personal-discount" href="#">Beváltom</a>
 						</div>
 					</div>
 				<% end %>

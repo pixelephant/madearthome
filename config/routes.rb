@@ -32,6 +32,7 @@ Madearthome::Application.routes.draw do
 	post 'home/language' => "home#language"
 
 	post 'cart/remove_item' => "cart#remove_item"
+	post 'cart/personal' => "cart#personal"
 
 	post 'products/add_to_wishlist' => 'products#add_to_wishlist'
 	post 'products/remove_from_wishlist' => 'products#remove_from_wishlist'

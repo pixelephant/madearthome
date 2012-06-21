@@ -34,11 +34,13 @@
 			</tfoot>
 			<tbody>
 				<% @orders.each do |order| %>
-					<td><a class="fancybox ajax" href="/megrendeleseim/"<%= order.id %>>xyz-<%= order.id %></a></td>
-					<td><span class="status delivered"><%= order.status %></span></td>
-					<td><%= order.created_at %></td>
-					<td><%= order.estimated_date %></td>
-					<td><%= order.order_sum %></td>
+					<tr>
+						<td><a class="fancybox ajax" href="/megrendeleseim/"<%= order.id %>>xyz-<%= order.id %></a></td>
+						<td><span class="status delivered"><%= order.status %></span></td>
+						<td><%= order.created_at %></td>
+						<td><%= order.estimated_date %></td>
+						<td><%= order.order_sum %></td>
+					</tr>
 				<% end %>
 			</tbody>
 		</table>

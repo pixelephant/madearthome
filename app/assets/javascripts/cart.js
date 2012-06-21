@@ -52,6 +52,23 @@ $("document").ready(function(){
 		return false;
 	});
 
+	$("#personal-discount").click(function(){
+		$.ajax({
+			type: 'POST',
+			url: "/cart/personal",
+			data: {action : "personal"},
+			headers: {
+	      'X-Transaction': 'POST Example',
+	      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    	},
+			success: function(resp){
+				console.log(resp);
+				$("#personal-discount").addClass("active");
+				//Ár levonása
+		}});
+		return false;
+	});
+
 	$("#coupon a").click(function(){
 		//$.ajax({
 		//  type: 'POST',
