@@ -88,6 +88,8 @@ Madearthome::Application.routes.draw do
 
     match 'cart' => 'cart#index'
 
+    match 'megrendeleseim/:id' => 'orders#myorder'
+
     resources :checkout
 
 		resources :line_items

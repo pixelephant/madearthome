@@ -4,7 +4,7 @@
 		<div id="loyalty">
 			<p>Önnek eddig a</p>
 			<h4>Törzsvásárlói programban</h4>
-			<p id="loyalty-sum"><%= number_to_currency(current_user.order_sum, :precision => 0) %>-ja</p>
+			<p id="loyalty-sum"><%= number_to_currency(current_user.personal_discount_available, :precision => 0) %>-ja</p>
 			<p>gyűlt össze, melyet bármikor beválthat tetszőleges vásárlásra a <a href="/cart">kosár oldalon</a> található gomb segítségével.</p>
 		</div>
 		<div id="edit-data">
@@ -35,7 +35,7 @@
 			<tbody>
 				<% @orders.each do |order| %>
 					<tr>
-						<td><a class="fancybox ajax" href="/megrendeleseim/"<%= order.id %>>xyz-<%= order.id %></a></td>
+						<td><a class="fancybox ajax" href="/megrendeleseim/<%= order.id %>">xyz-<%= order.id %></a></td>
 						<td><span class="status delivered"><%= order.status %></span></td>
 						<td><%= order.created_at %></td>
 						<td><%= order.estimated_date %></td>
@@ -65,7 +65,7 @@
 			<tbody>
 				<% @wishlist_items.each do |item| %>
 					<tr id="<%= item.id %>">
-						<td><a rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name %></a></td>
+						<td><a rel="group" class="fancybox ajax" href="/products/quicklook/<%= item.product.id %>"><%= item.product.name.titleize %></a></td>
 						<td><span class="status delivered"><%= item.sold ? 'Megvéve' : 'Még nem vették meg' %></span></td>
 						<td><%= number_to_currency(item.product.price, :precision => 0) %></td>
 						<td><a data-product="<%= item.id %>" class="remove-from-wishlist" href="#">törlés</a></td>

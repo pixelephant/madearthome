@@ -141,4 +141,35 @@ namespace :import do
   	end
   end
 
+  task :uttermost_rename => :environment do
+
+  	counter = 0
+  	product_found = 0
+
+  	CSV.foreach("public/uttermost_uj_nevek_20120620.csv", :quote_char => '"', :col_sep =>',', :row_sep =>:auto) do |row|
+	  	if counter > 0
+	  		if Product.exists?(:sku => row[1])
+	  			p = Product.where(:sku => row[1]).first
+
+	  			#puts "Product sku" + row[1].to_s
+
+	  			name = row[3].strip
+
+	  			p.name = name
+
+	  			if p.save
+	  				#puts "Name changed"
+	  			else
+	  				puts "Name change error: " + row[1].to_s
+	  			end
+	  			product_found = product_found + 1
+	  		end
+	  	end
+	  	counter = counter + 1
+  	end
+
+  	puts "Lines: " + counter.to_s
+  	puts "Products found: " + product_found.to_s
+  end
+
 end

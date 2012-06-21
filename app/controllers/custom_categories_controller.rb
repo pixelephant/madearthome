@@ -112,15 +112,24 @@ class CustomCategoriesController < ApplicationController
 
 		if params[:page] == 'all'
 			session[:view_all] = true
+      #Eredeti custom category
 			# @products = @custom_category.products(sort)
 			# @kaminari_products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
-      @products = @category.products.joins(:properties).where(condit)
-      @kaminari_products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
+      #Category
+      # @products = @category.products.joins(:properties).where(condit)
+      # @kaminari_products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
+      p = @category.products.select("DISTINCT products.id").joins(:properties).where(condit)
+      @products = Product.where(:id => p)
+      @kaminari_products = Kaminari.paginate_array(@products.order(sort)).page(params[:page]).per(21)
 		else
 			session[:view_all] = false
+      #Custom Category
 		# @products = Kaminari.paginate_array(@custom_category.products(sort, params)).page(params[:page]).per(21)
-      @products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
-			@kaminari_products = @products
+    #Category
+      #@products = Kaminari.paginate_array(@category.products.joins(:properties).where(condit).select("DISTINCT products.*").order(sort)).page(params[:page]).per(21)
+      p = @category.products.select("DISTINCT products.id").joins(:properties).where(condit)
+      @products = Product.where(:id => p).order(sort)
+			@kaminari_products = Kaminari.paginate_array(@products).page(params[:page]).per(21)
 		end
 
     respond_to do |format|
